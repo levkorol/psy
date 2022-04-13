@@ -42,7 +42,7 @@
     </style>
 
     <style name="tabText" parent="@android:style/TextAppearance.Widget.TabWidget">
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="textAllCaps">false</item>
     </style>
 
@@ -57,4 +57,20 @@
     </style>
 
     <color name="gray_dark">#2B2929</color>
+
+    <!--    themes-->
+    <attr name="darkColor"
+        format="color"/>
+    <attr name="iconsColor"/>
+    <attr name="cardsColor"/>
+    <attr name="buttonsColor"/>
+    <attr name="bgLight"/>/>
+
+    <style name="VioletAndWhiteTheme">
+        <item name="darkColor">#381C71</item>
+        <item name="bgLight">#FDFCFC</item>
+        <item name="iconsColor">#381C71</item>
+        <item name="cardsColor">#F9F8FF</item>
+        <item name="buttonsColor">#381C71</item>
+    </style>
 </resources>

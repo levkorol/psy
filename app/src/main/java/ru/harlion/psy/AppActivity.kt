@@ -8,6 +8,8 @@ import ru.harlion.psy.utils.replaceFragment
 
 class AppActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.VioletAndWhiteTheme)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 

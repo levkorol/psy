@@ -5,4 +5,11 @@
     <string name="child">РЕБЕНОК</string>
     <string name="adult">ВЗРОСЛЫЙ</string>
     <string name="parent">РОДИТЕЛЬ</string>
+    <string name="child_">Ребенок</string>
+    <string name="adult_">Взрослый</string>
+    <string name="parent_">Родитель</string>
+    <string name="pro_better">Больше возможностей с PRO</string>
+    <string name="diary_emo">Дневник эмоций</string>
+    <string name="day_star">Оценка дня</string>
+    <string name="here_empty">Здесь пока пусто...</string>
 </resources>
