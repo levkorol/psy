@@ -43,8 +43,8 @@
 <!--                    android:endColor="@color/main_dark_violet"-->
 <!--                    android:angle="270" />-->
                 <gradient
-                    android:startColor="@color/main_middle_violet"
-                    android:endColor="@color/main_middle_violet"/>
+                    android:startColor="@color/main_violet"
+                    android:endColor="@color/main_violet"/>
             </shape>
         </clip>
     </item>

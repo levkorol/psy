@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.child.ChildExercizesFragment">
+    tools:context=".ui.exercise.child.ChildExercizesFragment">
 
     <RelativeLayout
         android:id="@+id/top_ll"
@@ -45,4 +45,8 @@
         android:progress="40"
         android:progressDrawable="@drawable/progress_bar_exercize" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/menu_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

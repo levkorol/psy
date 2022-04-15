@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.profile.ProfileFragment">
+
+    <RelativeLayout
+        android:id="@+id/top_ll"
+        android:background="@color/main_dark_violet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/back"
+            android:tint="@color/white"
+            style="@style/ButtonToolBar"
+            android:src="@drawable/ic_baseline_arrow_back_24" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/save"
+            style="@style/ButtonToolBar"
+            android:tint="@color/white"
+            android:layout_marginEnd="8dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_menu_24" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:background="@color/main_dark_violet"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_profile"
+            />
+
+        <TextView
+            style="@style/TextTitleQuestions"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/your_name"/>
+
+        <TextView
+            android:id="@+id/title_toolbar"
+            android:layout_height="40dp"
+            android:layout_width="match_parent"
+            android:textColor="@color/white"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:layout_marginBottom="8dp"
+            android:layout_marginHorizontal="16dp"
+            android:background="@drawable/bg_line_big_white"
+            android:text="@string/go_tests" />
+    </LinearLayout>
+
+<!--    <androidx.appcompat.widget.AppCompatButton-->
+<!--        android:id="@+id/tests"-->
+<!--        android:text="@string/go_tests"-->
+<!--        style="@style/ButtonBigViolet"/>-->
+
+
+    <TextView
+        android:text="@string/pro"
+        android:drawableStart="@drawable/ic_crown"
+        style="@style/MenuItemProfile"/>
+
+    <TextView
+        android:drawableStart="@drawable/ic_smile_wink"
+        android:text="Таблица эмоций"
+        style="@style/MenuItemProfile"/>
+    <TextView
+        android:drawableStart="@drawable/ic_stats"
+        android:text="Моя статистика"
+        style="@style/MenuItemProfile"/>
+
+    <TextView
+        android:drawableStart="@drawable/ic_lock"
+        android:text="Пароль на вход"
+        style="@style/MenuItemProfile"/>
+    <TextView
+        android:drawableStart="@drawable/ic_mail"
+        android:text="Связь с разработчиком"
+        style="@style/MenuItemProfile"/>
+    <TextView
+        android:drawableStart="@drawable/ic_hand_holding_heart"
+        android:text="Психолог проекта"
+        style="@style/MenuItemProfile"/>
+    <TextView
+        android:drawableStart="@drawable/ic_heart"
+        android:text="Поставьте нам оценку"
+        style="@style/MenuItemProfile"/>
+
+</LinearLayout>

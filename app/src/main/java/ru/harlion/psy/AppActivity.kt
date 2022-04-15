@@ -3,7 +3,7 @@ package ru.harlion.psy
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import ru.harlion.psy.ui.MainFragment
+import ru.harlion.psy.ui.main.MainFragment
 import ru.harlion.psy.utils.replaceFragment
 
 class AppActivity : AppCompatActivity() {

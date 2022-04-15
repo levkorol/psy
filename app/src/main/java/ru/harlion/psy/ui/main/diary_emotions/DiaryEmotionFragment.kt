@@ -1,4 +1,4 @@
-package ru.harlion.psy.ui.main_exercize.diary_emotions
+package ru.harlion.psy.ui.main.diary_emotions
 
 
 import ru.harlion.psy.base.BindingFragment

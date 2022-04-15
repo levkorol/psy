@@ -1,4 +1,4 @@
-package ru.harlion.psy.ui
+package ru.harlion.psy.ui.main
 
 import android.os.Bundle
 import android.view.View
@@ -10,11 +10,12 @@ import com.google.android.material.tabs.TabLayoutMediator
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentMainBinding
-import ru.harlion.psy.ui.adult.AdultExercizesFragment
-import ru.harlion.psy.ui.child.ChildExercizesFragment
-import ru.harlion.psy.ui.main_exercize.diary_emotions.DiaryEmotionFragment
-import ru.harlion.psy.ui.main_exercize.my_day.DayPollFragment
-import ru.harlion.psy.ui.parent.ParentExercizesFragment
+import ru.harlion.psy.ui.exercise.adult.AdultExercizesFragment
+import ru.harlion.psy.ui.exercise.child.ChildExercizesFragment
+import ru.harlion.psy.ui.main.diary_emotions.DiaryEmotionFragment
+import ru.harlion.psy.ui.main.my_day.DayPollFragment
+import ru.harlion.psy.ui.exercise.parent.ParentExercizesFragment
+import ru.harlion.psy.ui.profile.ProfileFragment
 import ru.harlion.psy.utils.replaceFragment
 
 
@@ -50,6 +51,9 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
 
         binding.cardParent.setOnClickListener {
             replaceFragment(ParentExercizesFragment(), true)
+        }
+        binding.profile.setOnClickListener {
+            replaceFragment(ProfileFragment(), true)
         }
     }
 

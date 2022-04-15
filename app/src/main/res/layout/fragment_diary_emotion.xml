@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.main_exercize.diary_emotions.DiaryEmotionFragment">
+    tools:context=".ui.main.diary_emotions.DiaryEmotionFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/diary_emotions_rv"

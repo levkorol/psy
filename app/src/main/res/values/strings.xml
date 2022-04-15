@@ -2,9 +2,9 @@
     <string name="app_name">psy</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="child">РЕБЕНОК</string>
-    <string name="adult">ВЗРОСЛЫЙ</string>
-    <string name="parent">РОДИТЕЛЬ</string>
+    <string name="child">Ребенок - ХОЧУ</string>
+    <string name="adult">Взрослый - МОГУ</string>
+    <string name="parent">Родитель - НАДО</string>
     <string name="child_">Ребенок</string>
     <string name="adult_">Взрослый</string>
     <string name="parent_">Родитель</string>
@@ -12,4 +12,8 @@
     <string name="diary_emo">Дневник эмоций</string>
     <string name="day_star">Оценка дня</string>
     <string name="here_empty">Здесь пока пусто...</string>
+    <string name="profile">Профиль</string>
+    <string name="go_tests">Пройти тест - Транзактный анализ</string>
+    <string name="your_name">Ваше имя</string>
+    <string name="pro">PRO версия</string>
 </resources>

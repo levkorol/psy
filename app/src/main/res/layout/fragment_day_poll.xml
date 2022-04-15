@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.main_exercize.my_day.DayPollFragment">
+    tools:context=".ui.main.my_day.DayPollFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/day_polls_rv"

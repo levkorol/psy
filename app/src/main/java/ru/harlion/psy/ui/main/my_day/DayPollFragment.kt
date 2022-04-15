@@ -1,4 +1,4 @@
-package ru.harlion.psy.ui.main_exercize.my_day
+package ru.harlion.psy.ui.main.my_day
 
 
 import ru.harlion.psy.base.BindingFragment
