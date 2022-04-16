@@ -42,6 +42,7 @@
         <TextView
             style="@style/TextTitleQuestions"
             android:gravity="center"
+            android:layout_marginTop="4dp"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:textColor="@color/white"
@@ -72,8 +73,13 @@
         style="@style/MenuItemProfile"/>
 
     <TextView
+        android:id="@+id/table_emotions"
         android:drawableStart="@drawable/ic_smile_wink"
         android:text="Таблица эмоций"
+        style="@style/MenuItemProfile"/>
+    <TextView
+        android:drawableStart="@drawable/ic_star"
+        android:text="Памятка пользователя"
         style="@style/MenuItemProfile"/>
     <TextView
         android:drawableStart="@drawable/ic_stats"
@@ -95,6 +101,13 @@
     <TextView
         android:drawableStart="@drawable/ic_heart"
         android:text="Поставьте нам оценку"
+        style="@style/MenuItemProfile"/>
+
+    <TextView
+        android:layout_weight="1"
+        android:gravity="bottom|center"
+        android:textSize="12sp"
+        android:text="by Lev Dev Yan, version 1.0"
         style="@style/MenuItemProfile"/>
 
 </LinearLayout>

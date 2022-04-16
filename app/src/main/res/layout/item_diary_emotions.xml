@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:id="@+id/container_ll"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginTop="8dp"
+    android:padding="8dp"
+    android:background="@drawable/bg_line_big_gray"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        tools:text="Название набора эмоций"/>
+
+    <TextView
+        android:id="@+id/emotion_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        tools:text="Название набора эмоций"/>
+
+    <ru.harlion.psy.ui.main.diary_emotions.adapter.NonTouchableRecyclerView
+        android:id="@+id/emotions_recycler_view"
+        android:layout_marginStart="-4dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

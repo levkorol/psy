@@ -1,6 +1,8 @@
 package ru.harlion.psy.data
 
 import android.content.Context
+import ru.harlion.psy.models.emotions.Emotion
+import ru.harlion.psy.models.emotions.EmotionEvent
 
 class Repository private constructor(context: Context) {
 
@@ -16,6 +18,25 @@ class Repository private constructor(context: Context) {
         fun get(): Repository {
             return INSTANCE ?: throw IllegalStateException("Repository must be init")
         }
+
+        fun getEventEmo() = listOf(
+            EmotionEvent(
+                name = "name",
+                emotion = listOf(
+                    Emotion(name = "emo"),
+                    Emotion(name = "emo"),
+                    Emotion(name = "emo"),
+                )
+            ),
+            EmotionEvent(
+                name = "name",
+                emotion = listOf(
+                    Emotion(name = "emo"),
+                    Emotion(name = "emo"),
+                    Emotion(name = "emo"),
+                )
+            ),
+        )
 
     }
 }
