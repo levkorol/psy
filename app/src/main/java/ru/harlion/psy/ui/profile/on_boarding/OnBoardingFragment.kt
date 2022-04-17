@@ -5,6 +5,7 @@ import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import ru.harlion.psy.R
@@ -25,11 +26,11 @@ class OnBoardingFragment :
 
         val gradient = GradientDrawable(
             GradientDrawable.Orientation.BR_TL, intArrayOf(
-                requireContext().getColor(R.color.gr_5),
-                requireContext().getColor(R.color.gr_4),
-                requireContext().getColor(R.color.gr_3),
-                requireContext().getColor(R.color.gr_2),
-                requireContext().getColor(R.color.gr_1),
+                ContextCompat.getColor(requireContext(), R.color.gr_5),
+                ContextCompat.getColor(requireContext(), R.color.gr_4),
+                ContextCompat.getColor(requireContext(), R.color.gr_3),
+                ContextCompat.getColor(requireContext(), R.color.gr_2),
+                ContextCompat.getColor(requireContext(), R.color.gr_1),
             )
         )
         view.background = gradient

@@ -30,3 +30,40 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>
+<!--<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--xmlns:tools="http://schemas.android.com/tools"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:layout_marginHorizontal="16dp"-->
+<!--android:layout_marginTop="8dp"-->
+<!--app:cardCornerRadius="10dp"-->
+<!--app:cardElevation="6dp">-->
+<!--<LinearLayout-->
+<!--    android:orientation="vertical"-->
+<!--    android:id="@+id/container_ll"-->
+<!--    android:padding="8dp"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content">-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/time"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textSize="12sp"-->
+<!--        tools:text="Название набора эмоций"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/emotion_name"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textColor="@color/black"-->
+<!--        tools:text="Название набора эмоций"/>-->
+
+<!--    <ru.harlion.psy.ui.main.diary_emotions.adapter.NonTouchableRecyclerView-->
+<!--        android:id="@+id/emotions_recycler_view"-->
+<!--        android:layout_marginStart="-4dp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"/>-->
+<!--</LinearLayout>-->
+<!--</androidx.cardview.widget.CardView>-->

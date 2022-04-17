@@ -7,10 +7,10 @@
     android:id="@+id/container_emotion_ll">
 
     <View
-        android:layout_width="10dp"
-        android:layout_height="10dp"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
         android:layout_gravity="center"
-        android:background="@drawable/bg_violet"/>
+        android:background="@drawable/bg_line_child_pur"/>
 
     <TextView
         android:id="@+id/text_emotion"
@@ -19,6 +19,4 @@
         android:layout_marginStart="4dp"
         android:gravity="center"
         tools:text="tools" />
-
-
 </LinearLayout>
