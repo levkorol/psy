@@ -16,4 +16,9 @@
     <string name="go_tests">Тест Трансактный анализ</string>
     <string name="your_name">Ваше имя</string>
     <string name="pro">PRO версия</string>
+    <string name="on_boarding_one">1</string>
+    <string name="on_boarding_two">2</string>
+    <string name="on_boarding_three">3</string>
+    <string name="on_boarding_for">4</string>
+    <string name="next">Далее</string>
 </resources>
