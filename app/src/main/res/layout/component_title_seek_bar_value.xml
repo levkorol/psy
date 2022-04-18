@@ -7,23 +7,22 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/question"
+        android:id="@+id/question_slider"
         style="@style/TextTitleQuestions"
         android:layout_marginTop="16dp"
         tools:text="Оцените насколько убедительной является для вас эта мысль" />
 
     <com.google.android.material.slider.Slider
+        android:id="@+id/slider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:value="2"
         android:valueFrom="0"
-        android:valueTo="10"/>
-<!--        app:activeTrackColor="#5F409E"-->
-<!--        app:inactiveTrackColor="#e7e7e7"-->
-<!--        app:thumbColor="#4A2E83"-->
-<!--        app:thumbRadius="20dp"-->
-<!--        app:trackHeight="20dp" />-->
+        android:valueTo="10"
+        app:thumbColor="#4A2E83"
+        app:thumbRadius="20dp"
+        app:trackHeight="20dp" />
 
     <TextView
         android:id="@+id/count_slider"

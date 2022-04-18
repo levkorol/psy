@@ -10,7 +10,7 @@
         android:layout_width="14dp"
         android:layout_height="14dp"
         android:layout_gravity="center"
-        android:background="@drawable/bg_line_child_pur"/>
+        android:background="@drawable/bg_line_big_green"/>
 
     <TextView
         android:id="@+id/text_emotion"

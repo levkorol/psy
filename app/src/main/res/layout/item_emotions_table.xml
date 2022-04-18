@@ -1,44 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
     android:layout_marginTop="8dp"
     android:layout_marginBottom="8dp"
-    app:cardCornerRadius="10dp"
-    app:cardElevation="7dp">
+    android:background="@drawable/bg_line_big_gray"
+    android:orientation="horizontal">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/name_emo_category"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/name_emo_category"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="16dp"
-            android:layout_weight="2.5"
-            android:textColor="@color/black"
-            tools:text="Happy" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="16dp"
+        android:layout_weight="2.5"
+        android:textColor="@color/black"
+        tools:text="Happy" />
 
 
-        <TextView
-            android:id="@+id/count_emo"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="-30dp"
-            android:layout_weight="1"
-            android:background="@color/parent_color"
-            android:drawableEnd="@drawable/ic_star"
-            android:gravity="center"
-            android:paddingHorizontal="16dp"
-            android:text="3"
-            android:textColor="@color/black" />
+    <TextView
+        android:id="@+id/count_emo"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:background="@color/parent_color"
+        android:drawableEnd="@drawable/ic_star"
+        android:gravity="center"
+        android:paddingHorizontal="16dp"
+        android:text="3"
+        android:textColor="@color/black" />
 
-
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+</LinearLayout>

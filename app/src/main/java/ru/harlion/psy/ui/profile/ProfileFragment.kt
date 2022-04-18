@@ -19,7 +19,7 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
 
     private fun initClicks() {
         binding.tableEmotions.setOnClickListener {
-            replaceFragment(TableEmotionsFragment(), false)
+            replaceFragment(TableEmotionsFragment(), true)
         }
     }
 }

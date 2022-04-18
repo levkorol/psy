@@ -10,6 +10,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentMainBinding
+import ru.harlion.psy.ui.EditExerciseFragment
 import ru.harlion.psy.ui.exercise.adult.AdultExercizesFragment
 import ru.harlion.psy.ui.exercise.child.ChildExercizesFragment
 import ru.harlion.psy.ui.main.diary_emotions.DiaryEmotionFragment
@@ -54,6 +55,10 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
         }
         binding.profile.setOnClickListener {
             replaceFragment(ProfileFragment(), true)
+        }
+
+        binding.addBtnMain.setOnClickListener {
+            replaceFragment(EditExerciseFragment(), true)
         }
     }
 

@@ -96,10 +96,12 @@
         <item name="android:textSize">14sp</item>
         <item name="android:layout_marginEnd">16dp</item>
         <item name="android:layout_marginStart">16dp</item>
-        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginTop">4dp</item>
         <item name="android:gravity">start|top</item>
-        <item name="android:padding">8dp</item>
-        <item name="android:drawableEnd">@drawable/ic_baseline_info_24</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingEnd">30dp</item>
     </style>
 
     <style name="EditTextAnswerViolet">

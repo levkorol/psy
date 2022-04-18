@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="?bgLight"
+    android:orientation="vertical"
     tools:context=".ui.main.MainFragment">
 
     <LinearLayout
@@ -13,100 +13,139 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/top_ll"
-        android:background="?darkColor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/pic_parent_cat"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"/>
-        <TextView
-            android:id="@+id/title_toolbar"
-            android:padding="10dp"
+        <LinearLayout
+            android:id="@+id/top_ll"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:textColor="@color/white"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/bg_line_big_white"
-            android:text="@string/pro_better" />
-        <ImageView
-            android:id="@+id/profile"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_profile"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="8dp"/>
-    </LinearLayout>
+            android:background="?darkColor">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:background="@color/main_dark_violet"
-        android:orientation="horizontal"
-        android:paddingHorizontal="8dp"
-        android:paddingTop="16dp"
-        android:paddingBottom="20dp">
-
-        <LinearLayout
-            android:id="@+id/card_child"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="8dp"
-            android:layout_weight="1"
-            android:background="@drawable/bg_line_child_pur">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/pic_parent_cat" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/title_toolbar"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="2"
+                android:background="@drawable/bg_line_big_white"
                 android:gravity="center"
-                android:text="@string/child_"
+                android:padding="10dp"
+                android:text="@string/pro_better"
                 android:textColor="@color/white" />
 
-
+            <ImageView
+                android:id="@+id/profile"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_profile" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/card_adult"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="8dp"
-            android:layout_weight="1"
-            android:background="@drawable/bg_line_big_green">
+            android:layout_height="160dp"
+            android:background="@color/main_dark_violet"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="20dp">
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/card_child"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="@string/adult_"
-                android:textColor="@color/white" />
-        </LinearLayout>
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_line_child_pur"
+                android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/card_parent"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="8dp"
-            android:layout_weight="1"
-            android:background="@drawable/bg_line_parent_red">
+                <ProgressBar
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginTop="8dp"
+                    android:progress="40"
+                    android:progressDrawable="@drawable/progress_bar_line_pur" />
 
-            <TextView
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:text="@string/child_"
+                    android:textColor="@color/white" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/card_adult"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="@string/parent_"
-                android:textColor="@color/white" />
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_line_big_green"
+                android:orientation="vertical">
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginTop="8dp"
+                    android:progress="40"
+                    android:progressDrawable="@drawable/progress_bar_line_green" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:text="@string/adult_"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/card_parent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_line_parent_red"
+                android:orientation="vertical">
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginTop="8dp"
+                    android:progress="60"
+                    android:progressDrawable="@drawable/progress_bar_line_red" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:text="@string/parent_"
+                    android:textColor="@color/white" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_tasks"
@@ -128,22 +167,23 @@
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/view_pager"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_btn_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:src="@drawable/ic_baseline_add_24"
         app:backgroundTint="@color/main_dark_violet"
         app:fabSize="normal"
         app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
-        android:layout_marginBottom="16dp"
         app:tint="@android:color/white" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

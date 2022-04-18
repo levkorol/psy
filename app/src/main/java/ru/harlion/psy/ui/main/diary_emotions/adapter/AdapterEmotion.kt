@@ -21,18 +21,6 @@ class AdapterEmotion() : RecyclerView.Adapter<ItemHolderEmotion>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ItemHolderEmotion(ItemEmotionBinding::inflate, parent).apply {
-//            itemView.outlineProvider = object : ViewOutlineProvider() {
-//                override fun getOutline(view: View, outline: Outline) {
-//                    outline.setRoundRect(
-//                        0,
-//                        0,
-//                        view.width,
-//                        view.height,
-//                        10 * view.resources.displayMetrics.density
-//                    )
-//                }
-//            }
-//            itemView.clipToOutline = true
         }
 
     override fun onBindViewHolder(holder: ItemHolderEmotion, position: Int) {
