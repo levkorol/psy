@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentChildExercizesBinding
+import ru.harlion.psy.ui.EditExerciseFragment
 import ru.harlion.psy.ui.exercise.adapters.AdapterMenuExercizes
 import ru.harlion.psy.ui.exercise.adapters.MenuEx
 import ru.harlion.psy.ui.exercise.edit.EditExTextRecyclerFragment
@@ -35,7 +36,7 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
             when(it) {
                 0 -> replaceFragment(EditExTextRecyclerFragment(), true)
                 1 -> replaceFragment(EditExTextRecyclerFragment(), true)
-                2 -> replaceFragment(EditExTextRecyclerFragment(), true)
+                2 -> replaceFragment(EditExerciseFragment(), true)
                 3 -> replaceFragment(EditExTextRecyclerFragment(), true)
                 else -> replaceFragment(ProfileFragment(), true)
             }

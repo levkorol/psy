@@ -1,34 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.EditExerciseFragment">
 
-   <ru.harlion.psy.ui.exercise.view_components.TitleEditTextView
-       android:id="@+id/titleEditText"
-       android:text="text"
-       android:hint="text"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"/>
+    <ru.harlion.psy.ui.exercise.view_components.TitleEditTextView
+        android:id="@+id/titleEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="text"
+        android:text="text" />
 
-   <ru.harlion.psy.ui.exercise.view_components.TitleEditTextView
-       android:id="@+id/titleEditTextView"
-       android:layout_width="match_parent"
-       android:text="text"
-       android:hint="text"
-       android:layout_height="wrap_content"/>
+    <ru.harlion.psy.ui.exercise.view_components.TitleEditTextView
+        android:id="@+id/titleEditTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="text"
+        android:text="text" />
 
-   <ru.harlion.psy.ui.exercise.view_components.TitleSliderValue
-       android:layout_width="match_parent"
-       android:text="Оцените ваш сон сегодня"
-       android:layout_height="wrap_content"/>
+    <ru.harlion.psy.ui.exercise.view_components.TitleSliderValue
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Оцените ваш сон сегодня" />
 
-   <ru.harlion.psy.ui.exercise.view_components.EditTextRecyclerView
-       android:layout_width="match_parent"
-       android:text="Оцените ваш сон сегодня"
-       android:hint="Новая идея"
-       android:layout_height="wrap_content"/>
+    <ru.harlion.psy.ui.exercise.view_components.EditTextRecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Новая идея" />
 
 </LinearLayout>
