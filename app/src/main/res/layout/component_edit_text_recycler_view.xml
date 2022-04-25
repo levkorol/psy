@@ -4,15 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_height="match_parent">
-
     <EditText
-        android:id="@+id/answer"
+        android:id="@+id/answer_c3"
         style="@style/EditTextAnswerViolet"
         tools:text="text....."/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+        android:id="@+id/recycler_view_c3"
         android:layout_width="match_parent"
+        tools:listitem="@layout/item_edit_text_violet"
         android:layout_height="wrap_content"/>
-
 </LinearLayout>

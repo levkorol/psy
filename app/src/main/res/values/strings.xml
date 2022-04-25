@@ -16,10 +16,28 @@
     <string name="go_tests">Тест Трансактный анализ</string>
     <string name="your_name">Ваше имя</string>
     <string name="pro">PRO версия</string>
+
     <string name="on_boarding_one">Не получается понять свои эмоции? Часто испытываешь перепады настроения?</string>
     <string name="on_boarding_two">Здесь есть самотерапия для обретения баланса</string>
     <string name="on_boarding_three">Гармония уверенность в себе эмоциональный инттеллект</string>
     <string name="on_boarding_for">Ну что начнем</string>
+
     <string name="next">Далее</string>
     <string name="table_emotions">Таблица эмоций</string>
+    <string name="self_ex">Самооценка</string>
+    <string name="fail_diary_ex">Дневник НЕуспеха</string>
+    <string name="do_love_self_ex">Действия любви к себе</string>
+    <string name="my_emergency_ex">Моя скорая помощь</string>
+    <string name="poll_day_ex">Опрос дня</string>
+    <string name="free_writing_ex">Фрирайтинг</string>
+    <string name="ideas_diary_ex">Дневник идей</string>
+    <string name="album_ex">Альбом ярких моментов</string>
+    <string name="wish_diary_ex">Дневник желаний</string>
+    <string name="thanks_diary">Дневник благодарностей</string>
+    <string name="success_diary_ex">Дневник успеха</string>
+    <string name="work_with_belief_ex">Работа с убеждениями</string>
+    <string name="positive_belief_ex">Позитивные утверждения</string>
+    <string name="life_rules_ex">Правила жизни</string>
+    <string name="perfect_life_ex">Идеальная жизнь</string>
+    <string name="for_user">Памятка пользователя</string>
 </resources>

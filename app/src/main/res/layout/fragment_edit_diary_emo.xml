@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.diary_emotions.edit.EditDiaryEmoFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/top_ll"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/back"
+                style="@style/ButtonToolBar"
+                android:src="@drawable/ic_baseline_arrow_back_24" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/save"
+                style="@style/ButtonToolBar"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/ic_baseline_done_24" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/date"
+                style="@style/ButtonEditDateTime"
+                android:layout_marginEnd="16dp"
+                android:text="Пн, 25 января" />
+
+            <TextView
+                android:id="@+id/time"
+                style="@style/ButtonEditDateTime"
+                android:text="19:00" />
+        </LinearLayout>
+
+        <ru.harlion.psy.ui.exercise.view_components.TitleEditTextView
+            android:id="@+id/titleEditText"
+            style="@style/ComponentTitleEditText"
+            android:hint="text"
+            android:text="Ситуация" />
+
+        <TextView
+            android:id="@+id/btn_emotions"
+            style="@style/ButtonEditWithDrawable"
+            android:drawableEnd="@drawable/ic_baseline_add_24"
+            android:text="Какие эмоции я испытываю ?" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_emotions"
+            style="@style/RecyclerView"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="16dp"
+            android:paddingTop="4dp" />
+
+        <ru.harlion.psy.ui.exercise.view_components.TitleEditTextView
+            android:id="@+id/titleEditTextView"
+            style="@style/ComponentTitleEditText"
+            android:hint="text"
+            android:text="Ощущения в теле" />
+
+        <ru.harlion.psy.ui.exercise.view_components.TitleEditTextView
+            style="@style/ComponentTitleEditText"
+            android:hint="text"
+            android:text="Действие" />
+
+        <ru.harlion.psy.ui.exercise.view_components.TitleEditTextView
+            style="@style/ComponentTitleEditText"
+            android:layout_marginBottom="100dp"
+            android:hint="text"
+            android:text="Альтернативное действие" />
+
+    </LinearLayout>
+</ScrollView>

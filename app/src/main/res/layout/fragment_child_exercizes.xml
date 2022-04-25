@@ -35,14 +35,25 @@
         android:layout_gravity="center"
         android:src="@drawable/pic_child_cat"/>
 
+    <TextView
+        style="@style/TextTitleQuestions"
+        android:gravity="center"
+        android:text="Имя внутреннего ребенка" />
+
+    <TextView
+        style="@style/TextTitleQuestions"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:text="35 %" />
+
     <ProgressBar
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="20dp"
-        android:progress="40"
+        android:layout_marginTop="4dp"
+        android:progress="60"
         android:progressDrawable="@drawable/progress_bar_exercize" />
 
     <androidx.recyclerview.widget.RecyclerView

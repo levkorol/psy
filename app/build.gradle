@@ -82,4 +82,5 @@ dependencies {
     implementation 'me.relex:circleindicator:2.1.6'
 
     implementation 'com.applandeo:material-calendar-view:1.9.0-rc03'
+
 }

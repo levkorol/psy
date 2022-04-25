@@ -6,8 +6,8 @@
         <item name="colorPrimaryVariant">@color/main_dark_violet</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorSecondary">@color/main_middle_violet</item>
+        <item name="colorSecondaryVariant">@color/main_middle_violet</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">@color/main_dark_violet</item>
@@ -40,7 +40,7 @@
         <item name="textAllCaps">false</item>
     </style>
 
-    <style name="MenuItemProfile" parent="TextTitleQuestions">
+    <style name="MenuItemProfile" parent="TextTitle">
         <item name="android:drawablePadding">8dp</item>
         <item name="android:gravity">center|start</item>
         <item name="android:paddingTop">10dp</item>
@@ -74,7 +74,17 @@
         <item name="android:textColor">@color/gray_dark</item>
         <item name="android:layout_marginStart">16dp</item>
         <item name="android:layout_marginEnd">16dp</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextTitle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@color/gray_dark</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:textSize">15sp</item>
     </style>
 
     <style name="TextCount">
@@ -115,10 +125,26 @@
         <item name="android:layout_marginStart">16dp</item>
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:gravity">start|top</item>
-        <item name="android:padding">10dp</item>
+        <item name="android:padding">12dp</item>
         <item name="android:paddingStart">10dp</item>
         <item name="android:paddingEnd">10dp</item>
         <item name="android:drawableEnd">@drawable/ic_send_24</item>
+    </style>
+
+    <style name="EditTextList">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:lines">1</item>
+        <item name="android:background">@drawable/bg_light_violet</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:gravity">start|top</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
     </style>
 
 
@@ -144,6 +170,36 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
+
+    <style name="ComponentTitleEditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+    </style>
+
+    <style name="ButtonEditDateTime">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/bg_line_big_gray</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textColor">@color/gray_dark</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="ButtonEditWithDrawable">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:background">@drawable/bg_light_violet</item>
+        <item name="android:gravity">start|center</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textColor">@color/gray_dark</item>
+    </style>
+
 
     <color name="gray_dark">#2B2929</color>
 

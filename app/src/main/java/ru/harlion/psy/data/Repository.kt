@@ -19,10 +19,23 @@ class Repository private constructor(context: Context) {
             return INSTANCE ?: throw IllegalStateException("Repository must be init")
         }
 
+        fun getEmo() = listOf(Emotion(name = "emo"),
+            Emotion(name = "emo"),
+            Emotion(name = "emo"),
+            Emotion(name = "emo"),
+            Emotion(name = "emo"),
+            Emotion(name = "emo"),
+            Emotion(name = "emo"),
+            Emotion(name = "emo"))
+
         fun getEventEmo() = listOf(
             EmotionEvent(
                 name = "name",
                 emotion = listOf(
+                    Emotion(name = "emo"),
+                    Emotion(name = "emo"),
+                    Emotion(name = "emo"),
+                    Emotion(name = "emo"),
                     Emotion(name = "emo"),
                     Emotion(name = "emo"),
                     Emotion(name = "emo"),

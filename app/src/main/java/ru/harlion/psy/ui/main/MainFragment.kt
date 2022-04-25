@@ -16,7 +16,9 @@ import ru.harlion.psy.ui.exercise.child.ChildExercizesFragment
 import ru.harlion.psy.ui.main.diary_emotions.DiaryEmotionFragment
 import ru.harlion.psy.ui.main.my_day.DayPollFragment
 import ru.harlion.psy.ui.exercise.parent.ParentExercizesFragment
+import ru.harlion.psy.ui.main.diary_emotions.edit.EditDiaryEmoFragment
 import ru.harlion.psy.ui.profile.ProfileFragment
+import ru.harlion.psy.ui.profile.premium.PremiumFragment
 import ru.harlion.psy.utils.replaceFragment
 
 
@@ -58,7 +60,10 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
         }
 
         binding.addBtnMain.setOnClickListener {
-            replaceFragment(EditExerciseFragment(), true)
+            replaceFragment(EditDiaryEmoFragment(), true)
+        }
+        binding.btnPremium.setOnClickListener {
+            replaceFragment(PremiumFragment(), true)
         }
     }
 

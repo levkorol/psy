@@ -3,6 +3,7 @@ package ru.harlion.psy.ui.exercise.view_components
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.InsetDrawable
+import android.os.Build.ID
 import android.os.Parcelable
 import android.util.AttributeSet
 import android.util.SparseArray
@@ -40,18 +41,13 @@ class TitleEditTextView(context: Context, attrs: AttributeSet?) : ConstraintLayo
         params.recycle()
     }
 
-    @SuppressLint("MissingSuperCall")
-    override fun onSaveInstanceState(): Parcelable? {
-        return answer.onSaveInstanceState()
+    override fun dispatchSaveInstanceState(container: SparseArray<Parcelable>?) {
+        container?.put(id, answer.onSaveInstanceState())
     }
 
-    @SuppressLint("MissingSuperCall")
-    override fun onRestoreInstanceState(state: Parcelable?) {
-        answer.onRestoreInstanceState(state)
+    override fun dispatchRestoreInstanceState(container: SparseArray<Parcelable>?) {
+       answer.onRestoreInstanceState(container?.get(id))
     }
 
-    override fun restoreHierarchyState(container: SparseArray<Parcelable>?) {}
-
-    override fun saveHierarchyState(container: SparseArray<Parcelable>?) {}
 }
 

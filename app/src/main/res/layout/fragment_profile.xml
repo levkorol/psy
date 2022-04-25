@@ -8,23 +8,23 @@
 
     <RelativeLayout
         android:id="@+id/top_ll"
-        android:background="@color/main_dark_violet"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/main_dark_violet">
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/back"
-            android:tint="@color/white"
             style="@style/ButtonToolBar"
-            android:src="@drawable/ic_baseline_arrow_back_24" />
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:tint="@color/white" />
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/save"
             style="@style/ButtonToolBar"
-            android:tint="@color/white"
-            android:layout_marginEnd="8dp"
             android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_menu_24" />
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_menu_24"
+            android:tint="@color/white" />
     </RelativeLayout>
 
     <LinearLayout
@@ -32,82 +32,84 @@
         android:layout_height="160dp"
         android:background="@color/main_dark_violet"
         android:orientation="vertical">
+
         <ImageView
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
-            android:src="@drawable/ic_profile"
-            />
+            android:src="@drawable/ic_profile" />
 
         <TextView
             style="@style/TextTitleQuestions"
-            android:gravity="center"
-            android:layout_marginTop="4dp"
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
-            android:textColor="@color/white"
-            android:text="@string/your_name"/>
+            android:layout_gravity="center"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:text="@string/your_name"
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/title_toolbar"
-            android:layout_height="40dp"
             android:layout_width="match_parent"
-            android:textColor="@color/white"
-            android:layout_marginTop="12dp"
-            android:gravity="center"
-            android:layout_marginBottom="8dp"
+            android:layout_height="40dp"
             android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/bg_line_big_white"
-            android:text="@string/go_tests" />
+            android:gravity="center"
+            android:text="@string/go_tests"
+            android:textColor="@color/white" />
     </LinearLayout>
 
-<!--    <androidx.appcompat.widget.AppCompatButton-->
-<!--        android:id="@+id/tests"-->
-<!--        android:text="@string/go_tests"-->
-<!--        style="@style/ButtonBigViolet"/>-->
-
-
     <TextView
-        android:text="@string/pro"
+        android:id="@+id/premium"
+        style="@style/MenuItemProfile"
         android:drawableStart="@drawable/ic_crown"
-        style="@style/MenuItemProfile"/>
+        android:text="@string/pro" />
 
     <TextView
         android:id="@+id/table_emotions"
+        style="@style/MenuItemProfile"
         android:drawableStart="@drawable/ic_smile_wink"
-        android:text="Таблица эмоций"
-        style="@style/MenuItemProfile"/>
+        android:text="@string/table_emotions" />
+
     <TextView
+        android:id="@+id/for_user"
+        style="@style/MenuItemProfile"
         android:drawableStart="@drawable/ic_star"
-        android:text="Памятка пользователя"
-        style="@style/MenuItemProfile"/>
+        android:text="@string/for_user" />
+
     <TextView
+        style="@style/MenuItemProfile"
         android:drawableStart="@drawable/ic_stats"
-        android:text="Моя статистика"
-        style="@style/MenuItemProfile"/>
+        android:text="Моя статистика" />
 
     <TextView
+        android:id="@+id/pin_code"
+        style="@style/MenuItemProfile"
         android:drawableStart="@drawable/ic_lock"
-        android:text="Пароль на вход"
-        style="@style/MenuItemProfile"/>
-    <TextView
-        android:drawableStart="@drawable/ic_mail"
-        android:text="Связь с разработчиком"
-        style="@style/MenuItemProfile"/>
-    <TextView
-        android:drawableStart="@drawable/ic_hand_holding_heart"
-        android:text="Психолог проекта"
-        style="@style/MenuItemProfile"/>
-    <TextView
-        android:drawableStart="@drawable/ic_heart"
-        android:text="Поставьте нам оценку"
-        style="@style/MenuItemProfile"/>
+        android:text="Пароль на вход" />
 
     <TextView
+        style="@style/MenuItemProfile"
+        android:drawableStart="@drawable/ic_mail"
+        android:text="Связь с разработчиком" />
+
+    <TextView
+        style="@style/MenuItemProfile"
+        android:drawableStart="@drawable/ic_hand_holding_heart"
+        android:text="Психолог проекта" />
+
+    <TextView
+        style="@style/MenuItemProfile"
+        android:drawableStart="@drawable/ic_heart"
+        android:text="Поставьте нам оценку" />
+
+    <TextView
+        style="@style/MenuItemProfile"
         android:layout_weight="1"
         android:gravity="bottom|center"
-        android:textSize="12sp"
         android:text="by Lev Dev Yan, version 1.0"
-        style="@style/MenuItemProfile"/>
+        android:textSize="12sp" />
 
 </LinearLayout>

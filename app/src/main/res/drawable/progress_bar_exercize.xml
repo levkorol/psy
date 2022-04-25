@@ -3,13 +3,6 @@
     <item android:id="@android:id/background">
         <shape>
             <corners android:radius="5dip" />
-<!--            <gradient-->
-<!--                android:startColor="#77CBCDCB"-->
-<!--                android:centerColor="#99A4A6A4"-->
-<!--                android:centerY="0.75"-->
-<!--                android:endColor="@color/gray_super_light"-->
-<!--                android:angle="270"-->
-<!--                />-->
             <gradient
                 android:startColor="@color/main_light_bg"
                 android:endColor="@color/main_light_bg"/>
@@ -17,20 +10,6 @@
         </shape>
     </item>
 
-    <item android:id="@android:id/secondaryProgress">
-        <clip>
-            <shape>
-                <corners android:radius="5dip" />
-                <gradient
-                    android:startColor="#80ffd300"
-                    android:centerColor="#80ffb600"
-                    android:centerY="0.75"
-                    android:endColor="#a0ffcb00"
-                    android:angle="270"
-                    />
-            </shape>
-        </clip>
-    </item>
     <item
         android:id="@android:id/progress"
         >
@@ -38,12 +17,8 @@
             <shape>
                 <corners
                     android:radius="5dip" />
-<!--                <gradient-->
-<!--                    android:startColor="@color/main_middle_violet"-->
-<!--                    android:endColor="@color/main_dark_violet"-->
-<!--                    android:angle="270" />-->
                 <gradient
-                    android:startColor="@color/main_violet"
+                    android:startColor="@color/main_middle_violet"
                     android:endColor="@color/main_violet"/>
             </shape>
         </clip>

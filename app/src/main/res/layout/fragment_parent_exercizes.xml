@@ -35,13 +35,24 @@
         android:layout_gravity="center"
         android:src="@drawable/pic_parent_cat"/>
 
+    <TextView
+        style="@style/TextTitleQuestions"
+        android:gravity="center"
+        android:text="Имя внутреннего родителя" />
+
+    <TextView
+        style="@style/TextTitleQuestions"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:text="35 %" />
+
     <ProgressBar
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:progress="40"
         android:progressDrawable="@drawable/progress_bar_exercize" />
 
