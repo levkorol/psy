@@ -1,4 +1,6 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
     <string name="app_name">Psy</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -81,7 +83,4 @@
     <string name="fail_diary_question_1">Что у меня не получилось?</string>
     <string name="fail_diary_question_2">Когда?</string>
     <string name="fail_diary_question_3">В чем моя ошибка?</string>
-    <string name="fail_diary_question_4">Что можно было сделать иначе?</string>
-
-
 </resources>

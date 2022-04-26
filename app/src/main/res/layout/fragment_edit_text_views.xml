@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.exercise.edit.EditExTextRecyclerFragment">
+    tools:context=".ui.exercise.edit.EditTextViewsFragment">
 
     <RelativeLayout
         android:id="@+id/top_ll"
@@ -26,13 +26,21 @@
 
     <ru.harlion.psy.ui.exercise.view_components.TitleEditTextView
         android:id="@+id/question_one"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
 
-    <ru.harlion.psy.ui.exercise.view_components.EditTextRecyclerView
-        android:id="@+id/answers"
-        android:layout_marginTop="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+    <ru.harlion.psy.ui.exercise.view_components.TitleEditTextView
+        android:id="@+id/question_two"
+        style="@style/ComponentTitleEditText" />
+
+    <ru.harlion.psy.ui.exercise.view_components.TitleEditTextView
+        android:id="@+id/question_three"
+        style="@style/ComponentTitleEditText" />
+
+    <ru.harlion.psy.ui.exercise.view_components.TitleEditTextView
+        android:id="@+id/question_for"
+        android:visibility="gone"
+        tools:visibility="visible"
+        style="@style/ComponentTitleEditText" />
 
 </LinearLayout>

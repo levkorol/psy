@@ -6,8 +6,10 @@ import android.view.View
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentExListBinding
+
 import ru.harlion.psy.models.TypeEx
 import ru.harlion.psy.ui.exercise.edit.EditExTextRecyclerFragment
+import ru.harlion.psy.ui.exercise.edit.EditTextViewsFragment
 import ru.harlion.psy.utils.replaceFragment
 
 
@@ -45,7 +47,22 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
 
             }
             TypeEx.GRATITUDE_DIARY -> {
-
+                binding.addBtnMain.setOnClickListener {
+                    replaceFragment(
+                        EditTextViewsFragment.newInstance(
+                            R.string.gratitude_question_one,
+                            R.string.gratitude_question_one,
+                            R.string.gratitude_question_one,
+                            R.string.gratitude_question_two,
+                            R.string.gratitude_question_one,
+                            R.string.gratitude_question_one,
+                            R.string.gratitude_question_three,
+                            R.string.gratitude_question_one,
+                            R.string.gratitude_question_one,
+                            TypeEx.GRATITUDE_DIARY
+                        ), true
+                    )
+                }
             }
             TypeEx.SELF_ESTEEM -> {
                 binding.addBtnMain.setOnClickListener {
@@ -59,19 +76,79 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                 }
             }
             TypeEx.FAIL_DIARY -> {
-
+                binding.addBtnMain.setOnClickListener {
+                    replaceFragment(
+                        EditTextViewsFragment.newInstance(
+                            R.string.fail_diary_question_1,
+                            R.string.gratitude_question_one,
+                            R.string.gratitude_question_one,
+                            R.string.fail_diary_question_2,
+                            R.string.gratitude_question_one,
+                            R.string.gratitude_question_one,
+                            R.string.fail_diary_question_3,
+                            R.string.gratitude_question_one,
+                            R.string.gratitude_question_one,
+                            TypeEx.FAIL_DIARY
+                        ), true
+                    )
+                }
             }
             TypeEx.ACTS_SELF_LOVE -> {
-
+                binding.addBtnMain.setOnClickListener {
+                    replaceFragment(
+                        EditTextViewsFragment.newInstance(
+                            R.string.love_self_question_one,
+                            R.string.gratitude_question_one,
+                            R.string.gratitude_question_one,
+                            R.string.love_self_question_two,
+                            R.string.gratitude_question_one,
+                            R.string.gratitude_question_one,
+                            R.string.love_self_question_three,
+                            R.string.gratitude_question_one,
+                            R.string.gratitude_question_one,
+                            TypeEx.ACTS_SELF_LOVE
+                        ), true
+                    )
+                }
             }
             TypeEx.MY_AMBULANCE -> {
-
+                binding.addBtnMain.setOnClickListener {
+                    replaceFragment(
+                        EditTextViewsFragment.newInstance(
+                            R.string.my_ambulance_question_one,
+                            R.string.gratitude_question_one,
+                            R.string.gratitude_question_one,
+                            R.string.my_ambulance_question_two,
+                            R.string.gratitude_question_one,
+                            R.string.gratitude_question_one,
+                            R.string.my_ambulance_question_three,
+                            R.string.gratitude_question_one,
+                            R.string.gratitude_question_one,
+                            TypeEx.MY_AMBULANCE
+                        ), true
+                    )
+                }
             }
             TypeEx.PERFECT_LIFE -> {
 
             }
             TypeEx.SUCCESS_DIARY -> {
-
+                binding.addBtnMain.setOnClickListener {
+                    replaceFragment(
+                        EditTextViewsFragment.newInstance(
+                            R.string.success_diary_question_one,
+                            R.string.gratitude_question_one,
+                            R.string.gratitude_question_one,
+                            R.string.success_diary_question_two,
+                            R.string.gratitude_question_one,
+                            R.string.gratitude_question_one,
+                            R.string.success_diary_question_three,
+                            R.string.gratitude_question_one,
+                            R.string.gratitude_question_one,
+                            TypeEx.SUCCESS_DIARY
+                        ), true
+                    )
+                }
             }
             TypeEx.WORK_WITH_BELIEFS -> {
 
