@@ -50,7 +50,7 @@
             android:id="@+id/titleEditText"
             style="@style/ComponentTitleEditText"
             android:hint="text"
-            android:text="Ситуация" />
+            android:title="Ситуация" />
 
         <TextView
             android:id="@+id/btn_emotions"
@@ -69,18 +69,18 @@
             android:id="@+id/titleEditTextView"
             style="@style/ComponentTitleEditText"
             android:hint="text"
-            android:text="Ощущения в теле" />
+            android:title="Ощущения в теле" />
 
         <ru.harlion.psy.ui.exercise.view_components.TitleEditTextView
             style="@style/ComponentTitleEditText"
             android:hint="text"
-            android:text="Действие" />
+            android:title="Действие" />
 
         <ru.harlion.psy.ui.exercise.view_components.TitleEditTextView
             style="@style/ComponentTitleEditText"
             android:layout_marginBottom="100dp"
             android:hint="text"
-            android:text="Альтернативное действие" />
+            android:title="Альтернативное действие" />
 
     </LinearLayout>
 </ScrollView>

@@ -26,7 +26,7 @@
 
     <ru.harlion.psy.ui.exercise.view_components.TitleEditTextView
         android:id="@+id/question_one"
-        android:text="Тема"
+        android:title="Тема"
         android:hint="Например: Путешествия"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

@@ -13,7 +13,7 @@ private typealias ItemHolder = BindingHolder<ItemEditTextVioletBinding>
 class AdapterEditText :
     RecyclerView.Adapter<ItemHolder>() {
 
-    var items = listOf<Exercise>()
+    var items = listOf<String>()
         set(value) {
             field = value
             notifyDataSetChanged()

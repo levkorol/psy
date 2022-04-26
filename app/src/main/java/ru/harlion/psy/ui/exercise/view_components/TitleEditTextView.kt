@@ -7,11 +7,16 @@ import android.os.Build.ID
 import android.os.Parcelable
 import android.util.AttributeSet
 import android.util.SparseArray
+import android.view.View
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import kotlinx.android.synthetic.main.component_title_edit_text.view.*
 import ru.harlion.psy.R
+import ru.harlion.psy.databinding.ComponentTitleEditTextBinding
+import java.nio.file.attribute.AclEntry
 
 @SuppressLint("ResourceType")
 class TitleEditTextView(context: Context, attrs: AttributeSet?) : ConstraintLayout(context, attrs) {
@@ -20,17 +25,43 @@ class TitleEditTextView(context: Context, attrs: AttributeSet?) : ConstraintLayo
         inflate(context, R.layout.component_title_edit_text, this)
     }
 
-    private val titleQuestion = findViewById<TextView>(R.id.question)
+    private val binding = ComponentTitleEditTextBinding.bind(this)
 
-    private val answer = findViewById<TextView>(R.id.answer)
+    private val titleQuestion = binding.question
+
+    private val imageInfo = binding.info
+
+    private val answer = binding.answer
+
+    var title
+        get() = titleQuestion.text
+        set(value) {
+            titleQuestion.text = value
+        }
+
+    var hint
+        get() = answer.hint
+        set(value) {
+            answer.hint = value
+        }
 
     val text
         get() = answer.text
 
+    var textInfo: CharSequence? = null
+        set(value) {
+            field = value
+            if (value != null) {
+                imageInfo.visibility = View.VISIBLE
+            } else {
+                imageInfo.visibility = View.GONE
+            }
+        }
+
     init {
         val params = context.obtainStyledAttributes(
             attrs,
-            intArrayOf(android.R.attr.text, android.R.attr.hint)
+            intArrayOf(android.R.attr.title, android.R.attr.hint, android.R.attr.textOn)
         )
         if (params.hasValue(0)) {
             titleQuestion.text = params.getText(0)
@@ -38,7 +69,18 @@ class TitleEditTextView(context: Context, attrs: AttributeSet?) : ConstraintLayo
         if (params.hasValue(1)) {
             answer.hint = params.getText(1)
         }
+        if (params.hasValue(2)) {
+            textInfo = params.getText(2)
+        }
         params.recycle()
+
+        imageInfo.setOnClickListener {
+           BottomSheetDialog(context).apply {
+               setContentView(TextView(context).apply {
+                 text = textInfo
+               })
+           }.show()
+        }
     }
 
     override fun dispatchSaveInstanceState(container: SparseArray<Parcelable>?) {
@@ -46,7 +88,7 @@ class TitleEditTextView(context: Context, attrs: AttributeSet?) : ConstraintLayo
     }
 
     override fun dispatchRestoreInstanceState(container: SparseArray<Parcelable>?) {
-       answer.onRestoreInstanceState(container?.get(id))
+        answer.onRestoreInstanceState(container?.get(id))
     }
 
 }

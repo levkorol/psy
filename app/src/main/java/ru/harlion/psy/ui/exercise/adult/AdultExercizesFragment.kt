@@ -7,9 +7,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentAdultExercizesBinding
+import ru.harlion.psy.models.TypeEx
+import ru.harlion.psy.ui.exercise.ExListFragment
 import ru.harlion.psy.ui.exercise.adapters.AdapterMenuExercizes
 import ru.harlion.psy.ui.exercise.adapters.MenuEx
+import ru.harlion.psy.ui.exercise.edit.EditExTextRecyclerFragment
 import ru.harlion.psy.ui.main.diary_emotions.DiaryEmotionFragment
+import ru.harlion.psy.ui.main.my_day.DayPollFragment
 import ru.harlion.psy.ui.profile.ProfileFragment
 import ru.harlion.psy.utils.replaceFragment
 
@@ -21,6 +25,10 @@ class AdultExercizesFragment : BindingFragment<FragmentAdultExercizesBinding>(Fr
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.back.setOnClickListener {
+            parentFragmentManager.popBackStack()
+        }
+
         val exercises = listOf(
             MenuEx(getString(R.string.self_ex), R.drawable.menu_like, 2),
             MenuEx(getString(R.string.fail_diary_ex), R.drawable.menu_sad, 0),
@@ -31,11 +39,27 @@ class AdultExercizesFragment : BindingFragment<FragmentAdultExercizesBinding>(Fr
 
         adapterMenu = AdapterMenuExercizes {
                when(it) {
-                    0 -> replaceFragment(DiaryEmotionFragment(), true)
-                    1 -> replaceFragment(DiaryEmotionFragment(), true)
-                    2 -> replaceFragment(DiaryEmotionFragment(), true)
-                    3 -> replaceFragment(DiaryEmotionFragment(), true)
-                    else -> replaceFragment(ProfileFragment(), true)
+                    0 -> replaceFragment( ExListFragment.newInstance(
+                        R.string.self_ex,
+                        R.string.full_text_info_self_esteem,
+                        TypeEx.SELF_ESTEEM
+                    ), true)
+                    1 -> replaceFragment( ExListFragment.newInstance(
+                        R.string.fail_diary_ex,
+                        R.string.full_text_info_fail_diary,
+                        TypeEx.FAIL_DIARY
+                    ), true)
+                    2 -> replaceFragment( ExListFragment.newInstance(
+                        R.string.do_love_self_ex,
+                        R.string.full_text_info_self_love,
+                        TypeEx.ACTS_SELF_LOVE
+                    ), true)
+                    3 -> replaceFragment( ExListFragment.newInstance(
+                        R.string.my_emergency_ex,
+                        R.string.full_text_info_my_ambulance,
+                        TypeEx.MY_AMBULANCE
+                    ), true)
+                    else -> replaceFragment(DayPollFragment(), true) //todo ?
                }
         }
 

@@ -3,7 +3,6 @@ package ru.harlion.psy
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import ru.harlion.psy.ui.EditExerciseFragment
 import ru.harlion.psy.ui.main.MainFragment
 import ru.harlion.psy.ui.profile.on_boarding.OnBoardingFragment
 import ru.harlion.psy.utils.Prefs

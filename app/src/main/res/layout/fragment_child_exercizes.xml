@@ -36,7 +36,7 @@
         android:src="@drawable/pic_child_cat"/>
 
     <TextView
-        style="@style/TextTitleQuestions"
+        style="@style/TextTitle"
         android:gravity="center"
         android:text="Имя внутреннего ребенка" />
 
