@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.exercise.child.edit.EditFreeWritingFragment">
+
+    <RelativeLayout
+        android:id="@+id/top_ll"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/back"
+            style="@style/ButtonToolBar"
+            android:src="@drawable/ic_baseline_arrow_back_24" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/step_one"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
+            android:id="@+id/my_request"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Добавить время выполнения"
+            style="@style/ButtonEditWithDrawable"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

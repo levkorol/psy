@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.exercise.edit.EditTextViewsFragment">
+    tools:context=".ui.exercise.base.edit.EditTextViewsFragment">
 
     <RelativeLayout
         android:id="@+id/top_ll"
@@ -24,20 +24,20 @@
             android:src="@drawable/ic_baseline_done_24" />
     </RelativeLayout>
 
-    <ru.harlion.psy.ui.exercise.view_components.TitleEditTextView
+    <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
         android:id="@+id/question_one"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"/>
 
-    <ru.harlion.psy.ui.exercise.view_components.TitleEditTextView
+    <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
         android:id="@+id/question_two"
         style="@style/ComponentTitleEditText" />
 
-    <ru.harlion.psy.ui.exercise.view_components.TitleEditTextView
+    <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
         android:id="@+id/question_three"
         style="@style/ComponentTitleEditText" />
 
-    <ru.harlion.psy.ui.exercise.view_components.TitleEditTextView
+    <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
         android:id="@+id/question_for"
         android:visibility="gone"
         tools:visibility="visible"

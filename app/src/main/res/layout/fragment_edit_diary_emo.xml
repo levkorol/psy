@@ -46,7 +46,7 @@
                 android:text="19:00" />
         </LinearLayout>
 
-        <ru.harlion.psy.ui.exercise.view_components.TitleEditTextView
+        <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
             android:id="@+id/titleEditText"
             style="@style/ComponentTitleEditText"
             android:hint="text"
@@ -65,18 +65,18 @@
             android:layout_marginEnd="16dp"
             android:paddingTop="4dp" />
 
-        <ru.harlion.psy.ui.exercise.view_components.TitleEditTextView
+        <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
             android:id="@+id/titleEditTextView"
             style="@style/ComponentTitleEditText"
             android:hint="text"
             android:title="Ощущения в теле" />
 
-        <ru.harlion.psy.ui.exercise.view_components.TitleEditTextView
+        <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
             style="@style/ComponentTitleEditText"
             android:hint="text"
             android:title="Действие" />
 
-        <ru.harlion.psy.ui.exercise.view_components.TitleEditTextView
+        <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
             style="@style/ComponentTitleEditText"
             android:layout_marginBottom="100dp"
             android:hint="text"

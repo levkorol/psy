@@ -1,11 +1,10 @@
-package ru.harlion.psy.ui.exercise.view_components.adapter
+package ru.harlion.psy.ui.exercise.base.view_components.adapter
 
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ru.harlion.psy.base.BindingHolder
 import ru.harlion.psy.databinding.ItemEditTextVioletBinding
-import ru.harlion.psy.models.Exercise
 
 
 private typealias ItemHolder = BindingHolder<ItemEditTextVioletBinding>

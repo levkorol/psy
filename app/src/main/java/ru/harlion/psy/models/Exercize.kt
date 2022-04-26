@@ -1,7 +1,11 @@
 package ru.harlion.psy.models
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
+@Entity
 class Exercise (
+    @PrimaryKey(autoGenerate = true)
     val id : Long = 0,
     val dateCreate : Long = 0,
     val date : Long = 0,

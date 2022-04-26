@@ -8,10 +8,8 @@ import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentParentExercizesBinding
 import ru.harlion.psy.models.TypeEx
 import ru.harlion.psy.ui.exercise.ExListFragment
-import ru.harlion.psy.ui.exercise.adapters.AdapterMenuExercizes
-import ru.harlion.psy.ui.exercise.adapters.MenuEx
-import ru.harlion.psy.ui.main.diary_emotions.DiaryEmotionFragment
-import ru.harlion.psy.ui.profile.ProfileFragment
+import ru.harlion.psy.ui.exercise.base.AdapterMenuExercizes
+import ru.harlion.psy.ui.exercise.base.MenuEx
 import ru.harlion.psy.utils.replaceFragment
 
 

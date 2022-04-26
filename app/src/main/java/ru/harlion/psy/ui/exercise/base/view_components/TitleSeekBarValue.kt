@@ -1,4 +1,4 @@
-package ru.harlion.psy.ui.exercise.view_components
+package ru.harlion.psy.ui.exercise.base.view_components
 
 import android.annotation.SuppressLint
 import android.content.Context

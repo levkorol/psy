@@ -1,4 +1,4 @@
-package ru.harlion.psy.ui.exercise.adapters
+package ru.harlion.psy.ui.exercise.base
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

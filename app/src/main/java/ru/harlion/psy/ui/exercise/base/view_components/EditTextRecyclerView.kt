@@ -1,4 +1,4 @@
-package ru.harlion.psy.ui.exercise.view_components
+package ru.harlion.psy.ui.exercise.base.view_components
 
 
 import android.content.Context
@@ -11,7 +11,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ru.harlion.psy.R
-import ru.harlion.psy.ui.exercise.view_components.adapter.AdapterEditText
+import ru.harlion.psy.ui.exercise.base.view_components.adapter.AdapterEditText
 
 class EditTextRecyclerView(context: Context, attrs: AttributeSet?) : LinearLayout(context, attrs) {
 

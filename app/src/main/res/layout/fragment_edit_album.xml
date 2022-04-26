@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.exercise.child.edit.highlights_album.EditAlbumFragment">
+
+    <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
+        android:id="@+id/question_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
+        android:id="@+id/question_two"
+        style="@style/ComponentTitleEditText" />
+
+</LinearLayout>

@@ -1,4 +1,4 @@
-package ru.harlion.psy.ui.exercise.edit
+package ru.harlion.psy.ui.exercise.base.edit
 
 import android.os.Bundle
 import android.view.View
@@ -20,13 +20,18 @@ class EditTextViewsFragment :
 
         val typeEx = requireArguments().getSerializable("ENUM")
 
-        if (typeEx == TypeEx.FAIL_DIARY) {
-            binding.questionFor.apply {
-                visibility = View.VISIBLE
-                title = resources.getText(R.string.fail_diary_question_4)
+        when (typeEx) {
+            TypeEx.FAIL_DIARY -> {
+                binding.questionFor.apply {
+                    visibility = View.VISIBLE
+                    title = resources.getText(R.string.fail_diary_question_4)
+                }
             }
-        } else {
-            binding.questionFor.visibility = View.GONE
+            TypeEx.PERFECT_LIFE -> {
+                binding.questionThree.apply {
+                    visibility = View.GONE
+                }
+            }
         }
 
         binding.apply {

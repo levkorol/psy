@@ -1,22 +1,16 @@
-package ru.harlion.psy.ui.exercise.view_components
+package ru.harlion.psy.ui.exercise.base.view_components
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.drawable.InsetDrawable
-import android.os.Build.ID
 import android.os.Parcelable
 import android.util.AttributeSet
 import android.util.SparseArray
 import android.view.View
-import android.widget.LinearLayout
-import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import kotlinx.android.synthetic.main.component_title_edit_text.view.*
 import ru.harlion.psy.R
 import ru.harlion.psy.databinding.ComponentTitleEditTextBinding
-import java.nio.file.attribute.AclEntry
 
 @SuppressLint("ResourceType")
 class TitleEditTextView(context: Context, attrs: AttributeSet?) : ConstraintLayout(context, attrs) {
