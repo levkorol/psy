@@ -10,7 +10,7 @@ import ru.harlion.psy.databinding.FragmentExListBinding
 import ru.harlion.psy.models.TypeEx
 import ru.harlion.psy.ui.exercise.child.edit.EditFreeWritingFragment
 import ru.harlion.psy.ui.exercise.child.edit.highlights_album.EditAlbumFragment
-import ru.harlion.psy.ui.exercise.base.edit.EditExTextRecyclerFragment
+import ru.harlion.psy.ui.exercise.base.edit.text_recycler.EditExTextRecyclerFragment
 import ru.harlion.psy.ui.exercise.base.edit.EditTextViewsFragment
 import ru.harlion.psy.ui.exercise.child.edit.wish_diary.EditWishFragment
 import ru.harlion.psy.ui.exercise.parent.edit.EditBeliefFragment
@@ -36,7 +36,8 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                         EditExTextRecyclerFragment.newInstance(
                             R.string.theme_ideas,
                             R.string.ex_idea_hint,
-                            R.string.new_idea
+                            R.string.new_idea,
+                            TypeEx.IDEAS_DIARY
                         ), true
                     )
                 }
@@ -80,7 +81,8 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                         EditExTextRecyclerFragment.newInstance(
                             R.string.theme_facts,
                             R.string.ex_self_hint,
-                            R.string.fact_about_me
+                            R.string.fact_about_me,
+                            TypeEx.SELF_ESTEEM
                         ), true
                     )
                 }
@@ -184,7 +186,8 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                         EditExTextRecyclerFragment.newInstance(
                             R.string.sphere_life,
                             R.string.ex_rules_hint,
-                            R.string.new_rule
+                            R.string.new_rule,
+                            TypeEx.LIFE_RULES
                         ), true
                     )
                 }
@@ -195,7 +198,8 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                         EditExTextRecyclerFragment.newInstance(
                             R.string.sphere_life,
                             R.string.ex_idea_hint,
-                            R.string.new_belief
+                            R.string.new_belief,
+                            TypeEx.POSITIVE_BELIEFS
                         ), true
                     )
                 }

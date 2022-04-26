@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.exercise.base.edit.EditExTextRecyclerFragment">
+    tools:context=".ui.exercise.base.edit.text_recycler.EditExTextRecyclerFragment">
 
     <RelativeLayout
         android:id="@+id/top_ll"

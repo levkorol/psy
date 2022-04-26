@@ -1,10 +1,28 @@
 package ru.harlion.psy.data
 
 import android.content.Context
+import androidx.room.Room
+import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
+import ru.harlion.psy.models.Exercise
 import ru.harlion.psy.models.emotions.Emotion
 import ru.harlion.psy.models.emotions.EmotionEvent
 
+private const val DATABASE_NAME = "data"
 class Repository private constructor(context: Context) {
+
+    private val database: DataBaseApp = Room.databaseBuilder(
+        context.applicationContext,
+        DataBaseApp::class.java,
+        DATABASE_NAME
+    ).allowMainThreadQueries()
+        .build()
+
+    private val exerciseDao = database.exerciseDao()
+
+    fun addExercise(exercise: Exercise) {
+        exerciseDao.add(exercise)
+    }
 
     companion object {
         private var INSTANCE: Repository? = null
