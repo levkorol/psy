@@ -1,4 +1,4 @@
-package ru.harlion.psy.ui.exercise
+package ru.harlion.psy.ui.exercise.ex_list
 
 
 import android.os.Bundle
@@ -29,9 +29,29 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
         val (title, textInfo) = requireArguments().getIntArray("TEXTS_IDS_LIST_FG")!!
         binding.titleToolbar.text = resources.getText(title)
 
-        when (requireArguments().getSerializable("ENUM")) {
-            TypeEx.IDEAS_DIARY -> {
-                binding.addBtnMain.setOnClickListener {
+        binding.addBtnMain.setOnClickListener {
+            when (requireArguments().getSerializable("ENUM")) {
+                TypeEx.LIFE_RULES -> {
+                    replaceFragment(
+                        EditExTextRecyclerFragment.newInstance(
+                            R.string.sphere_life,
+                            R.string.ex_rules_hint,
+                            R.string.new_rule,
+                            TypeEx.LIFE_RULES
+                        ), true
+                    )
+                }
+                TypeEx.POSITIVE_BELIEFS -> {
+                    replaceFragment(
+                        EditExTextRecyclerFragment.newInstance(
+                            R.string.sphere_life,
+                            R.string.ex_idea_hint,
+                            R.string.new_belief,
+                            TypeEx.POSITIVE_BELIEFS
+                        ), true
+                    )
+                }
+                TypeEx.IDEAS_DIARY -> {
                     replaceFragment(
                         EditExTextRecyclerFragment.newInstance(
                             R.string.theme_ideas,
@@ -41,24 +61,21 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                         ), true
                     )
                 }
-            }
-            TypeEx.WISH_DIARY -> {
-                 binding.addBtnMain.setOnClickListener {
-                     replaceFragment(EditWishFragment(), true)
-                 }
-            }
-            TypeEx.FREE_WRITING -> {
-                binding.addBtnMain.setOnClickListener {
-                    replaceFragment(EditFreeWritingFragment(), true)
+                TypeEx.SELF_ESTEEM -> {
+                    replaceFragment(
+                        EditExTextRecyclerFragment.newInstance(
+                            R.string.theme_facts,
+                            R.string.ex_self_hint,
+                            R.string.fact_about_me,
+                            TypeEx.SELF_ESTEEM
+                        ), true
+                    )
                 }
-            }
-            TypeEx.HIGHLIGHTS_ALBUM -> {
-                binding.addBtnMain.setOnClickListener {
-                    replaceFragment(EditAlbumFragment(), true)
-                }
-            }
-            TypeEx.GRATITUDE_DIARY -> {
-                binding.addBtnMain.setOnClickListener {
+                TypeEx.WISH_DIARY -> replaceFragment(EditWishFragment(), true)
+                TypeEx.FREE_WRITING -> replaceFragment(EditFreeWritingFragment(), true)
+                TypeEx.HIGHLIGHTS_ALBUM -> replaceFragment(EditAlbumFragment(), true)
+                TypeEx.WORK_WITH_BELIEFS -> replaceFragment(EditBeliefFragment(), true)
+                TypeEx.GRATITUDE_DIARY -> {
                     replaceFragment(
                         EditTextViewsFragment.newInstance(
                             R.string.gratitude_question_one,
@@ -74,21 +91,7 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                         ), true
                     )
                 }
-            }
-            TypeEx.SELF_ESTEEM -> {
-                binding.addBtnMain.setOnClickListener {
-                    replaceFragment(
-                        EditExTextRecyclerFragment.newInstance(
-                            R.string.theme_facts,
-                            R.string.ex_self_hint,
-                            R.string.fact_about_me,
-                            TypeEx.SELF_ESTEEM
-                        ), true
-                    )
-                }
-            }
-            TypeEx.FAIL_DIARY -> {
-                binding.addBtnMain.setOnClickListener {
+                TypeEx.FAIL_DIARY -> {
                     replaceFragment(
                         EditTextViewsFragment.newInstance(
                             R.string.fail_diary_question_1,
@@ -104,9 +107,7 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                         ), true
                     )
                 }
-            }
-            TypeEx.ACTS_SELF_LOVE -> {
-                binding.addBtnMain.setOnClickListener {
+                TypeEx.ACTS_SELF_LOVE -> {
                     replaceFragment(
                         EditTextViewsFragment.newInstance(
                             R.string.love_self_question_one,
@@ -122,9 +123,7 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                         ), true
                     )
                 }
-            }
-            TypeEx.MY_AMBULANCE -> {
-                binding.addBtnMain.setOnClickListener {
+                TypeEx.MY_AMBULANCE -> {
                     replaceFragment(
                         EditTextViewsFragment.newInstance(
                             R.string.my_ambulance_question_one,
@@ -140,25 +139,23 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                         ), true
                     )
                 }
-            }
-            TypeEx.PERFECT_LIFE -> {
-                replaceFragment(
-                    EditTextViewsFragment.newInstance(
-                        R.string.my_ambulance_question_one,
-                        R.string.gratitude_question_one,
-                        R.string.gratitude_question_one,
-                        R.string.my_ambulance_question_two,
-                        R.string.gratitude_question_one,
-                        R.string.gratitude_question_one,
-                        R.string.gratitude_question_one,
-                        R.string.gratitude_question_one,
-                        R.string.gratitude_question_one,
-                        TypeEx.PERFECT_LIFE
-                    ), true
-                )
-            }
-            TypeEx.SUCCESS_DIARY -> {
-                binding.addBtnMain.setOnClickListener {
+                TypeEx.PERFECT_LIFE -> {
+                    replaceFragment(
+                        EditTextViewsFragment.newInstance(
+                            R.string.my_ambulance_question_one,
+                            R.string.gratitude_question_one,
+                            R.string.gratitude_question_one,
+                            R.string.my_ambulance_question_two,
+                            R.string.gratitude_question_one,
+                            R.string.gratitude_question_one,
+                            R.string.gratitude_question_one,
+                            R.string.gratitude_question_one,
+                            R.string.gratitude_question_one,
+                            TypeEx.PERFECT_LIFE
+                        ), true
+                    )
+                }
+                TypeEx.SUCCESS_DIARY -> {
                     replaceFragment(
                         EditTextViewsFragment.newInstance(
                             R.string.success_diary_question_one,
@@ -171,35 +168,6 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                             R.string.gratitude_question_one,
                             R.string.gratitude_question_one,
                             TypeEx.SUCCESS_DIARY
-                        ), true
-                    )
-                }
-            }
-            TypeEx.WORK_WITH_BELIEFS -> {
-                binding.addBtnMain.setOnClickListener {
-                    replaceFragment(EditBeliefFragment(), true)
-                }
-            }
-            TypeEx.LIFE_RULES -> {
-                binding.addBtnMain.setOnClickListener {
-                    replaceFragment(
-                        EditExTextRecyclerFragment.newInstance(
-                            R.string.sphere_life,
-                            R.string.ex_rules_hint,
-                            R.string.new_rule,
-                            TypeEx.LIFE_RULES
-                        ), true
-                    )
-                }
-            }
-            TypeEx.POSITIVE_BELIEFS -> {
-                binding.addBtnMain.setOnClickListener {
-                    replaceFragment(
-                        EditExTextRecyclerFragment.newInstance(
-                            R.string.sphere_life,
-                            R.string.ex_idea_hint,
-                            R.string.new_belief,
-                            TypeEx.POSITIVE_BELIEFS
                         ), true
                     )
                 }
