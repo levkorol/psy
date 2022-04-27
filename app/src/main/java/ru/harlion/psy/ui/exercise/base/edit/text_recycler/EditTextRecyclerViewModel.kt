@@ -11,12 +11,12 @@ class EditTextRecyclerViewModel : ViewModel() {
     private val repo = Repository.get()
 
     fun add(
-        name: String,
+        fieldOne: String,
         list: List<String>,
         typeEx: TypeEx
     ) {
         val exercise = Exercise(
-            name = name,
+            fieldOne = fieldOne,
             listString = list,
             dateCreate = LocalDate.now().toEpochDay(),
             type = typeEx

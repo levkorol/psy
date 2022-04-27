@@ -3,6 +3,8 @@ package ru.harlion.psy.ui.exercise.ex_list
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentExListBinding
@@ -19,8 +21,19 @@ import ru.harlion.psy.utils.replaceFragment
 
 class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBinding::inflate) {
 
+    private val viewModel : ExViewModel by viewModels()
+    private lateinit var adapterEx: AdapterEx
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        adapterEx = AdapterEx()
+        binding.recyclerEx.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = adapterEx
+        }
+
+        observe()
 
         binding.back.setOnClickListener {
             parentFragmentManager.popBackStack()
@@ -173,6 +186,20 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                 }
             }
         }
+    }
+
+    private fun observe() {
+        viewModel.getEx()
+        viewModel.exercises.observe(viewLifecycleOwner, {
+            if(it.isNotEmpty()){
+                binding.recyclerEx.visibility = View.VISIBLE
+                binding.emptyList.visibility = View.GONE
+                adapterEx.items = it
+            } else {
+                binding.recyclerEx.visibility = View.GONE
+                binding.emptyList.visibility = View.VISIBLE
+            }
+        })
     }
 
     companion object {

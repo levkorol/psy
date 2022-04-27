@@ -24,6 +24,10 @@ class Repository private constructor(context: Context) {
         exerciseDao.add(exercise)
     }
 
+    fun getExList() : List<Exercise> {
+        return exerciseDao.getLists()
+    }
+
     companion object {
         private var INSTANCE: Repository? = null
 
