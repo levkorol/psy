@@ -21,11 +21,17 @@ import ru.harlion.psy.utils.replaceFragment
 
 class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBinding::inflate) {
 
-    private val viewModel : ExViewModel by viewModels()
+    private val viewModel: ExViewModel by viewModels()
     private lateinit var adapterEx: AdapterEx
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val typeEx = requireArguments().getSerializable("ENUM")
+        val tabs = requireArguments().getIntArray("TABS_TEXT_IDS")
+        val (title, textInfo) = requireArguments().getIntArray("TEXTS_IDS_LIST_FG")!!
+
+        viewModel.getEx( typeEx = typeEx as TypeEx)
 
         adapterEx = AdapterEx()
         binding.recyclerEx.apply {
@@ -39,11 +45,11 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
             parentFragmentManager.popBackStack()
         }
 
-        val (title, textInfo) = requireArguments().getIntArray("TEXTS_IDS_LIST_FG")!!
+
         binding.titleToolbar.text = resources.getText(title)
 
         binding.addBtnMain.setOnClickListener {
-            when (requireArguments().getSerializable("ENUM")) {
+            when (typeEx) {
                 TypeEx.LIFE_RULES -> {
                     replaceFragment(
                         EditExTextRecyclerFragment.newInstance(
@@ -189,9 +195,8 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
     }
 
     private fun observe() {
-        viewModel.getEx()
         viewModel.exercises.observe(viewLifecycleOwner, {
-            if(it.isNotEmpty()){
+            if (it.isNotEmpty()) {
                 binding.recyclerEx.visibility = View.VISIBLE
                 binding.emptyList.visibility = View.GONE
                 adapterEx.items = it
@@ -203,11 +208,15 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
     }
 
     companion object {
-        fun newInstance(title: Int, textInfo: Int, typeEx: TypeEx) = ExListFragment().apply {
-            arguments = Bundle().apply {
-                putIntArray("TEXTS_IDS_LIST_FG", intArrayOf(title, textInfo))
-                putSerializable("ENUM", typeEx)
+        fun newInstance(title: Int, textInfo: Int, typeEx: TypeEx, active: Int = 0, archive: Int = 0) =
+            ExListFragment().apply {
+                arguments = Bundle().apply {
+                    putIntArray("TEXTS_IDS_LIST_FG", intArrayOf(title, textInfo))
+                    putSerializable("ENUM", typeEx)
+                    if(active != 0 && archive != 0) {
+                        putIntArray("TABS_TEXT_IDS", intArrayOf(active, archive))
+                    }
+                }
             }
-        }
     }
 }

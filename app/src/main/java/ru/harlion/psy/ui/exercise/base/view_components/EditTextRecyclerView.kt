@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Parcelable
 import android.util.AttributeSet
 import android.util.SparseArray
+import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,9 +23,11 @@ class EditTextRecyclerView(context: Context, attrs: AttributeSet?) : LinearLayou
 
     private val adapterET: AdapterEditText
 
-    private val titleQuestion = findViewById<TextView>(R.id.answer_c3)
+    private val editText = findViewById<TextView>(R.id.answer_c3)
 
     private val recyclerView = findViewById<RecyclerView>(R.id.recycler_view_c3)
+
+    private val sendBtn = findViewById<ImageButton>(R.id.btn_send)
 
     var items
         get() = adapterET.items
@@ -33,9 +36,9 @@ class EditTextRecyclerView(context: Context, attrs: AttributeSet?) : LinearLayou
         }
 
     var hint
-        get() = titleQuestion.hint
+        get() = editText.hint
         set(value) {
-            titleQuestion.hint = value
+            editText.hint = value
         }
 
     init {
@@ -44,7 +47,7 @@ class EditTextRecyclerView(context: Context, attrs: AttributeSet?) : LinearLayou
             intArrayOf(android.R.attr.hint)
         )
         if (params.hasValue(0)) {
-            titleQuestion.hint = params.getText(0)
+            editText.hint = params.getText(0)
         }
         params.recycle()
 
@@ -54,18 +57,23 @@ class EditTextRecyclerView(context: Context, attrs: AttributeSet?) : LinearLayou
             layoutManager = LinearLayoutManager(context)
             adapter = adapterET
         }
+
+        sendBtn.setOnClickListener {
+            adapterET.addItem(editText.text.toString())
+            editText.text = ""
+        }
     }
 
     override fun dispatchSaveInstanceState(container: SparseArray<Parcelable>) {
         val bundle = Bundle()
         bundle.putStringArray("ITEMS", items.toTypedArray())
-        bundle.putParcelable("EDIT_TEXT", titleQuestion.onSaveInstanceState())
+        bundle.putParcelable("EDIT_TEXT", editText.onSaveInstanceState())
         container.put(id, bundle)
     }
 
     override fun dispatchRestoreInstanceState(container: SparseArray<Parcelable>) {
         val bundle = container.get(id) as Bundle
         items = bundle.getStringArray("ITEMS")!!.asList()
-        titleQuestion.onRestoreInstanceState(bundle.getParcelable("EDIT_TEXT"))
+        editText.onRestoreInstanceState(bundle.getParcelable("EDIT_TEXT"))
     }
 }

@@ -5,10 +5,12 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import ru.harlion.psy.models.Exercise
+import ru.harlion.psy.models.TypeEx
 import ru.harlion.psy.models.emotions.Emotion
 import ru.harlion.psy.models.emotions.EmotionEvent
 
 private const val DATABASE_NAME = "data"
+
 class Repository private constructor(context: Context) {
 
     private val database: DataBaseApp = Room.databaseBuilder(
@@ -24,8 +26,8 @@ class Repository private constructor(context: Context) {
         exerciseDao.add(exercise)
     }
 
-    fun getExList() : List<Exercise> {
-        return exerciseDao.getLists()
+    fun getExList(typeEx: TypeEx): List<Exercise> {
+        return exerciseDao.getLists(typeEx)
     }
 
     companion object {
@@ -41,14 +43,16 @@ class Repository private constructor(context: Context) {
             return INSTANCE ?: throw IllegalStateException("Repository must be init")
         }
 
-        fun getEmo() = listOf(Emotion(name = "emo"),
+        fun getEmo() = listOf(
             Emotion(name = "emo"),
             Emotion(name = "emo"),
             Emotion(name = "emo"),
             Emotion(name = "emo"),
             Emotion(name = "emo"),
             Emotion(name = "emo"),
-            Emotion(name = "emo"))
+            Emotion(name = "emo"),
+            Emotion(name = "emo")
+        )
 
         fun getEventEmo() = listOf(
             EmotionEvent(
@@ -70,7 +74,8 @@ class Repository private constructor(context: Context) {
                     Emotion(name = "emo"),
                     Emotion(name = "emo"),
                 )
-            ),EmotionEvent(
+            ),
+            EmotionEvent(
                 name = "name",
                 emotion = listOf(
                     Emotion(name = "emo"),
@@ -85,7 +90,8 @@ class Repository private constructor(context: Context) {
                     Emotion(name = "emo"),
                     Emotion(name = "emo"),
                 )
-            ),EmotionEvent(
+            ),
+            EmotionEvent(
                 name = "name",
                 emotion = listOf(
                     Emotion(name = "emo"),
@@ -100,7 +106,8 @@ class Repository private constructor(context: Context) {
                     Emotion(name = "emo"),
                     Emotion(name = "emo"),
                 )
-            ),EmotionEvent(
+            ),
+            EmotionEvent(
                 name = "name",
                 emotion = listOf(
                     Emotion(name = "emo"),
@@ -115,7 +122,8 @@ class Repository private constructor(context: Context) {
                     Emotion(name = "emo"),
                     Emotion(name = "emo"),
                 )
-            ),EmotionEvent(
+            ),
+            EmotionEvent(
                 name = "name",
                 emotion = listOf(
                     Emotion(name = "emo"),
@@ -130,7 +138,8 @@ class Repository private constructor(context: Context) {
                     Emotion(name = "emo"),
                     Emotion(name = "emo"),
                 )
-            ),EmotionEvent(
+            ),
+            EmotionEvent(
                 name = "name",
                 emotion = listOf(
                     Emotion(name = "emo"),

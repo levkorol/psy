@@ -27,7 +27,7 @@ class EditExTextRecyclerFragment :
         binding.save.setOnClickListener {
             viewModel.add(
                 binding.questionOne.text.toString(),
-                binding.answers.items, //todo Создавать видимый список до сохранения
+                binding.answers.items,
                 when (typeEx) {
                     TypeEx.LIFE_RULES -> TypeEx.LIFE_RULES
                     TypeEx.SELF_ESTEEM -> TypeEx.SELF_ESTEEM

@@ -39,7 +39,7 @@ class AdultExercizesFragment : BindingFragment<FragmentAdultExercizesBinding>(Fr
                     0 -> replaceFragment( ExListFragment.newInstance(
                         R.string.self_ex,
                         R.string.full_text_info_self_esteem,
-                        TypeEx.SELF_ESTEEM
+                        TypeEx.SELF_ESTEEM,
                     ), true)
                     1 -> replaceFragment( ExListFragment.newInstance(
                         R.string.fail_diary_ex,

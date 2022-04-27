@@ -12,11 +12,19 @@ private typealias ItemHolder = BindingHolder<ItemEditTextVioletBinding>
 class AdapterEditText :
     RecyclerView.Adapter<ItemHolder>() {
 
-    var items = listOf<String>()
+    var items : List<String>
+        get() = _items
         set(value) {
-            field = value
+            _items = value.toMutableList()
             notifyDataSetChanged()
         }
+
+    private var _items = mutableListOf<String>()
+
+    fun addItem(item : String) {
+        _items.add(0, item)
+        notifyItemInserted(0)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ItemHolder(ItemEditTextVioletBinding::inflate,parent).apply {
@@ -24,7 +32,7 @@ class AdapterEditText :
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
        holder.binding.apply {
-           //answers.text = items[position].listString //todo
+           answers.setText(items[position])
        }
     }
 

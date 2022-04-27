@@ -25,15 +25,27 @@ class AdapterEx : RecyclerView.Adapter<ItemHolder>() {
              date.text = "12 ноября"//items[position].date
              fieldOne.text = items[position].fieldOne
 
-             if (items[position].fieldTwo.isNotEmpty()) {
-                 fieldTwo.text = items[position].fieldTwo
-                 fieldTwo.visibility = View.VISIBLE
-             } else {
-                 fieldTwo.visibility = View.GONE
+             when {
+                 items[position].fieldTwo.isNotEmpty() -> {
+                     fieldTwo.text = items[position].fieldTwo
+                     fieldTwo.visibility = View.VISIBLE
+                 }
+                 items[position].fieldThree.isNotEmpty() -> {
+                     fieldThree.text = items[position].fieldThree
+                     fieldThree.visibility = View.VISIBLE
+                 }
+                 items[position].listString.isNotEmpty() -> {
+                     fieldTwo.text = "${items[position].listString.size}"
+                     fieldTwo.visibility = View.VISIBLE
+                 }
+                 else -> {
+                     fieldTwo.visibility = View.GONE
+                     fieldThree.visibility = View.GONE
+                 }
              }
 
-             if (items[position].fieldTwo.isNotEmpty()) {
-                 fieldThree.text = items[position].fieldTwo
+             if (items[position].fieldThree.isNotEmpty()) {
+                 fieldThree.text = items[position].fieldThree
                  fieldThree.visibility = View.VISIBLE
              } else {
                  fieldThree.visibility = View.GONE
