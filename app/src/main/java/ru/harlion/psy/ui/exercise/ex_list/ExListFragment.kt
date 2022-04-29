@@ -31,9 +31,18 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
         val tabs = requireArguments().getIntArray("TABS_TEXT_IDS")
         val (title, textInfo) = requireArguments().getIntArray("TEXTS_IDS_LIST_FG")!!
 
-        viewModel.getEx( typeEx = typeEx as TypeEx)
+        viewModel.getEx(typeEx = typeEx as TypeEx)
 
-        adapterEx = AdapterEx()
+        adapterEx = AdapterEx {
+            when (typeEx) {
+                TypeEx.GRATITUDE_DIARY -> checkEnumAndReplaceFragment(TypeEx.GRATITUDE_DIARY, it)
+                TypeEx.FAIL_DIARY -> checkEnumAndReplaceFragment(TypeEx.FAIL_DIARY, it)
+                TypeEx.ACTS_SELF_LOVE -> checkEnumAndReplaceFragment(TypeEx.ACTS_SELF_LOVE, it)
+                TypeEx.MY_AMBULANCE -> checkEnumAndReplaceFragment(TypeEx.MY_AMBULANCE, it)
+                TypeEx.PERFECT_LIFE -> checkEnumAndReplaceFragment(TypeEx.PERFECT_LIFE, it)
+                TypeEx.SUCCESS_DIARY -> checkEnumAndReplaceFragment(TypeEx.SUCCESS_DIARY, it)
+            }
+        }
         binding.recyclerEx.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = adapterEx
@@ -48,141 +57,148 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
         binding.titleToolbar.text = resources.getText(title)
 
         binding.addBtnMain.setOnClickListener {
-            when (typeEx) {
-                TypeEx.LIFE_RULES -> {
-                    replaceFragment(
-                        EditExTextRecyclerFragment.newInstance(
-                            R.string.sphere_life,
-                            R.string.ex_rules_hint,
-                            R.string.new_rule,
-                            TypeEx.LIFE_RULES
-                        ), true
-                    )
-                }
-                TypeEx.POSITIVE_BELIEFS -> {
-                    replaceFragment(
-                        EditExTextRecyclerFragment.newInstance(
-                            R.string.sphere_life,
-                            R.string.ex_idea_hint,
-                            R.string.new_belief,
-                            TypeEx.POSITIVE_BELIEFS
-                        ), true
-                    )
-                }
-                TypeEx.IDEAS_DIARY -> {
-                    replaceFragment(
-                        EditExTextRecyclerFragment.newInstance(
-                            R.string.theme_ideas,
-                            R.string.ex_idea_hint,
-                            R.string.new_idea,
-                            TypeEx.IDEAS_DIARY
-                        ), true
-                    )
-                }
-                TypeEx.SELF_ESTEEM -> {
-                    replaceFragment(
-                        EditExTextRecyclerFragment.newInstance(
-                            R.string.theme_facts,
-                            R.string.ex_self_hint,
-                            R.string.fact_about_me,
-                            TypeEx.SELF_ESTEEM
-                        ), true
-                    )
-                }
-                TypeEx.WISH_DIARY -> replaceFragment(EditWishFragment(), true)
-                TypeEx.FREE_WRITING -> replaceFragment(EditFreeWritingFragment(), true)
-                TypeEx.HIGHLIGHTS_ALBUM -> replaceFragment(EditAlbumFragment(), true)
-                TypeEx.WORK_WITH_BELIEFS -> replaceFragment(EditBeliefFragment(), true)
-                TypeEx.GRATITUDE_DIARY -> {
-                    replaceFragment(
-                        EditTextViewsFragment.newInstance(
-                           titleOne = R.string.gratitude_question_one,
-                           titleTwo = R.string.gratitude_question_two,
-                           titleThree = R.string.gratitude_question_three,
-                           typeEx = TypeEx.GRATITUDE_DIARY
-                        ), true
-                    )
-                }
-                TypeEx.FAIL_DIARY -> {
-                    replaceFragment(
-                        EditTextViewsFragment.newInstance(
-                            R.string.fail_diary_question_1,
-                            R.string.gratitude_question_one,
-                            R.string.gratitude_question_one,
-                            R.string.fail_diary_question_2,
-                            R.string.gratitude_question_one,
-                            R.string.gratitude_question_one,
-                            R.string.fail_diary_question_3,
-                            R.string.gratitude_question_one,
-                            R.string.gratitude_question_one,
-                            TypeEx.FAIL_DIARY
-                        ), true
-                    )
-                }
-                TypeEx.ACTS_SELF_LOVE -> {
-                    replaceFragment(
-                        EditTextViewsFragment.newInstance(
-                            R.string.love_self_question_one,
-                            R.string.gratitude_question_one,
-                            R.string.gratitude_question_one,
-                            R.string.love_self_question_two,
-                            R.string.gratitude_question_one,
-                            R.string.gratitude_question_one,
-                            R.string.love_self_question_three,
-                            R.string.gratitude_question_one,
-                            R.string.gratitude_question_one,
-                            TypeEx.ACTS_SELF_LOVE
-                        ), true
-                    )
-                }
-                TypeEx.MY_AMBULANCE -> {
-                    replaceFragment(
-                        EditTextViewsFragment.newInstance(
-                            R.string.my_ambulance_question_one,
-                            R.string.gratitude_question_one,
-                            R.string.gratitude_question_one,
-                            R.string.my_ambulance_question_two,
-                            R.string.gratitude_question_one,
-                            R.string.gratitude_question_one,
-                            R.string.my_ambulance_question_three,
-                            R.string.gratitude_question_one,
-                            R.string.gratitude_question_one,
-                            TypeEx.MY_AMBULANCE
-                        ), true
-                    )
-                }
-                TypeEx.PERFECT_LIFE -> {
-                    replaceFragment(
-                        EditTextViewsFragment.newInstance(
-                            R.string.my_ambulance_question_one,
-                            R.string.gratitude_question_one,
-                            R.string.gratitude_question_one,
-                            R.string.my_ambulance_question_two,
-                            R.string.gratitude_question_one,
-                            R.string.gratitude_question_one,
-                            R.string.gratitude_question_one,
-                            R.string.gratitude_question_one,
-                            R.string.gratitude_question_one,
-                            TypeEx.PERFECT_LIFE
-                        ), true
-                    )
-                }
-                TypeEx.SUCCESS_DIARY -> {
-                    replaceFragment(
-                        EditTextViewsFragment.newInstance(
-                            R.string.success_diary_question_one,
-                            R.string.gratitude_question_one,
-                            R.string.gratitude_question_one,
-                            R.string.success_diary_question_two,
-                            R.string.gratitude_question_one,
-                            R.string.gratitude_question_one,
-                            R.string.success_diary_question_three,
-                            R.string.gratitude_question_one,
-                            R.string.gratitude_question_one,
-                            TypeEx.SUCCESS_DIARY
-                        ), true
-                    )
-                }
+            checkEnumAndReplaceFragment(typeEx, 0)
+        }
+    }
+
+    private fun checkEnumAndReplaceFragment(typeEx: TypeEx, id: Long) {
+        when (typeEx) {
+            TypeEx.LIFE_RULES -> {
+                replaceFragment(
+                    EditExTextRecyclerFragment.newInstance(
+                        R.string.sphere_life,
+                        R.string.ex_rules_hint,
+                        R.string.new_rule,
+                        TypeEx.LIFE_RULES
+                    ), true
+                )
+            }
+            TypeEx.POSITIVE_BELIEFS -> {
+                replaceFragment(
+                    EditExTextRecyclerFragment.newInstance(
+                        R.string.sphere_life,
+                        R.string.ex_idea_hint,
+                        R.string.new_belief,
+                        TypeEx.POSITIVE_BELIEFS
+                    ), true
+                )
+            }
+            TypeEx.IDEAS_DIARY -> {
+                replaceFragment(
+                    EditExTextRecyclerFragment.newInstance(
+                        R.string.theme_ideas,
+                        R.string.ex_idea_hint,
+                        R.string.new_idea,
+                        TypeEx.IDEAS_DIARY
+                    ), true
+                )
+            }
+            TypeEx.SELF_ESTEEM -> {
+                replaceFragment(
+                    EditExTextRecyclerFragment.newInstance(
+                        R.string.theme_facts,
+                        R.string.ex_self_hint,
+                        R.string.fact_about_me,
+                        TypeEx.SELF_ESTEEM
+                    ), true
+                )
+            }
+            TypeEx.WISH_DIARY -> replaceFragment(EditWishFragment(), true)
+            TypeEx.FREE_WRITING -> replaceFragment(EditFreeWritingFragment(), true)
+            TypeEx.HIGHLIGHTS_ALBUM -> replaceFragment(EditAlbumFragment(), true)
+            TypeEx.WORK_WITH_BELIEFS -> replaceFragment(EditBeliefFragment(), true)
+            TypeEx.GRATITUDE_DIARY -> {
+                replaceFragment(
+                    EditTextViewsFragment.newInstance(
+                        titleOne = R.string.gratitude_question_one,
+                        titleTwo = R.string.gratitude_question_two,
+                        titleThree = R.string.gratitude_question_three,
+                        typeEx = TypeEx.GRATITUDE_DIARY,
+                        id = id
+                    ), true
+                )
+            }
+            TypeEx.FAIL_DIARY -> {
+                replaceFragment(
+                    EditTextViewsFragment.newInstance(
+                        titleOne = R.string.fail_diary_question_1,
+                        hintOne = R.string.gratitude_question_one,
+                        infoOne = R.string.gratitude_question_one,
+                        titleTwo = R.string.fail_diary_question_2,
+                        hintTwo = R.string.gratitude_question_one,
+                        infoTwo = R.string.gratitude_question_one,
+                        titleThree = R.string.fail_diary_question_3,
+                        hintThree = R.string.gratitude_question_one,
+                        infoThree = R.string.gratitude_question_one,
+                        typeEx = TypeEx.FAIL_DIARY,
+                        id = id
+                    ), true
+                )
+            }
+            TypeEx.ACTS_SELF_LOVE -> {
+                replaceFragment(
+                    EditTextViewsFragment.newInstance(
+                        titleOne = R.string.love_self_question_one,
+                        hintOne = R.string.gratitude_question_one,
+                        infoOne = R.string.gratitude_question_one,
+                        titleTwo = R.string.love_self_question_two,
+                        hintTwo = R.string.gratitude_question_one,
+                        infoTwo = R.string.gratitude_question_one,
+                        titleThree = R.string.love_self_question_three,
+                        hintThree = R.string.gratitude_question_one,
+                        infoThree = R.string.gratitude_question_one,
+                        typeEx = TypeEx.ACTS_SELF_LOVE,
+                        id = id
+                    ), true
+                )
+            }
+            TypeEx.MY_AMBULANCE -> {
+                replaceFragment(
+                    EditTextViewsFragment.newInstance(
+                        titleOne = R.string.my_ambulance_question_one,
+                        hintOne = R.string.gratitude_question_one,
+                        infoOne = R.string.gratitude_question_one,
+                        titleTwo = R.string.my_ambulance_question_two,
+                        hintTwo = R.string.gratitude_question_one,
+                        infoTwo = R.string.gratitude_question_one,
+                        titleThree = R.string.my_ambulance_question_three,
+                        hintThree = R.string.gratitude_question_one,
+                        infoThree = R.string.gratitude_question_one,
+                        typeEx = TypeEx.MY_AMBULANCE,
+                        id = id
+                    ), true
+                )
+            }
+            TypeEx.PERFECT_LIFE -> {
+                replaceFragment(
+                    EditTextViewsFragment.newInstance(
+                        titleOne = R.string.my_ambulance_question_one,
+                        hintOne = R.string.gratitude_question_one,
+                        infoOne = R.string.gratitude_question_one,
+                        titleTwo = R.string.my_ambulance_question_two,
+                        hintTwo = R.string.gratitude_question_one,
+                        infoTwo = R.string.gratitude_question_one,
+                        typeEx = TypeEx.PERFECT_LIFE,
+                        id = id
+                    ), true
+                )
+            }
+            TypeEx.SUCCESS_DIARY -> {
+                replaceFragment(
+                    EditTextViewsFragment.newInstance(
+                        titleOne = R.string.success_diary_question_one,
+                        hintOne = R.string.gratitude_question_one,
+                        infoOne = R.string.gratitude_question_one,
+                        titleTwo = R.string.success_diary_question_two,
+                        hintTwo = R.string.gratitude_question_one,
+                        infoTwo = R.string.gratitude_question_one,
+                        titleThree = R.string.success_diary_question_three,
+                        hintThree = R.string.gratitude_question_one,
+                        infoThree = R.string.gratitude_question_one,
+                        typeEx = TypeEx.SUCCESS_DIARY,
+                        id = id
+                    ), true
+                )
             }
         }
     }
@@ -201,12 +217,18 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
     }
 
     companion object {
-        fun newInstance(title: Int, textInfo: Int, typeEx: TypeEx, active: Int = 0, archive: Int = 0) =
+        fun newInstance(
+            title: Int,
+            textInfo: Int,
+            typeEx: TypeEx,
+            active: Int = 0,
+            archive: Int = 0
+        ) =
             ExListFragment().apply {
                 arguments = Bundle().apply {
                     putIntArray("TEXTS_IDS_LIST_FG", intArrayOf(title, textInfo))
                     putSerializable("ENUM", typeEx)
-                    if(active != 0 && archive != 0) {
+                    if (active != 0 && archive != 0) {
                         putIntArray("TABS_TEXT_IDS", intArrayOf(active, archive))
                     }
                 }

@@ -3,5 +3,11 @@
 <EditText xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/answers"
+    android:gravity="top|start"
+    android:inputType="textMultiLine|text"
+    android:lines="6"
+    android:maxLines="6"
+    android:minLines="1"
+    android:scrollbars="vertical"
     style="@style/EditTextList"
     tools:text="text....." />

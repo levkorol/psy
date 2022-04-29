@@ -30,6 +30,8 @@ class Repository private constructor(context: Context) {
         return exerciseDao.getLists(typeEx)
     }
 
+    fun getExById(id : Long) = exerciseDao.exById(id)
+
     companion object {
         private var INSTANCE: Repository? = null
 

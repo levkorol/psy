@@ -17,11 +17,14 @@ class EditTextViewsFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val id = requireArguments().getLong("ID")
+        val typeEx = requireArguments().getSerializable("ENUM")
         val (titleOne, titleTwo, titleThree) = requireArguments().getIntArray("EDIT_TEXT_IDS")!!
         val (hintOne, hintTwo, hintThree) = requireArguments().getIntArray("EDIT_HINTS_IDS")!!
         val (infoOne, infoTwo, infoThree) = requireArguments().getIntArray("EDIT_INFO_IDS")!!
 
-        val typeEx = requireArguments().getSerializable("ENUM")
+        viewModel.getExById(id)
+        observe()
 
         when (typeEx) {
             TypeEx.FAIL_DIARY -> {
@@ -40,20 +43,19 @@ class EditTextViewsFragment :
         binding.apply {
 
             questionOne.title = resources.getText(titleOne)
+            questionTwo.title = resources.getText(titleTwo)
+
             if (hintOne > 0) {
                 questionOne.hint = resources.getText(hintOne)
             }
-            questionTwo.title = resources.getText(titleTwo)
-            when {
-                hintTwo > 0 -> {
-                    questionTwo.hint = resources.getText(hintTwo)
-                }
-                titleThree > 0 -> {
-                    questionThree.title = resources.getText(titleThree)
-                }
-                hintThree > 0 -> {
-                    questionThree.hint = resources.getText(hintThree)
-                }
+            if (hintTwo > 0) {
+                questionTwo.hint = resources.getText(hintTwo)
+            }
+            if (titleThree > 0) {
+                questionThree.title = resources.getText(titleThree)
+            }
+            if (hintThree > 0) {
+                questionThree.hint = resources.getText(hintThree)
             }
         }
 
@@ -120,9 +122,21 @@ class EditTextViewsFragment :
         }
     }
 
+    private fun observe() {
+        viewModel.exercise.observe(viewLifecycleOwner, {
+            if (it != null) {
+                binding.questionOne.setText(it.fieldOne)
+                binding.questionTwo.setText(it.fieldTwo)
+                binding.questionThree.setText(it.fieldThree)
+                binding.questionFor.setText(it.fieldFor)
+            }
+        })
+    }
+
 
     companion object {
         fun newInstance(
+            id: Long = 0,
             titleOne: Int,
             hintOne: Int = 0,
             infoOne: Int = 0,
@@ -135,6 +149,7 @@ class EditTextViewsFragment :
             typeEx: TypeEx
         ) = EditTextViewsFragment().apply {
             arguments = Bundle().apply {
+                putLong("ID", id)
                 putIntArray("EDIT_TEXT_IDS", intArrayOf(titleOne, titleTwo, titleThree))
                 putIntArray("EDIT_HINTS_IDS", intArrayOf(hintOne, hintTwo, hintThree))
                 putIntArray("EDIT_INFO_IDS", intArrayOf(infoOne, infoTwo, infoThree))

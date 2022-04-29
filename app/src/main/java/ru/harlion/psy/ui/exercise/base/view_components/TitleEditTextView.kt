@@ -41,6 +41,9 @@ class TitleEditTextView(context: Context, attrs: AttributeSet?) : ConstraintLayo
 
     val text
         get() = answer.text
+//        set(value) {
+//        answer.text = value
+//        }
 
     var textInfo: CharSequence? = null
         set(value) {
@@ -69,12 +72,16 @@ class TitleEditTextView(context: Context, attrs: AttributeSet?) : ConstraintLayo
         params.recycle()
 
         imageInfo.setOnClickListener {
-           BottomSheetDialog(context).apply {
-               setContentView(TextView(context).apply {
-                 text = textInfo
-               })
-           }.show()
+            BottomSheetDialog(context).apply {
+                setContentView(TextView(context).apply {
+                    text = textInfo
+                })
+            }.show()
         }
+    }
+
+    fun setText(string : String) {
+        answer.setText(string)
     }
 
     override fun dispatchSaveInstanceState(container: SparseArray<Parcelable>?) {

@@ -1,5 +1,6 @@
 package ru.harlion.psy.data.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -21,4 +22,7 @@ abstract class ExerciseDao {
 
     @Query("SELECT * FROM exercise where type = :typeEx")
     abstract fun getLists(typeEx : TypeEx): List<Exercise>
+
+    @Query("SELECT * FROM exercise WHERE id = (:id)")
+    abstract fun exById(id: Long): LiveData<Exercise>
 }

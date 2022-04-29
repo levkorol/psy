@@ -1,27 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
-    <EditText
-        android:id="@+id/answer_c3"
-        android:maxLines="5"
-        android:inputType="textMultiLine|text"
-        style="@style/EditTextAnswerViolet"
-        tools:text="text....."/>
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <ImageButton
-        android:id="@+id/btn_send"
-        android:background="?selectableItemBackgroundBorderless"
-        android:src="@drawable/ic_send_24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_light_violet"
+        android:layout_marginBottom="8dp"
+        android:padding="6dp"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/answer_c3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_alignParentStart="true"
+            android:gravity="top|start"
+            android:background="@null"
+            android:textSize="14sp"
+            android:inputType="textMultiLine|text"
+            android:lines="6"
+            android:layout_marginEnd="55dp"
+            android:padding="8dp"
+            android:maxLines="6"
+            android:minLines="1"
+            android:scrollbars="vertical"
+            tools:text="text....." />
+
+        <ImageButton
+            android:id="@+id/btn_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="10dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_alignParentTop="true"
+            android:background="?selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_send_24" />
+    </RelativeLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_c3"
         android:layout_width="match_parent"
-        tools:listitem="@layout/item_edit_text_violet"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/item_edit_text_violet" />
 </LinearLayout>
