@@ -17,8 +17,12 @@ class EditExTextRecyclerFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val id = requireArguments().getLong("ID")
         val (title, hint, listHint) = requireArguments().getIntArray("TEXT_IDS")!!
         val typeEx = requireArguments().getSerializable("TYPE_EX")
+
+        viewModel.getExById(id)
+        observe()
 
         binding.questionOne.title = resources.getText(title)
         binding.questionOne.hint = resources.getText(hint)
@@ -39,12 +43,22 @@ class EditExTextRecyclerFragment :
         }
     }
 
+    private fun observe() {
+        viewModel.exercise.observe(viewLifecycleOwner, {
+            if( it != null) {
+                binding.questionOne.setText(it.fieldOne)
+                binding.answers.items = it.listString
+            }
+        })
+    }
+
     companion object {
-        fun newInstance(title: Int, hint: Int, listHint: Int, typeEx: TypeEx) =
+        fun newInstance(id : Long = 0, title: Int, hint: Int, listHint: Int, typeEx: TypeEx) =
             EditExTextRecyclerFragment().apply {
                 arguments = Bundle().apply {
                     putIntArray("TEXT_IDS", intArrayOf(title, hint, listHint))
                     putSerializable("TYPE_EX", typeEx)
+                    putLong("ID", id)
                 }
             }
     }

@@ -41,6 +41,12 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                 TypeEx.MY_AMBULANCE -> checkEnumAndReplaceFragment(TypeEx.MY_AMBULANCE, it)
                 TypeEx.PERFECT_LIFE -> checkEnumAndReplaceFragment(TypeEx.PERFECT_LIFE, it)
                 TypeEx.SUCCESS_DIARY -> checkEnumAndReplaceFragment(TypeEx.SUCCESS_DIARY, it)
+
+                TypeEx.LIFE_RULES -> checkEnumAndReplaceFragment(TypeEx.LIFE_RULES, it)
+                TypeEx.POSITIVE_BELIEFS -> checkEnumAndReplaceFragment(TypeEx.POSITIVE_BELIEFS, it)
+                TypeEx.IDEAS_DIARY -> checkEnumAndReplaceFragment(TypeEx.IDEAS_DIARY, it)
+                TypeEx.SELF_ESTEEM -> checkEnumAndReplaceFragment(TypeEx.SELF_ESTEEM, it)
+
             }
         }
         binding.recyclerEx.apply {
@@ -66,6 +72,7 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
             TypeEx.LIFE_RULES -> {
                 replaceFragment(
                     EditExTextRecyclerFragment.newInstance(
+                        id,
                         R.string.sphere_life,
                         R.string.ex_rules_hint,
                         R.string.new_rule,
@@ -76,6 +83,7 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
             TypeEx.POSITIVE_BELIEFS -> {
                 replaceFragment(
                     EditExTextRecyclerFragment.newInstance(
+                        id,
                         R.string.sphere_life,
                         R.string.ex_idea_hint,
                         R.string.new_belief,
@@ -86,6 +94,7 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
             TypeEx.IDEAS_DIARY -> {
                 replaceFragment(
                     EditExTextRecyclerFragment.newInstance(
+                        id,
                         R.string.theme_ideas,
                         R.string.ex_idea_hint,
                         R.string.new_idea,
@@ -96,6 +105,7 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
             TypeEx.SELF_ESTEEM -> {
                 replaceFragment(
                     EditExTextRecyclerFragment.newInstance(
+                        id,
                         R.string.theme_facts,
                         R.string.ex_self_hint,
                         R.string.fact_about_me,

@@ -41,9 +41,6 @@ class TitleEditTextView(context: Context, attrs: AttributeSet?) : ConstraintLayo
 
     val text
         get() = answer.text
-//        set(value) {
-//        answer.text = value
-//        }
 
     var textInfo: CharSequence? = null
         set(value) {

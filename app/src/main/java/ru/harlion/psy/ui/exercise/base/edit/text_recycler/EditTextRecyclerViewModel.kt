@@ -1,5 +1,6 @@
 package ru.harlion.psy.ui.exercise.base.edit.text_recycler
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import ru.harlion.psy.data.Repository
 import ru.harlion.psy.models.Exercise
@@ -9,6 +10,11 @@ import java.time.LocalDate
 class EditTextRecyclerViewModel : ViewModel() {
 
     private val repo = Repository.get()
+    lateinit var exercise: LiveData<Exercise>
+
+    fun getExById(id : Long) {
+        exercise = repo.getExById(id)
+    }
 
     fun add(
         fieldOne: String,
