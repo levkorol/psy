@@ -231,6 +231,19 @@
         <item name="android:textColor">@color/gray_dark</item>
     </style>
 
+    <style name="ButtonEditWithSmallDrawable">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:background">@drawable/bg_light_violet</item>
+        <item name="android:gravity">start|center</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textColor">@color/gray_dark</item>
+    </style>
+
 
     <color name="gray_dark">#2B2929</color>
 

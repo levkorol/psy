@@ -10,7 +10,7 @@ import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentExListBinding
 
 import ru.harlion.psy.models.TypeEx
-import ru.harlion.psy.ui.exercise.child.edit.EditFreeWritingFragment
+import ru.harlion.psy.ui.exercise.child.edit.free_writing.EditFreeWritingFragment
 import ru.harlion.psy.ui.exercise.child.edit.highlights_album.EditAlbumFragment
 import ru.harlion.psy.ui.exercise.base.edit.text_recycler.EditExTextRecyclerFragment
 import ru.harlion.psy.ui.exercise.base.edit.EditTextViewsFragment
@@ -44,7 +44,6 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
         binding.back.setOnClickListener {
             parentFragmentManager.popBackStack()
         }
-
 
         binding.titleToolbar.text = resources.getText(title)
 
@@ -97,16 +96,10 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                 TypeEx.GRATITUDE_DIARY -> {
                     replaceFragment(
                         EditTextViewsFragment.newInstance(
-                            R.string.gratitude_question_one,
-                            R.string.gratitude_question_one,
-                            R.string.gratitude_question_one,
-                            R.string.gratitude_question_two,
-                            R.string.gratitude_question_one,
-                            R.string.gratitude_question_one,
-                            R.string.gratitude_question_three,
-                            R.string.gratitude_question_one,
-                            R.string.gratitude_question_one,
-                            TypeEx.GRATITUDE_DIARY
+                           titleOne = R.string.gratitude_question_one,
+                           titleTwo = R.string.gratitude_question_two,
+                           titleThree = R.string.gratitude_question_three,
+                           typeEx = TypeEx.GRATITUDE_DIARY
                         ), true
                     )
                 }

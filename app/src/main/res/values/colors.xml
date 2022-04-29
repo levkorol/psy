@@ -21,6 +21,7 @@
 
     <color name="gray_super_light">#CECFCE</color>
     <color name="main_light_bg">#C4E3DCE8</color>
+    <color name="icon_color_dark_gray">#89000000</color>
 
 
     <color name="gr_1">#8193FA</color>

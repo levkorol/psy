@@ -38,14 +38,23 @@ class EditTextViewsFragment :
         }
 
         binding.apply {
+
             questionOne.title = resources.getText(titleOne)
-            questionOne.hint = resources.getText(hintOne)
-
+            if (hintOne > 0) {
+                questionOne.hint = resources.getText(hintOne)
+            }
             questionTwo.title = resources.getText(titleTwo)
-            questionTwo.hint = resources.getText(hintTwo)
-
-            questionThree.title = resources.getText(titleThree)
-            questionThree.hint = resources.getText(hintThree)
+            when {
+                hintTwo > 0 -> {
+                    questionTwo.hint = resources.getText(hintTwo)
+                }
+                titleThree > 0 -> {
+                    questionThree.title = resources.getText(titleThree)
+                }
+                hintThree > 0 -> {
+                    questionThree.hint = resources.getText(hintThree)
+                }
+            }
         }
 
         binding.save.setOnClickListener {
@@ -90,6 +99,22 @@ class EditTextViewsFragment :
                         typeEx = TypeEx.FAIL_DIARY
                     )
                 }
+                TypeEx.ACTS_SELF_LOVE -> {
+                    viewModel.addEx(
+                        fieldOne = binding.questionOne.text.toString(),
+                        fieldTwo = binding.questionTwo.text.toString(),
+                        fieldThree = binding.questionThree.text.toString(),
+                        typeEx = TypeEx.ACTS_SELF_LOVE
+                    )
+                }
+                TypeEx.MY_AMBULANCE -> {
+                    viewModel.addEx(
+                        fieldOne = binding.questionOne.text.toString(),
+                        fieldTwo = binding.questionTwo.text.toString(),
+                        fieldThree = binding.questionThree.text.toString(),
+                        typeEx = TypeEx.MY_AMBULANCE
+                    )
+                }
             }
             parentFragmentManager.popBackStack()
         }
@@ -99,14 +124,14 @@ class EditTextViewsFragment :
     companion object {
         fun newInstance(
             titleOne: Int,
-            hintOne: Int,
-            infoOne: Int,
+            hintOne: Int = 0,
+            infoOne: Int = 0,
             titleTwo: Int,
-            hintTwo: Int,
-            infoTwo: Int,
-            titleThree: Int,
-            hintThree: Int,
-            infoThree: Int,
+            hintTwo: Int = 0,
+            infoTwo: Int = 0,
+            titleThree: Int = 0,
+            hintThree: Int = 0,
+            infoThree: Int = 0,
             typeEx: TypeEx
         ) = EditTextViewsFragment().apply {
             arguments = Bundle().apply {

@@ -82,6 +82,9 @@
     <string name="fail_diary_question_2">Когда?</string>
     <string name="fail_diary_question_3">В чем моя ошибка?</string>
     <string name="fail_diary_question_4">Что можно было сделать иначе?</string>
+    <string name="add_time">Добавить время выполнения</string>
+    <string name="ex_free_writing_qwestion_one">"Мой запрос "</string>
+    <string name="begin_ex">Начать упражнение</string>
 
 
 </resources>

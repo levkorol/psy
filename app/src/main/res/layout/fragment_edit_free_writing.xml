@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.exercise.child.edit.EditFreeWritingFragment">
+    tools:context=".ui.exercise.child.edit.free_writing.EditFreeWritingFragment">
 
     <RelativeLayout
         android:id="@+id/top_ll"
@@ -30,11 +30,34 @@
             android:layout_height="wrap_content"/>
 
         <TextView
+            android:id="@+id/btn_add_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Добавить время выполнения"
-            style="@style/ButtonEditWithDrawable"/>
+            android:drawablePadding="8dp"
+            android:text="@string/add_time"
+            android:drawableStart="@drawable/ic_alarm_clock"
+            style="@style/ButtonEditWithSmallDrawable"/>
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_begin_ex"
+            android:layout_width="match_parent"
+            android:text="@string/begin_ex"
+            android:layout_marginTop="38dp"
+            android:layout_marginHorizontal="16dp"
+            style="@style/ButtonBigMiddleViolet"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/step_two"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
+            android:id="@+id/field_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
 
