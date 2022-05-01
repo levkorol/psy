@@ -1,14 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.exercise.child.edit.wish_diary.EditWishFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
+        android:id="@+id/top_ll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="?attr/actionBarSize">
 
-</FrameLayout>
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/back"
+            style="@style/ButtonToolBar"
+            android:src="@drawable/ic_baseline_arrow_back_24" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/save"
+            style="@style/ButtonToolBar"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_baseline_done_24" />
+    </RelativeLayout>
+
+    <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
+        android:id="@+id/field_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/add_deadline"
+        style="@style/ButtonEditWithSmallDrawable"
+        android:text="@string/add_date"
+        android:gravity="center|start"
+        android:paddingHorizontal="8dp"
+        android:drawableStart="@drawable/ic_alarm_clock" />
+
+
+    <ru.harlion.psy.ui.exercise.base.view_components.EditTextRecyclerView
+        android:id="@+id/add_item"
+        android:layout_width="match_parent"
+        android:layout_marginTop="8dp"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

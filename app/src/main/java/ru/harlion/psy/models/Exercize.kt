@@ -36,4 +36,6 @@ enum class TypeEx {
     WORK_WITH_BELIEFS,
     LIFE_RULES,
     POSITIVE_BELIEFS,
+
+    NOTHING
 }

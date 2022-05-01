@@ -35,63 +35,64 @@
                 android:src="@drawable/ic_baseline_info_24" />
         </RelativeLayout>
 
-<!--        <com.google.android.material.tabs.TabLayout-->
-<!--            android:id="@+id/tab_tasks"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:tabGravity="fill"-->
-<!--            android:background="@color/main_light_violet"-->
-<!--            app:tabIconTint="@color/main_dark_violet"-->
-<!--            app:tabIconTintMode="src_in"-->
-<!--            app:tabIndicator="@color/black"-->
-<!--            app:tabIndicatorColor="@color/main_dark_violet"-->
-<!--            app:tabIndicatorFullWidth="true"-->
-<!--            app:tabIndicatorHeight="0dp"-->
-<!--            app:tabInlineLabel="true"-->
-<!--            app:tabMode="fixed"-->
-<!--            android:layout_marginTop="-0dp"-->
-<!--            app:tabRippleColor="@null"-->
-<!--            app:tabSelectedTextColor="@color/main_dark_violet"-->
-<!--            app:tabTextAppearance="@style/tabText" />-->
-
-<!--        <androidx.viewpager2.widget.ViewPager2-->
-<!--            android:id="@+id/tasks_view_pager"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent" />-->
-
-        <LinearLayout
-            android:id="@+id/empty_list"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_height="35dp"
+            app:tabGravity="fill"
+            android:visibility="gone"
+            app:tabIconTint="@color/main_dark_violet"
+            app:tabIconTintMode="src_in"
+            app:tabIndicator="@color/black"
+            android:layout_marginHorizontal="16dp"
+            app:tabIndicatorColor="@color/main_dark_violet"
+            app:tabIndicatorFullWidth="true"
+            app:tabIndicatorHeight="1dp"
+            android:layout_marginTop="-10dp"
+            app:tabInlineLabel="true"
+            app:tabMode="fixed"
+            app:tabRippleColor="@color/main_light_violet"
+            app:tabSelectedTextColor="@color/main_dark_violet"
+            app:tabTextAppearance="@style/tabText" />
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:src="@drawable/pick_empty_ex" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="36dp"
-                android:layout_marginTop="16dp"
-                android:gravity="center"
-                android:text="@string/here_empty_ex" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                style="@style/ButtonBigMiddleViolet"
-                android:id="@+id/btn_big_instruction"
-                android:text="@string/go_instructions_ex" />
-        </LinearLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_ex"
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+            android:layout_height="match_parent" />
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/empty_list"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:gravity="center"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="100dp"-->
+<!--                android:src="@drawable/pick_empty_ex" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginHorizontal="36dp"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:gravity="center"-->
+<!--                android:text="@string/here_empty_ex" />-->
+
+<!--            <androidx.appcompat.widget.AppCompatButton-->
+<!--                style="@style/ButtonBigMiddleViolet"-->
+<!--                android:id="@+id/btn_big_instruction"-->
+<!--                android:text="@string/go_instructions_ex" />-->
+<!--        </LinearLayout>-->
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/recycler_ex"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            app:layout_behavior="@string/appbar_scrolling_view_behavior" />-->
+<!--    </LinearLayout>-->
     </LinearLayout>
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_btn_main"
         android:layout_width="wrap_content"

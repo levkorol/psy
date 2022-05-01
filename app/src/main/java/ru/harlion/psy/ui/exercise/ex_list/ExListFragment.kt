@@ -3,11 +3,19 @@ package ru.harlion.psy.ui.exercise.ex_list
 
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.tabs.TabLayoutMediator
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
+import ru.harlion.psy.base.BindingHolder
 import ru.harlion.psy.databinding.FragmentExListBinding
+import ru.harlion.psy.databinding.ItemExListVpBinding
+import ru.harlion.psy.models.Exercise
 
 import ru.harlion.psy.models.TypeEx
 import ru.harlion.psy.ui.exercise.child.edit.free_writing.EditFreeWritingFragment
@@ -22,7 +30,6 @@ import ru.harlion.psy.utils.replaceFragment
 class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBinding::inflate) {
 
     private val viewModel: ExViewModel by viewModels()
-    private lateinit var adapterEx: AdapterEx
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,30 +38,54 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
         val tabs = requireArguments().getIntArray("TABS_TEXT_IDS")
         val (title, textInfo) = requireArguments().getIntArray("TEXTS_IDS_LIST_FG")!!
 
-        viewModel.getEx(typeEx = typeEx as TypeEx)
+        viewModel.getEx(typeEx = typeEx as TypeEx, true)
 
-        adapterEx = AdapterEx {
+        binding.viewPager.adapter = ListAdapter(viewModel.exercises) {
             when (typeEx) {
-                TypeEx.GRATITUDE_DIARY -> checkEnumAndReplaceFragment(TypeEx.GRATITUDE_DIARY, it)
+                TypeEx.GRATITUDE_DIARY -> checkEnumAndReplaceFragment(
+                    TypeEx.GRATITUDE_DIARY,
+                    it
+                )
                 TypeEx.FAIL_DIARY -> checkEnumAndReplaceFragment(TypeEx.FAIL_DIARY, it)
-                TypeEx.ACTS_SELF_LOVE -> checkEnumAndReplaceFragment(TypeEx.ACTS_SELF_LOVE, it)
-                TypeEx.MY_AMBULANCE -> checkEnumAndReplaceFragment(TypeEx.MY_AMBULANCE, it)
-                TypeEx.PERFECT_LIFE -> checkEnumAndReplaceFragment(TypeEx.PERFECT_LIFE, it)
-                TypeEx.SUCCESS_DIARY -> checkEnumAndReplaceFragment(TypeEx.SUCCESS_DIARY, it)
+                TypeEx.ACTS_SELF_LOVE -> checkEnumAndReplaceFragment(
+                    TypeEx.ACTS_SELF_LOVE,
+                    it
+                )
+                TypeEx.MY_AMBULANCE -> checkEnumAndReplaceFragment(
+                    TypeEx.MY_AMBULANCE,
+                    it
+                )
+                TypeEx.PERFECT_LIFE -> checkEnumAndReplaceFragment(
+                    TypeEx.PERFECT_LIFE,
+                    it
+                )
+                TypeEx.SUCCESS_DIARY -> checkEnumAndReplaceFragment(
+                    TypeEx.SUCCESS_DIARY,
+                    it
+                )
 
                 TypeEx.LIFE_RULES -> checkEnumAndReplaceFragment(TypeEx.LIFE_RULES, it)
-                TypeEx.POSITIVE_BELIEFS -> checkEnumAndReplaceFragment(TypeEx.POSITIVE_BELIEFS, it)
-                TypeEx.IDEAS_DIARY -> checkEnumAndReplaceFragment(TypeEx.IDEAS_DIARY, it)
-                TypeEx.SELF_ESTEEM -> checkEnumAndReplaceFragment(TypeEx.SELF_ESTEEM, it)
-
+                TypeEx.POSITIVE_BELIEFS -> checkEnumAndReplaceFragment(
+                    TypeEx.POSITIVE_BELIEFS,
+                    it
+                )
+                TypeEx.IDEAS_DIARY -> checkEnumAndReplaceFragment(
+                    TypeEx.IDEAS_DIARY,
+                    it
+                )
+                TypeEx.SELF_ESTEEM -> checkEnumAndReplaceFragment(
+                    TypeEx.SELF_ESTEEM,
+                    it
+                )
             }
         }
-        binding.recyclerEx.apply {
-            layoutManager = LinearLayoutManager(requireContext())
-            adapter = adapterEx
-        }
 
-        observe()
+        if (tabs != null) {
+            binding.tab.visibility = View.VISIBLE
+            TabLayoutMediator(binding.tab, binding.viewPager) { tab, position ->
+                tab.text = getString(tabs[position])
+            }.attach()
+        }
 
         binding.back.setOnClickListener {
             parentFragmentManager.popBackStack()
@@ -213,17 +244,9 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
         }
     }
 
-    private fun observe() {
-        viewModel.exercises.observe(viewLifecycleOwner, {
-            if (it.isNotEmpty()) {
-                binding.recyclerEx.visibility = View.VISIBLE
-                binding.emptyList.visibility = View.GONE
-                adapterEx.items = it
-            } else {
-                binding.recyclerEx.visibility = View.GONE
-                binding.emptyList.visibility = View.VISIBLE
-            }
-        })
+    override fun onDestroyView() {
+        binding.viewPager.adapter = null
+        super.onDestroyView()
     }
 
     companion object {
@@ -243,5 +266,55 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                     }
                 }
             }
+    }
+
+    class ListAdapter(val items: List<LiveData<List<Exercise>>>, val clickEdit: (Long) -> Unit) :
+        RecyclerView.Adapter<Holder>() {
+
+        override fun getItemCount(): Int = items.size
+
+        override fun onCreateViewHolder(
+            parent: ViewGroup,
+            viewType: Int
+        ): Holder {
+            return Holder(parent).apply {
+                binding.recyclerEx.apply {
+                    layoutManager = LinearLayoutManager(parent.context)
+                    adapter = AdapterEx(clickEdit)
+                }
+            }
+        }
+
+        override fun onBindViewHolder(holder: Holder, position: Int) {
+            holder.elements?.removeObserver(holder)
+            holder.elements = items[position]
+            items[position].observeForever(holder)
+        }
+
+        override fun onViewRecycled(holder: Holder) {
+            super.onViewRecycled(holder)
+            holder.elements?.removeObserver(holder)
+            holder.elements = null
+        }
+    }
+}
+
+class Holder(parent: ViewGroup) :
+    BindingHolder<ItemExListVpBinding>(ItemExListVpBinding::inflate, parent),
+    Observer<List<Exercise>> {
+
+    var elements : LiveData<List<Exercise>>? = null
+
+    override fun onChanged(it: List<Exercise>) {
+        binding.apply {
+            if (it.isNotEmpty()) {
+                recyclerEx.visibility = View.VISIBLE
+                emptyList.visibility = View.GONE
+                (recyclerEx.adapter as AdapterEx).items = it
+            } else {
+                recyclerEx.visibility = View.GONE
+                emptyList.visibility = View.VISIBLE
+            }
+        }
     }
 }

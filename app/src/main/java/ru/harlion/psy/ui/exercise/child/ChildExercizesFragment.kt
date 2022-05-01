@@ -48,8 +48,8 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
                         R.string.wish_diary_ex,
                         R.string.full_text_info_wish_diary,
                         TypeEx.WISH_DIARY,
-                        R.string.wish_diary_ex,
-                        R.string.wish_diary_ex,
+                        R.string.active,
+                        R.string.done,
                     ), true
                 )
                 2 -> replaceFragment(

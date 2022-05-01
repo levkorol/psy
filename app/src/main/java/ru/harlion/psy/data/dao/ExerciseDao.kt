@@ -21,7 +21,7 @@ abstract class ExerciseDao {
     abstract fun deleteById(id : Long)
 
     @Query("SELECT * FROM exercise where type = :typeEx")
-    abstract fun getLists(typeEx : TypeEx): List<Exercise>
+    abstract fun getLists(typeEx : TypeEx): LiveData<List<Exercise>>
 
     @Query("SELECT * FROM exercise WHERE id = (:id)")
     abstract fun exById(id: Long): LiveData<Exercise>

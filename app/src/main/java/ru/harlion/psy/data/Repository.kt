@@ -1,6 +1,7 @@
 package ru.harlion.psy.data
 
 import android.content.Context
+import androidx.lifecycle.LiveData
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
@@ -26,11 +27,19 @@ class Repository private constructor(context: Context) {
         exerciseDao.add(exercise)
     }
 
-    fun getExList(typeEx: TypeEx): List<Exercise> {
+    fun getExList(typeEx: TypeEx): LiveData<List<Exercise>> {
         return exerciseDao.getLists(typeEx)
     }
 
     fun getExById(id : Long) = exerciseDao.exById(id)
+
+    fun updateEx(exercise: Exercise) {
+        exerciseDao.update(exercise)
+    }
+
+    fun deleteEx(id : Long) {
+        exerciseDao.deleteById(id)
+    }
 
     companion object {
         private var INSTANCE: Repository? = null

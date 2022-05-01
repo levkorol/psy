@@ -66,7 +66,9 @@ class EditTextRecyclerView(context: Context, attrs: AttributeSet?) : LinearLayou
 
     override fun dispatchSaveInstanceState(container: SparseArray<Parcelable>) {
         val bundle = Bundle()
-        bundle.putStringArray("ITEMS", items.toTypedArray())
+        bundle.putStringArray("ITEMS", items.map {
+            it.toString()
+        }.toTypedArray())
         bundle.putParcelable("EDIT_TEXT", editText.onSaveInstanceState())
         container.put(id, bundle)
     }

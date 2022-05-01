@@ -12,8 +12,21 @@ class EditTextRecyclerViewModel : ViewModel() {
     private val repo = Repository.get()
     lateinit var exercise: LiveData<Exercise>
 
-    fun getExById(id : Long) {
+    fun getExById(id: Long) {
         exercise = repo.getExById(id)
+    }
+
+    fun update(
+        fieldOne: String,
+        list: List<String>
+    ) {
+        val newExercise = Exercise(
+            id = exercise.value?.id ?: 0L,
+            fieldOne = fieldOne,
+            listString = list,
+            type = exercise.value?.type ?: TypeEx.NOTHING
+        )
+        repo.updateEx(newExercise)
     }
 
     fun add(

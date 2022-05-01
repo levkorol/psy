@@ -26,8 +26,8 @@
 
     <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
         android:id="@+id/question_one"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
         android:id="@+id/question_two"
@@ -39,8 +39,30 @@
 
     <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
         android:id="@+id/question_for"
+        style="@style/ComponentTitleEditText"
         android:visibility="gone"
-        tools:visibility="visible"
-        style="@style/ComponentTitleEditText" />
+        tools:visibility="visible" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/delete"
+            style="@style/ButtonBigLineViolet"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:text="@string/delete_ex" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/ex_info"
+            style="@style/ButtonBigMiddleViolet"
+            android:layout_marginHorizontal="16dp"
+            android:layout_weight="1.5"
+            android:text="@string/info" />
+    </LinearLayout>
 
 </LinearLayout>

@@ -3,6 +3,7 @@ package ru.harlion.psy.ui.exercise.base.edit
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import com.google.android.material.snackbar.Snackbar
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentEditTextViewsBinding
@@ -39,7 +40,6 @@ class EditTextViewsFragment :
                 }
             }
         }
-
         binding.apply {
 
             questionOne.title = resources.getText(titleOne)
@@ -58,68 +58,86 @@ class EditTextViewsFragment :
                 questionThree.hint = resources.getText(hintThree)
             }
         }
+        if(id > 0) binding.delete.visibility = View.VISIBLE else binding.delete.visibility = View.GONE
 
         binding.save.setOnClickListener {
-            when (typeEx) {
-                TypeEx.SELF_ESTEEM -> {
-                    viewModel.addEx(
-                        fieldOne = binding.questionOne.text.toString(),
-                        fieldTwo = binding.questionTwo.text.toString(),
-                        fieldThree = binding.questionThree.text.toString(),
-                        typeEx = TypeEx.SELF_ESTEEM
-                    )
-                }
-                TypeEx.GRATITUDE_DIARY -> {
-                    viewModel.addEx(
-                        fieldOne = binding.questionOne.text.toString(),
-                        fieldTwo = binding.questionTwo.text.toString(),
-                        fieldThree = binding.questionThree.text.toString(),
-                        typeEx = TypeEx.GRATITUDE_DIARY
-                    )
-                }
-                TypeEx.SUCCESS_DIARY -> {
-                    viewModel.addEx(
-                        fieldOne = binding.questionOne.text.toString(),
-                        fieldTwo = binding.questionTwo.text.toString(),
-                        fieldThree = binding.questionThree.text.toString(),
-                        typeEx = TypeEx.SUCCESS_DIARY
-                    )
-                }
-                TypeEx.PERFECT_LIFE -> {
-                    viewModel.addEx(
-                        fieldOne = binding.questionOne.text.toString(),
-                        fieldTwo = binding.questionTwo.text.toString(),
-                        typeEx = TypeEx.PERFECT_LIFE
-                    )
-                }
-                TypeEx.FAIL_DIARY -> {
-                    viewModel.addEx(
-                        fieldOne = binding.questionOne.text.toString(),
-                        fieldTwo = binding.questionTwo.text.toString(),
-                        fieldThree = binding.questionThree.text.toString(),
-                        fieldFor = binding.questionFor.text.toString(),
-                        typeEx = TypeEx.FAIL_DIARY
-                    )
-                }
-                TypeEx.ACTS_SELF_LOVE -> {
-                    viewModel.addEx(
-                        fieldOne = binding.questionOne.text.toString(),
-                        fieldTwo = binding.questionTwo.text.toString(),
-                        fieldThree = binding.questionThree.text.toString(),
-                        typeEx = TypeEx.ACTS_SELF_LOVE
-                    )
-                }
-                TypeEx.MY_AMBULANCE -> {
-                    viewModel.addEx(
-                        fieldOne = binding.questionOne.text.toString(),
-                        fieldTwo = binding.questionTwo.text.toString(),
-                        fieldThree = binding.questionThree.text.toString(),
-                        typeEx = TypeEx.MY_AMBULANCE
-                    )
+            if (id > 0) {
+                viewModel.updateTask(
+                    fieldOne = binding.questionOne.text.toString(),
+                    fieldTwo = binding.questionTwo.text.toString(),
+                    fieldThree = binding.questionThree.text.toString(),
+                    fieldFor = binding.questionFor.text.toString(),
+                )
+                Snackbar.make(binding.root, getString(R.string.update_completed), Snackbar.LENGTH_SHORT).show()
+            } else {
+                when (typeEx) {
+                    TypeEx.SELF_ESTEEM -> {
+                        viewModel.addEx(
+                            fieldOne = binding.questionOne.text.toString(),
+                            fieldTwo = binding.questionTwo.text.toString(),
+                            fieldThree = binding.questionThree.text.toString(),
+                            typeEx = TypeEx.SELF_ESTEEM
+                        )
+                    }
+                    TypeEx.GRATITUDE_DIARY -> {
+                        viewModel.addEx(
+                            fieldOne = binding.questionOne.text.toString(),
+                            fieldTwo = binding.questionTwo.text.toString(),
+                            fieldThree = binding.questionThree.text.toString(),
+                            typeEx = TypeEx.GRATITUDE_DIARY
+                        )
+                    }
+                    TypeEx.SUCCESS_DIARY -> {
+                        viewModel.addEx(
+                            fieldOne = binding.questionOne.text.toString(),
+                            fieldTwo = binding.questionTwo.text.toString(),
+                            fieldThree = binding.questionThree.text.toString(),
+                            typeEx = TypeEx.SUCCESS_DIARY
+                        )
+                    }
+                    TypeEx.PERFECT_LIFE -> {
+                        viewModel.addEx(
+                            fieldOne = binding.questionOne.text.toString(),
+                            fieldTwo = binding.questionTwo.text.toString(),
+                            typeEx = TypeEx.PERFECT_LIFE
+                        )
+                    }
+                    TypeEx.FAIL_DIARY -> {
+                        viewModel.addEx(
+                            fieldOne = binding.questionOne.text.toString(),
+                            fieldTwo = binding.questionTwo.text.toString(),
+                            fieldThree = binding.questionThree.text.toString(),
+                            fieldFor = binding.questionFor.text.toString(),
+                            typeEx = TypeEx.FAIL_DIARY
+                        )
+                    }
+                    TypeEx.ACTS_SELF_LOVE -> {
+                        viewModel.addEx(
+                            fieldOne = binding.questionOne.text.toString(),
+                            fieldTwo = binding.questionTwo.text.toString(),
+                            fieldThree = binding.questionThree.text.toString(),
+                            typeEx = TypeEx.ACTS_SELF_LOVE
+                        )
+                    }
+                    TypeEx.MY_AMBULANCE -> {
+                        viewModel.addEx(
+                            fieldOne = binding.questionOne.text.toString(),
+                            fieldTwo = binding.questionTwo.text.toString(),
+                            fieldThree = binding.questionThree.text.toString(),
+                            typeEx = TypeEx.MY_AMBULANCE
+                        )
+                    }
                 }
             }
             parentFragmentManager.popBackStack()
         }
+
+        binding.delete.setOnClickListener {
+            viewModel.deleteEx(id)
+            parentFragmentManager.popBackStack()
+        }
+
+        binding.back.setOnClickListener { parentFragmentManager.popBackStack() }
     }
 
     private fun observe() {
@@ -132,7 +150,6 @@ class EditTextViewsFragment :
             }
         })
     }
-
 
     companion object {
         fun newInstance(

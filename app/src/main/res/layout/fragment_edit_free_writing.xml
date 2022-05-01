@@ -31,9 +31,6 @@
 
         <TextView
             android:id="@+id/btn_add_time"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="8dp"
             android:text="@string/add_time"
             android:drawableStart="@drawable/ic_alarm_clock"
             style="@style/ButtonEditWithSmallDrawable"/>

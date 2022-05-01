@@ -85,6 +85,14 @@
     <string name="add_time">Добавить время выполнения</string>
     <string name="ex_free_writing_qwestion_one">"Мой запрос "</string>
     <string name="begin_ex">Начать упражнение</string>
+    <string name="update_completed">Изменения сохранены!</string>
+    <string name="delete_ex">Удалить запись</string>
+    <string name="info">Инструкция</string>
+    <string name="archive">Архив</string>
+    <string name="active">Активные</string>
+    <string name="add_date">Добавить дату исполнения</string>
+    <string name="done">Исполненные</string>
+    <string name="ex_wish_field_one">Moe желание</string>
 
 
 </resources>
