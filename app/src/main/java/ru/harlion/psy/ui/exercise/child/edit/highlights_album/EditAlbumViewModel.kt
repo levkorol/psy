@@ -8,32 +8,32 @@ class EditAlbumViewModel : BaseViewModel() {
 
     fun add(
         fieldOne : String,
-        dateCreate: Long,
-        dateDone: Long,
-        listSteps: List<String>,
+        fieldTwo : String,
+        image : String,
+        dateCreate: Long
     ){
         val exercise = Exercise(
             fieldOne = fieldOne,
-            date = dateDone,
+            fieldTwo= fieldTwo,
+            image = image,
             dateCreate = dateCreate,
-            listString = listSteps,
-            type = TypeEx.WISH_DIARY
+            type = TypeEx.HIGHLIGHTS_ALBUM
         )
         repo.addExercise(exercise)
     }
 
     fun update(
         fieldOne : String,
-        dateCreate: Long,
-        dateDone: Long,
-        listSteps: List<String>,
+        fieldTwo : String,
+        image : String,
+        dateCreate: Long
     ){
         val exercise = Exercise(
             id = exercise.value?.id ?: 0L,
             fieldOne = fieldOne,
-            date = dateDone,
+            fieldTwo= fieldTwo,
+            image = image,
             dateCreate = dateCreate,
-            listString = listSteps,
             type = exercise.value?.type ?: TypeEx.NOTHING
         )
         repo.updateEx(exercise)

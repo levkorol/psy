@@ -124,8 +124,8 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                 )
             }
             TypeEx.WISH_DIARY -> replaceFragment(EditWishFragment.newInstance(id), true)
-            TypeEx.FREE_WRITING -> replaceFragment(EditFreeWritingFragment(), true)
-            TypeEx.HIGHLIGHTS_ALBUM -> replaceFragment(EditAlbumFragment(), true)
+            TypeEx.FREE_WRITING -> replaceFragment(EditFreeWritingFragment.newInstance(id), true)
+            TypeEx.HIGHLIGHTS_ALBUM -> replaceFragment(EditAlbumFragment.newInstance(id), true)
             TypeEx.WORK_WITH_BELIEFS -> replaceFragment(EditBeliefFragment.newInstance(id), true)
             TypeEx.GRATITUDE_DIARY -> {
                 replaceFragment(

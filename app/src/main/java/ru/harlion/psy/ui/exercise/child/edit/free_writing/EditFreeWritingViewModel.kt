@@ -7,33 +7,33 @@ import ru.harlion.psy.ui.exercise.base.BaseViewModel
 class EditFreeWritingViewModel : BaseViewModel() {
 
     fun add(
-        fieldOne : String,
+        fieldOne: String,
+        fieldTwo: String,
+        fieldThree: String,
         dateCreate: Long,
-        dateDone: Long,
-        listSteps: List<String>,
-    ){
+    ) {
         val exercise = Exercise(
             fieldOne = fieldOne,
-            date = dateDone,
+            fieldTwo = fieldTwo,
+            fieldThree = fieldThree,
             dateCreate = dateCreate,
-            listString = listSteps,
             type = TypeEx.FREE_WRITING
         )
         repo.addExercise(exercise)
     }
 
     fun update(
-        fieldOne : String,
+        fieldOne: String,
+        fieldTwo: String,
+        fieldThree: String,
         dateCreate: Long,
-        dateDone: Long,
-        listSteps: List<String>,
-    ){
+    ) {
         val exercise = Exercise(
             id = exercise.value?.id ?: 0L,
             fieldOne = fieldOne,
-            date = dateDone,
+            fieldTwo = fieldTwo,
+            fieldThree = fieldThree,
             dateCreate = dateCreate,
-            listString = listSteps,
             type = exercise.value?.type ?: TypeEx.NOTHING
         )
         repo.updateEx(exercise)

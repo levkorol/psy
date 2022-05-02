@@ -42,6 +42,9 @@ class TitleEditTextView(context: Context, attrs: AttributeSet?) : ConstraintLayo
     val text
         get() = answer.text
 
+//    val lines
+//        get() = answer.lineCount
+
     var textInfo: CharSequence? = null
         set(value) {
             field = value
@@ -55,7 +58,12 @@ class TitleEditTextView(context: Context, attrs: AttributeSet?) : ConstraintLayo
     init {
         val params = context.obtainStyledAttributes(
             attrs,
-            intArrayOf(android.R.attr.title, android.R.attr.hint, android.R.attr.textOn)
+            intArrayOf(
+                android.R.attr.title,
+                android.R.attr.hint,
+                android.R.attr.textOn,
+                android.R.attr.lines
+            )
         )
         if (params.hasValue(0)) {
             titleQuestion.text = params.getText(0)
@@ -66,6 +74,9 @@ class TitleEditTextView(context: Context, attrs: AttributeSet?) : ConstraintLayo
         if (params.hasValue(2)) {
             textInfo = params.getText(2)
         }
+//        if (params.hasValue(3)) {
+//            lines = params.getInt(3, 3)
+//        }
         params.recycle()
 
         imageInfo.setOnClickListener {
@@ -77,7 +88,7 @@ class TitleEditTextView(context: Context, attrs: AttributeSet?) : ConstraintLayo
         }
     }
 
-    fun setText(string : String) {
+    fun setText(string: String) {
         answer.setText(string)
     }
 

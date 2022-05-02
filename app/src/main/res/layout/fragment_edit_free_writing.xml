@@ -22,10 +22,10 @@
         android:id="@+id/step_one"
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
-            android:id="@+id/my_request"
+            android:id="@+id/field_one"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -47,12 +47,20 @@
     <LinearLayout
         android:id="@+id/step_two"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        tools:visibility="visible"
         android:visibility="gone"
         android:orientation="vertical">
 
-        <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
+        <TextView
             android:id="@+id/field_two"
+            tools:text="30:00"
+            android:drawableStart="@drawable/ic_alarm_clock"
+            style="@style/ButtonEditWithSmallDrawable"/>
+
+        <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
+            android:id="@+id/field_three"
+            android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>

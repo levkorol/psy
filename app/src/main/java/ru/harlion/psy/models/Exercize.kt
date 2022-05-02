@@ -16,6 +16,7 @@ class Exercise (
     val fieldThree : String = "",
     val fieldFor : String = "",
     val fieldFife : String = "",
+    val image : String = "",
     val type : TypeEx
 )
 
