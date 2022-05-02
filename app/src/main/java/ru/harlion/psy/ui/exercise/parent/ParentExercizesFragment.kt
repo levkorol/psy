@@ -7,7 +7,7 @@ import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentParentExercizesBinding
 import ru.harlion.psy.models.TypeEx
-import ru.harlion.psy.ui.exercise.ex_list.ExListFragment
+import ru.harlion.psy.ui.exercise.base.ex_list.ExListFragment
 import ru.harlion.psy.ui.exercise.base.AdapterMenuExercizes
 import ru.harlion.psy.ui.exercise.base.MenuEx
 import ru.harlion.psy.utils.replaceFragment

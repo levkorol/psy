@@ -30,8 +30,10 @@ class EditWishFragment :
 
     private fun observe() {
         viewModel.exercise.observe(viewLifecycleOwner, {
-            binding.fieldOne.setText(it.fieldOne)
-            binding.addItem.items = it.listString
+            if(id > 0) {
+                binding.fieldOne.setText(it.fieldOne)
+                binding.addItem.items = it.listString
+            }
         })
     }
 

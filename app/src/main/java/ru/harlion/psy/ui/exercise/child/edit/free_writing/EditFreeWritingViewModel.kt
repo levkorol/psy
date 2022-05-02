@@ -1,17 +1,10 @@
-package ru.harlion.psy.ui.exercise.child.edit.wish_diary
+package ru.harlion.psy.ui.exercise.child.edit.free_writing
 
 import ru.harlion.psy.models.Exercise
 import ru.harlion.psy.models.TypeEx
 import ru.harlion.psy.ui.exercise.base.BaseViewModel
 
-class EditWishViewModel: BaseViewModel() {
-
-//    private val repo = Repository.get()
-//    lateinit var exercise: LiveData<Exercise>
-//
-//    fun getExById(id : Long) {
-//        exercise = repo.getExById(id)
-//    }
+class EditFreeWritingViewModel : BaseViewModel() {
 
     fun add(
         fieldOne : String,
@@ -24,7 +17,7 @@ class EditWishViewModel: BaseViewModel() {
             date = dateDone,
             dateCreate = dateCreate,
             listString = listSteps,
-            type = TypeEx.WISH_DIARY
+            type = TypeEx.FREE_WRITING
         )
         repo.addExercise(exercise)
     }
@@ -45,8 +38,4 @@ class EditWishViewModel: BaseViewModel() {
         )
         repo.updateEx(exercise)
     }
-
-//    fun delete(id : Long){
-//       repo.deleteEx(id)
-//    }
 }

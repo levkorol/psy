@@ -1,4 +1,4 @@
-package ru.harlion.psy.ui.exercise.base.edit
+package ru.harlion.psy.ui.exercise.base.edit.edit_text
 
 import android.os.Bundle
 import android.view.View

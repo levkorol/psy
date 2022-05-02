@@ -26,8 +26,8 @@
 
     <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
         android:id="@+id/field_one"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_marginTop="0dp"
+        style="@style/ComponentTitleEditText" />
 
     <TextView
         android:id="@+id/add_deadline"

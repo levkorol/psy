@@ -1,17 +1,10 @@
-package ru.harlion.psy.ui.exercise.child.edit.wish_diary
+package ru.harlion.psy.ui.exercise.child.edit.highlights_album
 
 import ru.harlion.psy.models.Exercise
 import ru.harlion.psy.models.TypeEx
 import ru.harlion.psy.ui.exercise.base.BaseViewModel
 
-class EditWishViewModel: BaseViewModel() {
-
-//    private val repo = Repository.get()
-//    lateinit var exercise: LiveData<Exercise>
-//
-//    fun getExById(id : Long) {
-//        exercise = repo.getExById(id)
-//    }
+class EditAlbumViewModel : BaseViewModel() {
 
     fun add(
         fieldOne : String,
@@ -45,8 +38,4 @@ class EditWishViewModel: BaseViewModel() {
         )
         repo.updateEx(exercise)
     }
-
-//    fun delete(id : Long){
-//       repo.deleteEx(id)
-//    }
 }

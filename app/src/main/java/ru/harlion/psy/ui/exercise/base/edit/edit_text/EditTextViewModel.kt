@@ -1,4 +1,4 @@
-package ru.harlion.psy.ui.exercise.base.edit
+package ru.harlion.psy.ui.exercise.base.edit.edit_text
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

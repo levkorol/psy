@@ -1,4 +1,4 @@
-package ru.harlion.psy.ui.exercise.ex_list
+package ru.harlion.psy.ui.exercise.base.ex_list
 
 
 import android.os.Bundle
@@ -21,7 +21,7 @@ import ru.harlion.psy.models.TypeEx
 import ru.harlion.psy.ui.exercise.child.edit.free_writing.EditFreeWritingFragment
 import ru.harlion.psy.ui.exercise.child.edit.highlights_album.EditAlbumFragment
 import ru.harlion.psy.ui.exercise.base.edit.text_recycler.EditExTextRecyclerFragment
-import ru.harlion.psy.ui.exercise.base.edit.EditTextViewsFragment
+import ru.harlion.psy.ui.exercise.base.edit.edit_text.EditTextViewsFragment
 import ru.harlion.psy.ui.exercise.child.edit.wish_diary.EditWishFragment
 import ru.harlion.psy.ui.exercise.parent.edit.EditBeliefFragment
 import ru.harlion.psy.utils.replaceFragment
@@ -53,6 +53,9 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                 TypeEx.IDEAS_DIARY -> checkEnumAndReplaceFragment(TypeEx.IDEAS_DIARY, it)
                 TypeEx.SELF_ESTEEM -> checkEnumAndReplaceFragment(TypeEx.SELF_ESTEEM, it)
                 TypeEx.WISH_DIARY -> checkEnumAndReplaceFragment(TypeEx.WISH_DIARY, it)
+                TypeEx.WORK_WITH_BELIEFS -> checkEnumAndReplaceFragment(TypeEx.WORK_WITH_BELIEFS, it)
+                TypeEx.FREE_WRITING -> checkEnumAndReplaceFragment(TypeEx.FREE_WRITING, it)
+                TypeEx.HIGHLIGHTS_ALBUM -> checkEnumAndReplaceFragment(TypeEx.HIGHLIGHTS_ALBUM, it)
             }
         }
 
@@ -123,7 +126,7 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
             TypeEx.WISH_DIARY -> replaceFragment(EditWishFragment.newInstance(id), true)
             TypeEx.FREE_WRITING -> replaceFragment(EditFreeWritingFragment(), true)
             TypeEx.HIGHLIGHTS_ALBUM -> replaceFragment(EditAlbumFragment(), true)
-            TypeEx.WORK_WITH_BELIEFS -> replaceFragment(EditBeliefFragment(), true)
+            TypeEx.WORK_WITH_BELIEFS -> replaceFragment(EditBeliefFragment.newInstance(id), true)
             TypeEx.GRATITUDE_DIARY -> {
                 replaceFragment(
                     EditTextViewsFragment.newInstance(

@@ -94,6 +94,13 @@
     <string name="done">Исполненные</string>
     <string name="ex_wish_field_one">Moe желание</string>
     <string name="ex_wish_hint">Шаги к исполнению...</string>
+    <string name="add_photo">Добавить фото</string>
+    <string name="date_event">Дата события</string>
+    <string name="event">Событие</string>
+    <string name="ex_album_title_two">Чем важно для меня это событие?</string>
+    <string name="ex_belief_one">Мое убеждение</string>
+    <string name="ex_belief_two">Альтернативный вариант</string>
+    <string name="ex_belief_item_hint">5 опровергающих примеров из жизни...</string>
 
 
 </resources>

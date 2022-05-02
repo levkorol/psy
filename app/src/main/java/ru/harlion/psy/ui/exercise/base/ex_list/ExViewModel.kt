@@ -1,4 +1,4 @@
-package ru.harlion.psy.ui.exercise.ex_list
+package ru.harlion.psy.ui.exercise.base.ex_list
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
