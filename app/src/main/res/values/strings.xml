@@ -90,9 +90,10 @@
     <string name="info">Инструкция</string>
     <string name="archive">Архив</string>
     <string name="active">Активные</string>
-    <string name="add_date">Добавить дату исполнения</string>
+    <string name="add_date">Дата исполнения</string>
     <string name="done">Исполненные</string>
     <string name="ex_wish_field_one">Moe желание</string>
+    <string name="ex_wish_hint">Шаги к исполнению...</string>
 
 
 </resources>

@@ -241,6 +241,7 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                     ), true
                 )
             }
+//            TypeEx.NOTHING -> null
         }
     }
 
