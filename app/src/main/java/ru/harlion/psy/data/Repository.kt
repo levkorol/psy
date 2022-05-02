@@ -31,6 +31,10 @@ class Repository private constructor(context: Context) {
         return exerciseDao.getLists(typeEx)
     }
 
+    fun getExListByArchive(typeEx: TypeEx, isArchive : Boolean): LiveData<List<Exercise>> {
+        return exerciseDao.getListsByArchive(typeEx, isArchive)
+    }
+
     fun getExById(id : Long) = exerciseDao.exById(id)
 
     fun updateEx(exercise: Exercise) {

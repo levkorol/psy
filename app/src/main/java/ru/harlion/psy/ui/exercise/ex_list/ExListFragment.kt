@@ -42,41 +42,17 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
 
         binding.viewPager.adapter = ListAdapter(viewModel.exercises) {
             when (typeEx) {
-                TypeEx.GRATITUDE_DIARY -> checkEnumAndReplaceFragment(
-                    TypeEx.GRATITUDE_DIARY,
-                    it
-                )
+                TypeEx.GRATITUDE_DIARY -> checkEnumAndReplaceFragment(TypeEx.GRATITUDE_DIARY, it)
                 TypeEx.FAIL_DIARY -> checkEnumAndReplaceFragment(TypeEx.FAIL_DIARY, it)
-                TypeEx.ACTS_SELF_LOVE -> checkEnumAndReplaceFragment(
-                    TypeEx.ACTS_SELF_LOVE,
-                    it
-                )
-                TypeEx.MY_AMBULANCE -> checkEnumAndReplaceFragment(
-                    TypeEx.MY_AMBULANCE,
-                    it
-                )
-                TypeEx.PERFECT_LIFE -> checkEnumAndReplaceFragment(
-                    TypeEx.PERFECT_LIFE,
-                    it
-                )
-                TypeEx.SUCCESS_DIARY -> checkEnumAndReplaceFragment(
-                    TypeEx.SUCCESS_DIARY,
-                    it
-                )
-
+                TypeEx.ACTS_SELF_LOVE -> checkEnumAndReplaceFragment(TypeEx.ACTS_SELF_LOVE, it)
+                TypeEx.MY_AMBULANCE -> checkEnumAndReplaceFragment(TypeEx.MY_AMBULANCE, it)
+                TypeEx.PERFECT_LIFE -> checkEnumAndReplaceFragment(TypeEx.PERFECT_LIFE, it)
+                TypeEx.SUCCESS_DIARY -> checkEnumAndReplaceFragment(TypeEx.SUCCESS_DIARY, it)
                 TypeEx.LIFE_RULES -> checkEnumAndReplaceFragment(TypeEx.LIFE_RULES, it)
-                TypeEx.POSITIVE_BELIEFS -> checkEnumAndReplaceFragment(
-                    TypeEx.POSITIVE_BELIEFS,
-                    it
-                )
-                TypeEx.IDEAS_DIARY -> checkEnumAndReplaceFragment(
-                    TypeEx.IDEAS_DIARY,
-                    it
-                )
-                TypeEx.SELF_ESTEEM -> checkEnumAndReplaceFragment(
-                    TypeEx.SELF_ESTEEM,
-                    it
-                )
+                TypeEx.POSITIVE_BELIEFS -> checkEnumAndReplaceFragment(TypeEx.POSITIVE_BELIEFS, it)
+                TypeEx.IDEAS_DIARY -> checkEnumAndReplaceFragment(TypeEx.IDEAS_DIARY, it)
+                TypeEx.SELF_ESTEEM -> checkEnumAndReplaceFragment(TypeEx.SELF_ESTEEM, it)
+                TypeEx.WISH_DIARY -> checkEnumAndReplaceFragment(TypeEx.WISH_DIARY, it)
             }
         }
 
@@ -144,7 +120,7 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                     ), true
                 )
             }
-            TypeEx.WISH_DIARY -> replaceFragment(EditWishFragment(), true)
+            TypeEx.WISH_DIARY -> replaceFragment(EditWishFragment.newInstance(id), true)
             TypeEx.FREE_WRITING -> replaceFragment(EditFreeWritingFragment(), true)
             TypeEx.HIGHLIGHTS_ALBUM -> replaceFragment(EditAlbumFragment(), true)
             TypeEx.WORK_WITH_BELIEFS -> replaceFragment(EditBeliefFragment(), true)
