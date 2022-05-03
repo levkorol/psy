@@ -39,7 +39,7 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
         val (title, textInfo) = requireArguments().getIntArray("TEXTS_IDS_LIST_FG")!!
 
         viewModel.getEx(typeEx = typeEx as TypeEx, true)
-
+        binding.viewPager.isUserInputEnabled = false
         binding.viewPager.adapter = ListAdapter(viewModel.exercises) {
             when (typeEx) {
                 TypeEx.GRATITUDE_DIARY -> checkEnumAndReplaceFragment(TypeEx.GRATITUDE_DIARY, it)
@@ -64,6 +64,7 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
             TabLayoutMediator(binding.tab, binding.viewPager) { tab, position ->
                 tab.text = getString(tabs[position])
             }.attach()
+            binding.viewPager.isUserInputEnabled = true
         }
 
         binding.back.setOnClickListener {

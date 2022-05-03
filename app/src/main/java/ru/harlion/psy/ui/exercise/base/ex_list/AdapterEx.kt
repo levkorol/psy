@@ -28,7 +28,14 @@ class AdapterEx(private val clickEdit: (Long) -> Unit) : RecyclerView.Adapter<It
                 clickEdit.invoke(items[position].id)
             }
 
-            date.text = "12 ноября"//items[position].date
+            if( items[position].date > 0) {
+                date.text = "12 ноября"//items[position].date
+                date.visibility = View.VISIBLE
+            } else {
+                date.visibility = View.GONE
+            }
+
+            dateCreate.text = "12 ноября, 19:00"//items[position].date
             fieldOne.text = items[position].fieldOne
 
             when {

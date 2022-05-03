@@ -101,6 +101,11 @@
     <string name="ex_belief_one">Мое убеждение</string>
     <string name="ex_belief_two">Альтернативный вариант</string>
     <string name="ex_belief_item_hint">5 опровергающих примеров из жизни...</string>
+    <string name="question_photo_load">Откуда вы хотите загрузить изображение?</string>
+    <string name="gallery">Галлерея</string>
+    <string name="camera">Камера</string>
+    <string name="adding_date">Добавление даты</string>
+    <string name="save">Сохранить</string>
 
 
 </resources>

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".ui.exercise.child.edit.highlights_album.EditAlbumFragment">
 
@@ -48,5 +49,15 @@
         android:gravity="center|start"
         android:paddingHorizontal="8dp"
         android:drawableStart="@drawable/ic_picture" />
+
+        <ImageView
+            android:id="@+id/photoView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/pick_empty_ex" />
 
 </LinearLayout>
