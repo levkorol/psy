@@ -54,6 +54,7 @@ class EditWishFragment :
     }
 
     private fun initClicks() {
+        binding.back.setOnClickListener { parentFragmentManager.popBackStack() }
         binding.date.setOnClickListener {
             DialogCalendar().show(parentFragmentManager, null)
         }

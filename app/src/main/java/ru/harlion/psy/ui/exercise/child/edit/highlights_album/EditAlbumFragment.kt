@@ -99,6 +99,7 @@ class EditAlbumFragment :
     }
 
     private fun initClicks() {
+        binding.back.setOnClickListener { parentFragmentManager.popBackStack() }
         binding.photo.setOnClickListener { showAlterDialog() }
         binding.date.setOnClickListener { DialogCalendar().show(parentFragmentManager, null) }
         binding.save.setOnClickListener {

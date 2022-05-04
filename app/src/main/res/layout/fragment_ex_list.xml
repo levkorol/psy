@@ -59,39 +59,6 @@
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-
-<!--        <LinearLayout-->
-<!--            android:id="@+id/empty_list"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:gravity="center"-->
-<!--            android:orientation="vertical">-->
-
-<!--            <ImageView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="100dp"-->
-<!--                android:src="@drawable/pick_empty_ex" />-->
-
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginHorizontal="36dp"-->
-<!--                android:layout_marginTop="16dp"-->
-<!--                android:gravity="center"-->
-<!--                android:text="@string/here_empty_ex" />-->
-
-<!--            <androidx.appcompat.widget.AppCompatButton-->
-<!--                style="@style/ButtonBigMiddleViolet"-->
-<!--                android:id="@+id/btn_big_instruction"-->
-<!--                android:text="@string/go_instructions_ex" />-->
-<!--        </LinearLayout>-->
-
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/recycler_ex"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            app:layout_behavior="@string/appbar_scrolling_view_behavior" />-->
-<!--    </LinearLayout>-->
     </LinearLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_btn_main"

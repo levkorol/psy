@@ -40,6 +40,7 @@ class EditBeliefFragment : BindingFragment<FragmentEditBeliefBinding>(FragmentEd
     }
 
     private fun initClicks() {
+        binding.back.setOnClickListener { parentFragmentManager.popBackStack() }
         binding.save.setOnClickListener {
             if (id > 0) {
                 viewModel.update(

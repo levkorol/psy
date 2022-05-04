@@ -1,12 +1,21 @@
 package ru.harlion.psy.models.emotions
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
 class EmotionEvent (
-    val id: Long = -1,
+    @PrimaryKey(autoGenerate = true)
+    val id: Long = 0,
     val date: Long = 0,
-    val people: String = "",
-    val place: String = "",
-    val name: String = "", //название
-    val description: String= "", //описание
-    val emotion: List<Emotion> = listOf(), // емоции чувства ощущения
-    val label: String = ""
+    val time: Long = 0,
+    val fieldOne: String = "",
+    val fieldTwo: String = "",
+    val fieldThree: String = "",
+    val fieldFor: String = "",
+    val fieldFife: String = "",
+    val fieldSix: String = "",
+    val fieldSeven: String = "",
+    val fieldEight: String = "",
+    val emotion: List<Emotion> = listOf()
 )

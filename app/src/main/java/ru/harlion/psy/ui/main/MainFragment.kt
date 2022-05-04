@@ -59,7 +59,7 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
         }
 
         binding.addBtnMain.setOnClickListener {
-            replaceFragment(EditDiaryEmoFragment(), true)
+            replaceFragment(EditDiaryEmoFragment.newInstance(0), true)
         }
         binding.btnPremium.setOnClickListener {
             replaceFragment(PremiumFragment(), true)

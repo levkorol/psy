@@ -18,6 +18,7 @@ import ru.harlion.psy.databinding.ItemExListVpBinding
 import ru.harlion.psy.models.Exercise
 
 import ru.harlion.psy.models.TypeEx
+import ru.harlion.psy.ui.exercise.base.ExInstructionsFragment
 import ru.harlion.psy.ui.exercise.child.edit.free_writing.EditFreeWritingFragment
 import ru.harlion.psy.ui.exercise.child.edit.highlights_album.EditAlbumFragment
 import ru.harlion.psy.ui.exercise.base.edit.text_recycler.EditExTextRecyclerFragment
@@ -40,7 +41,7 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
 
         viewModel.getEx(typeEx = typeEx as TypeEx, true)
         binding.viewPager.isUserInputEnabled = false
-        binding.viewPager.adapter = ListAdapter(viewModel.exercises) {
+        binding.viewPager.adapter = ListAdapter(viewModel.exercises, {
             when (typeEx) {
                 TypeEx.GRATITUDE_DIARY -> checkEnumAndReplaceFragment(TypeEx.GRATITUDE_DIARY, it)
                 TypeEx.FAIL_DIARY -> checkEnumAndReplaceFragment(TypeEx.FAIL_DIARY, it)
@@ -57,7 +58,9 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                 TypeEx.FREE_WRITING -> checkEnumAndReplaceFragment(TypeEx.FREE_WRITING, it)
                 TypeEx.HIGHLIGHTS_ALBUM -> checkEnumAndReplaceFragment(TypeEx.HIGHLIGHTS_ALBUM, it)
             }
-        }
+        }, {
+            replaceInfoFragment()
+        })
 
         if (tabs != null) {
             binding.tab.visibility = View.VISIBLE
@@ -76,6 +79,16 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
         binding.addBtnMain.setOnClickListener {
             checkEnumAndReplaceFragment(typeEx, 0)
         }
+    }
+
+    private fun replaceInfoFragment() {
+        replaceFragment(ExInstructionsFragment.newInstance(
+            R.string.emo_diary_field_one,
+            R.string.emo_diary_field_one,
+            R.string.emo_diary_field_one,
+            R.string.emo_diary_field_one,
+            R.string.emo_diary_field_one,
+        ), true)
     }
 
     private fun checkEnumAndReplaceFragment(typeEx: TypeEx, id: Long) {
@@ -249,7 +262,11 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
             }
     }
 
-    class ListAdapter(val items: List<LiveData<List<Exercise>>>, val clickEdit: (Long) -> Unit) :
+    class ListAdapter(
+        val items: List<LiveData<List<Exercise>>>,
+        val clickEdit: (Long) -> Unit,
+        val clickInfo: () -> Unit
+    ) :
         RecyclerView.Adapter<Holder>() {
 
         override fun getItemCount(): Int = items.size
@@ -262,6 +279,7 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                 binding.recyclerEx.apply {
                     layoutManager = LinearLayoutManager(parent.context)
                     adapter = AdapterEx(clickEdit)
+                    binding.btnBigInstruction.setOnClickListener { clickInfo.invoke() }
                 }
             }
         }
@@ -284,10 +302,11 @@ class Holder(parent: ViewGroup) :
     BindingHolder<ItemExListVpBinding>(ItemExListVpBinding::inflate, parent),
     Observer<List<Exercise>> {
 
-    var elements : LiveData<List<Exercise>>? = null
+    var elements: LiveData<List<Exercise>>? = null
 
     override fun onChanged(it: List<Exercise>) {
         binding.apply {
+
             if (it.isNotEmpty()) {
                 recyclerEx.visibility = View.VISIBLE
                 emptyList.visibility = View.GONE

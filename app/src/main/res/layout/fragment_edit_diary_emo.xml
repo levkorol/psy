@@ -32,31 +32,35 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="-6dp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/date"
                 style="@style/ButtonEditDateTime"
                 android:layout_marginEnd="16dp"
-                android:text="Пн, 25 января" />
+                android:paddingHorizontal="16dp"
+                tools:text="Пн, 25 января" />
 
             <TextView
                 android:id="@+id/time"
                 style="@style/ButtonEditDateTime"
-                android:text="19:00" />
+                tools:text="19:00" />
         </LinearLayout>
 
         <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
-            android:id="@+id/titleEditText"
+            android:id="@+id/question_one"
             style="@style/ComponentTitleEditText"
-            android:hint="text"
-            android:title="Ситуация" />
+            android:title="@string/emo_diary_field_one" />
 
         <TextView
             android:id="@+id/btn_emotions"
             style="@style/ButtonEditWithDrawable"
-            android:drawableEnd="@drawable/ic_baseline_add_24"
-            android:text="Какие эмоции я испытываю ?" />
+            android:drawableStart="@drawable/ic_add"
+            android:drawablePadding="10dp"
+            android:padding="12dp"
+            android:text="@string/emo_diary_field_two" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_emotions"
@@ -66,21 +70,19 @@
             android:paddingTop="4dp" />
 
         <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
-            android:id="@+id/titleEditTextView"
+            android:id="@+id/question_two"
             style="@style/ComponentTitleEditText"
-            android:hint="text"
-            android:title="Ощущения в теле" />
+            android:title="@string/emo_diary_field_three" />
 
         <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
+            android:id="@+id/question_three"
             style="@style/ComponentTitleEditText"
-            android:hint="text"
-            android:title="Действие" />
+            android:title="@string/emo_diary_field_for" />
 
         <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
+            android:id="@+id/question_for"
             style="@style/ComponentTitleEditText"
-            android:layout_marginBottom="100dp"
-            android:hint="text"
-            android:title="Альтернативное действие" />
+            android:title="@string/emo_diary_field_fife" />
 
     </LinearLayout>
 </ScrollView>

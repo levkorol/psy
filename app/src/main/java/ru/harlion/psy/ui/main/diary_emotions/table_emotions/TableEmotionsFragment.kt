@@ -17,6 +17,8 @@ class TableEmotionsFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.back.setOnClickListener { parentFragmentManager.popBackStack() }
+
         adapterEmo = AdapterTableEmotions()
         binding.emoTableRv.apply {
             layoutManager = LinearLayoutManager(requireContext())
@@ -29,5 +31,13 @@ class TableEmotionsFragment :
             Emotion(name = "name"),
             Emotion(name = "name"),
         )
+    }
+
+    companion object {
+//        fun newInstance(emotions: arrayList<Emotion>) = TableEmotionsFragment().apply {
+//            arguments = Bundle().apply {
+//                putSerializable("EMOTIONS", emotions)
+//            }
+//        }
     }
 }

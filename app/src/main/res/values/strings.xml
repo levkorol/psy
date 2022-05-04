@@ -11,8 +11,8 @@
     <string name="pro_better">Больше возможностей с PRO</string>
     <string name="diary_emo">Дневник эмоций</string>
     <string name="day_star">Оценка дня</string>
-    <string name="here_empty">Здесь пока пусто...</string>
-    <string name="here_empty_ex">Здесь пока пусто... Обязательно ознакомься с упражнением в инструкции!</string>
+    <string name="here_empty">Здесь пока пусто</string>
+    <string name="here_empty_ex">Здесь пока пусто!&lt;br /&gt;Обязательно ознакомься с упражнением в инструкции!</string>
     <string name="profile">Профиль</string>
     <string name="go_tests">Тест Трансактный анализ</string>
     <string name="your_name">Ваше имя</string>
@@ -106,6 +106,17 @@
     <string name="camera">Камера</string>
     <string name="adding_date">Добавление даты</string>
     <string name="save">Сохранить</string>
+    <string name="emo_diary_field_one">Ситуация</string>
+    <string name="emo_diary_field_two">Какие эмоции я испытываю ?</string>
+    <string name="emo_diary_field_three">Ощущения в теле</string>
+    <string name="emo_diary_field_for">Мои действия в этой ситуации</string>
+    <string name="emo_diary_field_fife">Что я хочу сделать на самом деле?</string>
+    <string name="password">Пароль на вход</string>
+    <string name="mark">Поставьте нам оценку</string>
+    <string name="project_psy">Психолог проекта</string>
+    <string name="mail">Связь с разработчиком</string>
+    <string name="statistic">Статистика моих эмоций</string>
+    <string name="mail_to">Техническая поддержка PsyCat</string>
 
 
 </resources>

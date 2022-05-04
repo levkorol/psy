@@ -22,7 +22,29 @@ class Repository private constructor(context: Context) {
         .build()
 
     private val exerciseDao = database.exerciseDao()
+    private val emotionEventDao = database.emotionEventDao()
 
+    //emotionEvent
+
+    fun addEmotionEvent(emotionEvent: EmotionEvent) {
+        emotionEventDao.add(emotionEvent)
+    }
+
+    fun updateEmoEvent(emotionEvent: EmotionEvent) {
+        emotionEventDao.update(emotionEvent)
+    }
+
+    fun getEmoEventsList(): LiveData<List<EmotionEvent>> {
+        return emotionEventDao.getLists()
+    }
+
+    fun getEmoEventById(id : Long) = emotionEventDao.emotionEventById(id)
+
+    fun deleteEmoEvent(id : Long) {
+        emotionEventDao.deleteById(id)
+    }
+
+    // exercises
     fun addExercise(exercise: Exercise) {
         exerciseDao.add(exercise)
     }
@@ -62,115 +84,6 @@ class Repository private constructor(context: Context) {
             Emotion(name = "emo"),
             Emotion(name = "emo"),
             Emotion(name = "emo"),
-            Emotion(name = "emo"),
-            Emotion(name = "emo"),
-            Emotion(name = "emo"),
-            Emotion(name = "emo"),
-            Emotion(name = "emo")
         )
-
-        fun getEventEmo() = listOf(
-            EmotionEvent(
-                name = "name",
-                emotion = listOf(
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                )
-            ),
-            EmotionEvent(
-                name = "name",
-                emotion = listOf(
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                )
-            ),
-            EmotionEvent(
-                name = "name",
-                emotion = listOf(
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                )
-            ),
-            EmotionEvent(
-                name = "name",
-                emotion = listOf(
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                )
-            ),
-            EmotionEvent(
-                name = "name",
-                emotion = listOf(
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                )
-            ),
-            EmotionEvent(
-                name = "name",
-                emotion = listOf(
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                )
-            ),
-            EmotionEvent(
-                name = "name",
-                emotion = listOf(
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                )
-            ),
-            EmotionEvent(
-                name = "name",
-                emotion = listOf(
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                )
-            ),
-            EmotionEvent(
-                name = "name",
-                emotion = listOf(
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                )
-            ),
-            EmotionEvent(
-                name = "name",
-                emotion = listOf(
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                )
-            ),
-            EmotionEvent(
-                name = "name",
-                emotion = listOf(
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                )
-            ),
-            EmotionEvent(
-                name = "name",
-                emotion = listOf(
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                    Emotion(name = "emo"),
-                )
-            ),
-        )
-
     }
 }

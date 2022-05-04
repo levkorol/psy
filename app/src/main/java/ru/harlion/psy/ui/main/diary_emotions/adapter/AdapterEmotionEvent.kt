@@ -37,7 +37,7 @@ class AdapterEmotionSEvent(
 
     override fun onBindViewHolder(holder: BindingHolder<ItemDiaryEmotionsBinding>, position: Int) {
                 holder.binding.apply {
-                    emotionName.text = items[position].name
+                    emotionName.text = items[position].fieldOne
                      time.text = "19:00"
                     // containerItemCardView.setBackgroundColor(item[position].color)
                     emotionsRecyclerView.adapter

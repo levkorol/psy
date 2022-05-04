@@ -62,48 +62,52 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/diary_emotions"
+        style="@style/MenuItemProfile"
+        android:drawableStart="@drawable/ic_smile_wink"
+        android:text="@string/diary_emo" />
+
+    <TextView
+        android:id="@+id/statistic"
+        style="@style/MenuItemProfile"
+        android:drawableStart="@drawable/ic_stats"
+        android:text="@string/statistic" />
+
+    <TextView
+        android:id="@+id/pin_code"
+        style="@style/MenuItemProfile"
+        android:drawableStart="@drawable/ic_lock"
+        android:text="@string/password" />
+
+    <TextView
         android:id="@+id/premium"
         style="@style/MenuItemProfile"
         android:drawableStart="@drawable/ic_crown"
         android:text="@string/pro" />
 
     <TextView
-        android:id="@+id/table_emotions"
-        style="@style/MenuItemProfile"
-        android:drawableStart="@drawable/ic_smile_wink"
-        android:text="@string/table_emotions" />
-
-    <TextView
-        android:id="@+id/for_user"
+        android:id="@+id/info_user"
         style="@style/MenuItemProfile"
         android:drawableStart="@drawable/ic_star"
         android:text="@string/for_user" />
 
     <TextView
-        style="@style/MenuItemProfile"
-        android:drawableStart="@drawable/ic_stats"
-        android:text="Моя статистика" />
-
-    <TextView
-        android:id="@+id/pin_code"
-        style="@style/MenuItemProfile"
-        android:drawableStart="@drawable/ic_lock"
-        android:text="Пароль на вход" />
-
-    <TextView
+        android:id="@+id/mail"
         style="@style/MenuItemProfile"
         android:drawableStart="@drawable/ic_mail"
-        android:text="Связь с разработчиком" />
+        android:text="@string/mail" />
 
     <TextView
+        android:id="@+id/psy_project"
         style="@style/MenuItemProfile"
         android:drawableStart="@drawable/ic_hand_holding_heart"
-        android:text="Психолог проекта" />
+        android:text="@string/project_psy" />
 
     <TextView
+        android:id="@+id/mark"
         style="@style/MenuItemProfile"
         android:drawableStart="@drawable/ic_heart"
-        android:text="Поставьте нам оценку" />
+        android:text="@string/mark" />
 
     <TextView
         style="@style/MenuItemProfile"
