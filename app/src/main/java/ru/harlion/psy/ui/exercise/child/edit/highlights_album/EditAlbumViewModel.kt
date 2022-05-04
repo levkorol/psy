@@ -11,13 +11,13 @@ class EditAlbumViewModel : BaseViewModel() {
         fieldOne : String,
         fieldTwo : String,
         image : String,
-        dateCreate: Long
+        date: Long
     ){
         val exercise = Exercise(
             fieldOne = fieldOne,
             fieldTwo= fieldTwo,
             image = image,
-            date = dateCreate,
+            date = date,
             dateCreate = System.currentTimeMillis(),
             type = TypeEx.HIGHLIGHTS_ALBUM
         )
@@ -28,15 +28,15 @@ class EditAlbumViewModel : BaseViewModel() {
         fieldOne : String,
         fieldTwo : String,
         image : String,
-        dateCreate: Long
+        date: Long
     ){
         val exercise = Exercise(
             id = exercise.value?.id ?: 0L,
             fieldOne = fieldOne,
             fieldTwo= fieldTwo,
             image = image,
-            date = dateCreate,
-            dateCreate = System.currentTimeMillis(),
+            date = date,
+            dateCreate = exercise.value?.dateCreate ?: 0L,
             type = exercise.value?.type ?: TypeEx.NOTHING
         )
         repo.updateEx(exercise)

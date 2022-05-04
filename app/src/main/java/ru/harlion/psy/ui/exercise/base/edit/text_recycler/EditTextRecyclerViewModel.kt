@@ -24,6 +24,7 @@ class EditTextRecyclerViewModel : ViewModel() {
             id = exercise.value?.id ?: 0L,
             fieldOne = fieldOne,
             listString = list,
+            dateCreate = exercise.value?.dateCreate ?: 0L,
             type = exercise.value?.type ?: TypeEx.NOTHING
         )
         repo.updateEx(newExercise)
@@ -37,7 +38,7 @@ class EditTextRecyclerViewModel : ViewModel() {
         val exercise = Exercise(
             fieldOne = fieldOne,
             listString = list,
-            dateCreate = LocalDate.now().toEpochDay(),
+            dateCreate = System.currentTimeMillis(),
             type = typeEx
         )
         repo.addExercise(exercise)

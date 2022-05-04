@@ -30,7 +30,7 @@
         style="@style/ComponentTitleEditText" />
 
     <TextView
-        android:id="@+id/add_deadline"
+        android:id="@+id/date"
         style="@style/ButtonEditWithSmallDrawable"
         android:text="@string/add_date"
         android:gravity="center|start"

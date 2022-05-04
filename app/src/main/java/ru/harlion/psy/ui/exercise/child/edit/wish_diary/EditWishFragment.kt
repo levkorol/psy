@@ -3,10 +3,13 @@ package ru.harlion.psy.ui.exercise.child.edit.wish_diary
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentEditWishBinding
+import ru.harlion.psy.utils.dateToString
+import ru.harlion.psy.utils.dialogs.DialogCalendar
 
 
 class EditWishFragment :
@@ -14,6 +17,16 @@ class EditWishFragment :
 
     private val viewModel: EditWishViewModel by viewModels()
     private var id = 0L
+    private var date = 0L
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setFragmentResultListener("calendarDate") { _, bundle ->
+            date = bundle.getLong("epochMillis")
+            binding.date.text = dateToString(date)
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -33,17 +46,22 @@ class EditWishFragment :
             if(id > 0) {
                 binding.fieldOne.setText(it.fieldOne)
                 binding.addItem.items = it.listString
+                if (it.date > 0) {
+                    binding.date.text = dateToString(it.date)
+                }
             }
         })
     }
 
     private fun initClicks() {
+        binding.date.setOnClickListener {
+            DialogCalendar().show(parentFragmentManager, null)
+        }
         binding.save.setOnClickListener {
             if (id > 0) {
                 viewModel.update(
                     binding.fieldOne.text.toString(),
-                    0,
-                    0,
+                    date,
                     binding.addItem.items.map {
                         it.toString()
                     }
@@ -51,8 +69,7 @@ class EditWishFragment :
             } else {
                 viewModel.add(
                     binding.fieldOne.text.toString(),
-                    0,
-                    0,
+                    date,
                     binding.addItem.items.map {
                         it.toString()
                     }

@@ -15,14 +15,13 @@ class EditWishViewModel: BaseViewModel() {
 
     fun add(
         fieldOne : String,
-        dateCreate: Long,
         dateDone: Long,
         listSteps: List<String>,
     ){
         val exercise = Exercise(
             fieldOne = fieldOne,
             date = dateDone,
-            dateCreate = dateCreate,
+            dateCreate = System.currentTimeMillis(),
             listString = listSteps,
             type = TypeEx.WISH_DIARY
         )
@@ -31,7 +30,6 @@ class EditWishViewModel: BaseViewModel() {
 
     fun update(
         fieldOne : String,
-        dateCreate: Long,
         dateDone: Long,
         listSteps: List<String>,
     ){
@@ -39,8 +37,8 @@ class EditWishViewModel: BaseViewModel() {
             id = exercise.value?.id ?: 0L,
             fieldOne = fieldOne,
             date = dateDone,
-            dateCreate = dateCreate,
             listString = listSteps,
+            dateCreate = exercise.value?.dateCreate ?: 0L,
             type = exercise.value?.type ?: TypeEx.NOTHING
         )
         repo.updateEx(exercise)

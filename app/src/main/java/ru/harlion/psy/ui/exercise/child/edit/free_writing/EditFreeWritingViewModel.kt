@@ -10,13 +10,12 @@ class EditFreeWritingViewModel : BaseViewModel() {
         fieldOne: String,
         fieldTwo: String,
         fieldThree: String,
-        dateCreate: Long,
     ) {
         val exercise = Exercise(
             fieldOne = fieldOne,
             fieldTwo = fieldTwo,
             fieldThree = fieldThree,
-            dateCreate = dateCreate,
+            dateCreate = System.currentTimeMillis(),
             type = TypeEx.FREE_WRITING
         )
         repo.addExercise(exercise)
@@ -25,15 +24,14 @@ class EditFreeWritingViewModel : BaseViewModel() {
     fun update(
         fieldOne: String,
         fieldTwo: String,
-        fieldThree: String,
-        dateCreate: Long,
+        fieldThree: String
     ) {
         val exercise = Exercise(
             id = exercise.value?.id ?: 0L,
             fieldOne = fieldOne,
             fieldTwo = fieldTwo,
             fieldThree = fieldThree,
-            dateCreate = dateCreate,
+            dateCreate = exercise.value?.dateCreate ?: 0L,
             type = exercise.value?.type ?: TypeEx.NOTHING
         )
         repo.updateEx(exercise)

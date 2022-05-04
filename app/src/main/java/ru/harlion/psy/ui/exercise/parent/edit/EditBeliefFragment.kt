@@ -44,7 +44,6 @@ class EditBeliefFragment : BindingFragment<FragmentEditBeliefBinding>(FragmentEd
             if (id > 0) {
                 viewModel.update(
                     binding.questionOne.text.toString(),
-                    0,
                     binding.addItem.items.map {
                         it.toString()
                     },
@@ -53,7 +52,6 @@ class EditBeliefFragment : BindingFragment<FragmentEditBeliefBinding>(FragmentEd
             } else {
                 viewModel.add(
                     binding.questionOne.text.toString(),
-                    0,
                     binding.addItem.items.map {
                         it.toString()
                     },

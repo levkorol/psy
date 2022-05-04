@@ -8,7 +8,6 @@ class EditBeliefViewModel : BaseViewModel() {
 
     fun add(
         fieldOne : String,
-        dateCreate: Long,
         listSteps: List<String>,
         fieldTwo : String,
     ){
@@ -16,7 +15,7 @@ class EditBeliefViewModel : BaseViewModel() {
             fieldOne = fieldOne,
             listString = listSteps,
             fieldTwo = fieldTwo,
-            dateCreate = dateCreate,
+            dateCreate = System.currentTimeMillis(),
             type = TypeEx.WORK_WITH_BELIEFS
         )
         repo.addExercise(exercise)
@@ -24,7 +23,6 @@ class EditBeliefViewModel : BaseViewModel() {
 
     fun update(
         fieldOne : String,
-        dateCreate: Long,
         listSteps: List<String>,
         fieldTwo : String,
     ){
@@ -33,7 +31,7 @@ class EditBeliefViewModel : BaseViewModel() {
             fieldOne = fieldOne,
             listString = listSteps,
             fieldTwo = fieldTwo,
-            dateCreate = dateCreate,
+            dateCreate = exercise.value?.dateCreate ?: 0L,
             type = exercise.value?.type ?: TypeEx.NOTHING
         )
         repo.updateEx(exercise)

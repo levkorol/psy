@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.harlion.psy.base.BindingHolder
 import ru.harlion.psy.databinding.ItemExerciseTitleCountBinding
 import ru.harlion.psy.models.Exercise
+import ru.harlion.psy.utils.dateAndTimeToString
+import ru.harlion.psy.utils.dateToString
 
 private typealias ItemHolder = BindingHolder<ItemExerciseTitleCountBinding>
 
@@ -29,13 +31,13 @@ class AdapterEx(private val clickEdit: (Long) -> Unit) : RecyclerView.Adapter<It
             }
 
             if( items[position].date > 0) {
-                date.text = "12 ноября"//items[position].date
+                date.text = dateToString(items[position].date)
                 date.visibility = View.VISIBLE
             } else {
                 date.visibility = View.GONE
             }
 
-            dateCreate.text = "12 ноября, 19:00"//items[position].date
+            dateCreate.text = dateAndTimeToString(items[position].dateCreate)
             fieldOne.text = items[position].fieldOne
 
             when {
