@@ -17,4 +17,8 @@ open class BaseViewModel : ViewModel() {
     fun delete(id : Long){
         repo.deleteEx(id)
     }
+
+    fun updateArchive(isArchive: Boolean, id : Long) {
+        repo.updateIsArchiveEx(isArchive = isArchive, id = id)
+    }
 }

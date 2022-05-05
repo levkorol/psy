@@ -67,6 +67,10 @@ class Repository private constructor(context: Context) {
         exerciseDao.deleteById(id)
     }
 
+    fun updateIsArchiveEx(id: Long, isArchive: Boolean) {
+        exerciseDao.updateFields(id, isArchive = isArchive)
+    }
+
     companion object {
         private var INSTANCE: Repository? = null
 

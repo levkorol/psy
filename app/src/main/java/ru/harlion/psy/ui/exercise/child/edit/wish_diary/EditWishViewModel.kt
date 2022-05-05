@@ -6,13 +6,6 @@ import ru.harlion.psy.ui.exercise.base.BaseViewModel
 
 class EditWishViewModel: BaseViewModel() {
 
-//    private val repo = Repository.get()
-//    lateinit var exercise: LiveData<Exercise>
-//
-//    fun getExById(id : Long) {
-//        exercise = repo.getExById(id)
-//    }
-
     fun add(
         fieldOne : String,
         dateDone: Long,
@@ -43,8 +36,4 @@ class EditWishViewModel: BaseViewModel() {
         )
         repo.updateEx(exercise)
     }
-
-//    fun delete(id : Long){
-//       repo.deleteEx(id)
-//    }
 }

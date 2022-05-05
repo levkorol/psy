@@ -28,4 +28,8 @@ abstract class ExerciseDao {
 
     @Query("SELECT * from exercise where isArchive = :isArchive and type = :typeEx")
     abstract fun getListsByArchive(typeEx : TypeEx, isArchive : Boolean ): LiveData<List<Exercise>>
+
+
+    @Query("UPDATE exercise SET  isArchive = coalesce(:isArchive, isArchive) WHERE id = :id")
+    abstract fun updateFields(id: Long, isArchive: Boolean)
 }

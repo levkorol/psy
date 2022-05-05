@@ -24,19 +24,34 @@
             android:src="@drawable/ic_baseline_done_24" />
     </RelativeLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/main_light_violet"
+        android:orientation="horizontal">
+        <CheckBox
+            android:id="@+id/isDone"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"/>
+        <TextView
+            android:id="@+id/date"
+            style="@style/ButtonEditWithSmallDrawable"
+            android:text="@string/add_date"
+            android:gravity="center|end"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:layout_marginTop="0dp"
+            android:layout_width="wrap_content"
+            android:drawableEnd="@drawable/ic_calendar" />
+    </LinearLayout>
+
     <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
         android:id="@+id/field_one"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="8dp"
         style="@style/ComponentTitleEditText" />
-
-    <TextView
-        android:id="@+id/date"
-        style="@style/ButtonEditWithSmallDrawable"
-        android:text="@string/add_date"
-        android:gravity="center|start"
-        android:paddingHorizontal="8dp"
-        android:drawableStart="@drawable/ic_alarm_clock" />
-
 
     <ru.harlion.psy.ui.exercise.base.view_components.EditTextRecyclerView
         android:id="@+id/add_item"

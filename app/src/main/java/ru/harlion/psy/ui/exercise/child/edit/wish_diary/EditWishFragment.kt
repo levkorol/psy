@@ -3,6 +3,7 @@ package ru.harlion.psy.ui.exercise.child.edit.wish_diary
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import ru.harlion.psy.R
@@ -43,11 +44,15 @@ class EditWishFragment :
 
     private fun observe() {
         viewModel.exercise.observe(viewLifecycleOwner, {
-            if(id > 0) {
+            if (id > 0) {
                 binding.fieldOne.setText(it.fieldOne)
                 binding.addItem.items = it.listString
+                binding.isDone.isChecked = it.isArchive
                 if (it.date > 0) {
-                    binding.date.text = dateToString(it.date)
+                    binding.date.apply {
+                        text = dateToString(it.date)
+                        setTextColor(ContextCompat.getColor(requireContext(), R.color.main_violet))
+                    }
                 }
             }
         })
@@ -77,6 +82,9 @@ class EditWishFragment :
                 )
             }
             parentFragmentManager.popBackStack()
+        }
+        binding.isDone.setOnClickListener {
+            viewModel.updateArchive(binding.isDone.isChecked, id)
         }
     }
 
