@@ -14,6 +14,7 @@
         android:id="@+id/date"
         android:layout_marginTop="4dp"
         tools:text="12 ноября, 19:00"
+        android:visibility="gone"
         style="@style/TextDateTime"/>
 
     <TextView

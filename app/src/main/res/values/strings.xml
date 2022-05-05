@@ -117,6 +117,7 @@
     <string name="mail">Связь с разработчиком</string>
     <string name="statistic">Статистика моих эмоций</string>
     <string name="mail_to">Техническая поддержка PsyCat</string>
+    <string name="test_begin">Начать тест</string>
 
 
 </resources>

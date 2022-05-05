@@ -12,6 +12,7 @@ import ru.harlion.psy.ui.main.diary_emotions.DiaryEmotionFragment
 import ru.harlion.psy.ui.main.diary_emotions.table_emotions.TableEmotionsFragment
 import ru.harlion.psy.ui.profile.pincode.PinCodeFragment
 import ru.harlion.psy.ui.profile.premium.PremiumFragment
+import ru.harlion.psy.ui.profile.test.TestFragment
 import ru.harlion.psy.utils.replaceFragment
 
 
@@ -25,6 +26,9 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
 
     private fun initClicks() {
         binding.back.setOnClickListener { parentFragmentManager.popBackStack() }
+        binding.test.setOnClickListener {
+          replaceFragment(TestFragment(), true)
+        }
         binding.diaryEmotions.setOnClickListener {
             replaceFragment(DiaryEmotionFragment(), true)
         }
