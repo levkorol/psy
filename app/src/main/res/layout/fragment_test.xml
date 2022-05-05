@@ -29,11 +29,95 @@
             android:src="@drawable/ic_baseline_info_24" />
     </RelativeLayout>
 
+    <TextView
+        style="@style/TextTitleQuestions"
+        android:layout_marginTop="22dp"
+        android:gravity="center"
+        android:text="Результаты теста"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="60dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginHorizontal="16dp"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:text="Рe 30%"/>
+
+        <TextView
+            android:layout_width="60dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginHorizontal="16dp"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:text="Рe 30%"/>
+
+        <TextView
+            android:layout_width="60dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginHorizontal="16dp"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:text="Рe 30%"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ProgressBar
+            android:id="@+id/child"
+            style="@style/Widget.ProgressBar.Vertical"
+            android:layout_width="60dp"
+            android:layout_height="300dp"
+            android:layout_marginHorizontal="16dp"
+            android:progress="30" />
+
+        <ProgressBar
+            android:id="@+id/adult"
+            style="@style/Widget.ProgressBar.Vertical"
+            android:layout_width="60dp"
+            android:layout_height="300dp"
+            android:layout_marginHorizontal="16dp"
+            android:progress="50" />
+
+        <ProgressBar
+            android:id="@+id/parent"
+            style="@style/Widget.ProgressBar.Vertical"
+            android:layout_width="60dp"
+            android:layout_height="300dp"
+            android:layout_marginHorizontal="16dp"
+            android:progress="30" />
+
+    </LinearLayout>
+
+    <TextView
+       style="@style/ButtonBigLineViolet"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Сохранить в прогресс профиля"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <TextView
         android:id="@+id/test_begin"
         style="@style/ButtonBigMiddleViolet"
         android:layout_width="match_parent"
         android:gravity="center"
-        android:text="@string/test_begin"/>
+        android:text="@string/test_begin" />
 </LinearLayout>
