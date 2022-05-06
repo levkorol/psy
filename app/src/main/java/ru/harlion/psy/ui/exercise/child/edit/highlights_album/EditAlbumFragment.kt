@@ -6,6 +6,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
@@ -26,6 +27,8 @@ class EditAlbumFragment :
     private var id = 0L
     private var photoRequest: PhotoRequest? = null
     private var date = 0L
+    lateinit var launcher: ActivityResultLauncher<Intent>
+    private var isPhotoChanged = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,14 +38,15 @@ class EditAlbumFragment :
             binding.date.text = dateToString(date)
         }
 
-        //todo
-//        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-//            if (it.resultCode == Activity.RESULT_OK) {
-//                if (photoRequest?.onActivityResult(100, it.resultCode, it.data) == true) {
-//                    binding.photoView.setImageURI(Uri.fromFile(photoRequest!!.file))
-//                }
-//            }
-//        }
+        launcher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+                if (it.resultCode == Activity.RESULT_OK) {
+                    if (photoRequest?.onActivityResult(it.data) == true) {
+                        binding.photoView.setImageURI(Uri.fromFile(photoRequest!!.file))
+                        isPhotoChanged = true
+                    }
+                }
+            }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -58,13 +62,6 @@ class EditAlbumFragment :
         initClicks()
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (photoRequest?.onActivityResult(requestCode, resultCode, data) == true) {
-            binding.photoView.setImageURI(Uri.fromFile(photoRequest!!.file))
-        }
-    }
-
     private fun observe() {
         viewModel.exercise.observe(viewLifecycleOwner, {
             if (id > 0) {
@@ -77,16 +74,6 @@ class EditAlbumFragment :
                 } catch (e: Exception) {
                     photoView.setImageURI(null)
                 }
-
-//                val oldPhoto = it.image
-//                if (photoRequest != null) {
-//                    val pathPhoto = photoRequest!!.file.path
-//                    if (oldPhoto != pathPhoto && oldPhoto.isNotBlank()) {
-//                        File(oldPhoto).delete()
-//                    }
-//                } else if ( it.image.isNotBlank()) {
-//                    File(oldPhoto).delete()
-//                }
             }
         })
     }
@@ -95,7 +82,7 @@ class EditAlbumFragment :
         if (photoRequest == null) {
             photoRequest = PhotoRequest(this)
         }
-        photoRequest!!.showAlterDialog()
+        photoRequest!!.showAlterDialog(launcher)
     }
 
     private fun initClicks() {
@@ -107,7 +94,7 @@ class EditAlbumFragment :
                 viewModel.update(
                     binding.questionOne.text.toString(),
                     binding.questionTwo.text.toString(),
-                    photoRequest?.file?.path ?: "",
+                    if(isPhotoChanged) photoRequest?.file?.path ?: "" else null,
                     date,
                 )
             } else {

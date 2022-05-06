@@ -59,7 +59,7 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                 TypeEx.HIGHLIGHTS_ALBUM -> checkEnumAndReplaceFragment(TypeEx.HIGHLIGHTS_ALBUM, it)
             }
         }, {
-            replaceInfoFragment()
+            infoFragmentAndSetText(typeEx)
         })
 
         if (tabs != null) {
@@ -79,16 +79,151 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
         binding.addBtnMain.setOnClickListener {
             checkEnumAndReplaceFragment(typeEx, 0)
         }
+
+        binding.info.setOnClickListener {
+           infoFragmentAndSetText(typeEx)
+        }
+
     }
 
-    private fun replaceInfoFragment() {
-        replaceFragment(ExInstructionsFragment.newInstance(
-            R.string.emo_diary_field_one,
-            R.string.emo_diary_field_one,
-            R.string.emo_diary_field_one,
-            R.string.emo_diary_field_one,
-            R.string.emo_diary_field_one,
-        ), true)
+    private fun infoFragmentAndSetText(typeEx: TypeEx) {
+        when(typeEx) {
+            TypeEx.HIGHLIGHTS_ALBUM -> replaceFragment(
+               ExInstructionsFragment.newInstance(
+                   R.string.ex_album_title_two,
+                   R.string.ex_album_title_two,
+                   R.string.ex_album_title_two,
+                   R.string.ex_album_title_two,
+                   R.string.ex_album_title_two,
+               ), true
+            )
+            TypeEx.IDEAS_DIARY -> replaceFragment(
+                ExInstructionsFragment.newInstance(
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                ), true
+            )
+            TypeEx.WISH_DIARY -> replaceFragment(
+                ExInstructionsFragment.newInstance(
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                ), true
+            )
+            TypeEx.FREE_WRITING -> replaceFragment(
+                ExInstructionsFragment.newInstance(
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                ), true
+            )
+            TypeEx.GRATITUDE_DIARY -> replaceFragment(
+                ExInstructionsFragment.newInstance(
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                ), true
+            )
+            TypeEx.SELF_ESTEEM -> replaceFragment(
+                ExInstructionsFragment.newInstance(
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                ), true
+            )
+            TypeEx.FAIL_DIARY -> replaceFragment(
+                ExInstructionsFragment.newInstance(
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                ), true
+            )
+            TypeEx.ACTS_SELF_LOVE -> replaceFragment(
+                ExInstructionsFragment.newInstance(
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                ), true
+            )
+            TypeEx.MY_AMBULANCE -> replaceFragment(
+                ExInstructionsFragment.newInstance(
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                ), true
+            )
+            TypeEx.PERFECT_LIFE -> replaceFragment(
+                ExInstructionsFragment.newInstance(
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                ), true
+            )
+            TypeEx.SUCCESS_DIARY -> replaceFragment(
+                ExInstructionsFragment.newInstance(
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                ), true
+            )
+            TypeEx.WORK_WITH_BELIEFS -> replaceFragment(
+                ExInstructionsFragment.newInstance(
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                ), true
+            )
+            TypeEx.LIFE_RULES -> replaceFragment(
+                ExInstructionsFragment.newInstance(
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                ), true
+            )
+            TypeEx.POSITIVE_BELIEFS -> replaceFragment(
+                ExInstructionsFragment.newInstance(
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                ), true
+            )
+            TypeEx.NOTHING -> replaceFragment(
+                ExInstructionsFragment.newInstance(
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two,
+                ), true
+            )
+        }
     }
 
     private fun checkEnumAndReplaceFragment(typeEx: TypeEx, id: Long) {
@@ -279,7 +414,6 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                 binding.recyclerEx.apply {
                     layoutManager = LinearLayoutManager(parent.context)
                     adapter = AdapterEx(clickEdit)
-                    binding.btnBigInstruction.setOnClickListener { clickInfo.invoke() }
                 }
             }
         }
@@ -288,6 +422,7 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
             holder.elements?.removeObserver(holder)
             holder.elements = items[position]
             items[position].observeForever(holder)
+            holder.binding.btnBigInstruction.setOnClickListener { clickInfo.invoke() }
         }
 
         override fun onViewRecycled(holder: Holder) {

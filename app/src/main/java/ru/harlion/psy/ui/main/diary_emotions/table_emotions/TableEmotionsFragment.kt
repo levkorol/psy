@@ -33,11 +33,11 @@ class TableEmotionsFragment :
         )
     }
 
-    companion object {
-//        fun newInstance(emotions: arrayList<Emotion>) = TableEmotionsFragment().apply {
+//    companion object {
+//        fun newInstance(emotions: List<Emotion>) = TableEmotionsFragment().apply {
 //            arguments = Bundle().apply {
 //                putSerializable("EMOTIONS", emotions)
 //            }
 //        }
-    }
+//    }
 }

@@ -27,14 +27,14 @@ class EditAlbumViewModel : BaseViewModel() {
     fun update(
         fieldOne : String,
         fieldTwo : String,
-        image : String,
+        image : String?,
         date: Long
     ){
         val exercise = Exercise(
             id = exercise.value?.id ?: 0L,
             fieldOne = fieldOne,
             fieldTwo= fieldTwo,
-            image = image,
+            image = image ?: exercise.value?.image ?: "",
             date = date,
             dateCreate = exercise.value?.dateCreate ?: 0L,
             type = exercise.value?.type ?: TypeEx.NOTHING

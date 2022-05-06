@@ -42,8 +42,11 @@ class TitleEditTextView(context: Context, attrs: AttributeSet?) : ConstraintLayo
     val text
         get() = answer.text
 
-//    val lines
-//        get() = answer.lineCount
+    var lines
+        get() = answer.minLines
+        set(value) {
+            answer.setLines(value)
+        }
 
     var textInfo: CharSequence? = null
         set(value) {
@@ -74,9 +77,9 @@ class TitleEditTextView(context: Context, attrs: AttributeSet?) : ConstraintLayo
         if (params.hasValue(2)) {
             textInfo = params.getText(2)
         }
-//        if (params.hasValue(3)) {
-//            lines = params.getInt(3, 3)
-//        }
+        if (params.hasValue(3)) {
+            lines = params.getInt(3, 6)
+        }
         params.recycle()
 
         imageInfo.setOnClickListener {

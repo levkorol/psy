@@ -6,6 +6,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
+import androidx.activity.result.ActivityResultLauncher
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -13,9 +14,6 @@ import ru.harlion.psy.R
 import java.io.File
 import java.util.*
 
-
-private const val PICK_IMAGE = 100
-private const val CAMERA_INTENT = 12
 
 fun createNewFile(fragment: Fragment): File {
     val photosDir = File(fragment.requireContext().filesDir, "photos")
@@ -27,8 +25,7 @@ class PhotoRequest(val fragment: Fragment, val file: File) {
 
     constructor(fragment: Fragment) : this(fragment, createNewFile(fragment))
 
-    fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?): Boolean {
-        if (resultCode == Activity.RESULT_OK && requestCode == PICK_IMAGE) {
+    fun onActivityResult( data: Intent?): Boolean {
 
             file.outputStream().use { outputStream ->
                 fragment.requireContext().contentResolver.openInputStream(data!!.data!!)!!
@@ -37,15 +34,10 @@ class PhotoRequest(val fragment: Fragment, val file: File) {
                     }
             }
             return true
-        }
-        if (resultCode == Activity.RESULT_OK && requestCode == CAMERA_INTENT) {
-            return true
-        }
 
-        return false
     }
 
-    private fun openGallery() {
+    private fun openGallery(launcher : ActivityResultLauncher<Intent>) {
         val intent = Intent(Intent.ACTION_PICK)
         intent.setDataAndType(
             MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
@@ -53,13 +45,13 @@ class PhotoRequest(val fragment: Fragment, val file: File) {
         )
 
         try {
-            fragment.startActivityForResult(intent, PICK_IMAGE)
+            launcher.launch(intent)
         } catch (e: ActivityNotFoundException) {
 
         }
     }
 
-    private fun openCamera() {
+    private fun openCamera(launcher : ActivityResultLauncher<Intent>) {
         val photoUri = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
             Uri.fromFile(file)
         } else {
@@ -72,10 +64,10 @@ class PhotoRequest(val fragment: Fragment, val file: File) {
 
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri)
-        fragment.startActivityForResult(intent, CAMERA_INTENT)
+        launcher.launch(intent)
     }
 
-    fun showAlterDialog() {
+    fun showAlterDialog(launcher : ActivityResultLauncher<Intent>) {
         val builder = MaterialAlertDialogBuilder(fragment.requireContext())
         builder.setTitle(fragment.requireContext().getString(R.string.question_photo_load))
         val pictureDialogItems = arrayOf(
@@ -88,8 +80,8 @@ class PhotoRequest(val fragment: Fragment, val file: File) {
             pictureDialogItems
         ) { _, which ->
             when (which) {
-                0 -> openGallery()
-                1 -> openCamera()
+                0 -> openGallery(launcher)
+                1 -> openCamera(launcher)
             }
         }
         builder.show()

@@ -107,7 +107,7 @@
        style="@style/ButtonBigLineViolet"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="Сохранить в прогресс профиля"/>
+        android:text="@string/save_progress_in_profile"/>
 
     <View
         android:layout_width="match_parent"

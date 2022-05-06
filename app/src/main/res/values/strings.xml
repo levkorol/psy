@@ -12,7 +12,8 @@
     <string name="diary_emo">Дневник эмоций</string>
     <string name="day_star">Оценка дня</string>
     <string name="here_empty">Здесь пока пусто</string>
-    <string name="here_empty_ex">Здесь пока пусто!&lt;br /&gt;Обязательно ознакомься с упражнением в инструкции!</string>
+    <string name="here_empty_ex">Здесь пока пусто! \n
+        Обязательно ознакомься с упражнением в инструкции!</string>
     <string name="profile">Профиль</string>
     <string name="go_tests">Тест Трансактный анализ</string>
     <string name="your_name">Ваше имя</string>
@@ -118,6 +119,7 @@
     <string name="statistic">Статистика моих эмоций</string>
     <string name="mail_to">Техническая поддержка PsyCat</string>
     <string name="test_begin">Начать тест</string>
+    <string name="save_progress_in_profile">Сохранить в прогресс профиля</string>
 
 
 </resources>
