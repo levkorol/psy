@@ -1,46 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:id="@+id/container_item"
-    android:paddingBottom="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
     android:layout_marginTop="8dp"
     android:background="@drawable/bg_light_violet"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:orientation="vertical"
+    android:paddingBottom="8dp">
 
     <TextView
         android:id="@+id/date"
+        style="@style/TextDateTime"
         android:layout_marginTop="4dp"
-        tools:text="12 ноября, 19:00"
         android:visibility="gone"
-        style="@style/TextDateTime"/>
+        tools:text="12 ноября, 19:00" />
 
     <TextView
         android:id="@+id/field_one"
-        tools:text="text"
+        style="@style/TextNormal"
         android:layout_marginTop="4dp"
-        style="@style/TextNormal"/>
+        tools:text="text" />
 
     <TextView
         android:id="@+id/field_two"
-        tools:text="text"
+        style="@style/TextNormal"
         android:layout_marginTop="4dp"
-        style="@style/TextNormal"/>
+        tools:text="text" />
 
     <TextView
         android:id="@+id/field_three"
-        tools:text="text"
+        style="@style/TextNormal"
         android:layout_marginTop="4dp"
-        style="@style/TextNormal"/>
+        android:ellipsize="end"
+        android:maxLines="1"
+        tools:text="text" />
 
     <TextView
         android:id="@+id/date_create"
+        style="@style/TextDateTime"
         android:layout_marginTop="4dp"
-        android:textSize="10sp"
         android:textColor="@color/icon_color_dark_gray"
-        tools:text="12 ноября, 19:00"
-        style="@style/TextDateTime"/>
+        android:textSize="10sp"
+        tools:text="12 ноября, 19:00" />
 
 </LinearLayout>

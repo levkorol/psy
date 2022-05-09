@@ -2,6 +2,7 @@
     <string name="app_name">Psy</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="time_minutes_seconds_formatter" translatable="false">%02d:%02d</string>
     <string name="child">Ребенок - ХОЧУ</string>
     <string name="adult">Взрослый - МОГУ</string>
     <string name="parent">Родитель - НАДО</string>
@@ -83,7 +84,7 @@
     <string name="fail_diary_question_2">Когда?</string>
     <string name="fail_diary_question_3">В чем моя ошибка?</string>
     <string name="fail_diary_question_4">Что можно было сделать иначе?</string>
-    <string name="add_time">Добавить время выполнения</string>
+    <string name="add_time">Выставьте время выполнения в минутах</string>
     <string name="ex_free_writing_qwestion_one">"Мой запрос "</string>
     <string name="begin_ex">Начать упражнение</string>
     <string name="update_completed">Изменения сохранены!</string>
@@ -120,6 +121,8 @@
     <string name="mail_to">Техническая поддержка PsyCat</string>
     <string name="test_begin">Начать тест</string>
     <string name="save_progress_in_profile">Сохранить в прогресс профиля</string>
+    <string name="free_writing_field_three">Мой свободный поток мыслей</string>
+    <string name="empty">Введите свой запрос</string>
 
 
 </resources>

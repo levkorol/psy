@@ -6,17 +6,17 @@
     android:layout_height="wrap_content"
     android:id="@+id/container_emotion_ll">
 
-    <View
-        android:layout_width="14dp"
-        android:layout_height="14dp"
-        android:layout_gravity="center"
-        android:background="@drawable/bg_line_big_green"/>
+<!--    <View-->
+<!--        android:layout_width="14dp"-->
+<!--        android:layout_height="14dp"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:background="@drawable/bg_line_big_green"/>-->
 
     <TextView
         android:id="@+id/text_emotion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="0dp"
         android:gravity="center"
         tools:text="tools" />
 </LinearLayout>

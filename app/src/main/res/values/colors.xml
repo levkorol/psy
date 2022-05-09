@@ -30,4 +30,10 @@
     <color name="gr_4">#5A2EB7</color>
     <color name="gr_5">#AC2ACC</color>
 
+    <color name="emotion_happy">#FFE500</color>
+    <color name="emotion_shame">#FF9800</color>
+    <color name="emotion_sad">#00E1FF</color>
+    <color name="emotion_anger">#DD4254</color>
+    <color name="emotion_scare">#E3694C</color>
+
 </resources>

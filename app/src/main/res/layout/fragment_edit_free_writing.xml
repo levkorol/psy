@@ -18,51 +18,106 @@
 
     </RelativeLayout>
 
+    <nl.dionsegijn.konfetti.KonfettiView
+        android:id="@+id/konfetti"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
     <LinearLayout
         android:id="@+id/step_one"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_height="wrap_content">
+        tools:visibility="visible">
 
         <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
             android:id="@+id/field_one"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/btn_add_time"
-            android:text="@string/add_time"
-            android:drawableStart="@drawable/ic_alarm_clock"
-            style="@style/ButtonEditWithSmallDrawable"/>
+            style="@style/TextNormal"
+            android:layout_marginTop="26dp"
+            android:gravity="center"
+            android:text="@string/add_time" />
+
+        <TextView
+            android:id="@+id/count_time_seek"
+            style="@style/TextTitleQuestions"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            tools:text="0"
+            android:textSize="18sp" />
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:padding="16dp"
+            android:progress="1" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_begin_ex"
+            style="@style/ButtonBigMiddleViolet"
             android:layout_width="match_parent"
-            android:text="@string/begin_ex"
-            android:layout_marginTop="38dp"
             android:layout_marginHorizontal="16dp"
-            style="@style/ButtonBigMiddleViolet"/>
+            android:layout_marginTop="38dp"
+            android:text="@string/begin_ex" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/step_two"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:visibility="visible"
+        android:orientation="vertical"
         android:visibility="gone"
-        android:orientation="vertical">
+        tools:visibility="visible">
 
         <TextView
-            android:id="@+id/field_two"
-            tools:text="30:00"
+            android:id="@+id/my_request_field_one"
+            style="@style/TextNormal"
+            tools:text="text" />
+
+        <TextView
+            android:id="@+id/time_count"
+            style="@style/ButtonEditWithSmallDrawable"
             android:drawableStart="@drawable/ic_alarm_clock"
-            style="@style/ButtonEditWithSmallDrawable"/>
+            tools:text="30:00" />
 
         <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
             android:id="@+id/field_three"
-            android:layout_marginTop="16dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/detail_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/field_one_detail"
+            style="@style/TextNormal"
+            tools:text="text" />
+
+        <TextView
+            android:id="@+id/time_field_two"
+            style="@style/ButtonEditWithSmallDrawable"
+            android:drawableStart="@drawable/ic_alarm_clock"
+            tools:text="30:00" />
+
+        <TextView
+            android:id="@+id/field_three_detaill"
+            style="@style/TextNormal"
+            android:layout_marginTop="16dp"
+            tools:text="text" />
     </LinearLayout>
 
 

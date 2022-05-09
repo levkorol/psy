@@ -85,9 +85,9 @@ class Repository private constructor(context: Context) {
         }
 
         fun getEmo() = listOf(
-            Emotion(name = "emo"),
-            Emotion(name = "emo"),
-            Emotion(name = "emo"),
+            Emotion(name = "Радость"),
+            Emotion(name = "Гнев"),
+            Emotion(name = "Грусть"),
         )
     }
 }

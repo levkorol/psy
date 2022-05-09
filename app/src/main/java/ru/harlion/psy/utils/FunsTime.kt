@@ -17,15 +17,15 @@ import java.util.*
 //    return resources.getString(R.string.time_hours_minutes_seconds_formatter, hours, minsInHour, secsInMin)
 //}
 //
-//fun formatTimeMinsSec(millis: Long, resources: Resources): String {
-//    val seconds = millis / 1000
-//
-//    val minutes = seconds / 60
-//    val secsInMin = seconds % 60
-//
-//    return resources.getString(R.string.time_minutes_seconds_formatter, minutes, secsInMin)
-//}
-//
+fun formatTimeMinsSec(millis: Long, resources: Resources): String {
+    val seconds = millis / 1000
+
+    val minutes = seconds / 60
+    val secsInMin = seconds % 60
+
+    return resources.getString(R.string.time_minutes_seconds_formatter, minutes, secsInMin)
+}
+
 //fun formatTimeMins(millis: Long, resources: Resources): String {
 //    val seconds = millis / 1000
 //

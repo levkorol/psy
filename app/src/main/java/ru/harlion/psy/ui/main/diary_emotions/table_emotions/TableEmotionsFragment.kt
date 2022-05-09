@@ -7,6 +7,7 @@ import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentTableEmotionsBinding
 import ru.harlion.psy.models.emotions.Emotion
 import ru.harlion.psy.ui.main.diary_emotions.table_emotions.adapter.AdapterTableEmotions
+import java.io.Serializable
 
 
 class TableEmotionsFragment :
@@ -25,19 +26,19 @@ class TableEmotionsFragment :
             adapter = adapterEmo
         }
         adapterEmo.items = listOf(
-            Emotion(name = "name"),
-            Emotion(name = "name"),
-            Emotion(name = "name"),
-            Emotion(name = "name"),
-            Emotion(name = "name"),
+            Emotion(name = "Радость"),
+            Emotion(name = "Гнев"),
+            Emotion(name = "Грусть"),
+            Emotion(name = "Стыд"),
+            Emotion(name = "Страх"),
         )
     }
 
-//    companion object {
-//        fun newInstance(emotions: List<Emotion>) = TableEmotionsFragment().apply {
-//            arguments = Bundle().apply {
-//                putSerializable("EMOTIONS", emotions)
-//            }
-//        }
-//    }
+    companion object {
+        fun newInstance(emotions: Serializable) = TableEmotionsFragment().apply {
+            arguments = Bundle().apply {
+                putSerializable("EMOTIONS", emotions)
+            }
+        }
+    }
 }
