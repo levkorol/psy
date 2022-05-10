@@ -28,19 +28,44 @@
 
         <TextView
             style="@style/TextTitleQuestions"
-            android:text="О упражнении" />
+            android:text="@string/about_ex" />
+
+        <TextView
+            android:id="@+id/about_tv"
+            style="@style/TextNormal" />
+
+        <TextView
+            android:id="@+id/title_rules"
+            style="@style/TextTitleQuestions"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:layout_marginTop="16dp"
+            android:text="@string/rules_ex" />
+
+        <TextView
+            android:id="@+id/rules_tv"
+            android:visibility="gone"
+            tools:visibility="visible"
+            style="@style/TextNormal" />
 
         <TextView
             style="@style/TextTitleQuestions"
-            android:text="Правила и советы" />
+            android:layout_marginTop="16dp"
+            android:text="@string/interval_ex" />
+
+        <TextView
+            android:id="@+id/interval_tv"
+            style="@style/TextNormal" />
 
         <TextView
             style="@style/TextTitleQuestions"
-            android:text="Как часто делать " />
+            android:layout_marginTop="16dp"
+            android:text="@string/result_ex" />
 
         <TextView
-            style="@style/TextTitleQuestions"
-            android:text="Результат" />
+            android:id="@+id/result_tv"
+            android:layout_marginBottom="20dp"
+            style="@style/TextNormal" />
 
     </LinearLayout>
 </ScrollView>

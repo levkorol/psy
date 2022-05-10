@@ -54,7 +54,10 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                 TypeEx.IDEAS_DIARY -> checkEnumAndReplaceFragment(TypeEx.IDEAS_DIARY, it)
                 TypeEx.SELF_ESTEEM -> checkEnumAndReplaceFragment(TypeEx.SELF_ESTEEM, it)
                 TypeEx.WISH_DIARY -> checkEnumAndReplaceFragment(TypeEx.WISH_DIARY, it)
-                TypeEx.WORK_WITH_BELIEFS -> checkEnumAndReplaceFragment(TypeEx.WORK_WITH_BELIEFS, it)
+                TypeEx.WORK_WITH_BELIEFS -> checkEnumAndReplaceFragment(
+                    TypeEx.WORK_WITH_BELIEFS,
+                    it
+                )
                 TypeEx.FREE_WRITING -> checkEnumAndReplaceFragment(TypeEx.FREE_WRITING, it)
                 TypeEx.HIGHLIGHTS_ALBUM -> checkEnumAndReplaceFragment(TypeEx.HIGHLIGHTS_ALBUM, it)
             }
@@ -81,137 +84,121 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
         }
 
         binding.info.setOnClickListener {
-           infoFragmentAndSetText(typeEx)
+            infoFragmentAndSetText(typeEx)
         }
 
     }
 
     private fun infoFragmentAndSetText(typeEx: TypeEx) {
-        when(typeEx) {
+        when (typeEx) {
             TypeEx.HIGHLIGHTS_ALBUM -> replaceFragment(
-               ExInstructionsFragment.newInstance(
-                   R.string.ex_album_title_two,
-                   R.string.ex_album_title_two,
-                   R.string.ex_album_title_two,
-                   R.string.ex_album_title_two,
-                   R.string.ex_album_title_two,
-               ), true
+                ExInstructionsFragment.newInstance(
+                    R.string.ex_info_album_one,
+                    R.string.ex_info_album_two,
+                    R.string.ex_info_album_three,
+                    R.string.ex_info_album_for
+                ), true
             )
             TypeEx.IDEAS_DIARY -> replaceFragment(
                 ExInstructionsFragment.newInstance(
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
+                    R.string.ex_info_idea_one,
+                    R.string.ex_info_idea_two,
+                    R.string.ex_info_idea_three,
+                    R.string.ex_info_idea_for,
                 ), true
             )
             TypeEx.WISH_DIARY -> replaceFragment(
                 ExInstructionsFragment.newInstance(
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
+                    R.string.ex_info_wish_one,
+                    R.string.ex_info_wish_two,
+                    R.string.ex_info_wish_three,
+                    R.string.ex_info_wish_for,
                 ), true
             )
             TypeEx.FREE_WRITING -> replaceFragment(
                 ExInstructionsFragment.newInstance(
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
+                    R.string.ex_info_free_writing_one,
+                    R.string.ex_info_free_writing_two,
+                    R.string.ex_info_free_writing_three,
+                    R.string.ex_info_free_writing_for,
                 ), true
             )
             TypeEx.GRATITUDE_DIARY -> replaceFragment(
                 ExInstructionsFragment.newInstance(
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
+                    R.string.ex_info_gratitude_one,
+                    R.string.ex_info_gratitude_two,
+                    R.string.ex_info_gratitude_three,
+                    R.string.ex_info_gratitude_for
                 ), true
             )
             TypeEx.SELF_ESTEEM -> replaceFragment(
                 ExInstructionsFragment.newInstance(
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
+                    R.string.ex_info_self_one,
+                    R.string.ex_info_self_two,
+                    R.string.ex_info_self_three,
+                    R.string.ex_info_self_for
                 ), true
             )
             TypeEx.FAIL_DIARY -> replaceFragment(
                 ExInstructionsFragment.newInstance(
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
+                    oneTitle = R.string.ex_info_fail_one,
+                    twoTitle = R.string.ex_info_fail_two,
+                    forTitle = R.string.ex_info_fail_for
                 ), true
             )
             TypeEx.ACTS_SELF_LOVE -> replaceFragment(
                 ExInstructionsFragment.newInstance(
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
+                    oneTitle = R.string.ex_info_acts_one,
+                    twoTitle = R.string.ex_info_acts_two,
+                    forTitle = R.string.ex_info_acts_for
                 ), true
             )
             TypeEx.MY_AMBULANCE -> replaceFragment(
                 ExInstructionsFragment.newInstance(
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
+                    R.string.ex_info_ambulance_one,
+                    R.string.ex_info_ambulance_two,
+                    R.string.ex_info_ambulance_three,
+                    R.string.ex_info_ambulance_for
                 ), true
             )
             TypeEx.PERFECT_LIFE -> replaceFragment(
                 ExInstructionsFragment.newInstance(
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
+                    R.string.ex_info_perfect_life_one,
+                    R.string.ex_info_perfect_life_two,
+                    R.string.ex_info_perfect_life_three,
+                    R.string.ex_info_perfect_life_for
                 ), true
             )
             TypeEx.SUCCESS_DIARY -> replaceFragment(
                 ExInstructionsFragment.newInstance(
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
+                    R.string.ex_info_success_one,
+                    R.string.ex_info_success_two,
+                    R.string.ex_info_success_three,
+                    R.string.ex_info_success_for
                 ), true
             )
             TypeEx.WORK_WITH_BELIEFS -> replaceFragment(
                 ExInstructionsFragment.newInstance(
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
+                    R.string.ex_info_work_beliefs_one,
+                    R.string.ex_info_work_beliefs_two,
+                    R.string.ex_info_work_beliefs_three,
+                    R.string.ex_info_work_beliefs_for
                 ), true
             )
             TypeEx.LIFE_RULES -> replaceFragment(
                 ExInstructionsFragment.newInstance(
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
+                    R.string.ex_info_work_rules_one,
+                    R.string.ex_info_work_rules_two,
+                    R.string.ex_info_work_rules_three,
+                    R.string.ex_info_work_rules_for
                 ), true
             )
             TypeEx.POSITIVE_BELIEFS -> replaceFragment(
                 ExInstructionsFragment.newInstance(
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
+                    R.string.ex_info_work_positive_one,
+                    R.string.ex_info_work_positive_two,
+                    R.string.ex_info_work_positive_three,
+                    R.string.ex_info_work_positive_for
                 ), true
             )
             TypeEx.NOTHING -> replaceFragment(
@@ -219,8 +206,7 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                     R.string.ex_album_title_two,
                     R.string.ex_album_title_two,
                     R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
-                    R.string.ex_album_title_two,
+                    R.string.ex_album_title_two
                 ), true
             )
         }

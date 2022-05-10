@@ -58,7 +58,12 @@ class EditTextViewsFragment :
                 questionThree.hint = resources.getText(hintThree)
             }
         }
-        if(id > 0) binding.delete.visibility = View.VISIBLE else binding.delete.visibility = View.GONE
+        if(id > 0) {
+            binding.delete.visibility = View.VISIBLE
+            binding.archive.visibility = View.VISIBLE
+        } else {
+            binding.delete.visibility = View.GONE
+        }
 
         binding.save.setOnClickListener {
             if (id > 0) {
