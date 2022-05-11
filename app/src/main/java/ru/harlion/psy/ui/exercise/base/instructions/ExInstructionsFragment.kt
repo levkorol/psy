@@ -1,4 +1,4 @@
-package ru.harlion.psy.ui.exercise.base
+package ru.harlion.psy.ui.exercise.base.instructions
 
 import android.os.Bundle
 import android.view.View

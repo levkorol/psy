@@ -9,6 +9,7 @@ import com.google.android.flexbox.AlignItems
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayoutManager
+import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.data.Repository
 import ru.harlion.psy.databinding.FragmentEditDiaryEmoBinding
@@ -49,6 +50,14 @@ class EditDiaryEmoFragment :
 
         binding.date.text = dateToString(date)
         binding.time.text = timeToString(time)
+        binding.questionOne.hint = resources.getText(R.string.thanks_diary)
+        binding.questionOne.textInfo = resources.getText(R.string.thanks_diary)
+        binding.questionTwo.hint = resources.getText(R.string.thanks_diary)
+        binding.questionTwo.textInfo = resources.getText(R.string.thanks_diary)
+        binding.questionThree.hint = resources.getText(R.string.thanks_diary)
+        binding.questionThree.textInfo = resources.getText(R.string.thanks_diary)
+        binding.questionFor.hint = resources.getText(R.string.thanks_diary)
+        binding.questionFor.textInfo = resources.getText(R.string.thanks_diary)
 
         adapterEmotions = AdapterEmotion()
         binding.recyclerEmotions.apply {

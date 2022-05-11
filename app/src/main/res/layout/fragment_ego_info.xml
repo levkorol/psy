@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.exercise.base.instructions.EgoInfoFragment">
+
+    <RelativeLayout
+        android:id="@+id/top_ll"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/back"
+            style="@style/ButtonToolBar"
+            android:src="@drawable/ic_baseline_arrow_back_24" />
+
+        <TextView
+            android:id="@+id/title_toolbar"
+            style="@style/TextToolBar"
+            android:text="@string/info" />
+    </RelativeLayout>
+
+    <TextView
+        style="@style/TextTitleQuestions"
+        android:text="Эго состояние" />
+
+    <TextView
+        android:id="@+id/info_one"
+        style="@style/TextNormal" />
+
+    <TextView
+        style="@style/TextTitleQuestions"
+        android:layout_marginTop="16dp"
+        android:text="Ключ" />
+
+    <TextView
+        android:id="@+id/info_two"
+        style="@style/TextNormal" />
+
+    <TextView
+        style="@style/TextTitleQuestions"
+        android:layout_marginTop="16dp"
+        android:text="Работа" />
+
+    <TextView
+        android:id="@+id/info_three"
+        style="@style/TextNormal" />
+
+    <TextView
+        style="@style/TextTitleQuestions"
+        android:layout_marginTop="16dp"
+        android:text="Фразы" />
+
+    <TextView
+        android:id="@+id/info_for"
+        style="@style/TextNormal" />
+
+    <TextView
+        style="@style/TextTitleQuestions"
+        android:layout_marginTop="16dp"
+        android:text="Энергия" />
+
+    <TextView
+        android:id="@+id/info_fife"
+        style="@style/TextNormal" />
+
+</LinearLayout>

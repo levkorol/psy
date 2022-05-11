@@ -13,7 +13,8 @@
     <string name="diary_emo">Дневник эмоций</string>
     <string name="day_star">Оценка дня</string>
     <string name="here_empty">Здесь пока пусто</string>
-    <string name="here_empty_ex">Здесь пока пусто! \n
+    <string name="here_empty_ex">
+        Здесь пока пусто! \n
         Обязательно ознакомься с упражнением в инструкции!</string>
     <string name="profile">Профиль</string>
     <string name="go_tests">Тест Трансактный анализ</string>

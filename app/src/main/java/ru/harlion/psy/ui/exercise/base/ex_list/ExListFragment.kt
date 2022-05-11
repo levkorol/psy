@@ -18,7 +18,7 @@ import ru.harlion.psy.databinding.ItemExListVpBinding
 import ru.harlion.psy.models.Exercise
 
 import ru.harlion.psy.models.TypeEx
-import ru.harlion.psy.ui.exercise.base.ExInstructionsFragment
+import ru.harlion.psy.ui.exercise.base.instructions.ExInstructionsFragment
 import ru.harlion.psy.ui.exercise.child.edit.free_writing.EditFreeWritingFragment
 import ru.harlion.psy.ui.exercise.child.edit.highlights_album.EditAlbumFragment
 import ru.harlion.psy.ui.exercise.base.edit.text_recycler.EditExTextRecyclerFragment
