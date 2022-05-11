@@ -37,27 +37,22 @@ class ParentExercizesFragment :
             when (it) {
                 0 -> replaceFragment( ExListFragment.newInstance(
                     R.string.success_diary_ex,
-                    R.string.full_text_info_gratitude_diary,
                     TypeEx.SUCCESS_DIARY
                 ), true)
                 1 -> replaceFragment( ExListFragment.newInstance(
                     R.string.work_with_belief_ex,
-                    R.string.full_text_info_gratitude_diary,
                     TypeEx.WORK_WITH_BELIEFS
                 ), true)
                 2 -> replaceFragment( ExListFragment.newInstance(
                     R.string.positive_belief_ex,
-                    R.string.full_text_info_gratitude_diary,
                     TypeEx.POSITIVE_BELIEFS
                 ), true)
                 3 -> replaceFragment( ExListFragment.newInstance(
                     R.string.life_rules_ex,
-                    R.string.full_text_info_gratitude_diary,
                     TypeEx.LIFE_RULES
                 ), true)
                 else -> replaceFragment( ExListFragment.newInstance(
                     R.string.perfect_life_ex,
-                    R.string.full_text_info_gratitude_diary,
                     TypeEx.PERFECT_LIFE
                 ), true)
             }

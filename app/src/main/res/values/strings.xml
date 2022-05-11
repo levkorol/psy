@@ -49,15 +49,7 @@
     <string name="new_idea">Новая идея...</string>
     <string name="ex_self_hint">Например: Я в отношениях или Я в детстве</string>
     <string name="fact_about_me">Факт обо мне...</string>
-    <string name="full_text_info_ideas_diary">ADD INFO!!!</string>
-    <string name="full_text_info_gratitude_diary">ADD INFO!!!</string>
-    <string name="full_text_info_wish_diary">ADD INFO!!!</string>
-    <string name="full_text_info_free_writing">ADD_INFO</string>
-    <string name="full_text_info_album">ADD INFO!!!</string>
-    <string name="full_text_info_self_esteem">ADD INFO!!!</string>
-    <string name="full_text_info_fail_diary">ADD_INFO!!</string>
-    <string name="full_text_info_self_love">ADD_INFO</string>
-    <string name="full_text_info_my_ambulance">ADD INFO</string>
+
     <string name="sphere_life">Сфера жизни</string>
     <string name="new_rule">Новое правило</string>
     <string name="ex_rules_hint">Например : Отношения</string>

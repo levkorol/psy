@@ -22,7 +22,13 @@
             android:text="@string/adult" />
 
         <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/save"
+            android:id="@+id/edit"
+            android:layout_toStartOf="@+id/info"
+            style="@style/ButtonToolBar"
+            android:src="@drawable/ic_edit" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/info"
             style="@style/ButtonToolBar"
             android:layout_marginEnd="8dp"
             android:layout_alignParentEnd="true"

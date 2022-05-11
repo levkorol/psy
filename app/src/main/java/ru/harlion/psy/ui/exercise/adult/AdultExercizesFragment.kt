@@ -38,22 +38,18 @@ class AdultExercizesFragment : BindingFragment<FragmentAdultExercizesBinding>(Fr
                when(it) {
                     0 -> replaceFragment( ExListFragment.newInstance(
                         R.string.self_ex,
-                        R.string.full_text_info_self_esteem,
                         TypeEx.SELF_ESTEEM,
                     ), true)
                     1 -> replaceFragment( ExListFragment.newInstance(
                         R.string.fail_diary_ex,
-                        R.string.full_text_info_fail_diary,
                         TypeEx.FAIL_DIARY
                     ), true)
                     2 -> replaceFragment( ExListFragment.newInstance(
                         R.string.do_love_self_ex,
-                        R.string.full_text_info_self_love,
                         TypeEx.ACTS_SELF_LOVE
                     ), true)
                     3 -> replaceFragment( ExListFragment.newInstance(
                         R.string.my_emergency_ex,
-                        R.string.full_text_info_my_ambulance,
                         TypeEx.MY_AMBULANCE
                     ), true)
                     else -> replaceFragment(DayPollFragment(), true) //todo ?

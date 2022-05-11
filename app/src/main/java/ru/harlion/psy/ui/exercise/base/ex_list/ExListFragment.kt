@@ -37,7 +37,7 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
 
         val typeEx = requireArguments().getSerializable("ENUM")
         val tabs = requireArguments().getIntArray("TABS_TEXT_IDS")
-        val (title, textInfo) = requireArguments().getIntArray("TEXTS_IDS_LIST_FG")!!
+        val title = requireArguments().getInt("TITLE")!!
 
         viewModel.getEx(typeEx = typeEx as TypeEx, true)
         binding.viewPager.isUserInputEnabled = false
@@ -367,14 +367,13 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
     companion object {
         fun newInstance(
             title: Int,
-            textInfo: Int,
             typeEx: TypeEx,
             active: Int = 0,
             archive: Int = 0
         ) =
             ExListFragment().apply {
                 arguments = Bundle().apply {
-                    putIntArray("TEXTS_IDS_LIST_FG", intArrayOf(title, textInfo))
+                    putInt("TITLE", title)
                     putSerializable("ENUM", typeEx)
                     if (active != 0 && archive != 0) {
                         putIntArray("TABS_TEXT_IDS", intArrayOf(active, archive))

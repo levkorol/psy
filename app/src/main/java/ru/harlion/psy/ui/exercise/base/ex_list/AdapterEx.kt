@@ -1,8 +1,10 @@
 package ru.harlion.psy.ui.exercise.base.ex_list
 
+import android.net.Uri
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.fragment_edit_album.*
 import ru.harlion.psy.base.BindingHolder
 import ru.harlion.psy.databinding.ItemExerciseTitleCountBinding
 import ru.harlion.psy.models.Exercise
@@ -64,6 +66,18 @@ class AdapterEx(private val clickEdit: (Long) -> Unit) : RecyclerView.Adapter<It
                 fieldThree.visibility = View.VISIBLE
             } else {
                 fieldThree.visibility = View.GONE
+            }
+
+            if(items[position].image.isNotEmpty()) {
+                image.visibility = View.VISIBLE
+                val photoUri = Uri.parse(items[position].image)
+                try {
+                    image.setImageURI(photoUri)
+                } catch (e: Exception) {
+                    image.setImageURI(null)
+                }
+            } else {
+                image.visibility = View.GONE
             }
         }
     }
