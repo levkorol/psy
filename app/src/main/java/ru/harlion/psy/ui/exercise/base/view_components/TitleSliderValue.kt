@@ -26,8 +26,17 @@ class TitleSliderValue(context: Context, attrs: AttributeSet?) : LinearLayout(co
         it.id = NO_ID
     }
 
-    val countSlider
+    var text
+        get() = titleQuestion.text
+        set(value) {
+            titleQuestion.text = value
+        }
+
+    var countSlider
         get() = slider.value
+        set(value) {
+            slider.value = value
+        }
 
     init {
         val params = context.obtainStyledAttributes(
@@ -52,6 +61,10 @@ class TitleSliderValue(context: Context, attrs: AttributeSet?) : LinearLayout(co
         slider.id = id
         slider.restoreHierarchyState(container)
         slider.id = sliderId
+    }
+
+    fun addSliderListener(listener : Slider.OnChangeListener ) {
+        slider.addOnChangeListener(listener)
     }
 
 }

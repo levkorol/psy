@@ -26,9 +26,7 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
 
     private fun initClicks() {
         binding.back.setOnClickListener { parentFragmentManager.popBackStack() }
-        binding.test.setOnClickListener {
-          replaceFragment(TestFragment(), true)
-        }
+
         binding.diaryEmotions.setOnClickListener {
             replaceFragment(DiaryEmotionFragment(), true)
         }

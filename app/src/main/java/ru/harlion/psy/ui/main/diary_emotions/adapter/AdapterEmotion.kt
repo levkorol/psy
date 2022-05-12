@@ -27,6 +27,7 @@ class AdapterEmotion() : RecyclerView.Adapter<ItemHolderEmotion>() {
         holder.binding.apply {
             textEmotion.apply {
                 text = item[position].name
+
               //  setBackgroundColor(ContextCompat.getColor(this.context, item[position].color))
               // setBackgroundColor(ContextCompat.getColor(this.context, R.color.emo5))
             }

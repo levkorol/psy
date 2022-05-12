@@ -9,15 +9,17 @@
     <TextView
         android:id="@+id/question_slider"
         style="@style/TextTitleQuestions"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="26dp"
+        android:gravity="center"
         tools:text="Оцените насколько убедительной является для вас эта мысль" />
 
     <com.google.android.material.slider.Slider
         android:id="@+id/slider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
         android:value="2"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="26dp"
         android:valueFrom="0"
         android:valueTo="10"
         android:stepSize="1"
@@ -28,6 +30,7 @@
     <TextView
         android:id="@+id/count_slider"
         style="@style/TextCount"
+        android:visibility="gone"
         tools:text="3" />
 
 </LinearLayout>

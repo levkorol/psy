@@ -11,6 +11,7 @@ import ru.harlion.psy.databinding.ItemDiaryEmotionsBinding
 import ru.harlion.psy.databinding.ItemEmotionBinding
 import ru.harlion.psy.models.emotions.Emotion
 import ru.harlion.psy.models.emotions.EmotionEvent
+import ru.harlion.psy.utils.timeToString
 
 private typealias ItemHolderEmotionEvent = BindingHolder<ItemDiaryEmotionsBinding>
 
@@ -38,7 +39,7 @@ class AdapterEmotionSEvent(
     override fun onBindViewHolder(holder: BindingHolder<ItemDiaryEmotionsBinding>, position: Int) {
                 holder.binding.apply {
                     emotionName.text = items[position].fieldOne
-                     time.text = "19:00"
+                    time.text = timeToString(items[position].time)
                     // containerItemCardView.setBackgroundColor(item[position].color)
                     emotionsRecyclerView.adapter
                     initRecyclerViewEmotion(emotionsRecyclerView, items[position].emotion)

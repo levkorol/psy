@@ -3,6 +3,7 @@ package ru.harlion.psy.ui.exercise.base.view_components
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Parcelable
+import android.text.TextWatcher
 import android.util.AttributeSet
 import android.util.SparseArray
 import android.view.View
@@ -41,8 +42,11 @@ class TitleEditTextView(context: Context, attrs: AttributeSet?) : ConstraintLayo
             answer.hint = value
         }
 
-    val text
+    var text : CharSequence
         get() = answer.text
+        set(value) {
+            answer.setText(value)
+        }
 
     var lines
         get() = answer.minLines
@@ -87,8 +91,8 @@ class TitleEditTextView(context: Context, attrs: AttributeSet?) : ConstraintLayo
         imageInfo.setOnClickListener {
             MaterialAlertDialogBuilder(context).apply {
                 setTitle(textInfo)
-               // setText()
-                setPositiveButton("ok") { _,_ -> }
+                // setText()
+                setPositiveButton("ok") { _, _ -> }
             }.show()
         }
     }
@@ -103,6 +107,10 @@ class TitleEditTextView(context: Context, attrs: AttributeSet?) : ConstraintLayo
 
     override fun dispatchRestoreInstanceState(container: SparseArray<Parcelable>?) {
         answer.onRestoreInstanceState(container?.get(id))
+    }
+
+    fun addListener( listener : TextWatcher) {
+        answer.addTextChangedListener(listener)
     }
 
 }

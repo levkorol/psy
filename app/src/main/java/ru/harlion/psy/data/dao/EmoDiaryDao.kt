@@ -19,7 +19,7 @@ abstract class EmoDiaryDao {
     @Query("DELETE FROM emotionEvent WHERE id = :id")
     abstract fun deleteById(id : Long)
 
-    @Query("SELECT * FROM emotionEvent")
+    @Query("SELECT * FROM emotionEvent order by date desc ")
     abstract fun getLists(): LiveData<List<EmotionEvent>>
 
     @Query("SELECT * FROM emotionEvent WHERE id = (:id)")

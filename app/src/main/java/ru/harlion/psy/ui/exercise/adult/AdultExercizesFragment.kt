@@ -15,9 +15,10 @@ import ru.harlion.psy.ui.main.my_day.DayPollFragment
 import ru.harlion.psy.utils.replaceFragment
 
 
-class AdultExercizesFragment : BindingFragment<FragmentAdultExercizesBinding>(FragmentAdultExercizesBinding::inflate) {
+class AdultExercizesFragment :
+    BindingFragment<FragmentAdultExercizesBinding>(FragmentAdultExercizesBinding::inflate) {
 
-    private lateinit var adapterMenu : AdapterMenuExercizes
+    private lateinit var adapterMenu: AdapterMenuExercizes
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,29 +32,37 @@ class AdultExercizesFragment : BindingFragment<FragmentAdultExercizesBinding>(Fr
             MenuEx(getString(R.string.fail_diary_ex), R.drawable.menu_sad, 0),
             MenuEx(getString(R.string.do_love_self_ex), R.drawable.menu_self_love, 0),
             MenuEx(getString(R.string.my_emergency_ex), R.drawable.menu_life_preserver, 0),
-            MenuEx(getString(R.string.poll_day_ex), R.drawable.menu_sun, 0)
+            //  MenuEx(getString(R.string.poll_day_ex), R.drawable.menu_sun, 0)
         )
 
         adapterMenu = AdapterMenuExercizes {
-               when(it) {
-                    0 -> replaceFragment( ExListFragment.newInstance(
+            when (it) {
+                0 -> replaceFragment(
+                    ExListFragment.newInstance(
                         R.string.self_ex,
                         TypeEx.SELF_ESTEEM,
-                    ), true)
-                    1 -> replaceFragment( ExListFragment.newInstance(
+                    ), true
+                )
+                1 -> replaceFragment(
+                    ExListFragment.newInstance(
                         R.string.fail_diary_ex,
                         TypeEx.FAIL_DIARY
-                    ), true)
-                    2 -> replaceFragment( ExListFragment.newInstance(
+                    ), true
+                )
+                2 -> replaceFragment(
+                    ExListFragment.newInstance(
                         R.string.do_love_self_ex,
                         TypeEx.ACTS_SELF_LOVE
-                    ), true)
-                    3 -> replaceFragment( ExListFragment.newInstance(
+                    ), true
+                )
+                else -> replaceFragment(
+                    ExListFragment.newInstance(
                         R.string.my_emergency_ex,
                         TypeEx.MY_AMBULANCE
-                    ), true)
-                    else -> replaceFragment(DayPollFragment(), true) //todo ?
-               }
+                    ), true
+                )
+                //  else -> replaceFragment(DayPollFragment(), true)
+            }
         }
 
         binding.menuRv.apply {

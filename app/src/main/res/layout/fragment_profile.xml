@@ -48,17 +48,27 @@
             android:text="@string/your_name"
             android:textColor="@color/white" />
 
-        <TextView
-            android:id="@+id/test"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginHorizontal="16dp"
             android:layout_marginTop="12dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/bg_line_big_white"
-            android:gravity="center"
-            android:text="@string/go_tests"
-            android:textColor="@color/white" />
+            android:layout_marginHorizontal="16dp"
+            android:background="@drawable/bg_line_big_white">
+
+            <TextView
+                android:id="@+id/premium"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:drawableStart="@drawable/ic_crown"
+                android:drawablePadding="16dp"
+                android:gravity="center|start"
+                android:text="@string/pro_better"
+                android:textColor="@color/white" />
+        </RelativeLayout>
     </LinearLayout>
 
     <TextView
@@ -79,11 +89,11 @@
         android:drawableStart="@drawable/ic_lock"
         android:text="@string/password" />
 
-    <TextView
-        android:id="@+id/premium"
-        style="@style/MenuItemProfile"
-        android:drawableStart="@drawable/ic_crown"
-        android:text="@string/pro" />
+    <!--    <TextView-->
+    <!--        android:id="@+id/premium"-->
+    <!--        style="@style/MenuItemProfile"-->
+    <!--        android:drawableStart="@drawable/ic_crown"-->
+    <!--        android:text="@string/pro" />-->
 
     <TextView
         android:id="@+id/info_user"

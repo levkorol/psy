@@ -6,11 +6,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.tabs.TabLayoutMediator
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentMainBinding
 import ru.harlion.psy.ui.exercise.adult.AdultExercizesFragment
+import ru.harlion.psy.ui.exercise.base.edit.poll_test.EditPollTestFragment
 import ru.harlion.psy.ui.exercise.child.ChildExercizesFragment
 import ru.harlion.psy.ui.main.diary_emotions.DiaryEmotionFragment
 import ru.harlion.psy.ui.main.my_day.DayPollFragment
@@ -18,6 +20,7 @@ import ru.harlion.psy.ui.exercise.parent.ParentExercizesFragment
 import ru.harlion.psy.ui.main.diary_emotions.edit.EditDiaryEmoFragment
 import ru.harlion.psy.ui.profile.ProfileFragment
 import ru.harlion.psy.ui.profile.premium.PremiumFragment
+import ru.harlion.psy.ui.profile.test.TestFragment
 import ru.harlion.psy.utils.replaceFragment
 
 
@@ -59,15 +62,25 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
         }
 
         binding.addBtnMain.setOnClickListener {
-            replaceFragment(EditDiaryEmoFragment.newInstance(0), true)
+            MaterialAlertDialogBuilder(requireContext()).apply {
+                setTitle(R.string.add_note)
+                setPositiveButton(R.string.diary_emo) { _, _ ->
+                    replaceFragment(EditDiaryEmoFragment.newInstance(0), true)
+                }
+                setNegativeButton(R.string.poll_day_ex) { _, _ ->
+                    replaceFragment(EditPollTestFragment.newInstance(false), true)
+                }
+            }.show()
+
         }
-        binding.btnPremium.setOnClickListener {
-            replaceFragment(PremiumFragment(), true)
+        binding.test.setOnClickListener {
+            replaceFragment(TestFragment.newInstance(false, floatArrayOf()), true)
         }
     }
 
 
 }
+
 class ViewPager(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fragmentManager, lifecycle) {
 

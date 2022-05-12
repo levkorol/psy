@@ -27,7 +27,7 @@
                 android:src="@drawable/logo" />
 
             <TextView
-                android:id="@+id/btn_premium"
+                android:id="@+id/test"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
@@ -36,7 +36,7 @@
                 android:background="@drawable/bg_line_big_white"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="@string/pro_better"
+                android:text="@string/go_tests"
                 android:textColor="@color/white" />
 
             <ImageView

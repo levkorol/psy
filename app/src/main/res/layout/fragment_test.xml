@@ -29,85 +29,118 @@
             android:src="@drawable/ic_baseline_info_24" />
     </RelativeLayout>
 
-    <TextView
-        style="@style/TextTitleQuestions"
-        android:layout_marginTop="22dp"
-        android:gravity="center"
-        android:text="Результаты теста"/>
 
     <LinearLayout
+        android:id="@+id/result_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="60dp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_marginHorizontal="16dp"
-            android:textColor="@color/black"
-            android:layout_height="wrap_content"
-            android:text="Рe 30%"/>
+        android:orientation="vertical">
 
         <TextView
-            android:layout_width="60dp"
-            android:textStyle="bold"
+            style="@style/TextTitleQuestions"
+            android:layout_marginTop="22dp"
             android:gravity="center"
-            android:layout_marginHorizontal="16dp"
-            android:textColor="@color/black"
+            android:text="@string/result_tests" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Рe 30%"/>
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:gravity="center"
+                android:text="РЕ 30%"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:gravity="center"
+                android:text="ВЗ 30%"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:gravity="center"
+                android:text="РО 30%"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ProgressBar
+                android:id="@+id/child"
+                style="@style/Widget.ProgressBar.Vertical"
+                android:layout_width="60dp"
+                android:layout_height="300dp"
+                android:layout_marginHorizontal="16dp"
+                android:progress="30" />
+
+            <ProgressBar
+                android:id="@+id/adult"
+                style="@style/Widget.ProgressBar.Vertical"
+                android:layout_width="60dp"
+                android:layout_height="300dp"
+                android:layout_marginHorizontal="16dp"
+                android:progress="50" />
+
+            <ProgressBar
+                android:id="@+id/parent"
+                style="@style/Widget.ProgressBar.Vertical"
+                android:layout_width="60dp"
+                android:layout_height="300dp"
+                android:layout_marginHorizontal="16dp"
+                android:progress="30" />
+
+        </LinearLayout>
 
         <TextView
-            android:layout_width="60dp"
-            android:textStyle="bold"
+            style="@style/ButtonBigLineViolet"
+            android:layout_gravity="center"
             android:gravity="center"
-            android:layout_marginHorizontal="16dp"
-            android:textColor="@color/black"
-            android:layout_height="wrap_content"
-            android:text="Рe 30%"/>
-
+            android:text="@string/save_progress_in_profile" />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/empty_result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="200dp"
+        android:visibility="gone"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
-        <ProgressBar
-            android:id="@+id/child"
-            style="@style/Widget.ProgressBar.Vertical"
-            android:layout_width="60dp"
-            android:layout_height="300dp"
-            android:layout_marginHorizontal="16dp"
-            android:progress="30" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/pick_empty_ex" />
 
-        <ProgressBar
-            android:id="@+id/adult"
-            style="@style/Widget.ProgressBar.Vertical"
-            android:layout_width="60dp"
-            android:layout_height="300dp"
-            android:layout_marginHorizontal="16dp"
-            android:progress="50" />
-
-        <ProgressBar
-            android:id="@+id/parent"
-            style="@style/Widget.ProgressBar.Vertical"
-            android:layout_width="60dp"
-            android:layout_height="300dp"
-            android:layout_marginHorizontal="16dp"
-            android:progress="30" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="36dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="Для оптимального функционирования личности, с точки зрения трансактного анализа, необходимо, чтобы в личности были гармонично представлены все три состояния Я. Для того, чтобы оценить, как сочетаются эти три части твоего Я, пройди тест." />
 
     </LinearLayout>
-
-    <TextView
-       style="@style/ButtonBigLineViolet"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="@string/save_progress_in_profile"/>
 
     <View
         android:layout_width="match_parent"

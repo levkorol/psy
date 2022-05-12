@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
 
     <ru.harlion.psy.ui.exercise.base.view_components.TitleSliderValue
         android:id="@+id/question"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/text"
+        tools:="text"
+        android:textSize="12sp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/gray_dark"
+        style="@style/TextNormal" />
 
     <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
         android:id="@+id/comment"
+        android:layout_marginTop="16dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

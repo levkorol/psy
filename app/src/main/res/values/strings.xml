@@ -175,6 +175,76 @@
     <string name="ex_info_perfect_life_two">Такое упражнение можно делать не чаще раз полгода, год.</string>
     <string name="ex_info_perfect_life_for">"Формирование целей, осознание точки здесь и сейчас, понимание жизненного курса – результаты практики. "</string>
     <string name="ex_info_perfect_life_three">"Найди спокойное, тихое место. Подумай о своей будущей жизни. Тебе необходимо нарисовать на своем мысленном экране идеальный сценарий, согласно которому твоя жизнь будет развиваться спустя год, или 3, 5 10 лет; вообразить себе идеальный день из этой совершенной жизни.  Итак, представь свой идеальный день из будущей идеальной жизни, и опиши его в мельчайших подробностях. Дай волю своей фантазии. Твой идеальный день должен полностью соответствовать твоим нынешним запросам. Разумеется, не стоит мечтать о недостижимом - например, о путешествии на машине времени или телепортации. Твои амбиции должны быть адекватными: сделать блестящую карьеру в интересующей тебя области, исправить плохое зрение; избавиться, наконец, от одиночества, создав семью с любимым и любящим тебя человеком; посмотреть мир, жить в роскошных апартаментах, больше никогда не нуждаться в деньгах и т.п. "</string>
+    <string name="add_note">Создать новую запись</string>
+    <string name="result_tests">Результаты теста</string>
 
 
+    <string name="test_question_1">Мне порой не хватает выдержки.</string>
+    <string name="test_question_2">Если мои желания мешают мне, то я умею их подавлять.</string>
+    <string name="test_question_3">Родители как более взрослые люди должны устраивать семейную жизнь своих детей.</string>
+    <string name="test_question_4">Я иногда преувеличиваю свою роль в каких-либо событиях.</string>
+    <string name="test_question_5">Меня провести нелегко.</string>
+    <string name="test_question_6">Мне бы понравилось быть воспитателем.</string>
+    <string name="test_question_7">Бывает, мне хочется подурачиться, как маленькому.</string>
+    <string name="test_question_8">Думаю, что правильно понимаю все происходящие события.</string>
+    <string name="test_question_9">Каждый должен выполнять свой долг.</string>
+    <string name="test_question_10">Нередко я поступаю как не надо, а как хочется.</string>
+    <string name="test_question_11">Принимая решение, я стараюсь подумать его последствия.</string>
+    <string name="test_question_12">Младшие поколение должно учиться у старших, как ему следует жить.</string>
+    <string name="test_question_13">Я, как и многие люди, бываю обидчив.</string>
+    <string name="test_question_14">Мне удается видеть в людях больше, чем они говорят о себе.</string>
+    <string name="test_question_15">Дети должны безусловно следовать указаниям родителей.</string>
+    <string name="test_question_16">Я – увлекающий человек.</string>
+    <string name="test_question_17">Мой основной критерий оценки человека – объективность.</string>
+    <string name="test_question_18">Мои взгляды непоколебимы.</string>
+    <string name="test_question_19">Бывает, что я не уступаю в споре лишь потому, что не хочу уступать.</string>
+    <string name="test_question_20">Правила оправданы до тех пор, пока они полезны.</string>
+    <string name="test_question_21">Люди должны соблюдать правила независимо от обстоятельств.</string>
+
+
+    <string name="poll_question_comment">Что я могу сделать прямо сейчас чтобы улучшить этот показатель?</string>
+    <string name="comment">Комментарий...</string>
+    <string name="poll_question_1">Оценка сна.</string>
+    <string name="poll_question_2">Общее состояние тела.</string>
+    <string name="poll_question_3">Удовлетворенность дыханием.</string>
+    <string name="poll_question_4">Двигательная активность за сегодня.</string>
+    <string name="poll_question_5">Питьевой режим.</string>
+    <string name="poll_question_6">Отдых.</string>
+    <string name="poll_question_7">Забота о себе сегодня.</string>
+    <string name="poll_question_8">Общая оценка дня.</string>
+
+    <string-array name="questions_test">
+        <item>@string/test_question_1</item>
+        <item>@string/test_question_2</item>
+        <item>@string/test_question_3</item>
+        <item>@string/test_question_4</item>
+        <item>@string/test_question_5</item>
+        <item>@string/test_question_6</item>
+        <item>@string/test_question_7</item>
+        <item>@string/test_question_8</item>
+        <item>@string/test_question_9</item>
+        <item>@string/test_question_10</item>
+        <item>@string/test_question_11</item>
+        <item>@string/test_question_12</item>
+        <item>@string/test_question_13</item>
+        <item>@string/test_question_14</item>
+        <item>@string/test_question_15</item>
+        <item>@string/test_question_16</item>
+        <item>@string/test_question_17</item>
+        <item>@string/test_question_18</item>
+        <item>@string/test_question_19</item>
+        <item>@string/test_question_20</item>
+        <item>@string/test_question_21</item>
+    </string-array>
+
+    <string-array name="questions_poll">
+        <item>@string/poll_question_1</item>
+        <item>@string/poll_question_2</item>
+        <item>@string/poll_question_3</item>
+        <item>@string/poll_question_4</item>
+        <item>@string/poll_question_5</item>
+        <item>@string/poll_question_6</item>
+        <item>@string/poll_question_7</item>
+        <item>@string/poll_question_8</item>
+    </string-array>
 </resources>
