@@ -220,6 +220,8 @@
     <string name="poll_question_6">Режим приема пищи</string>
     <string name="poll_question_7">Отдых</string>
     <string name="poll_question_8">Забота о себе сегодня</string>
+    <string name="cancel">Отмена</string>
+    <string name="your_nam">Твое имя</string>
 
     <string-array name="questions_test">
         <item>@string/test_question_1</item>

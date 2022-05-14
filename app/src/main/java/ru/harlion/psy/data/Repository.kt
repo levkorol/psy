@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import ru.harlion.psy.models.Exercise
+import ru.harlion.psy.models.Poll
 import ru.harlion.psy.models.TypeEx
 import ru.harlion.psy.models.emotions.Emotion
 import ru.harlion.psy.models.emotions.EmotionEvent
@@ -23,9 +24,28 @@ class Repository private constructor(context: Context) {
 
     private val exerciseDao = database.exerciseDao()
     private val emotionEventDao = database.emotionEventDao()
+    private val pollDao = database.pollDao()
 
-    //emotionEvent
+    /**
+     * Poll
+     */
 
+    fun addPoll(poll: Poll) {
+        pollDao.add(poll)
+    }
+
+    fun getListPolls(): LiveData<List<Poll>> = pollDao.getLists()
+
+    fun getPollById(){}
+
+    fun updatePoll(){}
+
+    fun deletePoll(){}
+
+
+    /**
+     * EmotionEvent
+     */
     fun addEmotionEvent(emotionEvent: EmotionEvent) {
         emotionEventDao.add(emotionEvent)
     }
@@ -38,13 +58,16 @@ class Repository private constructor(context: Context) {
         return emotionEventDao.getLists()
     }
 
-    fun getEmoEventById(id : Long) = emotionEventDao.emotionEventById(id)
+    fun getEmoEventById(id: Long) = emotionEventDao.emotionEventById(id)
 
-    fun deleteEmoEvent(id : Long) {
+    fun deleteEmoEvent(id: Long) {
         emotionEventDao.deleteById(id)
     }
 
-    // exercises
+    /**
+     * Exercises
+     */
+
     fun addExercise(exercise: Exercise) {
         exerciseDao.add(exercise)
     }
@@ -53,17 +76,17 @@ class Repository private constructor(context: Context) {
         return exerciseDao.getLists(typeEx)
     }
 
-    fun getExListByArchive(typeEx: TypeEx, isArchive : Boolean): LiveData<List<Exercise>> {
+    fun getExListByArchive(typeEx: TypeEx, isArchive: Boolean): LiveData<List<Exercise>> {
         return exerciseDao.getListsByArchive(typeEx, isArchive)
     }
 
-    fun getExById(id : Long) = exerciseDao.exById(id)
+    fun getExById(id: Long) = exerciseDao.exById(id)
 
     fun updateEx(exercise: Exercise) {
         exerciseDao.update(exercise)
     }
 
-    fun deleteEx(id : Long) {
+    fun deleteEx(id: Long) {
         exerciseDao.deleteById(id)
     }
 

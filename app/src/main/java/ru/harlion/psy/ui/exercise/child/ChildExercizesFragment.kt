@@ -31,7 +31,7 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
             MenuEx(getString(R.string.wish_diary_ex), R.drawable.menu_star, 0),
             MenuEx(getString(R.string.free_writing_ex), R.drawable.menu_freewriting, 0),
             MenuEx(getString(R.string.ideas_diary_ex), R.drawable.menu_idea, 0),
-            MenuEx(getString(R.string.album_ex), R.drawable.menu_moments, 0)
+    //        MenuEx(getString(R.string.album_ex), R.drawable.menu_moments, 0)
         )
 
         adapterMenu = AdapterMenuExercizes {
@@ -56,18 +56,18 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
                         TypeEx.FREE_WRITING
                     ), true
                 )
-                3 -> replaceFragment(
+                else -> replaceFragment(
                     ExListFragment.newInstance(
                         R.string.ideas_diary_ex,
                         TypeEx.IDEAS_DIARY
                     ), true
                 )
-                else -> replaceFragment(
-                    ExListFragment.newInstance(
-                        R.string.album_ex,
-                        TypeEx.HIGHLIGHTS_ALBUM
-                    ), true
-                )
+//                else -> replaceFragment(
+//                    ExListFragment.newInstance(
+//                        R.string.album_ex,
+//                        TypeEx.HIGHLIGHTS_ALBUM
+//                    ), true
+//                )
             }
         }
         binding.menuRv.apply {

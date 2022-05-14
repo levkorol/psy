@@ -8,18 +8,22 @@ import com.google.gson.reflect.TypeToken
 import ru.harlion.psy.AppApplication
 import ru.harlion.psy.data.dao.EmoDiaryDao
 import ru.harlion.psy.data.dao.ExerciseDao
+import ru.harlion.psy.data.dao.PollDao
+import ru.harlion.psy.models.Answer
 import ru.harlion.psy.models.Exercise
+import ru.harlion.psy.models.Poll
 import ru.harlion.psy.models.TypeEx
 import ru.harlion.psy.models.emotions.Emotion
 import ru.harlion.psy.models.emotions.EmotionEvent
 
 
-@Database(entities = [Exercise::class, EmotionEvent::class], version = 1, exportSchema = false)
+@Database(entities = [Exercise::class, EmotionEvent::class, Poll::class], version = 1, exportSchema = false)
 @TypeConverters(ConverterApp::class)
 abstract class DataBaseApp: RoomDatabase() {
 
     abstract fun exerciseDao() : ExerciseDao
     abstract fun emotionEventDao() : EmoDiaryDao
+    abstract fun pollDao() : PollDao
 }
 
 object ConverterApp {
@@ -43,4 +47,12 @@ object ConverterApp {
     @TypeConverter
     fun emotionToTList(string: String): List<Emotion> =
         AppApplication.gson.fromJson(string, object : TypeToken<List<Emotion?>?>() {}.type)
+
+    @TypeConverter
+    fun listAnswerToString(type : List<Answer>): String = AppApplication.gson.toJson(type)
+
+    @TypeConverter
+    fun stringToTListAnswer(string: String): List<Answer> =
+        AppApplication.gson.fromJson(string, object : TypeToken<List<Answer?>?>() {}.type)
+
 }

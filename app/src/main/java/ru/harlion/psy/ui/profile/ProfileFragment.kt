@@ -1,10 +1,17 @@
 package ru.harlion.psy.ui.profile
 
 
+import android.app.Activity
+import android.app.Application
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import kotlinx.android.synthetic.main.fragment_edit_album.*
+import ru.harlion.psy.AppApplication
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentProfileBinding
@@ -13,19 +20,68 @@ import ru.harlion.psy.ui.main.diary_emotions.table_emotions.TableEmotionsFragmen
 import ru.harlion.psy.ui.profile.pincode.PinCodeFragment
 import ru.harlion.psy.ui.profile.premium.PremiumFragment
 import ru.harlion.psy.ui.profile.test.TestFragment
+import ru.harlion.psy.utils.PhotoRequest
+import ru.harlion.psy.utils.dialogs.EditTextDialog
 import ru.harlion.psy.utils.replaceFragment
+import ru.harlion.psy.utils.setRoundImage
 
 
 class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate) {
+
+    lateinit var launcher: ActivityResultLauncher<Intent>
+    private var photoRequest: PhotoRequest? = null
+
+    private val app = AppApplication()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        launcher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+                if (it.resultCode == Activity.RESULT_OK) {
+                    if (photoRequest?.onActivityResult(it.data) == true) {
+                        binding.photoProfile.setRoundImage(Uri.fromFile(photoRequest!!.file))
+                        app.user.value?.photoMain = photoRequest?.file?.path ?: ""
+                    }
+                }
+            }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         initClicks()
+
+        app.user.observe(viewLifecycleOwner, {
+            binding.nameUser.text = it.name
+            val photoUri = Uri.parse(it.photoMain)
+            try {
+                binding.photoProfile.setRoundImage(photoUri)
+            } catch (e: Exception) {
+                binding.photoProfile.setRoundImage(null)
+            }
+        })
     }
 
     private fun initClicks() {
         binding.back.setOnClickListener { parentFragmentManager.popBackStack() }
+
+        binding.photoProfile.setOnClickListener {
+            showAlterDialog()
+        }
+
+        binding.nameUser.setOnClickListener {
+            EditTextDialog(requireContext()).apply {
+                val text =  setEditText()
+                setTitle(getString(R.string.your_nam))
+                setPositiveButton(getString(R.string.save)) {
+                    val name = text.findViewById<TextView>(R.id.input_text).text
+                    app.user.value?.name = name.toString()
+                    binding.nameUser.text = name.toString()
+                }
+                setNegativeButton(getString(R.string.cancel)) {}
+            }.show()
+        }
 
         binding.diaryEmotions.setOnClickListener {
             replaceFragment(DiaryEmotionFragment(), true)
@@ -51,5 +107,12 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
         }
         binding.infoUser.setOnClickListener { }
         binding.psyProject.setOnClickListener { }
+    }
+
+    private fun showAlterDialog() {
+        if (photoRequest == null) {
+            photoRequest = PhotoRequest(this)
+        }
+        photoRequest!!.showAlterDialog(launcher)
     }
 }

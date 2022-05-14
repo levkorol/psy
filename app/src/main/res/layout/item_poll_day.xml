@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <TextView
@@ -39,7 +39,7 @@
             tools:text="15" />
 
         <TextView
-            android:id="@+id/for_"
+            android:id="@+id/four_"
             style="@style/TextPollItem"
             android:drawableStart="@drawable/ic_gym"
             tools:text="1" />
@@ -68,5 +68,10 @@
             android:drawableStart="@drawable/ic_hand_holding_heart"
             tools:text="15" />
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_super_light"/>
 
 </LinearLayout>

@@ -34,12 +34,14 @@
         android:orientation="vertical">
 
         <ImageView
+            android:id="@+id/photo_profile"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
             android:src="@drawable/ic_profile" />
 
         <TextView
+            android:id="@+id/name_user"
             style="@style/TextTitleQuestions"
             android:layout_width="wrap_content"
             android:layout_gravity="center"
@@ -74,12 +76,14 @@
     <TextView
         android:id="@+id/diary_emotions"
         style="@style/MenuItemProfile"
+        android:visibility="gone"
         android:drawableStart="@drawable/ic_smile_wink"
         android:text="@string/diary_emo" />
 
     <TextView
         android:id="@+id/statistic"
         style="@style/MenuItemProfile"
+        android:visibility="gone"
         android:drawableStart="@drawable/ic_stats"
         android:text="@string/statistic" />
 
@@ -89,11 +93,11 @@
         android:drawableStart="@drawable/ic_lock"
         android:text="@string/password" />
 
-    <!--    <TextView-->
-    <!--        android:id="@+id/premium"-->
-    <!--        style="@style/MenuItemProfile"-->
-    <!--        android:drawableStart="@drawable/ic_crown"-->
-    <!--        android:text="@string/pro" />-->
+<!--        <TextView-->
+<!--            android:id="@+id/premium"-->
+<!--            style="@style/MenuItemProfile"-->
+<!--            android:drawableStart="@drawable/ic_crown"-->
+<!--            android:text="@string/pro" />-->
 
     <TextView
         android:id="@+id/info_user"

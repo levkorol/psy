@@ -6,6 +6,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import ru.harlion.psy.R
@@ -21,6 +22,8 @@ import kotlin.math.roundToInt
 
 class EditPollTestFragment :
     BindingFragment<FragmentPollTestEditBinding>(FragmentPollTestEditBinding::inflate) {
+
+    private val viewModel : EditPollTestViewModel by viewModels()
 
     private lateinit var answers: ArrayList<Answer>
     private lateinit var questions: List<String>
@@ -58,13 +61,8 @@ class EditPollTestFragment :
 
         binding.viewPager.adapter = AdapterPollTest(questions, answers, isTesting)
         binding.nextQuestion.setOnClickListener {
-            binding.viewPager.currentItem++
-        }
-
-        binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-                if (questions.lastIndex == position) {
+            if (questions.lastIndex == binding.viewPager.currentItem) {
+                if (questions.lastIndex == binding.viewPager.currentItem) {
                     if (isTesting) {
                         val reduce = answers.map {
                             it.assessment
@@ -77,14 +75,16 @@ class EditPollTestFragment :
                         val result = reduce.map {
                             it * 100F / sum
                         }
-
                         replaceFragment(TestFragment.newInstance(true, result.toFloatArray()), true)
                     } else {
+                        viewModel.add(answers)
                         parentFragmentManager.popBackStack()
                     }
                 }
+            } else {
+                binding.viewPager.currentItem++
             }
-        })
+        }
 
         binding.countQuestion.text = "${questions.size} / ${answers.size}"
     }
@@ -100,7 +100,11 @@ class EditPollTestFragment :
 
 private typealias ItemHolder = BindingHolder<ItemSliderBinding>
 
-class AdapterPollTest(val questions: List<String>, val items: List<Answer>, val isTesting: Boolean) :
+class AdapterPollTest(
+    val questions: List<String>,
+    val items: List<Answer>,
+    val isTesting: Boolean
+) :
     RecyclerView.Adapter<ItemHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
@@ -133,7 +137,7 @@ class AdapterPollTest(val questions: List<String>, val items: List<Answer>, val 
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
         holder.binding.apply {
-            if(isTesting){
+            if (isTesting) {
                 text.text = "Оцените насколько убедительной является для вас эта мысль"
                 comment.visibility = View.GONE
             } else {

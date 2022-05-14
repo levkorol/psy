@@ -27,6 +27,10 @@ class AdultExercizesFragment :
             parentFragmentManager.popBackStack()
         }
 
+        binding.edit.setOnClickListener {
+
+        }
+
         val exercises = listOf(
             MenuEx(getString(R.string.self_ex), R.drawable.menu_like, 2),
             MenuEx(getString(R.string.fail_diary_ex), R.drawable.menu_sad, 0),
