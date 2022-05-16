@@ -96,7 +96,8 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                     R.string.ex_info_album_one,
                     R.string.ex_info_album_two,
                     R.string.ex_info_album_three,
-                    R.string.ex_info_album_for
+                    R.string.ex_info_album_for,
+                    R.string.info
                 ), true
             )
             TypeEx.IDEAS_DIARY -> replaceFragment(
@@ -105,6 +106,7 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                     R.string.ex_info_idea_two,
                     R.string.ex_info_idea_three,
                     R.string.ex_info_idea_for,
+                    R.string.info
                 ), true
             )
             TypeEx.WISH_DIARY -> replaceFragment(
@@ -113,6 +115,7 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                     R.string.ex_info_wish_two,
                     R.string.ex_info_wish_three,
                     R.string.ex_info_wish_for,
+                    R.string.info
                 ), true
             )
             TypeEx.FREE_WRITING -> replaceFragment(
@@ -121,6 +124,7 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                     R.string.ex_info_free_writing_two,
                     R.string.ex_info_free_writing_three,
                     R.string.ex_info_free_writing_for,
+                    R.string.info
                 ), true
             )
             TypeEx.GRATITUDE_DIARY -> replaceFragment(
@@ -128,7 +132,8 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                     R.string.ex_info_gratitude_one,
                     R.string.ex_info_gratitude_two,
                     R.string.ex_info_gratitude_three,
-                    R.string.ex_info_gratitude_for
+                    R.string.ex_info_gratitude_for,
+                    toolbar = R.string.info
                 ), true
             )
             TypeEx.SELF_ESTEEM -> replaceFragment(
@@ -136,21 +141,24 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                     R.string.ex_info_self_one,
                     R.string.ex_info_self_two,
                     R.string.ex_info_self_three,
-                    R.string.ex_info_self_for
+                    R.string.ex_info_self_for,
+                    R.string.info
                 ), true
             )
             TypeEx.FAIL_DIARY -> replaceFragment(
                 ExInstructionsFragment.newInstance(
                     oneTitle = R.string.ex_info_fail_one,
                     twoTitle = R.string.ex_info_fail_two,
-                    forTitle = R.string.ex_info_fail_for
+                    forTitle = R.string.ex_info_fail_for,
+                    toolbar = R.string.info
                 ), true
             )
             TypeEx.ACTS_SELF_LOVE -> replaceFragment(
                 ExInstructionsFragment.newInstance(
                     oneTitle = R.string.ex_info_acts_one,
                     twoTitle = R.string.ex_info_acts_two,
-                    forTitle = R.string.ex_info_acts_for
+                    forTitle = R.string.ex_info_acts_for,
+                    toolbar = R.string.info
                 ), true
             )
             TypeEx.MY_AMBULANCE -> replaceFragment(
@@ -158,7 +166,8 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                     R.string.ex_info_ambulance_one,
                     R.string.ex_info_ambulance_two,
                     R.string.ex_info_ambulance_three,
-                    R.string.ex_info_ambulance_for
+                    R.string.ex_info_ambulance_for,
+                    toolbar = R.string.info
                 ), true
             )
             TypeEx.PERFECT_LIFE -> replaceFragment(
@@ -166,7 +175,8 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                     R.string.ex_info_perfect_life_one,
                     R.string.ex_info_perfect_life_two,
                     R.string.ex_info_perfect_life_three,
-                    R.string.ex_info_perfect_life_for
+                    R.string.ex_info_perfect_life_for,
+                    toolbar = R.string.info
                 ), true
             )
             TypeEx.SUCCESS_DIARY -> replaceFragment(
@@ -174,7 +184,8 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                     R.string.ex_info_success_one,
                     R.string.ex_info_success_two,
                     R.string.ex_info_success_three,
-                    R.string.ex_info_success_for
+                    R.string.ex_info_success_for,
+                    toolbar = R.string.info
                 ), true
             )
             TypeEx.WORK_WITH_BELIEFS -> replaceFragment(
@@ -182,7 +193,8 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                     R.string.ex_info_work_beliefs_one,
                     R.string.ex_info_work_beliefs_two,
                     R.string.ex_info_work_beliefs_three,
-                    R.string.ex_info_work_beliefs_for
+                    R.string.ex_info_work_beliefs_for,
+                    toolbar = R.string.info
                 ), true
             )
             TypeEx.LIFE_RULES -> replaceFragment(
@@ -190,7 +202,8 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                     R.string.ex_info_work_rules_one,
                     R.string.ex_info_work_rules_two,
                     R.string.ex_info_work_rules_three,
-                    R.string.ex_info_work_rules_for
+                    R.string.ex_info_work_rules_for,
+                    toolbar = R.string.info
                 ), true
             )
             TypeEx.POSITIVE_BELIEFS -> replaceFragment(
@@ -198,7 +211,8 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                     R.string.ex_info_work_positive_one,
                     R.string.ex_info_work_positive_two,
                     R.string.ex_info_work_positive_three,
-                    R.string.ex_info_work_positive_for
+                    R.string.ex_info_work_positive_for,
+                    toolbar = R.string.info
                 ), true
             )
             TypeEx.NOTHING -> replaceFragment(
@@ -206,7 +220,8 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                     R.string.ex_album_title_two,
                     R.string.ex_album_title_two,
                     R.string.ex_album_title_two,
-                    R.string.ex_album_title_two
+                    R.string.ex_album_title_two,
+                    toolbar = R.string.info
                 ), true
             )
         }

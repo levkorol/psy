@@ -3,7 +3,9 @@ package ru.harlion.psy.ui.exercise.adult
 
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
+import ru.harlion.psy.AppApplication
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentAdultExercizesBinding
@@ -11,7 +13,9 @@ import ru.harlion.psy.models.TypeEx
 import ru.harlion.psy.ui.exercise.base.ex_list.ExListFragment
 import ru.harlion.psy.ui.exercise.base.AdapterMenuExercizes
 import ru.harlion.psy.ui.exercise.base.MenuEx
+import ru.harlion.psy.ui.exercise.base.instructions.ExInstructionsFragment
 import ru.harlion.psy.ui.main.my_day.DayPollFragment
+import ru.harlion.psy.utils.dialogs.EditTextDialog
 import ru.harlion.psy.utils.replaceFragment
 
 
@@ -19,6 +23,7 @@ class AdultExercizesFragment :
     BindingFragment<FragmentAdultExercizesBinding>(FragmentAdultExercizesBinding::inflate) {
 
     private lateinit var adapterMenu: AdapterMenuExercizes
+    private val app = AppApplication()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -27,8 +32,26 @@ class AdultExercizesFragment :
             parentFragmentManager.popBackStack()
         }
 
-        binding.edit.setOnClickListener {
+        binding.info.setOnClickListener {
+            replaceFragment(
+                ExInstructionsFragment.newInstance(
+                    oneTitle = R.string.adult_info,
+                    toolbar = R.string.informations
+                ), true
+            )
+        }
 
+        binding.edit.setOnClickListener {
+            EditTextDialog(requireContext()).apply {
+                val text =  setEditText()
+                setTitle(getString(R.string.your_nam))
+                setPositiveButton(getString(R.string.save)) {
+                    val name = text.findViewById<TextView>(R.id.input_text).text
+                    app.user.value?.name = name.toString()
+                    binding.name.text = name.toString()
+                }
+                setNegativeButton(getString(R.string.cancel)) {}
+            }.show()
         }
 
         val exercises = listOf(

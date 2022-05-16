@@ -37,7 +37,7 @@ class PhotoRequest(val fragment: Fragment, val file: File) {
 
     }
 
-    private fun openGallery(launcher : ActivityResultLauncher<Intent>) {
+    fun openGallery(launcher : ActivityResultLauncher<Intent>) {
         val intent = Intent(Intent.ACTION_PICK)
         intent.setDataAndType(
             MediaStore.Images.Media.EXTERNAL_CONTENT_URI,

@@ -23,7 +23,7 @@
             <TextView
                 android:id="@+id/title_toolbar"
                 style="@style/TextToolBar"
-                android:text="@string/info" />
+                tools:text="@string/info" />
         </RelativeLayout>
 
         <TextView
@@ -49,8 +49,11 @@
             style="@style/TextNormal" />
 
         <TextView
+            android:id="@+id/title_interval"
             style="@style/TextTitleQuestions"
             android:layout_marginTop="16dp"
+            tools:visibility="visible"
+            android:visibility="gone"
             android:text="@string/interval_ex" />
 
         <TextView
@@ -58,8 +61,11 @@
             style="@style/TextNormal" />
 
         <TextView
+            android:id="@+id/title_result"
             style="@style/TextTitleQuestions"
             android:layout_marginTop="16dp"
+            tools:visibility="visible"
+            android:visibility="gone"
             android:text="@string/result_ex" />
 
         <TextView

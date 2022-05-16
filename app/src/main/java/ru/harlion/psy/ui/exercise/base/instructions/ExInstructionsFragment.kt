@@ -15,18 +15,27 @@ class ExInstructionsFragment :
         val (oneTitle,
             twoTitle,
             threeTitle,
-            forTitle) = requireArguments().getIntArray("TEXT_IDS")!!
+            forTitle,
+            toolbar) = requireArguments().getIntArray("TEXT_IDS")!!
 
+        binding.titleToolbar.text = resources.getText(toolbar)
         binding.aboutTv.text = resources.getText(oneTitle)
-        binding.intervalTv.text = resources.getText(twoTitle)
+
+        if (twoTitle > 0) {
+            binding.intervalTv.text = resources.getText(twoTitle)
+            binding.titleInterval.visibility = View.VISIBLE
+        }
+
         if(threeTitle > 0) {
             binding.rulesTv.visibility = View.VISIBLE
             binding.titleRules.visibility = View.VISIBLE
             binding.rulesTv.text = resources.getText(threeTitle)
         }
 
-        binding.resultTv.text = resources.getText(forTitle)
-
+        if (forTitle > 0) {
+            binding.resultTv.text = resources.getText(forTitle)
+            binding.titleResult.visibility = View.VISIBLE
+        }
     }
 
     companion object {
@@ -34,12 +43,13 @@ class ExInstructionsFragment :
             oneTitle: Int,
             twoTitle: Int = 0,
             threeTitle: Int = 0,
-            forTitle: Int = 0
+            forTitle: Int = 0,
+            toolbar: Int = 0,
         ) = ExInstructionsFragment().apply {
             arguments = Bundle().apply {
                 putIntArray(
                     "TEXT_IDS",
-                    intArrayOf(oneTitle, twoTitle, threeTitle, forTitle)
+                    intArrayOf(oneTitle, twoTitle, threeTitle, forTitle, toolbar)
                 )
             }
         }

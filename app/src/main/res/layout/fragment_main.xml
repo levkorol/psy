@@ -82,7 +82,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="16dp"
                     android:gravity="center"
-                    android:text="@string/child_"
+                    android:text="@string/child"
                     android:textColor="@color/white" />
 
 
@@ -113,7 +113,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="16dp"
                     android:gravity="center"
-                    android:text="@string/adult_"
+                    android:text="@string/adult"
                     android:textColor="@color/white" />
             </LinearLayout>
 
@@ -142,7 +142,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="16dp"
                     android:gravity="center"
-                    android:text="@string/parent_"
+                    android:text="@string/parent"
                     android:textColor="@color/white" />
             </LinearLayout>
         </LinearLayout>

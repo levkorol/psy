@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.profile.pincode.PinCodeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.kevalpatel.passcodeview.PinView
+        android:id="@+id/pin_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        app:dividerColor="@color/main_middle_violet"
+        app:fingerprintDefaultText="Scan your finger to unlock application"
+        app:fingerprintEnable="true"
+        app:fingerprintTextColor="@color/main_dark_violet"
+        app:fingerprintTextSize="@dimen/dialog_inset_50dp_25_dp"
+        app:titleTextColor="@android:color/white"/>
 
-</FrameLayout>
+<!--    <com.kevalpatel.passcodeview.PatternView-->
+<!--        android:id="@+id/pattern_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_below="@id/imageView"-->
+<!--        app:dividerColor="@color/colorPrimaryDark"-->
+<!--        app:fingerprintDefaultText="Scan your finger to unlock application"-->
+<!--        app:fingerprintEnable="true"-->
+<!--        app:fingerprintTextColor="@color/colorAccent"-->
+<!--        app:fingerprintTextSize="@dimen/finger_print_text_size"-->
+<!--        app:giveTactileFeedback="true"-->
+<!--        app:patternLineColor="@color/colorAccent"-->
+<!--        app:titleTextColor="@android:color/white"/>-->
+
+</LinearLayout>

@@ -10,6 +10,7 @@ import ru.harlion.psy.models.TypeEx
 import ru.harlion.psy.ui.exercise.base.ex_list.ExListFragment
 import ru.harlion.psy.ui.exercise.base.AdapterMenuExercizes
 import ru.harlion.psy.ui.exercise.base.MenuEx
+import ru.harlion.psy.ui.exercise.base.instructions.ExInstructionsFragment
 import ru.harlion.psy.utils.replaceFragment
 
 
@@ -23,6 +24,15 @@ class ParentExercizesFragment :
 
         binding.back.setOnClickListener {
             parentFragmentManager.popBackStack()
+        }
+
+        binding.info.setOnClickListener {
+            replaceFragment(
+                ExInstructionsFragment.newInstance(
+                    oneTitle = R.string.parent_info,
+                    toolbar = R.string.informations
+                ), true
+            )
         }
 
         val exercises = listOf(

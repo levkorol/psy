@@ -36,19 +36,22 @@
     </RelativeLayout>
 
     <ImageView
+        android:id="@+id/photo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:src="@drawable/pic_adulte_cat"/>
 
     <TextView
+        android:id="@+id/name"
         style="@style/TextTitle"
         android:gravity="center"
         android:text="Имя внутреннего взрослого" />
 
     <TextView
-        style="@style/TextTitleQuestions"
-        android:gravity="center"
+        style="@style/TextNormal"
+        android:gravity="end"
+        android:textColor="@color/main_dark_violet"
         android:textSize="14sp"
         android:text="35 %" />
 

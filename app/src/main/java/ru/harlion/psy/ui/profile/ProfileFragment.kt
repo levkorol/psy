@@ -113,6 +113,7 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
         if (photoRequest == null) {
             photoRequest = PhotoRequest(this)
         }
-        photoRequest!!.showAlterDialog(launcher)
+       // photoRequest!!.showAlterDialog(launcher)
+        photoRequest!!.openGallery(launcher)
     }
 }

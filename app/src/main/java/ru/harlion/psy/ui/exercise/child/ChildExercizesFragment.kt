@@ -11,6 +11,7 @@ import ru.harlion.psy.models.TypeEx
 import ru.harlion.psy.ui.exercise.base.ex_list.ExListFragment
 import ru.harlion.psy.ui.exercise.base.AdapterMenuExercizes
 import ru.harlion.psy.ui.exercise.base.MenuEx
+import ru.harlion.psy.ui.exercise.base.instructions.ExInstructionsFragment
 import ru.harlion.psy.utils.replaceFragment
 
 
@@ -26,12 +27,21 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
             parentFragmentManager.popBackStack()
         }
 
+        binding.info.setOnClickListener {
+            replaceFragment(
+                ExInstructionsFragment.newInstance(
+                    oneTitle = R.string.child_info,
+                    toolbar = R.string.informations
+                ), true
+            )
+        }
+
         val exercises = listOf(
             MenuEx(getString(R.string.thanks_diary), R.drawable.menu_heart, 2),
             MenuEx(getString(R.string.wish_diary_ex), R.drawable.menu_star, 0),
             MenuEx(getString(R.string.free_writing_ex), R.drawable.menu_freewriting, 0),
             MenuEx(getString(R.string.ideas_diary_ex), R.drawable.menu_idea, 0),
-    //        MenuEx(getString(R.string.album_ex), R.drawable.menu_moments, 0)
+            //        MenuEx(getString(R.string.album_ex), R.drawable.menu_moments, 0)
         )
 
         adapterMenu = AdapterMenuExercizes {
