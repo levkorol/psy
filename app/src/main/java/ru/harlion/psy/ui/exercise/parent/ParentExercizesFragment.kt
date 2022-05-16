@@ -80,7 +80,8 @@ class ParentExercizesFragment :
             replaceFragment(
                 ExInstructionsFragment.newInstance(
                     oneTitle = R.string.parent_info,
-                    toolbar = R.string.informations
+                    toolbar = R.string.informations,
+                    isEx = false
                 ), true
             )
         }

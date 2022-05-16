@@ -15,6 +15,7 @@ import ru.harlion.psy.AppApplication
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentProfileBinding
+import ru.harlion.psy.ui.exercise.base.instructions.ExInstructionsFragment
 import ru.harlion.psy.ui.main.diary_emotions.DiaryEmotionFragment
 import ru.harlion.psy.ui.main.diary_emotions.table_emotions.TableEmotionsFragment
 import ru.harlion.psy.ui.profile.pincode.PinCodeFragment
@@ -72,7 +73,7 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
 
         binding.nameUser.setOnClickListener {
             EditTextDialog(requireContext()).apply {
-                val text =  setEditText("")
+                val text = setEditText("")
                 setTitle(getString(R.string.your_nam))
                 setPositiveButton(getString(R.string.save)) {
                     val name = text.findViewById<TextView>(R.id.input_text).text
@@ -105,7 +106,16 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
             )
             startActivity(browserIntent)
         }
-        binding.infoUser.setOnClickListener { }
+        binding.infoUser.setOnClickListener {
+            replaceFragment(
+                ExInstructionsFragment.newInstance(
+                    oneTitle = R.string.about_app,
+                    toolbar = R.string.for_user,
+                    isEx = false
+                ), true
+            )
+
+        }
         binding.psyProject.setOnClickListener { }
     }
 
@@ -113,7 +123,7 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
         if (photoRequest == null) {
             photoRequest = PhotoRequest(this)
         }
-       // photoRequest!!.showAlterDialog(launcher)
+        // photoRequest!!.showAlterDialog(launcher)
         photoRequest!!.openGallery(launcher)
     }
 }

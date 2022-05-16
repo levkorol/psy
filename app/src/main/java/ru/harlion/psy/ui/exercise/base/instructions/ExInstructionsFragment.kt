@@ -22,7 +22,14 @@ class ExInstructionsFragment :
             forTitle,
             toolbar) = requireArguments().getIntArray("TEXT_IDS")!!
 
+        val isEx = requireArguments().getBoolean("IS_EX")
+
+        if(!isEx){
+            binding.titleAbout.visibility = View.GONE
+        }
+
         binding.titleToolbar.text = resources.getText(toolbar)
+
         binding.aboutTv.text = resources.getText(oneTitle)
 
         if (twoTitle > 0) {
@@ -49,12 +56,14 @@ class ExInstructionsFragment :
             threeTitle: Int = 0,
             forTitle: Int = 0,
             toolbar: Int = 0,
+            isEx: Boolean = true
         ) = ExInstructionsFragment().apply {
             arguments = Bundle().apply {
                 putIntArray(
                     "TEXT_IDS",
                     intArrayOf(oneTitle, twoTitle, threeTitle, forTitle, toolbar)
                 )
+                putBoolean("IS_EX", isEx)
             }
         }
     }

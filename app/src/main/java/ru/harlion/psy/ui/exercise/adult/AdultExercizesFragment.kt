@@ -88,7 +88,8 @@ class AdultExercizesFragment :
             replaceFragment(
                 ExInstructionsFragment.newInstance(
                     oneTitle = R.string.adult_info,
-                    toolbar = R.string.informations
+                    toolbar = R.string.informations,
+                    isEx = false
                 ), true
             )
         }

@@ -27,6 +27,7 @@
         </RelativeLayout>
 
         <TextView
+            android:id="@+id/title_about"
             style="@style/TextTitleQuestions"
             android:text="@string/about_ex" />
 

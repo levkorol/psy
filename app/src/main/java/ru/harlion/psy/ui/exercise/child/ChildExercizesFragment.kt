@@ -94,7 +94,8 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
             replaceFragment(
                 ExInstructionsFragment.newInstance(
                     oneTitle = R.string.child_info,
-                    toolbar = R.string.informations
+                    toolbar = R.string.informations,
+                    isEx = false
                 ), true
             )
         }
