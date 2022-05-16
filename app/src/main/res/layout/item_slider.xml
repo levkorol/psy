@@ -5,8 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/count_question"
+        style="@style/TextNormal"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        tools:text="1 / 20" />
+
     <ru.harlion.psy.ui.exercise.base.view_components.TitleSliderValue
         android:id="@+id/question"
+        android:layout_marginTop="32dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

@@ -1,5 +1,6 @@
 package ru.harlion.psy.ui.main
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -8,6 +9,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.tabs.TabLayoutMediator
+import ru.harlion.psy.AppApplication
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentMainBinding
@@ -22,14 +24,26 @@ import ru.harlion.psy.ui.profile.ProfileFragment
 import ru.harlion.psy.ui.profile.premium.PremiumFragment
 import ru.harlion.psy.ui.profile.test.TestFragment
 import ru.harlion.psy.utils.replaceFragment
+import ru.harlion.psy.utils.setRoundImage
 
 
 class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
+
+    private val app = AppApplication()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         initClicks()
+
+        app.user.observe(viewLifecycleOwner, {
+            val photoUri = Uri.parse(it.photoMain)
+            try {
+                binding.photo.setRoundImage(photoUri)
+            } catch (e: Exception) {
+                binding.photo.setRoundImage(null)
+            }
+        })
 
         binding.viewPager.adapter = ViewPager(childFragmentManager, lifecycle)
 
@@ -57,7 +71,7 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
         binding.cardParent.setOnClickListener {
             replaceFragment(ParentExercizesFragment(), true)
         }
-        binding.profile.setOnClickListener {
+        binding.photo.setOnClickListener {
             replaceFragment(ProfileFragment(), true)
         }
 

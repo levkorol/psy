@@ -72,7 +72,7 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
 
         binding.nameUser.setOnClickListener {
             EditTextDialog(requireContext()).apply {
-                val text =  setEditText()
+                val text =  setEditText("")
                 setTitle(getString(R.string.your_nam))
                 setPositiveButton(getString(R.string.save)) {
                     val name = text.findViewById<TextView>(R.id.input_text).text

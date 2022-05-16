@@ -42,9 +42,10 @@
         android:src="@drawable/pic_parent_cat"/>
 
     <TextView
+        android:id="@+id/name"
         style="@style/TextTitle"
         android:gravity="center"
-        android:text="Имя внутреннего родителя" />
+        android:text="@string/name_parent" />
 
     <TextView
         style="@style/TextNormal"

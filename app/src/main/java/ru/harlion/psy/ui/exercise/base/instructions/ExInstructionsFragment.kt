@@ -12,6 +12,10 @@ class ExInstructionsFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.back.setOnClickListener {
+            parentFragmentManager.popBackStack()
+        }
+
         val (oneTitle,
             twoTitle,
             threeTitle,

@@ -51,6 +51,7 @@
             android:textColor="@color/white" />
 
         <RelativeLayout
+            android:id="@+id/premium"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="12dp"
@@ -58,7 +59,6 @@
             android:background="@drawable/bg_line_big_white">
 
             <TextView
-                android:id="@+id/premium"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_centerInParent="true"
@@ -92,6 +92,12 @@
         style="@style/MenuItemProfile"
         android:drawableStart="@drawable/ic_lock"
         android:text="@string/password" />
+
+    <TextView
+        android:id="@+id/notify"
+        style="@style/MenuItemProfile"
+        android:drawableStart="@drawable/ic_alarm_clock"
+        android:text="@string/notify" />
 
 <!--        <TextView-->
 <!--            android:id="@+id/premium"-->

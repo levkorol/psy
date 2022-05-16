@@ -46,7 +46,7 @@
         android:id="@+id/name"
         style="@style/TextTitle"
         android:gravity="center"
-        android:text="Имя внутреннего взрослого" />
+        android:text="@string/name_adult" />
 
     <TextView
         style="@style/TextNormal"

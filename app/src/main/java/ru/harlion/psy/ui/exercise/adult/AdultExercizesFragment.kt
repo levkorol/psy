@@ -28,31 +28,11 @@ class AdultExercizesFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.back.setOnClickListener {
-            parentFragmentManager.popBackStack()
-        }
+        initClick()
 
-        binding.info.setOnClickListener {
-            replaceFragment(
-                ExInstructionsFragment.newInstance(
-                    oneTitle = R.string.adult_info,
-                    toolbar = R.string.informations
-                ), true
-            )
-        }
-
-        binding.edit.setOnClickListener {
-            EditTextDialog(requireContext()).apply {
-                val text =  setEditText()
-                setTitle(getString(R.string.your_nam))
-                setPositiveButton(getString(R.string.save)) {
-                    val name = text.findViewById<TextView>(R.id.input_text).text
-                    app.user.value?.name = name.toString()
-                    binding.name.text = name.toString()
-                }
-                setNegativeButton(getString(R.string.cancel)) {}
-            }.show()
-        }
+        app.user.observe(viewLifecycleOwner, {
+            binding.name.text = it.nameAdult
+        })
 
         val exercises = listOf(
             MenuEx(getString(R.string.self_ex), R.drawable.menu_like, 2),
@@ -97,5 +77,33 @@ class AdultExercizesFragment :
             adapter = adapterMenu
         }
         adapterMenu.items = exercises
+    }
+
+    private fun initClick() {
+        binding.back.setOnClickListener {
+            parentFragmentManager.popBackStack()
+        }
+
+        binding.info.setOnClickListener {
+            replaceFragment(
+                ExInstructionsFragment.newInstance(
+                    oneTitle = R.string.adult_info,
+                    toolbar = R.string.informations
+                ), true
+            )
+        }
+
+        binding.edit.setOnClickListener {
+            EditTextDialog(requireContext()).apply {
+                val text = setEditText(getString(R.string.name_adult))
+                setTitle(getString(R.string.name_adult_title))
+                setPositiveButton(getString(R.string.save)) {
+                    val name = text.findViewById<TextView>(R.id.input_text).text
+                    app.user.value?.name = name.toString()
+                    binding.name.text = name.toString()
+                }
+                setNegativeButton(getString(R.string.cancel)) {}
+            }.show()
+        }
     }
 }

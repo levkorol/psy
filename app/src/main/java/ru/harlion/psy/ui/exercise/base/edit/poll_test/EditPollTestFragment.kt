@@ -23,11 +23,12 @@ import kotlin.math.roundToInt
 class EditPollTestFragment :
     BindingFragment<FragmentPollTestEditBinding>(FragmentPollTestEditBinding::inflate) {
 
-    private val viewModel : EditPollTestViewModel by viewModels()
+    private val viewModel: EditPollTestViewModel by viewModels()
 
     private lateinit var answers: ArrayList<Answer>
     private lateinit var questions: List<String>
     private var isTesting = false
+    private var count = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,6 +60,8 @@ class EditPollTestFragment :
             binding.titleToolbar.setText(R.string.poll_day_ex)
         }
 
+       // binding.countQuestion.text = "$count / ${answers.size}"
+
         binding.viewPager.adapter = AdapterPollTest(questions, answers, isTesting)
         binding.nextQuestion.setOnClickListener {
             if (questions.lastIndex == binding.viewPager.currentItem) {
@@ -85,8 +88,6 @@ class EditPollTestFragment :
                 binding.viewPager.currentItem++
             }
         }
-
-        binding.countQuestion.text = "${questions.size} / ${answers.size}"
     }
 
     companion object {
@@ -138,7 +139,7 @@ class AdapterPollTest(
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
         holder.binding.apply {
             if (isTesting) {
-                text.text = "Оцените насколько убедительной является для вас эта мысль"
+                text.text = text.context.getString(R.string.mark_test)
                 comment.visibility = View.GONE
             } else {
                 comment.visibility = View.VISIBLE
@@ -147,6 +148,7 @@ class AdapterPollTest(
             question.text = questions[position]
             comment.text = items[position].comment
             question.countSlider = items[position].assessment.toFloat()
+            countQuestion.text = "${position + 1} / ${questions.size}"
         }
     }
 

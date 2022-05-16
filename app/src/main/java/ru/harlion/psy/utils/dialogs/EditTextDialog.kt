@@ -50,9 +50,10 @@ class EditTextDialog(context: Context) {
         }
     }
 
-    fun setEditText(): View {
+    fun setEditText(hintText: String): View {
         return alertDialog.findViewById<EditText>(R.id.input_text).apply {
             visibility = View.VISIBLE
+            hint = hintText
         }
     }
 

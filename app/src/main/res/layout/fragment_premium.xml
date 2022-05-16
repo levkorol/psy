@@ -1,14 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingEnd="16dp"
     tools:context=".ui.profile.premium.PremiumFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:id="@+id/top_ll"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/back"
+            style="@style/ButtonToolBar"
+            android:src="@drawable/ic_baseline_arrow_back_24" />
+
+        <TextView
+            android:id="@+id/title_toolbar"
+            style="@style/TextToolBar"
+            android:text="@string/pro" />
+
+
+    </RelativeLayout>
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:text="@string/pro_one"
+        android:gravity="center|start"
+        android:textColor="@color/gray_dark"
+        android:drawableStart="@drawable/pic_meditation_outline"/>
 
-</FrameLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pro_two"
+        android:gravity="center|start"
+        android:textColor="@color/gray_dark"
+        android:drawableStart="@drawable/pic_balloon_outline"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pro_three"
+        android:gravity="center|start"
+        android:textColor="@color/gray_dark"
+        android:drawableStart="@drawable/pic_biker_outline"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pro_for"
+        android:gravity="center|start"
+        android:textColor="@color/gray_dark"
+        android:drawableStart="@drawable/pic_password_outline"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pro_fife"
+        android:gravity="center|start"
+        android:textColor="@color/gray_dark"
+        android:drawableStart="@drawable/pic_data_analysis__outline"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pro_six"
+        android:gravity="center|start"
+        android:textColor="@color/gray_dark"
+        android:drawableStart="@drawable/pic_mobile_phone_outline"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pro_seven"
+        android:gravity="center|start"
+        android:textColor="@color/gray_dark"
+        android:drawableStart="@drawable/pic_motivation_outline"/>
+
+
+</LinearLayout>

@@ -5,6 +5,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/photo_button"
+        style="@style/ButtonBigLineViolet"
+        android:drawableStart="@drawable/ic_picture"
+        android:drawablePadding="16dp"
+        android:layout_marginTop="20dp"
+        android:textStyle="normal"
+        android:gravity="start|center"
+        android:layout_marginHorizontal="16dp"
+        android:layout_width="match_parent"
+        android:text="@string/edit_photo"
+        android:textAllCaps="false" />
+
     <TextView
         android:id="@+id/title"
         style="@style/TextTitleQuestions"

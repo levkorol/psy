@@ -6,7 +6,7 @@
     <string name="child">Ребенок</string>
     <string name="adult">Взрослый</string>
     <string name="parent">Родитель</string>
-    <string name="pro_better">Больше возможностей с PRO</string>
+    <string name="pro_better">Больше возможностей с PRO версией</string>
     <string name="diary_emo">Дневник эмоций</string>
     <string name="day_star">Оценка дня</string>
     <string name="here_empty">Здесь пока пусто</string>
@@ -249,6 +249,22 @@
 Ключик к взрослому – состояние «здесь и сейчас»\n
 Фразы - могу\n
 Энергия – состояние покоя"</string>
+    <string name="name_child">Имя внутреннего ребенка</string>
+    <string name="name_parent">Имя внутреннего родителя</string>
+    <string name="name_adult">Имя внутреннего взрослого</string>
+    <string name="mark_test">Оцените насколько убедительной является для вас эта мысль</string>
+    <string name="name_child_title">Назови своего внутреннего Ребенка</string>
+    <string name="name_adult_title">Назови своего внутреннего Взрослого</string>
+    <string name="name_parent_title">Назови своего внутреннего Родителя</string>
+    <string name="edit_photo">Редактировать фото</string>
+    <string name="notify">Напоминания</string>
+    <string name="pro_seven">Мотивация к регулярности выполнения</string>
+    <string name="pro_six">Без рекламы</string>
+    <string name="pro_fife">Статистика</string>
+    <string name="pro_for">Пароль на вход в приложение</string>
+    <string name="pro_three">Неограниченное количество будильников</string>
+    <string name="pro_two">Сохранять прогрессы с результатов теста</string>
+    <string name="pro_one">Доступны все упражнения</string>
 
     <string-array name="questions_test">
         <item>@string/test_question_1</item>
