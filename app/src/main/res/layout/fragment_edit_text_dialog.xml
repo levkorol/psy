@@ -12,6 +12,7 @@
         android:drawablePadding="16dp"
         android:layout_marginTop="20dp"
         android:textStyle="normal"
+        android:visibility="gone"
         android:gravity="start|center"
         android:layout_marginHorizontal="16dp"
         android:layout_width="match_parent"

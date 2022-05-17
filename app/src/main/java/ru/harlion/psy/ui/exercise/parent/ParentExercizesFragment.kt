@@ -1,8 +1,13 @@
 package ru.harlion.psy.ui.exercise.parent
 
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.harlion.psy.AppApplication
 import ru.harlion.psy.R
@@ -13,8 +18,10 @@ import ru.harlion.psy.ui.exercise.base.ex_list.ExListFragment
 import ru.harlion.psy.ui.exercise.base.AdapterMenuExercizes
 import ru.harlion.psy.ui.exercise.base.MenuEx
 import ru.harlion.psy.ui.exercise.base.instructions.ExInstructionsFragment
+import ru.harlion.psy.utils.PhotoRequest
 import ru.harlion.psy.utils.dialogs.EditTextDialog
 import ru.harlion.psy.utils.replaceFragment
+import ru.harlion.psy.utils.setRoundImage
 
 
 class ParentExercizesFragment :
@@ -22,6 +29,22 @@ class ParentExercizesFragment :
 
     private lateinit var adapterMenu: AdapterMenuExercizes
     private val app = AppApplication()
+    lateinit var launcher: ActivityResultLauncher<Intent>
+    private var photoRequest: PhotoRequest? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        launcher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+                if (it.resultCode == Activity.RESULT_OK) {
+                    if (photoRequest?.onActivityResult(it.data) == true) {
+                        binding.parentPhoto.setRoundImage(Uri.fromFile(photoRequest!!.file), R.drawable.pic_parent_cat)
+                        app.user.value?.photoParent = photoRequest?.file?.path ?: ""
+                    }
+                }
+            }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -94,6 +117,12 @@ class ParentExercizesFragment :
                     val name = text.findViewById<TextView>(R.id.input_text).text
                     app.user.value?.name = name.toString()
                     binding.name.text = name.toString()
+                }
+                setAddPhotoButton {
+                    if (photoRequest == null) {
+                        photoRequest = PhotoRequest(this@ParentExercizesFragment)
+                    }
+                    photoRequest!!.openGallery(launcher)
                 }
                 setNegativeButton(getString(R.string.cancel)) {}
             }.show()

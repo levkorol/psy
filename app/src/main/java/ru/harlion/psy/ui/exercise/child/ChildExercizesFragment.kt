@@ -1,9 +1,14 @@
 package ru.harlion.psy.ui.exercise.child
 
 
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.harlion.psy.AppApplication
 import ru.harlion.psy.R
@@ -14,8 +19,10 @@ import ru.harlion.psy.ui.exercise.base.ex_list.ExListFragment
 import ru.harlion.psy.ui.exercise.base.AdapterMenuExercizes
 import ru.harlion.psy.ui.exercise.base.MenuEx
 import ru.harlion.psy.ui.exercise.base.instructions.ExInstructionsFragment
+import ru.harlion.psy.utils.PhotoRequest
 import ru.harlion.psy.utils.dialogs.EditTextDialog
 import ru.harlion.psy.utils.replaceFragment
+import ru.harlion.psy.utils.setRoundImage
 
 
 class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
@@ -23,6 +30,22 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
 ) {
     private lateinit var adapterMenu: AdapterMenuExercizes
     private val app = AppApplication()
+    lateinit var launcher: ActivityResultLauncher<Intent>
+    private var photoRequest: PhotoRequest? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        launcher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+                if (it.resultCode == Activity.RESULT_OK) {
+                    if (photoRequest?.onActivityResult(it.data) == true) {
+                        binding.childPhoto.setRoundImage(Uri.fromFile(photoRequest!!.file), R.drawable.pic_child_cat)
+                        app.user.value?.photoChild = photoRequest?.file?.path ?: ""
+                    }
+                }
+            }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -108,6 +131,12 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
                     val name = text.findViewById<TextView>(R.id.input_text).text
                     app.user.value?.name = name.toString()
                     binding.name.text = name.toString()
+                }
+                setAddPhotoButton {
+                    if (photoRequest == null) {
+                        photoRequest = PhotoRequest(this@ChildExercizesFragment)
+                    }
+                    photoRequest!!.openGallery(launcher)
                 }
                 setNegativeButton(getString(R.string.cancel)) {}
             }.show()

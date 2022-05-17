@@ -195,9 +195,9 @@
         <item name="android:layout_marginStart">16dp</item>
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:gravity">start|top</item>
-        <item name="android:padding">10dp</item>
-        <item name="android:paddingStart">10dp</item>
-        <item name="android:paddingEnd">10dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
     </style>
 
 

@@ -39,9 +39,9 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
         app.user.observe(viewLifecycleOwner, {
             val photoUri = Uri.parse(it.photoMain)
             try {
-                binding.photo.setRoundImage(photoUri)
+                binding.photo.setRoundImage(photoUri, R.drawable.ic_profile)
             } catch (e: Exception) {
-                binding.photo.setRoundImage(null)
+                binding.photo.setRoundImage(null, R.drawable.ic_profile)
             }
         })
 

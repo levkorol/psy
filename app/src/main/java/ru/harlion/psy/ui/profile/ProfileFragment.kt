@@ -41,7 +41,7 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
                 if (it.resultCode == Activity.RESULT_OK) {
                     if (photoRequest?.onActivityResult(it.data) == true) {
-                        binding.photoProfile.setRoundImage(Uri.fromFile(photoRequest!!.file))
+                        binding.photoProfile.setRoundImage(Uri.fromFile(photoRequest!!.file), R.drawable.ic_profile)
                         app.user.value?.photoMain = photoRequest?.file?.path ?: ""
                     }
                 }
@@ -57,9 +57,9 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
             binding.nameUser.text = it.name
             val photoUri = Uri.parse(it.photoMain)
             try {
-                binding.photoProfile.setRoundImage(photoUri)
+                binding.photoProfile.setRoundImage(photoUri,R.drawable.ic_profile)
             } catch (e: Exception) {
-                binding.photoProfile.setRoundImage(null)
+                binding.photoProfile.setRoundImage(null,R.drawable.ic_profile)
             }
         })
     }

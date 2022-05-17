@@ -43,6 +43,16 @@ class EditTextDialog(context: Context) {
         }
     }
 
+    fun setAddPhotoButton(onClickListener: View.OnClickListener?) {
+        alertDialog.findViewById<AppCompatButton>(R.id.photo_button).apply {
+            visibility = View.VISIBLE
+            setOnClickListener {
+                onClickListener?.onClick(it)
+                alertDialog.dismiss()
+            }
+        }
+    }
+
     fun setTitle(msg: String) {
         alertDialog.findViewById<TextView>(R.id.title).apply {
             visibility = View.VISIBLE
