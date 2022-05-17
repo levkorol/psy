@@ -3,17 +3,14 @@ package ru.harlion.psy.ui.main.diary_emotions.edit
 import android.app.TimePickerDialog
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.LiveData
 import com.google.android.flexbox.AlignItems
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayoutManager
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
-import ru.harlion.psy.data.Repository
 import ru.harlion.psy.databinding.FragmentEditDiaryEmoBinding
 import ru.harlion.psy.models.emotions.Emotion
 import ru.harlion.psy.ui.main.diary_emotions.adapter.AdapterEmotion
@@ -46,7 +43,7 @@ class EditDiaryEmoFragment :
 
         setFragmentResultListener("table_emotions") { _, bundle ->
             emotions = bundle.getSerializable("emotions") as List<Emotion>
-            adapterEmotions.item = emotions
+            adapterEmotions.items = emotions
         }
     }
 

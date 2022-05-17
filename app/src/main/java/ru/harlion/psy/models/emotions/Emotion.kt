@@ -2,7 +2,13 @@ package ru.harlion.psy.models.emotions
 
 import java.io.Serializable
 
-class Emotion (
+class CategoryEmotions(
+    val name: String = "",
+    val color: Int = 0,
+    val emotions: List<Emotion>
+)
+
+class Emotion(
     val id: Long = 0,
     val name: String = "",
     val category: String = "",

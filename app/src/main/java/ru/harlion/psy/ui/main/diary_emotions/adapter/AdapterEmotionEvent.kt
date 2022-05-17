@@ -8,7 +8,6 @@ import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayoutManager
 import ru.harlion.psy.base.BindingHolder
 import ru.harlion.psy.databinding.ItemDiaryEmotionsBinding
-import ru.harlion.psy.databinding.ItemEmotionBinding
 import ru.harlion.psy.models.emotions.Emotion
 import ru.harlion.psy.models.emotions.EmotionEvent
 import ru.harlion.psy.utils.timeToString
@@ -57,7 +56,7 @@ class AdapterEmotionSEvent(
         recyclerView.layoutManager = llm
         recyclerView.adapter = adapterEmotion
 
-        adapterEmotion?.item = emotions
+        adapterEmotion?.items = emotions
     }
 
 }
