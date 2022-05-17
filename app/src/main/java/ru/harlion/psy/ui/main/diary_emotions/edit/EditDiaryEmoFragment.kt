@@ -3,8 +3,10 @@ package ru.harlion.psy.ui.main.diary_emotions.edit
 import android.app.TimePickerDialog
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.LiveData
 import com.google.android.flexbox.AlignItems
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
@@ -13,6 +15,7 @@ import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.data.Repository
 import ru.harlion.psy.databinding.FragmentEditDiaryEmoBinding
+import ru.harlion.psy.models.emotions.Emotion
 import ru.harlion.psy.ui.main.diary_emotions.adapter.AdapterEmotion
 import ru.harlion.psy.ui.main.diary_emotions.table_emotions.TableEmotionsFragment
 import ru.harlion.psy.utils.dateToString
@@ -31,6 +34,7 @@ class EditDiaryEmoFragment :
     private var date = System.currentTimeMillis()
     private var time = System.currentTimeMillis()
     private var id = 0L
+    private var emotions: List<Emotion> = listOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +42,11 @@ class EditDiaryEmoFragment :
         setFragmentResultListener("calendarDate") { _, bundle ->
             date = bundle.getLong("epochMillis")
             binding.date.text = dateToString(date)
+        }
+
+        setFragmentResultListener("table_emotions") { _, bundle ->
+            emotions = bundle.getSerializable("emotions") as List<Emotion>
+            adapterEmotions.item = emotions
         }
     }
 
@@ -66,8 +75,6 @@ class EditDiaryEmoFragment :
             layoutManager = llm
             adapter = adapterEmotions
         }
-
-        adapterEmotions.item = Repository.getEmo() //todo
     }
 
     private fun observe() {
@@ -88,15 +95,15 @@ class EditDiaryEmoFragment :
         binding.back.setOnClickListener { parentFragmentManager.popBackStack() }
         binding.save.setOnClickListener {
             if (id > 0) {
-               viewModel.update(
-                   date,
-                   time,
-                   binding.questionOne.text.toString(),
-                   binding.questionTwo.text.toString(),
-                   binding.questionThree.text.toString(),
-                   binding.questionFor.text.toString(),
-                   Repository.getEmo() //todo
-               )
+                viewModel.update(
+                    date,
+                    time,
+                    binding.questionOne.text.toString(),
+                    binding.questionTwo.text.toString(),
+                    binding.questionThree.text.toString(),
+                    binding.questionFor.text.toString(),
+                    emotions
+                )
             } else {
                 viewModel.add(
                     date,
@@ -105,7 +112,7 @@ class EditDiaryEmoFragment :
                     binding.questionTwo.text.toString(),
                     binding.questionThree.text.toString(),
                     binding.questionFor.text.toString(),
-                    Repository.getEmo() //todo
+                    emotions
                 )
             }
             parentFragmentManager.popBackStack()
