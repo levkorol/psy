@@ -12,6 +12,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.harlion.psy.AppApplication
 import ru.harlion.psy.R
+import ru.harlion.psy.app
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentChildExercizesBinding
 import ru.harlion.psy.models.TypeEx
@@ -29,7 +30,6 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
     FragmentChildExercizesBinding::inflate
 ) {
     private lateinit var adapterMenu: AdapterMenuExercizes
-    private val app = AppApplication()
     lateinit var launcher: ActivityResultLauncher<Intent>
     private var photoRequest: PhotoRequest? = null
 
@@ -41,7 +41,7 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
                 if (it.resultCode == Activity.RESULT_OK) {
                     if (photoRequest?.onActivityResult(it.data) == true) {
                         binding.childPhoto.setRoundImage(Uri.fromFile(photoRequest!!.file), R.drawable.pic_child_cat)
-                        app.user.value?.photoChild = photoRequest?.file?.path ?: ""
+                        app.user.value = app.user.value?.copy(photoChild = photoRequest?.file?.path ?: "")
                     }
                 }
             }
@@ -129,7 +129,7 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
                 setTitle(getString(R.string.name_child_title))
                 setPositiveButton(getString(R.string.save)) {
                     val name = text.findViewById<TextView>(R.id.input_text).text
-                    app.user.value?.name = name.toString()
+                    app.user.value = app.user.value?.copy(nameChild = name.toString())
                     binding.name.text = name.toString()
                 }
                 setAddPhotoButton {

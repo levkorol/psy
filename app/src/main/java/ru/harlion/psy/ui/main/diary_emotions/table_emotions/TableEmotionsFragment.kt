@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.setFragmentResult
 import androidx.recyclerview.widget.LinearLayoutManager
+import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentTableEmotionsBinding
 import ru.harlion.psy.models.emotions.CategoryEmotions
@@ -42,11 +43,11 @@ class TableEmotionsFragment :
             adapter = adapterEmoCategory
         }
         adapterEmoCategory.items = listOf(
-            CategoryEmotions(name = "Радость", 0, listOf(Emotion(name = "emo1"), Emotion(name = "emo2"), )),//todo
-            CategoryEmotions(name = "Гнев",0, listOf(Emotion(name = "emo1"), Emotion(name = "emo2"), )),
-            CategoryEmotions(name = "Грусть",0, listOf(Emotion(name = "emo1"), Emotion(name = "emo2"), )),
-            CategoryEmotions(name = "Стыд",0, listOf(Emotion(name = "emo1"), Emotion(name = "emo2"), )),
-            CategoryEmotions(name = "Страх",0, listOf(Emotion(name = "emo1"), Emotion(name = "emo2"), )),
+            CategoryEmotions(name = "Радость", R.color.emotion_happy, listOf(Emotion(name = "emo1"), Emotion(name = "emo2"), )),//todo
+            CategoryEmotions(name = "Гнев", R.color.emotion_anger, listOf(Emotion(name = "emo1"), Emotion(name = "emo2"), )),
+            CategoryEmotions(name = "Грусть", R.color.emotion_sad, listOf(Emotion(name = "emo1"), Emotion(name = "emo2"), )),
+            CategoryEmotions(name = "Стыд", R.color.emotion_shame, listOf(Emotion(name = "emo1"), Emotion(name = "emo2"), )),
+            CategoryEmotions(name = "Страх", R.color.emotion_scare, listOf(Emotion(name = "emo1"), Emotion(name = "emo2"), )),
         )
     }
 

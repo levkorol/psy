@@ -6,17 +6,27 @@
     android:layout_height="wrap_content"
     android:id="@+id/container_emotion_ll">
 
-<!--    <View-->
-<!--        android:layout_width="14dp"-->
-<!--        android:layout_height="14dp"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:background="@drawable/bg_line_big_green"/>-->
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:button="@drawable/checkbox"/>
 
     <TextView
         android:id="@+id/text_emotion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
         android:gravity="center"
+        android:layout_marginStart="-4dp"
+        android:textColor="@color/icon_color_dark_gray"
+        android:layout_marginTop="4dp"
         tools:text="tools" />
+
+<!--    <CheckedTextView-->
+<!--        style="@style/CategoryCheckedTextView"-->
+<!--        android:id="@+id/text_emotion"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        tools:text="tools" />-->
 </LinearLayout>

@@ -28,11 +28,12 @@ class EditPollTestFragment :
     private lateinit var answers: ArrayList<Answer>
     private lateinit var questions: List<String>
     private var isTesting = false
-    private var count = 1
+    private var pollId = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        pollId = requireArguments().getLong("ID")
         isTesting = requireArguments().getBoolean("TESTING")
         questions = if (isTesting) {
             resources.getStringArray(R.array.questions_test)
@@ -60,7 +61,9 @@ class EditPollTestFragment :
             binding.titleToolbar.setText(R.string.poll_day_ex)
         }
 
-       // binding.countQuestion.text = "$count / ${answers.size}"
+        binding.back.setOnClickListener { parentFragmentManager.popBackStack() }
+
+        observe()
 
         binding.viewPager.adapter = AdapterPollTest(questions, answers, isTesting)
         binding.nextQuestion.setOnClickListener {
@@ -80,7 +83,11 @@ class EditPollTestFragment :
                         }
                         replaceFragment(TestFragment.newInstance(true, result.toFloatArray()), true)
                     } else {
-                        viewModel.add(answers)
+                        if (pollId > 0) {
+                            //todo update
+                        } else {
+                            viewModel.add(answers)
+                        }
                         parentFragmentManager.popBackStack()
                     }
                 }
@@ -90,10 +97,18 @@ class EditPollTestFragment :
         }
     }
 
+    private fun observe() {
+        viewModel.getPollById(pollId)
+        viewModel.poll.observe(viewLifecycleOwner, {
+            //todo
+        })
+    }
+
     companion object {
-        fun newInstance(isTesting: Boolean) = EditPollTestFragment().apply {
+        fun newInstance(pollId : Long = 0, isTesting: Boolean) = EditPollTestFragment().apply {
             arguments = Bundle().apply {
                 putBoolean("TESTING", isTesting)
+                putLong("ID", pollId)
             }
         }
     }

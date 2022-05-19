@@ -13,6 +13,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import kotlinx.android.synthetic.main.fragment_edit_album.*
 import ru.harlion.psy.AppApplication
 import ru.harlion.psy.R
+import ru.harlion.psy.app
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentProfileBinding
 import ru.harlion.psy.ui.exercise.base.instructions.ExInstructionsFragment
@@ -32,8 +33,6 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
     lateinit var launcher: ActivityResultLauncher<Intent>
     private var photoRequest: PhotoRequest? = null
 
-    private val app = AppApplication()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -42,7 +41,7 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
                 if (it.resultCode == Activity.RESULT_OK) {
                     if (photoRequest?.onActivityResult(it.data) == true) {
                         binding.photoProfile.setRoundImage(Uri.fromFile(photoRequest!!.file), R.drawable.ic_profile)
-                        app.user.value?.photoMain = photoRequest?.file?.path ?: ""
+                      //  app.user.value?.photoMain = photoRequest?.file?.path ?: ""
                     }
                 }
             }
@@ -77,7 +76,7 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
                 setTitle(getString(R.string.your_nam))
                 setPositiveButton(getString(R.string.save)) {
                     val name = text.findViewById<TextView>(R.id.input_text).text
-                    app.user.value?.name = name.toString()
+                  //  app.user.value?.name = name.toString()
                     binding.nameUser.text = name.toString()
                 }
                 setNegativeButton(getString(R.string.cancel)) {}

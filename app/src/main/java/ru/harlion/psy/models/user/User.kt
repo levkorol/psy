@@ -1,15 +1,32 @@
 package ru.harlion.psy.models.user
 
-class User(
-    var photoMain: String,
-    var name: String,
-    var progressChild: Int,
-    var photoChild: String,
-    var nameChild: String,
-    var progressAdult: Int,
-    var photoAdult: String,
-    var nameAdult: String,
-    var progressParent: Int,
-    var photoParent: String,
-    var nameParent: String,
-)
+data class User(
+    val photoMain: String,
+    val name: String,
+    val progressChild: Int,
+    val photoChild: String,
+    val nameChild: String,
+    val progressAdult: Int,
+    val photoAdult: String,
+    val nameAdult: String,
+    val progressParent: Int,
+    val photoParent: String,
+    val nameParent: String,
+) {
+    companion object {
+        val emptyUser = User(
+            "",
+            "",
+            0,
+            "",
+            "",
+            0,
+            "",
+            "",
+            0,
+            "",
+            ""
+        )
+    }
+}
+

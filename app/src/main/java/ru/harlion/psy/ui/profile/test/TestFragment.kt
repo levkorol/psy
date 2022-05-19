@@ -33,7 +33,7 @@ class TestFragment : BindingFragment<FragmentTestBinding>(FragmentTestBinding::i
 
     private fun initClicks() {
         binding.testBegin.setOnClickListener {
-            replaceFragment(EditPollTestFragment.newInstance(true), true)
+            replaceFragment(EditPollTestFragment.newInstance(0,true), true)
         }
     }
 

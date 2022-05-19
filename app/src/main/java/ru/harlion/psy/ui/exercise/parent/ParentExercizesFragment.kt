@@ -28,7 +28,9 @@ class ParentExercizesFragment :
     BindingFragment<FragmentParentExercizesBinding>(FragmentParentExercizesBinding::inflate) {
 
     private lateinit var adapterMenu: AdapterMenuExercizes
-    private val app = AppApplication()
+    private val app
+        get() = requireActivity().application as AppApplication
+
     lateinit var launcher: ActivityResultLauncher<Intent>
     private var photoRequest: PhotoRequest? = null
 
@@ -39,8 +41,11 @@ class ParentExercizesFragment :
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
                 if (it.resultCode == Activity.RESULT_OK) {
                     if (photoRequest?.onActivityResult(it.data) == true) {
-                        binding.parentPhoto.setRoundImage(Uri.fromFile(photoRequest!!.file), R.drawable.pic_parent_cat)
-                        app.user.value?.photoParent = photoRequest?.file?.path ?: ""
+                        binding.parentPhoto.setRoundImage(
+                            Uri.fromFile(photoRequest!!.file),
+                            R.drawable.pic_parent_cat
+                        )
+                        //app.user.value?.photoParent = photoRequest?.file?.path ?: ""
                     }
                 }
             }
@@ -65,26 +70,36 @@ class ParentExercizesFragment :
 
         adapterMenu = AdapterMenuExercizes {
             when (it) {
-                0 -> replaceFragment( ExListFragment.newInstance(
-                    R.string.success_diary_ex,
-                    TypeEx.SUCCESS_DIARY
-                ), true)
-                1 -> replaceFragment( ExListFragment.newInstance(
-                    R.string.work_with_belief_ex,
-                    TypeEx.WORK_WITH_BELIEFS
-                ), true)
-                2 -> replaceFragment( ExListFragment.newInstance(
-                    R.string.positive_belief_ex,
-                    TypeEx.POSITIVE_BELIEFS
-                ), true)
-                3 -> replaceFragment( ExListFragment.newInstance(
-                    R.string.life_rules_ex,
-                    TypeEx.LIFE_RULES
-                ), true)
-                else -> replaceFragment( ExListFragment.newInstance(
-                    R.string.perfect_life_ex,
-                    TypeEx.PERFECT_LIFE
-                ), true)
+                0 -> replaceFragment(
+                    ExListFragment.newInstance(
+                        R.string.success_diary_ex,
+                        TypeEx.SUCCESS_DIARY
+                    ), true
+                )
+                1 -> replaceFragment(
+                    ExListFragment.newInstance(
+                        R.string.work_with_belief_ex,
+                        TypeEx.WORK_WITH_BELIEFS
+                    ), true
+                )
+                2 -> replaceFragment(
+                    ExListFragment.newInstance(
+                        R.string.positive_belief_ex,
+                        TypeEx.POSITIVE_BELIEFS
+                    ), true
+                )
+                3 -> replaceFragment(
+                    ExListFragment.newInstance(
+                        R.string.life_rules_ex,
+                        TypeEx.LIFE_RULES
+                    ), true
+                )
+                else -> replaceFragment(
+                    ExListFragment.newInstance(
+                        R.string.perfect_life_ex,
+                        TypeEx.PERFECT_LIFE
+                    ), true
+                )
             }
         }
         binding.menuRv.apply {
@@ -111,11 +126,11 @@ class ParentExercizesFragment :
 
         binding.edit.setOnClickListener {
             EditTextDialog(requireContext()).apply {
-                val text =  setEditText(getString(R.string.name_parent))
+                val text = setEditText(getString(R.string.name_parent))
                 setTitle(getString(R.string.name_parent_title))
                 setPositiveButton(getString(R.string.save)) {
                     val name = text.findViewById<TextView>(R.id.input_text).text
-                    app.user.value?.name = name.toString()
+                    //  app.user.value?.name = name.toString()
                     binding.name.text = name.toString()
                 }
                 setAddPhotoButton {

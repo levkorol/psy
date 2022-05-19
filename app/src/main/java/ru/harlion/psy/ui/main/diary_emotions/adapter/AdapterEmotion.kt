@@ -1,18 +1,26 @@
 package ru.harlion.psy.ui.main.diary_emotions.adapter
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingHolder
 import ru.harlion.psy.databinding.ItemEmotionBinding
+import ru.harlion.psy.models.emotions.CategoryEmotions
 import ru.harlion.psy.models.emotions.Emotion
 
 private typealias ItemHolderEmotion = BindingHolder<ItemEmotionBinding>
 
 class AdapterEmotion() : RecyclerView.Adapter<ItemHolderEmotion>() {
 
-    var items: List<Emotion> = listOf()
+    var colors: ColorStateList? = null
+
+    var items: CategoryEmotions = CategoryEmotions.emptyCategory
         set(value) {
             field = value
+            colors = null
             notifyDataSetChanged()
         }
 
@@ -21,17 +29,32 @@ class AdapterEmotion() : RecyclerView.Adapter<ItemHolderEmotion>() {
         }
 
     override fun onBindViewHolder(holder: ItemHolderEmotion, position: Int) {
+        val colors = colors ?: ColorStateList(
+            arrayOf(
+                intArrayOf(android.R.attr.state_checked),
+                intArrayOf()
+            ), intArrayOf(
+                ContextCompat.getColor(holder.itemView.context, items.color),
+                ContextCompat.getColor(
+                    holder.itemView.context,
+                    R.color.icon_color_dark_gray
+                )
+            )
+        ).also { colors = it }
+
         holder.binding.apply {
             textEmotion.apply {
-                text = items[position].name
 
-              //  setBackgroundColor(ContextCompat.getColor(this.context, item[position].color))
-              // setBackgroundColor(ContextCompat.getColor(this.context, R.color.emo5))
+                text = items.emotions[position].name
+                checkbox.buttonTintList = colors
+
+                //  setBackgroundColor(ContextCompat.getColor(this.context, item[position].color))
+                // setBackgroundColor(ContextCompat.getColor(this.context, R.color.emo5))
             }
         }
     }
 
-    override fun getItemCount() = items.size
+    override fun getItemCount() = items.emotions.size
 
 }
 

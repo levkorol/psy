@@ -12,6 +12,7 @@ import com.google.android.flexbox.FlexboxLayoutManager
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentEditDiaryEmoBinding
+import ru.harlion.psy.models.emotions.CategoryEmotions
 import ru.harlion.psy.models.emotions.Emotion
 import ru.harlion.psy.ui.main.diary_emotions.adapter.AdapterEmotion
 import ru.harlion.psy.ui.main.diary_emotions.table_emotions.TableEmotionsFragment
@@ -43,7 +44,8 @@ class EditDiaryEmoFragment :
 
         setFragmentResultListener("table_emotions") { _, bundle ->
             emotions = bundle.getSerializable("emotions") as List<Emotion>
-            adapterEmotions.items = emotions
+            val category = CategoryEmotions("", R.color.adult_color, emotions)
+            adapterEmotions.items = category
         }
     }
 

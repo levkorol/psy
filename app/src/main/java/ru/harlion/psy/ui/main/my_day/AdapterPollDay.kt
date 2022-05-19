@@ -9,7 +9,8 @@ import ru.harlion.psy.utils.dateAndTimeToString
 
 private typealias ItemHolder = BindingHolder<ItemPollDayBinding>
 
-class AdapterPollDay : RecyclerView.Adapter<ItemHolder>() {
+class AdapterPollDay(val click: (Long) -> Unit)
+    : RecyclerView.Adapter<ItemHolder>() {
 
     var items: List<Poll> = listOf()
         set(value) {
@@ -24,6 +25,12 @@ class AdapterPollDay : RecyclerView.Adapter<ItemHolder>() {
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
         holder.binding.apply {
+
+            root.setOnClickListener {
+                click.invoke(items[position].id)
+            }
+
+
             time.text = dateAndTimeToString(items[position].dateCreate)
             one.text = items[position].question[0].assessment.toString()
             two.text = items[position].question[1].assessment.toString()
@@ -33,6 +40,14 @@ class AdapterPollDay : RecyclerView.Adapter<ItemHolder>() {
             six.text = items[position].question[5].assessment.toString()
             seven.text = items[position].question[6].assessment.toString()
             eight.text = items[position].question[7].assessment.toString()
+
+            comments.text = items[position].question.joinToString(", \n") {
+                if (it.comment.isNotBlank()) {
+                    it.comment
+                } else {
+                    ""
+                }
+            }
         }
     }
 

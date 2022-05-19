@@ -69,6 +69,10 @@
             tools:text="15" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/comments"
+        style="@style/TextNormal"/>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"

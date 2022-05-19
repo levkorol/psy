@@ -184,6 +184,15 @@
         <item name="android:paddingEnd">10dp</item>
     </style>
 
+    <style name="CategoryCheckedTextView">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:background">@drawable/selector_category</item>
+    <item name="android:padding">6dp</item>
+    <item name="android:textColor">@color/checkable_btn</item>
+    <item name="android:textAlignment">center</item>
+    </style>
+
     <style name="EditTextList">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
@@ -305,5 +314,7 @@
         <item name="android:minWidth">1dip</item>
         <item name="android:maxWidth">12dip</item>
     </style>
+
+
 
 </resources>

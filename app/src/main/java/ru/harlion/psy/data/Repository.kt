@@ -36,7 +36,8 @@ class Repository private constructor(context: Context) {
 
     fun getListPolls(): LiveData<List<Poll>> = pollDao.getLists()
 
-    fun getPollById(){}
+    fun getPollById(id : Long) = pollDao.pollById(id)
+
 
     fun updatePoll(){}
 

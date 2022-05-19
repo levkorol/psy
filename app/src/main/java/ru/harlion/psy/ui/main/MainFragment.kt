@@ -11,6 +11,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.tabs.TabLayoutMediator
 import ru.harlion.psy.AppApplication
 import ru.harlion.psy.R
+import ru.harlion.psy.app
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentMainBinding
 import ru.harlion.psy.ui.exercise.adult.AdultExercizesFragment
@@ -28,8 +29,6 @@ import ru.harlion.psy.utils.setRoundImage
 
 
 class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
-
-    private val app = AppApplication()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -53,7 +52,7 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
                     tab.text = getString(R.string.diary_emo)
                 }
                 else -> {
-                    tab.text = getString(R.string.day_star)
+                    tab.text = getString(R.string.poll_day_ex)
                 }
             }
         }.attach()
@@ -82,7 +81,7 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
                     replaceFragment(EditDiaryEmoFragment.newInstance(0), true)
                 }
                 setNegativeButton(R.string.poll_day_ex) { _, _ ->
-                    replaceFragment(EditPollTestFragment.newInstance(false), true)
+                    replaceFragment(EditPollTestFragment.newInstance(0 ,false), true)
                 }
             }.show()
 
