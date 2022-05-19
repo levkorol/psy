@@ -25,6 +25,7 @@ import ru.harlion.psy.utils.PhotoRequest
 import ru.harlion.psy.utils.dialogs.EditTextDialog
 import ru.harlion.psy.utils.replaceFragment
 import ru.harlion.psy.utils.setRoundImage
+import java.io.File
 
 
 class AdultExercizesFragment :
@@ -56,6 +57,12 @@ class AdultExercizesFragment :
 
         app.user.observe(viewLifecycleOwner, {
             binding.name.text = it.nameAdult
+            val photoUri = Uri.fromFile(File(it.photoAdult))
+            try {
+                binding.adultPhoto.setRoundImage(photoUri,R.drawable.pic_adulte_cat)
+            } catch (e: Exception) {
+                binding.adultPhoto.setRoundImage(null,R.drawable.pic_adulte_cat)
+            }
         })
 
         val exercises = listOf(

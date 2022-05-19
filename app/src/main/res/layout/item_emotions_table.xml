@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
-    android:layout_marginTop="8dp"
+    android:layout_marginTop="10dp"
     android:layout_marginBottom="8dp"
     android:orientation="vertical">
 
@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center"
+        android:textSize="18sp"
         android:layout_marginHorizontal="16dp"
         android:layout_weight="2.5"
         android:textColor="@color/black"
@@ -30,7 +30,7 @@
 
     <TextView
         android:id="@+id/count_emo"
-        android:layout_width="100dp"
+        android:layout_width="120dp"
         android:layout_height="40dp"
         android:layout_weight="1"
         android:background="@color/parent_color"

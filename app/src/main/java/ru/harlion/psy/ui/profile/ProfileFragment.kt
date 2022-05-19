@@ -26,6 +26,7 @@ import ru.harlion.psy.utils.PhotoRequest
 import ru.harlion.psy.utils.dialogs.EditTextDialog
 import ru.harlion.psy.utils.replaceFragment
 import ru.harlion.psy.utils.setRoundImage
+import java.io.File
 
 
 class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate) {
@@ -41,7 +42,7 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
                 if (it.resultCode == Activity.RESULT_OK) {
                     if (photoRequest?.onActivityResult(it.data) == true) {
                         binding.photoProfile.setRoundImage(Uri.fromFile(photoRequest!!.file), R.drawable.ic_profile)
-                      //  app.user.value?.photoMain = photoRequest?.file?.path ?: ""
+                        app.user.value = app.user.value?.copy(photoMain = photoRequest?.file?.path ?: "")
                     }
                 }
             }
@@ -53,8 +54,8 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
         initClicks()
 
         app.user.observe(viewLifecycleOwner, {
-            binding.nameUser.text = it.name
-            val photoUri = Uri.parse(it.photoMain)
+            binding.nameUser.text = if(it.name.isNotEmpty()) it.name else getString(R.string.your_name)
+            val photoUri = Uri.fromFile(File(it.photoMain))
             try {
                 binding.photoProfile.setRoundImage(photoUri,R.drawable.ic_profile)
             } catch (e: Exception) {
@@ -76,8 +77,7 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
                 setTitle(getString(R.string.your_nam))
                 setPositiveButton(getString(R.string.save)) {
                     val name = text.findViewById<TextView>(R.id.input_text).text
-                  //  app.user.value?.name = name.toString()
-                    binding.nameUser.text = name.toString()
+                    app.user.value = app.user.value?.copy(name = name.toString())
                 }
                 setNegativeButton(getString(R.string.cancel)) {}
             }.show()

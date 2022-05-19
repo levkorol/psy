@@ -11,6 +11,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.harlion.psy.AppApplication
 import ru.harlion.psy.R
+import ru.harlion.psy.app
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentParentExercizesBinding
 import ru.harlion.psy.models.TypeEx
@@ -22,6 +23,7 @@ import ru.harlion.psy.utils.PhotoRequest
 import ru.harlion.psy.utils.dialogs.EditTextDialog
 import ru.harlion.psy.utils.replaceFragment
 import ru.harlion.psy.utils.setRoundImage
+import java.io.File
 
 
 class ParentExercizesFragment :
@@ -45,7 +47,7 @@ class ParentExercizesFragment :
                             Uri.fromFile(photoRequest!!.file),
                             R.drawable.pic_parent_cat
                         )
-                        //app.user.value?.photoParent = photoRequest?.file?.path ?: ""
+                        app.user.value = app.user.value?.copy(photoParent = photoRequest?.file?.path ?: "")
                     }
                 }
             }
@@ -58,6 +60,12 @@ class ParentExercizesFragment :
 
         app.user.observe(viewLifecycleOwner, {
             binding.name.text = it.nameParent
+            val photoUri = Uri.fromFile(File(it.photoParent))
+            try {
+                binding.parentPhoto.setRoundImage(photoUri,R.drawable.pic_parent_cat)
+            } catch (e: Exception) {
+                binding.parentPhoto.setRoundImage(null,R.drawable.pic_parent_cat)
+            }
         })
 
         val exercises = listOf(
@@ -130,8 +138,7 @@ class ParentExercizesFragment :
                 setTitle(getString(R.string.name_parent_title))
                 setPositiveButton(getString(R.string.save)) {
                     val name = text.findViewById<TextView>(R.id.input_text).text
-                    //  app.user.value?.name = name.toString()
-                    binding.name.text = name.toString()
+                    app.user.value = app.user.value?.copy(nameParent = name.toString())
                 }
                 setAddPhotoButton {
                     if (photoRequest == null) {

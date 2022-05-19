@@ -26,6 +26,7 @@ import ru.harlion.psy.ui.profile.premium.PremiumFragment
 import ru.harlion.psy.ui.profile.test.TestFragment
 import ru.harlion.psy.utils.replaceFragment
 import ru.harlion.psy.utils.setRoundImage
+import java.io.File
 
 
 class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
@@ -36,7 +37,7 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
         initClicks()
 
         app.user.observe(viewLifecycleOwner, {
-            val photoUri = Uri.parse(it.photoMain)
+            val photoUri = Uri.fromFile(File(it.photoMain))
             try {
                 binding.photo.setRoundImage(photoUri, R.drawable.ic_profile)
             } catch (e: Exception) {

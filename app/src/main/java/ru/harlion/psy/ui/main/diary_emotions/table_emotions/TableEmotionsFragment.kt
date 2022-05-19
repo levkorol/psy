@@ -26,13 +26,15 @@ class TableEmotionsFragment :
 
         binding.save.setOnClickListener {
             setFragmentResult("table_emotions", Bundle().apply {
-                putSerializable("emotions", listOf(
-                    Emotion(name = "Uадость"),
-                    Emotion(name = "Гнев"),
-                    Emotion(name = "Грусть"),
-                    Emotion(name = "Стыд"),
-                    Emotion(name = "Страх")
-                ) as Serializable) //todo
+                putSerializable(
+                    "emotions", listOf(
+                        Emotion(name = "Uадость"),
+                        Emotion(name = "Гнев"),
+                        Emotion(name = "Грусть"),
+                        Emotion(name = "Стыд"),
+                        Emotion(name = "Страх")
+                    ) as Serializable
+                ) //todo
             })
             parentFragmentManager.popBackStack()
         }
@@ -43,11 +45,31 @@ class TableEmotionsFragment :
             adapter = adapterEmoCategory
         }
         adapterEmoCategory.items = listOf(
-            CategoryEmotions(name = "Радость", R.color.emotion_happy, listOf(Emotion(name = "emo1"), Emotion(name = "emo2"), )),//todo
-            CategoryEmotions(name = "Гнев", R.color.emotion_anger, listOf(Emotion(name = "emo1"), Emotion(name = "emo2"), )),
-            CategoryEmotions(name = "Грусть", R.color.emotion_sad, listOf(Emotion(name = "emo1"), Emotion(name = "emo2"), )),
-            CategoryEmotions(name = "Стыд", R.color.emotion_shame, listOf(Emotion(name = "emo1"), Emotion(name = "emo2"), )),
-            CategoryEmotions(name = "Страх", R.color.emotion_scare, listOf(Emotion(name = "emo1"), Emotion(name = "emo2"), )),
+            CategoryEmotions(
+                name = String(Character.toChars(0x1F604)) + "  " + "Радость",
+                R.color.emotion_happy,
+                listOf(Emotion(name = "emo1"), Emotion(name = "emo2"))
+            ),
+            CategoryEmotions(
+                name = String(Character.toChars(0x1F621)) + "  " + "Гнев",
+                R.color.emotion_anger,
+                listOf(Emotion(name = "emo1"), Emotion(name = "emo2"))
+            ),
+            CategoryEmotions(
+                name = String(Character.toChars(0x1F61E)) + "  " + "Грусть",
+                R.color.emotion_sad,
+                listOf(Emotion(name = "emo1"), Emotion(name = "emo2"))
+            ),
+            CategoryEmotions(
+                name = String(Character.toChars(0x1F633)) + "  " + "Стыд",
+                R.color.emotion_shame,
+                listOf(Emotion(name = "emo1"), Emotion(name = "emo2"))
+            ),
+            CategoryEmotions(
+                name = String(Character.toChars(0x1F631)) + "  " + "Страх",
+                R.color.emotion_scare,
+                listOf(Emotion(name = "emo1"), Emotion(name = "emo2"))
+            ),
         )
     }
 
