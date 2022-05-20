@@ -13,7 +13,9 @@ import ru.harlion.psy.models.emotions.Emotion
 
 private typealias ItemHolderEmotion = BindingHolder<ItemEmotionBinding>
 
-class AdapterEmotion() : RecyclerView.Adapter<ItemHolderEmotion>() {
+class AdapterEmotion(
+    var emotions: (Set<String>) -> Unit
+) : RecyclerView.Adapter<ItemHolderEmotion>() {
 
     var colors: ColorStateList? = null
 
@@ -45,11 +47,21 @@ class AdapterEmotion() : RecyclerView.Adapter<ItemHolderEmotion>() {
         holder.binding.apply {
             textEmotion.apply {
 
+                if (checkbox.isChecked) {
+                    emotions.invoke(setOf(items.emotions[position]))
+                }
+
                 text = items.emotions[position]
                 checkbox.buttonTintList = colors
 
-                //  setBackgroundColor(ContextCompat.getColor(this.context, item[position].color))
-                // setBackgroundColor(ContextCompat.getColor(this.context, R.color.emo5))
+                //checkedTextView
+                checkedTextView.apply {
+                    setOnClickListener {
+                        isChecked = checkedTextView.isChecked
+                    }
+                    checkMarkTintList = colors
+                    text = items.emotions[position]
+                }
             }
         }
     }

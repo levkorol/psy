@@ -19,7 +19,10 @@ import ru.harlion.psy.ui.main.diary_emotions.adapter.AdapterEmotion
 
 private typealias ItemHolderTableEmotions = BindingHolder<ItemEmotionsTableBinding>
 
-class AdapterTableEmotions(private var adapterEmotion: AdapterEmotion? = null) :
+class AdapterTableEmotions(
+    private var adapterEmotion: AdapterEmotion? = null,
+    var emotions: (Set<String>?) -> Unit
+) :
     RecyclerView.Adapter<ItemHolderTableEmotions>() {
 
     var items = listOf<CategoryEmotions>()
@@ -47,7 +50,12 @@ class AdapterTableEmotions(private var adapterEmotion: AdapterEmotion? = null) :
     override fun onBindViewHolder(holder: ItemHolderTableEmotions, position: Int) {
         holder.binding.apply {
             nameEmoCategory.text = items[position].name
-            countEmo.setBackgroundColor(ContextCompat.getColor(countEmo.context, items[position].color))
+            countEmo.setBackgroundColor(
+                ContextCompat.getColor(
+                    countEmo.context,
+                    items[position].color
+                )
+            )
             emotionsRv.adapter
             initRecyclerViewEmotion(emotionsRv, items[position])
         }
@@ -56,8 +64,13 @@ class AdapterTableEmotions(private var adapterEmotion: AdapterEmotion? = null) :
     override fun getItemCount() = items.size
 
 
-    private fun initRecyclerViewEmotion(recyclerView: RecyclerView, categoryEmotions: CategoryEmotions) {
-        adapterEmotion = AdapterEmotion()
+    private fun initRecyclerViewEmotion(
+        recyclerView: RecyclerView,
+        categoryEmotions: CategoryEmotions
+    ) {
+        adapterEmotion = AdapterEmotion{
+            emotions.invoke(it)
+        }
         val llm = FlexboxLayoutManager(recyclerView.context, FlexDirection.ROW, FlexWrap.WRAP)
 
         llm.alignItems = AlignItems.FLEX_START

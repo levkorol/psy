@@ -88,7 +88,9 @@ class AdapterEmotionSEvent(
     override fun getItemCount() = items.size
 
     private fun initRecyclerViewEmotion(recyclerView: RecyclerView, emotions: List<String>) {
-        adapterEmotion = AdapterEmotion()
+        adapterEmotion = AdapterEmotion{
+
+        }
         val llm = FlexboxLayoutManager(recyclerView.context, FlexDirection.ROW, FlexWrap.WRAP)
 
         llm.alignItems = AlignItems.FLEX_START

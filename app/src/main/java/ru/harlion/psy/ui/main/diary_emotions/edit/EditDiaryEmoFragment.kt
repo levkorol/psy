@@ -67,7 +67,9 @@ class EditDiaryEmoFragment :
         binding.questionFor.hint = resources.getText(R.string.thanks_diary)
         binding.questionFor.textInfo = resources.getText(R.string.thanks_diary)
 
-        adapterEmotions = AdapterEmotion()
+        adapterEmotions = AdapterEmotion{
+
+        }
         binding.recyclerEmotions.apply {
             val llm = FlexboxLayoutManager(requireContext(), FlexDirection.ROW, FlexWrap.WRAP)
             llm.alignItems = AlignItems.FLEX_START

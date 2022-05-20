@@ -23,10 +23,15 @@
         android:layout_marginTop="4dp"
         tools:text="tools" />
 
-<!--    <CheckedTextView-->
-<!--        style="@style/CategoryCheckedTextView"-->
-<!--        android:id="@+id/text_emotion"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        tools:text="tools" />-->
+    <CheckedTextView
+        android:id="@+id/checkedTextView"
+        android:button="@drawable/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checkMark="@null"
+        android:layout_margin="4dp"
+        android:layout_marginTop="4dp"
+        android:drawablePadding="6dp"
+        android:drawableStart="@drawable/checkbox"
+        tools:text="tools" />
 </LinearLayout>

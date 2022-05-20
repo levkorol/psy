@@ -18,7 +18,7 @@ class TableEmotionsFragment :
     BindingFragment<FragmentTableEmotionsBinding>(FragmentTableEmotionsBinding::inflate) {
 
     private lateinit var adapterEmoCategory: AdapterTableEmotions
-    private var emotions = listOf<String>()
+    private var emotions = setOf<String>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -28,19 +28,16 @@ class TableEmotionsFragment :
         binding.save.setOnClickListener {
             setFragmentResult("table_emotions", Bundle().apply {
                 putSerializable(
-                    "emotions", listOf(
-                        Emotion(name = "Uадость"),
-                        Emotion(name = "Гнев"),
-                        Emotion(name = "Грусть"),
-                        Emotion(name = "Стыд"),
-                        Emotion(name = "Страх")
-                    ) as Serializable
-                ) //todo
+                    "emotions",
+                     emotions.toList() as Serializable
+                )
             })
             parentFragmentManager.popBackStack()
         }
 
-        adapterEmoCategory = AdapterTableEmotions()
+        adapterEmoCategory = AdapterTableEmotions {
+            emotions = it!!
+        }
         binding.emoTableRv.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = adapterEmoCategory
