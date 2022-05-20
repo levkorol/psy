@@ -5,7 +5,7 @@ import java.io.Serializable
 class CategoryEmotions(
     val name: String = "",
     val color: Int = 0,
-    val emotions: List<Emotion>
+    val emotions: List<String>
 ) {
     companion object {
         val emptyCategory = CategoryEmotions("", 0 , emptyList())

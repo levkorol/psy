@@ -18,6 +18,7 @@ class TableEmotionsFragment :
     BindingFragment<FragmentTableEmotionsBinding>(FragmentTableEmotionsBinding::inflate) {
 
     private lateinit var adapterEmoCategory: AdapterTableEmotions
+    private var emotions = listOf<String>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -48,27 +49,27 @@ class TableEmotionsFragment :
             CategoryEmotions(
                 name = String(Character.toChars(0x1F604)) + "  " + "Радость",
                 R.color.emotion_happy,
-                listOf(Emotion(name = "emo1"), Emotion(name = "emo2"))
+                resources.getStringArray(R.array.emo_happy).toList()
             ),
             CategoryEmotions(
                 name = String(Character.toChars(0x1F621)) + "  " + "Гнев",
                 R.color.emotion_anger,
-                listOf(Emotion(name = "emo1"), Emotion(name = "emo2"))
+                resources.getStringArray(R.array.emo_anger).toList()
             ),
             CategoryEmotions(
                 name = String(Character.toChars(0x1F61E)) + "  " + "Грусть",
                 R.color.emotion_sad,
-                listOf(Emotion(name = "emo1"), Emotion(name = "emo2"))
+                resources.getStringArray(R.array.emo_happy).toList()
             ),
             CategoryEmotions(
                 name = String(Character.toChars(0x1F633)) + "  " + "Стыд",
                 R.color.emotion_shame,
-                listOf(Emotion(name = "emo1"), Emotion(name = "emo2"))
+                resources.getStringArray(R.array.emo_happy).toList()
             ),
             CategoryEmotions(
                 name = String(Character.toChars(0x1F631)) + "  " + "Страх",
                 R.color.emotion_scare,
-                listOf(Emotion(name = "emo1"), Emotion(name = "emo2"))
+                resources.getStringArray(R.array.emo_happy).toList()
             ),
         )
     }

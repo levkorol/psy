@@ -30,7 +30,7 @@ class EditEmoDiaryViewModel : ViewModel() {
         fieldTwo: String,
         fieldThree: String,
         fieldFor: String,
-        listEmotions: List<Emotion>
+        listEmotions: List<String>
     ) {
         val emoEvent = EmotionEvent(
             date = date,
@@ -39,7 +39,7 @@ class EditEmoDiaryViewModel : ViewModel() {
             fieldTwo = fieldTwo,
             fieldThree = fieldThree,
             fieldFor = fieldFor,
-            emotion = listEmotions
+            emotions = listEmotions
         )
         repo.addEmotionEvent(emoEvent)
     }
@@ -51,7 +51,7 @@ class EditEmoDiaryViewModel : ViewModel() {
         fieldTwo: String,
         fieldThree: String,
         fieldFor: String,
-        listEmotions: List<Emotion>
+        listEmotions: List<String>
     ) {
         val emoEvent = EmotionEvent(
             id = emotionEvent.value?.id ?: 0L,
@@ -61,7 +61,7 @@ class EditEmoDiaryViewModel : ViewModel() {
             fieldTwo = fieldTwo,
             fieldThree = fieldThree,
             fieldFor = fieldFor,
-            emotion = listEmotions
+            emotions = listEmotions
         )
         repo.updateEmoEvent(emoEvent)
     }

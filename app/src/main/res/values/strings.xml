@@ -297,6 +297,54 @@
 
 Ребёнок его сферы – интуиция, порыв, радость, очарование, подражание, любопытство, поддразнивание, испуг, страх, опрометчивые поступки и все биологическое, инстинктивное. Нуждается в защите и ощущении безопасности."</string>
 
+    <string name="anger_emo1">Бешенство</string>
+    <string name="anger_emo2">Ярость</string>
+    <string name="anger_emo3">Ненависть</string>
+    <string name="anger_emo4">Злость</string>
+    <string name="anger_emo5">Раздражение</string>
+    <string name="anger_emo6">Презрение</string>
+    <string name="anger_emo7">Негодование</string>
+    <string name="anger_emo8">Обида</string>
+    <string name="anger_emo9">Ревность</string>
+    <string name="anger_emo10">Уязвленность</string>
+
+    <string name="happy_emo1">Счастье</string>
+    <string name="happy_emo2">Восторг</string>
+    <string name="happy_emo3">Ликование</string>
+    <string name="happy_emo4">Приподнятость</string>
+    <string name="happy_emo5">Оживление</string>
+    <string name="happy_emo6">Умиротворение</string>
+    <string name="happy_emo7">Увлечение</string>
+    <string name="happy_emo8">Интерес</string>
+    <string name="happy_emo9">Забота</string>
+    <string name="happy_emo10">Ожидание</string>
+
+    <string-array name="emo_anger">
+        <item>@string/anger_emo1</item>
+        <item>@string/anger_emo2</item>
+        <item>@string/anger_emo3</item>
+        <item>@string/anger_emo4</item>
+        <item>@string/anger_emo5</item>
+        <item>@string/anger_emo6</item>
+        <item>@string/anger_emo7</item>
+        <item>@string/anger_emo8</item>
+        <item>@string/anger_emo9</item>
+        <item>@string/anger_emo10</item>
+    </string-array>
+
+    <string-array name="emo_happy">
+        <item>@string/happy_emo1</item>
+        <item>@string/happy_emo2</item>
+        <item>@string/happy_emo3</item>
+        <item>@string/happy_emo4</item>
+        <item>@string/happy_emo5</item>
+        <item>@string/happy_emo6</item>
+        <item>@string/happy_emo7</item>
+        <item>@string/happy_emo8</item>
+        <item>@string/happy_emo9</item>
+        <item>@string/happy_emo10</item>
+    </string-array>
+
     <string-array name="questions_test">
         <item>@string/test_question_1</item>
         <item>@string/test_question_2</item>

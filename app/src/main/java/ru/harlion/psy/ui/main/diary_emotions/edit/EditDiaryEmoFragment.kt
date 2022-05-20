@@ -32,7 +32,7 @@ class EditDiaryEmoFragment :
     private var date = System.currentTimeMillis()
     private var time = System.currentTimeMillis()
     private var id = 0L
-    private var emotions: List<Emotion> = listOf()
+    private var emotions: List<String> = listOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +43,7 @@ class EditDiaryEmoFragment :
         }
 
         setFragmentResultListener("table_emotions") { _, bundle ->
-            emotions = bundle.getSerializable("emotions") as List<Emotion>
+            emotions = bundle.getSerializable("emotions") as List<String>
             val category = CategoryEmotions("", R.color.adult_color, emotions)
             adapterEmotions.items = category
         }

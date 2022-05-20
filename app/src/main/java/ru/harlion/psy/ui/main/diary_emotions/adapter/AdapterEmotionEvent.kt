@@ -79,16 +79,15 @@ class AdapterEmotionSEvent(
             holder.binding.apply {
                 emotionName.text = item.fieldOne
                 time.text = timeToString(item.time)
-                // containerItemCardView.setBackgroundColor(item[position].color)
                 emotionsRecyclerView.adapter
-                initRecyclerViewEmotion(emotionsRecyclerView, item.emotion)
+                initRecyclerViewEmotion(emotionsRecyclerView, item.emotions)
             }
         }
     }
 
     override fun getItemCount() = items.size
 
-    private fun initRecyclerViewEmotion(recyclerView: RecyclerView, emotions: List<Emotion>) {
+    private fun initRecyclerViewEmotion(recyclerView: RecyclerView, emotions: List<String>) {
         adapterEmotion = AdapterEmotion()
         val llm = FlexboxLayoutManager(recyclerView.context, FlexDirection.ROW, FlexWrap.WRAP)
 

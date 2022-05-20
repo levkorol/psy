@@ -34,6 +34,8 @@ object ConverterApp {
     fun stringToTypeEx(string: String): TypeEx =
         AppApplication.gson.fromJson(string, TypeEx::class.java)
 
+
+
     @TypeConverter
     fun listToString(type : List<String>): String = AppApplication.gson.toJson(type)
 
@@ -41,12 +43,16 @@ object ConverterApp {
     fun stringToTList(string: String): List<String> =
         AppApplication.gson.fromJson(string, object : TypeToken<List<String?>?>() {}.type)
 
-    @TypeConverter
-    fun listToEmotion(type : List<Emotion>): String = AppApplication.gson.toJson(type)
 
-    @TypeConverter
-    fun emotionToTList(string: String): List<Emotion> =
-        AppApplication.gson.fromJson(string, object : TypeToken<List<Emotion?>?>() {}.type)
+
+//    @TypeConverter
+//    fun listToEmotion(type : List<Emotion>): String = AppApplication.gson.toJson(type)
+//
+//    @TypeConverter
+//    fun emotionToTList(string: String): List<Emotion> =
+//        AppApplication.gson.fromJson(string, object : TypeToken<List<Emotion?>?>() {}.type)
+
+
 
     @TypeConverter
     fun listAnswerToString(type : List<Answer>): String = AppApplication.gson.toJson(type)

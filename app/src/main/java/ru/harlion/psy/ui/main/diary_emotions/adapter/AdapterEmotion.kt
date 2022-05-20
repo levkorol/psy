@@ -37,7 +37,7 @@ class AdapterEmotion() : RecyclerView.Adapter<ItemHolderEmotion>() {
                 ContextCompat.getColor(holder.itemView.context, items.color),
                 ContextCompat.getColor(
                     holder.itemView.context,
-                    R.color.icon_color_dark_gray
+                    R.color.gray_super_light
                 )
             )
         ).also { colors = it }
@@ -45,7 +45,7 @@ class AdapterEmotion() : RecyclerView.Adapter<ItemHolderEmotion>() {
         holder.binding.apply {
             textEmotion.apply {
 
-                text = items.emotions[position].name
+                text = items.emotions[position]
                 checkbox.buttonTintList = colors
 
                 //  setBackgroundColor(ContextCompat.getColor(this.context, item[position].color))
