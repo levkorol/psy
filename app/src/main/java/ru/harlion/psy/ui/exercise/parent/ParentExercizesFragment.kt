@@ -59,7 +59,13 @@ class ParentExercizesFragment :
         initClick()
 
         app.user.observe(viewLifecycleOwner, {
-            binding.name.text = it.nameParent
+            binding.name.text = if(it.nameParent.isNotBlank()) {
+                it.nameParent
+            } else {
+                getString(R.string.name_parent)
+            }
+            binding.progress.progress = it.progressParent
+            binding.countProgress.text = "${it.progressParent} %"
             val photoUri = Uri.fromFile(File(it.photoParent))
             try {
                 binding.parentPhoto.setRoundImage(photoUri,R.drawable.pic_parent_cat)
@@ -69,11 +75,11 @@ class ParentExercizesFragment :
         })
 
         val exercises = listOf(
-            MenuEx(getString(R.string.success_diary_ex), R.drawable.menu_trophy, 0),
-            MenuEx(getString(R.string.work_with_belief_ex), R.drawable.menu_hands, 2),
-            MenuEx(getString(R.string.positive_belief_ex), R.drawable.menu_positive, 0),
-            MenuEx(getString(R.string.life_rules_ex), R.drawable.menu_pr, 0),
-            MenuEx(getString(R.string.perfect_life_ex), R.drawable.menu_check, 0)
+            MenuEx(getString(R.string.success_diary_ex), R.drawable.menu_trophy, 2),
+            MenuEx(getString(R.string.work_with_belief_ex), R.drawable.menu_hands, 4),
+            MenuEx(getString(R.string.positive_belief_ex), R.drawable.menu_positive, 2),
+            MenuEx(getString(R.string.life_rules_ex), R.drawable.menu_pr, 4),
+            MenuEx(getString(R.string.perfect_life_ex), R.drawable.menu_check, 2)
         )
 
         adapterMenu = AdapterMenuExercizes {

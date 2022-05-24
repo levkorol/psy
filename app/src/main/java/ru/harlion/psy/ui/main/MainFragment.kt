@@ -37,6 +37,10 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
         initClicks()
 
         app.user.observe(viewLifecycleOwner, {
+            binding.progressAdult.progress = it.progressAdult
+            binding.progressChild.progress = it.progressChild
+            binding.progressParent.progress = it.progressParent
+
             val photoUri = Uri.fromFile(File(it.photoMain))
             try {
                 binding.photo.setRoundImage(photoUri, R.drawable.ic_profile)

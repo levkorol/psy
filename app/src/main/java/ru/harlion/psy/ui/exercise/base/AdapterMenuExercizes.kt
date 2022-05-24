@@ -21,7 +21,7 @@ class AdapterMenuExercizes(private val click : (Int) -> Unit) :
     override fun onBindViewHolder(holder: ItemHolderMenuEx, position: Int) {
         holder.binding.apply {
             titleEx.text = items[position].title
-            countEx.text = "+ ${items[position].count} к прогрессу"
+            countEx.text = "+ ${items[position].count} прогресса"
             imageEx.setBackgroundResource(items[position].image)
             itemCl.setOnClickListener {
                 click.invoke(position)

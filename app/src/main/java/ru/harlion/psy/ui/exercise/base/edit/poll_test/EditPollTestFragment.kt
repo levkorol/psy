@@ -15,6 +15,7 @@ import ru.harlion.psy.base.BindingHolder
 import ru.harlion.psy.databinding.FragmentPollTestEditBinding
 import ru.harlion.psy.databinding.ItemSliderBinding
 import ru.harlion.psy.models.Answer
+import ru.harlion.psy.ui.exercise.base.instructions.ExInstructionsFragment
 import ru.harlion.psy.ui.profile.test.TestFragment
 import ru.harlion.psy.utils.replaceFragment
 import kotlin.math.roundToInt
@@ -95,17 +96,43 @@ class EditPollTestFragment :
                 binding.viewPager.currentItem++
             }
         }
+
+        binding.info.setOnClickListener {
+            if (isTesting) {
+                replaceFragment(
+                    ExInstructionsFragment.newInstance(
+                        R.string.poll_info_one,
+                        R.string.poll_info_two,
+                        R.string.poll_info_three,
+                        R.string.poll_info_four,
+                        R.string.test_begin,
+                    ), true
+                )
+            } else {
+                replaceFragment(
+                    ExInstructionsFragment.newInstance(
+                        R.string.poll_info_one,
+                        R.string.poll_info_two,
+                        R.string.poll_info_three,
+                        R.string.poll_info_four,
+                        R.string.poll_day_ex
+                    ), true
+                )
+            }
+        }
     }
 
     private fun observe() {
         viewModel.getPollById(pollId)
         viewModel.poll.observe(viewLifecycleOwner, {
-            //todo
+//            it?.question?.map { answer ->
+//                answers.add(answer)
+//            }
         })
     }
 
     companion object {
-        fun newInstance(pollId : Long = 0, isTesting: Boolean) = EditPollTestFragment().apply {
+        fun newInstance(pollId: Long = 0, isTesting: Boolean) = EditPollTestFragment().apply {
             arguments = Bundle().apply {
                 putBoolean("TESTING", isTesting)
                 putLong("ID", pollId)

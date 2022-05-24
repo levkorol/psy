@@ -85,6 +85,7 @@
             android:id="@+id/time_count"
             style="@style/ButtonEditWithSmallDrawable"
             android:drawableStart="@drawable/ic_alarm_clock"
+            android:drawableEnd="@drawable/ic_baseline_close_24"
             tools:text="30:00" />
 
         <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
@@ -92,6 +93,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp" />
+
     </LinearLayout>
 
     <LinearLayout

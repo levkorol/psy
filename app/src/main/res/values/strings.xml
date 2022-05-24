@@ -319,6 +319,46 @@
     <string name="happy_emo9">Забота</string>
     <string name="happy_emo10">Ожидание</string>
 
+    <string name="scare_emo1">Ужас</string>
+    <string name="scare_emo2">Отчаяние</string>
+    <string name="scare_emo3">Испуг</string>
+    <string name="scare_emo4">Оцепенение</string>
+    <string name="scare_emo5">Подозрение</string>
+    <string name="scare_emo6">Тревога</string>
+    <string name="scare_emo7">Ошарашенность</string>
+    <string name="scare_emo8">Беспокойство</string>
+    <string name="scare_emo9">Боязнь</string>
+    <string name="scare_emo10">Унижение</string>
+
+    <string name="sad_emo1">Горечь</string>
+    <string name="sad_emo2">Тоска</string>
+    <string name="sad_emo3">Скорбь</string>
+    <string name="sad_emo4">Лень</string>
+    <string name="sad_emo5">Жалость</string>
+    <string name="sad_emo6">Отрешенность</string>
+    <string name="sad_emo7">Отчаяние</string>
+    <string name="sad_emo8">Беспомощность</string>
+    <string name="sad_emo9">Душевная боль</string>
+    <string name="sad_emo10">Безнадежность</string>
+    <string name="poll_info_one">"Забота о себе — это базовая потребность для твоего организма и психики. Психологи называют это психогигиеной.  Для нормализации своего состояния необходимо следить за базовыми потребностями. Базовые потребности психики, базируются на физическом теле, поэтому базой будет являться: сон, водный баланс, чувство голода, физическая активность, тонус организма в целом, нормальное дыхание и спокойнее настроение. Психогигиена такая же норма как чистить зубы по утрам или здороваться, когда видишь человека. "</string>
+    <string name="poll_info_two">Уделяйте этому время раз в день утром или вечером и заботьтесь о себе.</string>
+    <string name="poll_info_three">Не обязательно все критерии доводить до 10 баллов, важно понять как показателем вы не удовлетворены и сделать действие в этом направлении</string>
+    <string name="poll_info_four">Отслеживание этих показателей дает уравновешенность и спокойствие в любых кризисные моментах, что позволят чувствовать себя устойчиво.</string>
+    <string name="save_progress">Прогресс сохранен</string>
+
+    <string-array name="emo_sad">
+        <item>@string/sad_emo1</item>
+        <item>@string/sad_emo2</item>
+        <item>@string/sad_emo3</item>
+        <item>@string/sad_emo4</item>
+        <item>@string/sad_emo5</item>
+        <item>@string/sad_emo6</item>
+        <item>@string/sad_emo7</item>
+        <item>@string/sad_emo8</item>
+        <item>@string/sad_emo9</item>
+        <item>@string/sad_emo10</item>
+    </string-array>
+
     <string-array name="emo_anger">
         <item>@string/anger_emo1</item>
         <item>@string/anger_emo2</item>
@@ -343,6 +383,19 @@
         <item>@string/happy_emo8</item>
         <item>@string/happy_emo9</item>
         <item>@string/happy_emo10</item>
+    </string-array>
+
+    <string-array name="emo_scare">
+        <item>@string/scare_emo1</item>
+        <item>@string/scare_emo2</item>
+        <item>@string/scare_emo3</item>
+        <item>@string/scare_emo4</item>
+        <item>@string/scare_emo5</item>
+        <item>@string/scare_emo6</item>
+        <item>@string/scare_emo7</item>
+        <item>@string/scare_emo8</item>
+        <item>@string/scare_emo9</item>
+        <item>@string/scare_emo10</item>
     </string-array>
 
     <string-array name="questions_test">

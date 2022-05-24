@@ -8,8 +8,6 @@ import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentTableEmotionsBinding
 import ru.harlion.psy.models.emotions.CategoryEmotions
-import ru.harlion.psy.models.emotions.Emotion
-import ru.harlion.psy.ui.main.diary_emotions.adapter.AdapterEmotion
 import ru.harlion.psy.ui.main.diary_emotions.table_emotions.adapter.AdapterTableEmotions
 import java.io.Serializable
 
@@ -18,7 +16,7 @@ class TableEmotionsFragment :
     BindingFragment<FragmentTableEmotionsBinding>(FragmentTableEmotionsBinding::inflate) {
 
     private lateinit var adapterEmoCategory: AdapterTableEmotions
-    private var emotions = setOf<String>()
+    private var emotions = hashSetOf<String>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -35,9 +33,7 @@ class TableEmotionsFragment :
             parentFragmentManager.popBackStack()
         }
 
-        adapterEmoCategory = AdapterTableEmotions {
-            emotions = it!!
-        }
+        adapterEmoCategory = AdapterTableEmotions (checkedItems = emotions)
         binding.emoTableRv.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = adapterEmoCategory
@@ -56,7 +52,7 @@ class TableEmotionsFragment :
             CategoryEmotions(
                 name = String(Character.toChars(0x1F61E)) + "  " + "Грусть",
                 R.color.emotion_sad,
-                resources.getStringArray(R.array.emo_happy).toList()
+                resources.getStringArray(R.array.emo_sad).toList()
             ),
             CategoryEmotions(
                 name = String(Character.toChars(0x1F633)) + "  " + "Стыд",
@@ -66,7 +62,7 @@ class TableEmotionsFragment :
             CategoryEmotions(
                 name = String(Character.toChars(0x1F631)) + "  " + "Страх",
                 R.color.emotion_scare,
-                resources.getStringArray(R.array.emo_happy).toList()
+                resources.getStringArray(R.array.emo_scare).toList()
             ),
         )
     }

@@ -9,6 +9,7 @@ import com.google.android.flexbox.AlignItems
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayoutManager
+import ru.astrocode.flm.FlowLayoutManager
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentEditDiaryEmoBinding
@@ -67,12 +68,9 @@ class EditDiaryEmoFragment :
         binding.questionFor.hint = resources.getText(R.string.thanks_diary)
         binding.questionFor.textInfo = resources.getText(R.string.thanks_diary)
 
-        adapterEmotions = AdapterEmotion{
-
-        }
+        adapterEmotions = AdapterEmotion(emotions.toHashSet())
         binding.recyclerEmotions.apply {
-            val llm = FlexboxLayoutManager(requireContext(), FlexDirection.ROW, FlexWrap.WRAP)
-            llm.alignItems = AlignItems.FLEX_START
+            val llm = FlowLayoutManager(FlowLayoutManager.VERTICAL)
             layoutManager = llm
             adapter = adapterEmotions
         }
@@ -88,6 +86,8 @@ class EditDiaryEmoFragment :
                 binding.questionTwo.setText(it.fieldTwo)
                 binding.questionThree.setText(it.fieldThree)
                 binding.questionFor.setText(it.fieldFor)
+                val category = CategoryEmotions("", android.R.color.transparent, it.emotions)
+                adapterEmotions.items = category
             }
         })
     }

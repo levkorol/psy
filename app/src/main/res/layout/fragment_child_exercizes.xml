@@ -46,9 +46,11 @@
         android:id="@+id/name"
         style="@style/TextTitle"
         android:gravity="center"
+        android:layout_marginTop="8dp"
         android:text="@string/name_child" />
 
     <TextView
+        android:id="@+id/count_progress"
         style="@style/TextNormal"
         android:gravity="end"
         android:textColor="@color/main_dark_violet"
@@ -56,6 +58,7 @@
         android:text="35 %" />
 
     <ProgressBar
+        android:id="@+id/progress"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="10dp"
@@ -63,6 +66,7 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="4dp"
         android:progress="60"
+        android:max="33"
         android:progressDrawable="@drawable/progress_bar_exercize" />
 
     <androidx.recyclerview.widget.RecyclerView

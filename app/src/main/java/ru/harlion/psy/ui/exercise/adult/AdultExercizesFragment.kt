@@ -56,7 +56,13 @@ class AdultExercizesFragment :
         initClick()
 
         app.user.observe(viewLifecycleOwner, {
-            binding.name.text = it.nameAdult
+            binding.name.text = if(it.nameAdult.isNotBlank()) {
+                it.nameAdult
+            } else {
+                getString(R.string.name_adult)
+            }
+            binding.progress.progress = it.progressAdult
+            binding.countProcent.text = "${it.progressAdult} %"
             val photoUri = Uri.fromFile(File(it.photoAdult))
             try {
                 binding.adultPhoto.setRoundImage(photoUri,R.drawable.pic_adulte_cat)
@@ -66,10 +72,10 @@ class AdultExercizesFragment :
         })
 
         val exercises = listOf(
-            MenuEx(getString(R.string.self_ex), R.drawable.menu_like, 2),
-            MenuEx(getString(R.string.fail_diary_ex), R.drawable.menu_sad, 0),
-            MenuEx(getString(R.string.do_love_self_ex), R.drawable.menu_self_love, 0),
-            MenuEx(getString(R.string.my_emergency_ex), R.drawable.menu_life_preserver, 0),
+            MenuEx(getString(R.string.self_ex), R.drawable.menu_like, 4),
+            MenuEx(getString(R.string.fail_diary_ex), R.drawable.menu_sad, 2),
+            MenuEx(getString(R.string.do_love_self_ex), R.drawable.menu_self_love, 2),
+            MenuEx(getString(R.string.my_emergency_ex), R.drawable.menu_life_preserver, 2),
             //  MenuEx(getString(R.string.poll_day_ex), R.drawable.menu_sun, 0)
         )
 

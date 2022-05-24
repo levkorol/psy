@@ -22,7 +22,7 @@
             tools:text="Опрос дня" />
 
         <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/save"
+            android:id="@+id/info"
             style="@style/ButtonToolBar"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="8dp"

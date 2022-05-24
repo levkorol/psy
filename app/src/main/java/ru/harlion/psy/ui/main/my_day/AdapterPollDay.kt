@@ -41,13 +41,11 @@ class AdapterPollDay(val click: (Long) -> Unit)
             seven.text = items[position].question[6].assessment.toString()
             eight.text = items[position].question[7].assessment.toString()
 
-            comments.text = items[position].question.joinToString(", \n") {
-                if (it.comment.isNotBlank()) {
-                    it.comment
-                } else {
-                    ""
+            comments.text = items[position].question.mapNotNull { answer ->
+                answer.comment.takeIf{ comment ->
+                    comment.isNotBlank()
                 }
-            }
+            }.joinToString("\n")
         }
     }
 

@@ -7,6 +7,7 @@ import com.google.android.flexbox.AlignItems
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayoutManager
+import ru.astrocode.flm.FlowLayoutManager
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingHolder
 import ru.harlion.psy.databinding.ItemDiaryEmotionsBinding
@@ -22,7 +23,7 @@ private typealias ItemHolderEmotionEvent = BindingHolder<ItemDiaryEmotionsBindin
 
 class AdapterEmotionSEvent(
     private var adapterEmotion: AdapterEmotion? = null,
-    private val clickListener: (Long) -> Unit,
+    private val clickListener: (Long) -> Unit
 ) : RecyclerView.Adapter<BindingHolder<*>>() {
 
     private val calendar = Calendar.getInstance()
@@ -54,7 +55,7 @@ class AdapterEmotionSEvent(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        when(viewType) {
+        when (viewType) {
             0 -> {
                 ItemHolderEmotionEvent(ItemDiaryEmotionsBinding::inflate, parent).apply {
                     binding.containerLl.setOnClickListener {
@@ -70,7 +71,7 @@ class AdapterEmotionSEvent(
 
     override fun onBindViewHolder(holder: BindingHolder<*>, position: Int) {
         val item = items[position]
-        if(item == null) {
+        if (item == null) {
             holder as BindingHolder<ItemTextBinding>
             holder.binding.root.text = dateToString(items[position + 1]!!.date)
 
@@ -88,17 +89,13 @@ class AdapterEmotionSEvent(
     override fun getItemCount() = items.size
 
     private fun initRecyclerViewEmotion(recyclerView: RecyclerView, emotions: List<String>) {
-        adapterEmotion = AdapterEmotion{
-
-        }
-        val llm = FlexboxLayoutManager(recyclerView.context, FlexDirection.ROW, FlexWrap.WRAP)
-
-        llm.alignItems = AlignItems.FLEX_START
+        adapterEmotion = AdapterEmotion(emotions.toHashSet())
+        val llm = FlowLayoutManager(FlowLayoutManager.VERTICAL)
 
         recyclerView.layoutManager = llm
         recyclerView.adapter = adapterEmotion
 
-        val category = CategoryEmotions("", R.color.adult_color,emotions)
+        val category = CategoryEmotions("", R.color.adult_color, emotions)
         adapterEmotion?.items = category
     }
 

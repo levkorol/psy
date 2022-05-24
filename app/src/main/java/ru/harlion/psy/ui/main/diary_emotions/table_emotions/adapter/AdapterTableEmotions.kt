@@ -5,11 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.ViewOutlineProvider
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.flexbox.AlignItems
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayoutManager
+import ru.astrocode.flm.FlowLayoutManager
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingHolder
 import ru.harlion.psy.databinding.ItemEmotionsTableBinding
@@ -21,7 +23,7 @@ private typealias ItemHolderTableEmotions = BindingHolder<ItemEmotionsTableBindi
 
 class AdapterTableEmotions(
     private var adapterEmotion: AdapterEmotion? = null,
-    var emotions: (Set<String>?) -> Unit
+    val checkedItems: HashSet<String>
 ) :
     RecyclerView.Adapter<ItemHolderTableEmotions>() {
 
@@ -57,7 +59,7 @@ class AdapterTableEmotions(
                 )
             )
             emotionsRv.adapter
-            initRecyclerViewEmotion(emotionsRv, items[position])
+            initRecyclerViewEmotion(emotionsRv, items[position], checkedItems)
         }
     }
 
@@ -66,15 +68,13 @@ class AdapterTableEmotions(
 
     private fun initRecyclerViewEmotion(
         recyclerView: RecyclerView,
-        categoryEmotions: CategoryEmotions
+        categoryEmotions: CategoryEmotions,
+        checkedItems: HashSet<String>
     ) {
-        adapterEmotion = AdapterEmotion{
-            emotions.invoke(it)
-        }
-        val llm = FlexboxLayoutManager(recyclerView.context, FlexDirection.ROW, FlexWrap.WRAP)
-
-        llm.alignItems = AlignItems.FLEX_START
-
+        adapterEmotion = AdapterEmotion(checkedItems)
+        val llm = FlowLayoutManager(FlowLayoutManager.VERTICAL)
+        llm.spacingBetweenItems((8 * recyclerView.context.resources.displayMetrics.density).toInt())
+        llm.spacingBetweenLines((8 * recyclerView.context.resources.displayMetrics.density).toInt())
         recyclerView.layoutManager = llm
         recyclerView.adapter = adapterEmotion
 

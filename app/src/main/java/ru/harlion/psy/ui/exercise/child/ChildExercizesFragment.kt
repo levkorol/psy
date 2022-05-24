@@ -10,7 +10,6 @@ import android.widget.TextView
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
-import ru.harlion.psy.AppApplication
 import ru.harlion.psy.R
 import ru.harlion.psy.app
 import ru.harlion.psy.base.BindingFragment
@@ -54,7 +53,14 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
         initClick()
 
         app.user.observe(viewLifecycleOwner, {
-            binding.name.text = it.nameChild
+            binding.name.text = if(it.nameChild.isNotBlank()) {
+                it.nameChild
+            } else {
+                getString(R.string.name_child)
+            }
+            binding.progress.progress = it.progressChild
+            binding.countProgress.text = "${it.progressChild} %"
+
             val photoUri = Uri.fromFile(File(it.photoChild))
             try {
                 binding.childPhoto.setRoundImage(photoUri,R.drawable.pic_child_cat)
@@ -65,9 +71,9 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
 
         val exercises = listOf(
             MenuEx(getString(R.string.thanks_diary), R.drawable.menu_heart, 2),
-            MenuEx(getString(R.string.wish_diary_ex), R.drawable.menu_star, 0),
-            MenuEx(getString(R.string.free_writing_ex), R.drawable.menu_freewriting, 0),
-            MenuEx(getString(R.string.ideas_diary_ex), R.drawable.menu_idea, 0),
+            MenuEx(getString(R.string.wish_diary_ex), R.drawable.menu_star, 2),
+            MenuEx(getString(R.string.free_writing_ex), R.drawable.menu_freewriting, 4),
+            MenuEx(getString(R.string.ideas_diary_ex), R.drawable.menu_idea, 2),
             //        MenuEx(getString(R.string.album_ex), R.drawable.menu_moments, 0)
         )
 
