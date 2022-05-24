@@ -24,6 +24,8 @@ import ru.harlion.psy.ui.main.diary_emotions.edit.EditDiaryEmoFragment
 import ru.harlion.psy.ui.profile.ProfileFragment
 import ru.harlion.psy.ui.profile.premium.PremiumFragment
 import ru.harlion.psy.ui.profile.test.TestFragment
+import ru.harlion.psy.utils.Alarm
+import ru.harlion.psy.utils.ViewAnimated
 import ru.harlion.psy.utils.replaceFragment
 import ru.harlion.psy.utils.setRoundImage
 import java.io.File
@@ -31,10 +33,14 @@ import java.io.File
 
 class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
 
+    private var isRotateFab = false
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         initClicks()
+
+        Alarm.setAlarm(requireContext())
 
         app.user.observe(viewLifecycleOwner, {
             binding.progressAdult.progress = it.progressAdult
@@ -64,6 +70,10 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
     }
 
     private fun initClicks() {
+
+        ViewAnimated.init(binding.fabEmoDiary)
+        ViewAnimated.init(binding.fabPollDay)
+
         binding.cardChild.setOnClickListener {
             replaceFragment(ChildExercizesFragment(), true)
         }
@@ -80,16 +90,28 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
         }
 
         binding.addBtnMain.setOnClickListener {
-            MaterialAlertDialogBuilder(requireContext()).apply {
-                setTitle(R.string.add_note)
-                setPositiveButton(R.string.diary_emo) { _, _ ->
-                    replaceFragment(EditDiaryEmoFragment.newInstance(0), true)
-                }
-                setNegativeButton(R.string.poll_day_ex) { _, _ ->
-                    replaceFragment(EditPollTestFragment.newInstance(0 ,false), true)
-                }
-            }.show()
-
+            isRotateFab = ViewAnimated.rotateFab(it, !isRotateFab)
+            if (isRotateFab) {
+                ViewAnimated.showIn(binding.fabEmoDiary)
+                ViewAnimated.showIn(binding.fabPollDay)
+            } else {
+                ViewAnimated.showOut(binding.fabEmoDiary)
+                ViewAnimated.showOut(binding.fabPollDay)
+            }
+        }
+        binding.fabEmoDiary.setOnClickListener {
+            replaceFragment(
+                EditDiaryEmoFragment.newInstance(0),
+                true
+            )
+        }
+        binding.fabPollDay.setOnClickListener {
+            replaceFragment(
+                EditPollTestFragment.newInstance(
+                    0,
+                    false
+                ), true
+            )
         }
         binding.test.setOnClickListener {
             replaceFragment(TestFragment.newInstance(false, floatArrayOf()), true)

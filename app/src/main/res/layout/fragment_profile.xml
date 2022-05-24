@@ -35,8 +35,8 @@
 
         <ImageView
             android:id="@+id/photo_profile"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_gravity="center"
             android:src="@drawable/ic_profile" />
 
@@ -45,92 +45,151 @@
             style="@style/TextTitleQuestions"
             android:layout_width="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="16dp"
             android:gravity="center"
             android:text="@string/your_name"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="16sp" />
 
-        <RelativeLayout
-            android:id="@+id/premium"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginHorizontal="16dp"
-            android:background="@drawable/bg_line_big_white">
+        <!--        <RelativeLayout-->
+        <!--           -->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="40dp"-->
+        <!--            android:layout_marginTop="12dp"-->
+        <!--            android:layout_marginHorizontal="16dp"-->
+        <!--            android:background="@drawable/bg_multi_gradient_radius">-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_centerInParent="true"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center"
-                android:drawableStart="@drawable/ic_crown"
-                android:drawablePadding="16dp"
-                android:gravity="center|start"
-                android:text="@string/pro_better"
-                android:textColor="@color/white" />
-        </RelativeLayout>
+        <!--            <TextView-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="40dp"-->
+        <!--                android:layout_centerInParent="true"-->
+        <!--                android:layout_centerHorizontal="true"-->
+        <!--                android:layout_centerVertical="true"-->
+        <!--                android:layout_gravity="center"-->
+        <!--                android:drawableStart="@drawable/ic_crown"-->
+        <!--                android:drawablePadding="16dp"-->
+        <!--                android:gravity="center|start"-->
+        <!--                android:text="@string/pro_better"-->
+        <!--                android:textColor="@color/white" />-->
+        <!--        </RelativeLayout>-->
     </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/premium"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_multi_gradient_radius">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:drawableStart="@drawable/ic_crown"
+            android:drawablePadding="16dp"
+            android:gravity="center|start"
+            android:text="@string/pro_better"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/gray_super_light" />
 
     <TextView
         android:id="@+id/diary_emotions"
         style="@style/MenuItemProfile"
-        android:visibility="gone"
         android:drawableStart="@drawable/ic_smile_wink"
-        android:text="@string/diary_emo" />
+        android:text="@string/diary_emo"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/statistic"
         style="@style/MenuItemProfile"
-        android:visibility="gone"
         android:drawableStart="@drawable/ic_stats"
-        android:text="@string/statistic" />
+        android:text="@string/statistic"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/pin_code"
         style="@style/MenuItemProfile"
         android:drawableStart="@drawable/ic_lock"
         android:text="@string/password" />
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/gray_super_light" />
     <TextView
         android:id="@+id/notify"
         style="@style/MenuItemProfile"
         android:drawableStart="@drawable/ic_alarm_clock"
         android:text="@string/notify" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/premium"-->
-<!--            style="@style/MenuItemProfile"-->
-<!--            android:drawableStart="@drawable/ic_crown"-->
-<!--            android:text="@string/pro" />-->
-
+    <!--        <TextView-->
+    <!--            android:id="@+id/premium"-->
+    <!--            style="@style/MenuItemProfile"-->
+    <!--            android:drawableStart="@drawable/ic_crown"-->
+    <!--            android:text="@string/pro" />-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/gray_super_light" />
     <TextView
         android:id="@+id/info_user"
         style="@style/MenuItemProfile"
         android:drawableStart="@drawable/ic_star"
         android:text="@string/for_user" />
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/gray_super_light" />
     <TextView
         android:id="@+id/mail"
         style="@style/MenuItemProfile"
         android:drawableStart="@drawable/ic_mail"
         android:text="@string/mail" />
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/gray_super_light" />
     <TextView
         android:id="@+id/psy_project"
         style="@style/MenuItemProfile"
         android:drawableStart="@drawable/ic_hand_holding_heart"
         android:text="@string/project_psy" />
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/gray_super_light" />
     <TextView
         android:id="@+id/mark"
         style="@style/MenuItemProfile"
         android:drawableStart="@drawable/ic_heart"
         android:text="@string/mark" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/gray_super_light" />
+
+
 
     <TextView
-        style="@style/MenuItemProfile"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="8dp"
         android:layout_weight="1"
         android:gravity="bottom|center"
         android:text="by Lev Dev Yan, version 1.0"

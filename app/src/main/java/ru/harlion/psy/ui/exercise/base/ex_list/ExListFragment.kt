@@ -245,7 +245,7 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                     EditExTextRecyclerFragment.newInstance(
                         id,
                         R.string.sphere_life,
-                        R.string.ex_idea_hint,
+                        R.string.ex_positive_hint,
                         R.string.new_belief,
                         TypeEx.POSITIVE_BELIEFS
                     ), true
@@ -342,10 +342,10 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
             TypeEx.PERFECT_LIFE -> {
                 replaceFragment(
                     EditTextViewsFragment.newInstance(
-                        titleOne = R.string.my_ambulance_question_one,
+                        titleOne = R.string.perfect_life_question_one,
                         hintOne = R.string.gratitude_question_one,
                         infoOne = R.string.gratitude_question_one,
-                        titleTwo = R.string.my_ambulance_question_two,
+                        titleTwo = R.string.perfect_life_question_two,
                         hintTwo = R.string.gratitude_question_one,
                         infoTwo = R.string.gratitude_question_one,
                         typeEx = TypeEx.PERFECT_LIFE,

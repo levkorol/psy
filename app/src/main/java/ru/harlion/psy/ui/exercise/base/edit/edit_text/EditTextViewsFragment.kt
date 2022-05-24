@@ -39,6 +39,8 @@ class EditTextViewsFragment :
                 binding.questionThree.apply {
                     visibility = View.GONE
                 }
+                binding.questionOne.lines = 8
+                binding.questionTwo.lines = 8
             }
         }
         binding.apply {
@@ -59,7 +61,7 @@ class EditTextViewsFragment :
                 questionThree.hint = resources.getText(hintThree)
             }
         }
-        if(id > 0) {
+        if (id > 0) {
             binding.delete.visibility = View.VISIBLE
             binding.archive.visibility = View.VISIBLE
         } else {
@@ -74,7 +76,11 @@ class EditTextViewsFragment :
                     fieldThree = binding.questionThree.text.toString(),
                     fieldFor = binding.questionFor.text.toString(),
                 )
-                Snackbar.make(binding.root, getString(R.string.update_completed), Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(
+                    binding.root,
+                    getString(R.string.update_completed),
+                    Snackbar.LENGTH_SHORT
+                ).show()
             } else {
                 when (typeEx) {
                     TypeEx.SELF_ESTEEM -> {

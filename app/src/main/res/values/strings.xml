@@ -345,6 +345,9 @@
     <string name="poll_info_three">Не обязательно все критерии доводить до 10 баллов, важно понять как показателем вы не удовлетворены и сделать действие в этом направлении</string>
     <string name="poll_info_four">Отслеживание этих показателей дает уравновешенность и спокойствие в любых кризисные моментах, что позволят чувствовать себя устойчиво.</string>
     <string name="save_progress">Прогресс сохранен</string>
+    <string name="perfect_life_question_one">Мой идельный день очень подробно, во всех красках</string>
+    <string name="perfect_life_question_two">Чего не хватает сегодня для наступления идеального дня?</string>
+    <string name="ex_positive_hint">Например : Мое отношение к себе</string>
 
     <string-array name="emo_sad">
         <item>@string/sad_emo1</item>

@@ -33,7 +33,7 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="2"
-                android:background="@drawable/bg_line_big_white"
+                android:background="@drawable/bg_line_big_gray"
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="@string/go_tests"
@@ -82,9 +82,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="24dp"
                     android:gravity="center"
                     android:text="@string/child"
+                    android:drawablePadding="12dp"
+                    android:drawableBottom="@drawable/ic_heart_white"
                     android:textColor="@color/white" />
 
 
@@ -115,9 +117,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="24dp"
                     android:gravity="center"
                     android:text="@string/adult"
+                    android:drawablePadding="12dp"
+                    android:drawableBottom="@drawable/ic_smile_white"
                     android:textColor="@color/white" />
             </LinearLayout>
 
@@ -146,9 +150,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="24dp"
                     android:gravity="center"
                     android:text="@string/parent"
+                    android:drawablePadding="12dp"
+                    android:drawableBottom="@drawable/ic_star_white"
                     android:textColor="@color/white" />
             </LinearLayout>
         </LinearLayout>
@@ -179,6 +185,38 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:orientation="vertical">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabPollDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_baseline_wb_sunny_24"
+        app:tint="@color/white"
+        app:backgroundTint="@color/main_middle_violet"
+        app:fabSize="mini"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:rippleColor="@color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabEmoDiary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_theater_comedy_24"
+        android:layout_gravity="center"
+        app:tint="@color/white"
+        android:layout_marginEnd="8dp"
+        app:backgroundTint="@color/main_middle_violet"
+        app:fabSize="mini"
+        android:layout_marginBottom="8dp"
+        app:rippleColor="@color/white" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_btn_main"
         android:layout_width="wrap_content"
@@ -191,5 +229,5 @@
         app:fabSize="normal"
         app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
         app:tint="@android:color/white" />
-
+    </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
