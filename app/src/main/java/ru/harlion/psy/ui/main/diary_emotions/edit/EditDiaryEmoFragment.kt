@@ -59,14 +59,14 @@ class EditDiaryEmoFragment :
 
         binding.date.text = dateToString(date)
         binding.time.text = timeToString(time)
-        binding.questionOne.hint = resources.getText(R.string.thanks_diary)
         binding.questionOne.textInfo = resources.getText(R.string.thanks_diary)
-        binding.questionTwo.hint = resources.getText(R.string.thanks_diary)
         binding.questionTwo.textInfo = resources.getText(R.string.thanks_diary)
-        binding.questionThree.hint = resources.getText(R.string.thanks_diary)
         binding.questionThree.textInfo = resources.getText(R.string.thanks_diary)
-        binding.questionFor.hint = resources.getText(R.string.thanks_diary)
         binding.questionFor.textInfo = resources.getText(R.string.thanks_diary)
+        binding.questionOne.lines = 3
+        binding.questionTwo.lines = 3
+        binding.questionThree.lines = 3
+        binding.questionFor.lines = 3
 
         adapterEmotions = AdapterEmotion(emotions.toHashSet())
         binding.recyclerEmotions.apply {

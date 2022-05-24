@@ -12,6 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">@color/main_dark_violet</item>
         <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@drawable/load_bg</item>
     </style>
 
     <!--    Button-->

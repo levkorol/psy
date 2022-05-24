@@ -343,10 +343,8 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                 replaceFragment(
                     EditTextViewsFragment.newInstance(
                         titleOne = R.string.perfect_life_question_one,
-                        hintOne = R.string.gratitude_question_one,
                         infoOne = R.string.gratitude_question_one,
                         titleTwo = R.string.perfect_life_question_two,
-                        hintTwo = R.string.gratitude_question_one,
                         infoTwo = R.string.gratitude_question_one,
                         typeEx = TypeEx.PERFECT_LIFE,
                         id = id

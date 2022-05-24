@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:orientation="vertical"
+    android:background="@color/bg_fragment_white"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
     <TextView

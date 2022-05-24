@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_fragment_white"
     tools:context=".ui.main.diary_emotions.edit.EditDiaryEmoFragment">
 
     <LinearLayout
@@ -19,6 +20,11 @@
                 android:id="@+id/back"
                 style="@style/ButtonToolBar"
                 android:src="@drawable/ic_baseline_arrow_back_24" />
+
+            <TextView
+                android:id="@+id/title_toolbar"
+                style="@style/TextToolBar"
+                android:text="@string/diary_emo"/>
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/save"
