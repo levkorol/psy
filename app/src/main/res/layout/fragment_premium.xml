@@ -39,6 +39,7 @@
             android:background="@drawable/bg_multi_gradient_radius">
 
             <TextView
+                android:id="@+id/text_pro"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_centerInParent="true"

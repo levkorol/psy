@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import com.google.gson.Gson
 import ru.harlion.psy.data.Repository
+import ru.harlion.psy.data.billing.BillingClientWrapper
 import ru.harlion.psy.models.user.User
 import java.io.File
 import java.io.IOException
@@ -18,6 +19,10 @@ val Fragment.app
     get() = requireActivity().application as AppApplication
 
 class AppApplication : Application() {
+
+    val clientWrapper: BillingClientWrapper by lazy {
+        BillingClientWrapper(this)
+    }
 
     val user = MutableLiveData(User.emptyUser)
     val io = Executors.newSingleThreadExecutor()

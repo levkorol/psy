@@ -1,6 +1,8 @@
 package ru.harlion.psy.utils
 
 import android.content.Context
+import com.android.billingclient.api.BillingClient
+import ru.harlion.psy.AppApplication
 
 class Prefs(val context: Context) {
 
@@ -19,5 +21,26 @@ class Prefs(val context: Context) {
     var password: String?
         get() = sharedPrefs.getString("PASSWORD", "")
         set(value) = sharedPrefs.edit().putString("PASSWORD", value)
+            .apply()
+
+    var purchaseToken: String?
+        get() = sharedPrefs.getString("PURCHASE_TOKEN", null)
+        set(value) = sharedPrefs.edit().putString("PURCHASE_TOKEN", value)
+            .apply()
+
+    var isPremium: Boolean
+        get() = if (sharedPrefs.getBoolean("IS_PREMIUM", false) == true) {
+            if (purchaseToken != null) {
+                (context.applicationContext as AppApplication).clientWrapper.acknowledgePurchase(
+                    purchaseToken!!
+                ) { billingResult ->
+                    if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
+                        purchaseToken = null
+                    }
+                }
+            }
+            true
+        } else false
+        set(value) = sharedPrefs.edit().putBoolean("IS_PREMIUM", value)
             .apply()
 }

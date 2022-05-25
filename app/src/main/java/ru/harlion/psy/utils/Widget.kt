@@ -5,27 +5,32 @@ import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.widget.RemoteViews
 import ru.harlion.psy.R
+import ru.harlion.psy.data.Repository
+import ru.harlion.psy.models.TypeEx
 
 class Widget : AppWidgetProvider() {
+
+    val ex = Repository.get().getExList(TypeEx.POSITIVE_BELIEFS)
+
     override fun onUpdate(
         context: Context,
         appWidgetManager: AppWidgetManager,
         appWidgetIds: IntArray
     ) {
-        // There may be multiple widgets active, so update all of them
+        val texts = mutableListOf<String>()
+         ex.value?.map {
+            texts.add(it.fieldTwo)
+        }
+
         for (appWidgetId in appWidgetIds) {
-            updateAppWidget(context, appWidgetManager, appWidgetId)
+            updateAppWidget(context, appWidgetManager, appWidgetId, texts)
         }
     }
 
-    // Enter relevant functionality for
-    // when the first widget is created
     override fun onEnabled(context: Context) {
 
     }
 
-    // Enter relevant functionality for
-    // when the last widget is disabled
     override fun onDisabled(context: Context) {
 
     }
@@ -34,13 +39,12 @@ class Widget : AppWidgetProvider() {
 internal fun updateAppWidget(
     context: Context,
     appWidgetManager: AppWidgetManager,
-    appWidgetId: Int
+    appWidgetId: Int,
+    texts : List<String>
 ) {
-    val widgetText = context.getString(R.string.appwidget_text)
-    // Construct the RemoteViews object
-    val views = RemoteViews(context.packageName, R.layout.app_widget)
-    views.setTextViewText(R.id.appwidget_text, widgetText)
 
-    // Instruct the widget manager to update the widget
+    val views = RemoteViews(context.packageName, R.layout.app_widget)
+    views.setTextViewText(R.id.appwidget_text, "Test test test test test test test test test test test")
+
     appWidgetManager.updateAppWidget(appWidgetId, views)
 }

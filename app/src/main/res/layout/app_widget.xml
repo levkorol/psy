@@ -2,12 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="@color/bg_fragment_white"
+    android:background="@drawable/bg_white"
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/appwidget_text"
+        android:id="@+id/time"
+        android:text="12:30"
+        android:textSize="50sp"
+        android:textColor="@color/main_middle_violet"
+        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/appwidget_text"
+        android:layout_marginTop="16dp"
+        android:textSize="20sp"
+        style="@style/TextNormal"/>
 
 </LinearLayout>

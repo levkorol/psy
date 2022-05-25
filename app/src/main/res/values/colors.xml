@@ -35,5 +35,6 @@
     <color name="emotion_sad">#00E1FF</color>
     <color name="emotion_anger">#DD4254</color>
     <color name="emotion_scare">#E3694C</color>
+    <color name="widget_bg">#8AFDFDFD</color>
 
 </resources>
