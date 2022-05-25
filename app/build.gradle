@@ -90,4 +90,5 @@ dependencies {
     implementation 'jp.wasabeef:picasso-transformations:2.4.0'
 
     implementation 'com.github.Miha-x64:FlowLayoutManager:87794393'
+    implementation "com.github.bitfactoryio:PinCodeLayout:1.0.3"
 }

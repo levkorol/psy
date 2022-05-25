@@ -10,4 +10,14 @@ class Prefs(val context: Context) {
         get() = sharedPrefs.getBoolean("ON_BOARDING_SHOW", false)
         set(value) = sharedPrefs.edit().putBoolean("ON_BOARDING_SHOW", value)
             .apply()
+
+    var isShowTest: Boolean
+        get() = sharedPrefs.getBoolean("TEST_SHOW", false)
+        set(value) = sharedPrefs.edit().putBoolean("TEST_SHOW", value)
+            .apply()
+
+    var password: String?
+        get() = sharedPrefs.getString("PASSWORD", "")
+        set(value) = sharedPrefs.edit().putString("PASSWORD", value)
+            .apply()
 }

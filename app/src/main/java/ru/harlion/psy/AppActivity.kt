@@ -21,8 +21,10 @@ class AppActivity : AppCompatActivity() {
         if (!prefs.isShowOnBoarding) {
             prefs.isShowOnBoarding = true
             replaceFragment(OnBoardingFragment(), false)
+        } else if (prefs.password?.isNotEmpty() == true) {
+            replaceFragment(PinCodeFragment(), false)
         } else {
-             replaceFragment( MainFragment(), false)
+            replaceFragment(MainFragment(), false)
             //  replaceFragment(PinCodeFragment(), false)
         }
     }

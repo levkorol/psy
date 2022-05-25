@@ -19,6 +19,7 @@ import ru.harlion.psy.databinding.FragmentProfileBinding
 import ru.harlion.psy.ui.exercise.base.instructions.ExInstructionsFragment
 import ru.harlion.psy.ui.main.diary_emotions.DiaryEmotionFragment
 import ru.harlion.psy.ui.main.diary_emotions.table_emotions.TableEmotionsFragment
+import ru.harlion.psy.ui.profile.on_boarding.TeamPsyFragment
 import ru.harlion.psy.ui.profile.pincode.PinCodeFragment
 import ru.harlion.psy.ui.profile.premium.PremiumFragment
 import ru.harlion.psy.ui.profile.test.TestFragment
@@ -69,6 +70,10 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
 
         binding.photoProfile.setOnClickListener {
             showAlterDialog()
+        }
+
+        binding.psyProject.setOnClickListener {
+            replaceFragment(TeamPsyFragment(), true)
         }
 
         binding.nameUser.setOnClickListener {

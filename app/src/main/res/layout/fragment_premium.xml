@@ -1,86 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/bg_fragment_white"
-    android:paddingEnd="16dp"
     tools:context=".ui.profile.premium.PremiumFragment">
 
-
-    <RelativeLayout
-        android:id="@+id/top_ll"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingEnd="16dp">
 
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/back"
-            style="@style/ButtonToolBar"
-            android:src="@drawable/ic_baseline_arrow_back_24" />
+        <RelativeLayout
+            android:id="@+id/top_ll"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/back"
+                style="@style/ButtonToolBar"
+                android:src="@drawable/ic_baseline_arrow_back_24" />
+
+            <TextView
+                android:id="@+id/title_toolbar"
+                style="@style/TextToolBar"
+                android:text="@string/pro" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/premium"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_multi_gradient_radius">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:drawableStart="@drawable/ic_crown"
+                android:drawablePadding="16dp"
+                android:gravity="center|start"
+                android:text="@string/buy_pro"
+                android:textColor="@color/white" />
+        </RelativeLayout>
 
         <TextView
-            android:id="@+id/title_toolbar"
-            style="@style/TextToolBar"
-            android:text="@string/pro" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/pic_meditation_outline"
+            android:gravity="center|start"
+            android:text="@string/pro_one"
+            android:textColor="@color/gray_dark" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/pic_balloon_outline"
+            android:gravity="center|start"
+            android:text="@string/pro_two"
+            android:textColor="@color/gray_dark" />
 
-    </RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/pic_biker_outline"
+            android:gravity="center|start"
+            android:text="@string/pro_three"
+            android:textColor="@color/gray_dark" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/pro_one"
-        android:gravity="center|start"
-        android:textColor="@color/gray_dark"
-        android:drawableStart="@drawable/pic_meditation_outline"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/pic_password_outline"
+            android:gravity="center|start"
+            android:text="@string/pro_for"
+            android:textColor="@color/gray_dark" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/pro_two"
-        android:gravity="center|start"
-        android:textColor="@color/gray_dark"
-        android:drawableStart="@drawable/pic_balloon_outline"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/pic_data_analysis__outline"
+            android:gravity="center|start"
+            android:text="@string/pro_fife"
+            android:textColor="@color/gray_dark" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/pro_three"
-        android:gravity="center|start"
-        android:textColor="@color/gray_dark"
-        android:drawableStart="@drawable/pic_biker_outline"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/pic_mobile_phone_outline"
+            android:gravity="center|start"
+            android:text="@string/pro_six"
+            android:textColor="@color/gray_dark" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/pro_for"
-        android:gravity="center|start"
-        android:textColor="@color/gray_dark"
-        android:drawableStart="@drawable/pic_password_outline"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/pic_motivation_outline"
+            android:gravity="center|start"
+            android:text="@string/pro_seven"
+            android:textColor="@color/gray_dark" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/pro_fife"
-        android:gravity="center|start"
-        android:textColor="@color/gray_dark"
-        android:drawableStart="@drawable/pic_data_analysis__outline"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/pro_six"
-        android:gravity="center|start"
-        android:textColor="@color/gray_dark"
-        android:drawableStart="@drawable/pic_mobile_phone_outline"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/pro_seven"
-        android:gravity="center|start"
-        android:textColor="@color/gray_dark"
-        android:drawableStart="@drawable/pic_motivation_outline"/>
-
-
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>
