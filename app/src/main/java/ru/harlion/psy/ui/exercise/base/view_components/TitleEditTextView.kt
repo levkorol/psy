@@ -14,6 +14,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import ru.harlion.psy.R
 import ru.harlion.psy.databinding.ComponentTitleEditTextBinding
+import ru.harlion.psy.utils.assertSorted
 
 @SuppressLint("ResourceType")
 class TitleEditTextView(context: Context, attrs: AttributeSet?) : ConstraintLayout(context, attrs) {
@@ -68,23 +69,24 @@ class TitleEditTextView(context: Context, attrs: AttributeSet?) : ConstraintLayo
         val params = context.obtainStyledAttributes(
             attrs,
             intArrayOf(
-                android.R.attr.title,
-                android.R.attr.hint,
                 android.R.attr.textOn,
-                android.R.attr.lines
-            )
+                android.R.attr.hint,
+                android.R.attr.lines,
+                android.R.attr.title,
+            ).assertSorted()
         )
         if (params.hasValue(0)) {
-            titleQuestion.text = params.getText(0)
+            textInfo = params.getText(0)
         }
         if (params.hasValue(1)) {
             answer.hint = params.getText(1)
         }
         if (params.hasValue(2)) {
-            textInfo = params.getText(2)
+            lines = params.getInt(4, 6)
         }
         if (params.hasValue(3)) {
-            lines = params.getInt(3, 6)
+
+            titleQuestion.text = params.getText(3)
         }
         params.recycle()
 

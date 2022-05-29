@@ -1,7 +1,6 @@
 package ru.harlion.psy.ui.exercise.base.edit.poll_test
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.ViewModel
 import ru.harlion.psy.data.Repository
 import ru.harlion.psy.models.Answer
@@ -17,11 +16,11 @@ class EditPollTestViewModel : ViewModel() {
     }
 
     fun add(
-        questions: List<Answer>
+        answer: List<Answer>
     ) {
         val poll = Poll(
             dateCreate = System.currentTimeMillis(),
-            question = questions
+            question = answer
         )
         repo.addPoll(poll)
     }

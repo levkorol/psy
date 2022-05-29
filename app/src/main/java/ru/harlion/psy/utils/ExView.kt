@@ -20,3 +20,18 @@ fun ImageView.setRoundImage(url: Uri?, @DrawableRes id: Int) {
             .into(this)
     }
 }
+
+fun IntArray.assertSorted() : IntArray{
+    val other = this.sortedArray()
+    require(this.contentEquals(other)) {
+        this.mapIndexed() { i, it ->
+            val indexOf = other.indexOf(it)
+            if(indexOf(it) != indexOf) {
+                "$i must be $indexOf"
+            } else {
+                null
+            }
+        }.filterNotNull().joinToString()
+    }
+    return this
+}

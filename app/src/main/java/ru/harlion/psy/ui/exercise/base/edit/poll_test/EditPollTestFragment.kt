@@ -66,7 +66,6 @@ class EditPollTestFragment :
 
         observe()
 
-        binding.viewPager.adapter = AdapterPollTest(questions, answers, isTesting)
         binding.nextQuestion.setOnClickListener {
             if (questions.lastIndex == binding.viewPager.currentItem) {
                 if (questions.lastIndex == binding.viewPager.currentItem) {
@@ -125,9 +124,10 @@ class EditPollTestFragment :
     private fun observe() {
         viewModel.getPollById(pollId)
         viewModel.poll.observe(viewLifecycleOwner, {
-//            it?.question?.map { answer ->
-//                answers.add(answer)
-//            }
+            if(it != null  ) {//&& answers.isEmpty()
+              answers = ArrayList(it.question)
+            }
+            binding.viewPager.adapter = AdapterPollTest(questions, answers, isTesting)
         })
     }
 

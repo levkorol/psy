@@ -201,8 +201,9 @@
         app:backgroundTint="@color/main_middle_violet"
         app:fabSize="mini"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="12dp"
         app:rippleColor="@color/white" />
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabEmoDiary"
@@ -214,7 +215,7 @@
         android:layout_marginEnd="8dp"
         app:backgroundTint="@color/main_middle_violet"
         app:fabSize="mini"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         app:rippleColor="@color/white" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
