@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/bg_fragment_white"
+    android:orientation="vertical"
     tools:context=".ui.exercise.child.edit.free_writing.EditFreeWritingFragment">
 
     <RelativeLayout
@@ -17,6 +17,21 @@
             style="@style/ButtonToolBar"
             android:src="@drawable/ic_baseline_arrow_back_24" />
 
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/delete"
+            style="@style/ButtonToolBar"
+            android:visibility="gone"
+            android:layout_alignParentEnd="true"
+            android:layout_toStartOf="@+id/save"
+            android:src="@drawable/ic_delete" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/save"
+            style="@style/ButtonToolBar"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="8dp"
+            android:visibility="gone"
+            android:src="@drawable/ic_baseline_done_24" />
     </RelativeLayout>
 
     <nl.dionsegijn.konfetti.KonfettiView
@@ -49,8 +64,8 @@
             style="@style/TextTitleQuestions"
             android:layout_marginTop="16dp"
             android:gravity="center"
-            tools:text="0"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            tools:text="0" />
 
         <SeekBar
             android:id="@+id/seekBar"

@@ -33,7 +33,7 @@ class AdapterEx(private val clickEdit: (Long) -> Unit) : RecyclerView.Adapter<It
             }
 
             if( items[position].date > 0) {
-                date.text = dateToString(items[position].date)
+                date.text = "${String(Character.toChars(0x1F4AB))} ${dateToString(items[position].date)}"
                 date.visibility = View.VISIBLE
             } else {
                 date.visibility = View.GONE
@@ -52,7 +52,7 @@ class AdapterEx(private val clickEdit: (Long) -> Unit) : RecyclerView.Adapter<It
                     fieldThree.visibility = View.VISIBLE
                 }
                 items[position].listString.isNotEmpty() -> {
-                    fieldTwo.text = "${items[position].listString.size}"
+                    fieldTwo.text = "${String(Character.toChars(0x1F4DC))} ${items[position].listString.size}"
                     fieldTwo.visibility = View.VISIBLE
                 }
                 else -> {

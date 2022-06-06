@@ -67,6 +67,8 @@ class EditFreeWritingFragment :
                 binding.fieldOneDetail.text = it.fieldOne
                 binding.timeFieldTwo.text = it.fieldTwo
                 binding.fieldThreeDetaill.text = it.fieldThree
+
+                binding.delete.visibility = View.VISIBLE
             }
         })
     }
@@ -85,10 +87,26 @@ class EditFreeWritingFragment :
                 binding.stepOne.visibility = View.GONE
                 binding.stepTwo.visibility = View.VISIBLE
                 binding.myRequestFieldOne.text = binding.fieldOne.text
+                binding.save.visibility = View.VISIBLE
                 startTimer()
             } else {
                 Snackbar.make(binding.root, getString(R.string.empty), Snackbar.LENGTH_SHORT).show()
             }
+        }
+
+        binding.save.setOnClickListener {
+            loadKonfetti()
+            viewModel.add(
+                binding.fieldOne.text.toString(),
+                formatTimeMinsSec(timeInMilli, resources),
+                binding.fieldThree.text.toString(),
+            )
+            parentFragmentManager.popBackStack()
+        }
+
+        binding.delete.setOnClickListener {
+            viewModel.delete(id)
+            parentFragmentManager.popBackStack()
         }
     }
 
