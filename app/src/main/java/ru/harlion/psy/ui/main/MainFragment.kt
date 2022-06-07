@@ -38,6 +38,8 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        isRotateFab = false
+
         initClicks()
 
         Alarm.setAlarm(requireContext())
@@ -99,6 +101,7 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
                 ViewAnimated.showOut(binding.fabPollDay)
             }
         }
+
         binding.fabEmoDiary.setOnClickListener {
             replaceFragment(
                 EditDiaryEmoFragment.newInstance(0),

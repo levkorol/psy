@@ -37,7 +37,7 @@
         android:gravity="center"
         android:paddingHorizontal="16dp"
         android:text="3"
-        android:textColor="@color/black" />
+        android:textColor="@color/white" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

@@ -47,6 +47,8 @@ class TestFragment : BindingFragment<FragmentTestBinding>(FragmentTestBinding::i
             replaceFragment(EditPollTestFragment.newInstance(0, true), true)
         }
 
+        binding.back.setOnClickListener {  }
+
         binding.saveProgress.setOnClickListener {
             app.user.value = app.user.value?.copy(
                 progressChild = results[0].toInt(),

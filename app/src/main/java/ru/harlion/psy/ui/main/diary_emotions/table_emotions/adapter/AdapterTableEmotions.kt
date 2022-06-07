@@ -58,6 +58,7 @@ class AdapterTableEmotions(
                     items[position].color
                 )
             )
+
             emotionsRv.adapter
             initRecyclerViewEmotion(emotionsRv, items[position], checkedItems)
         }

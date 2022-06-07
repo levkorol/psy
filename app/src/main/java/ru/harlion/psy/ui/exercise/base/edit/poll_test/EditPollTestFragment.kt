@@ -6,6 +6,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
@@ -81,6 +82,8 @@ class EditPollTestFragment :
                         val result = reduce.map {
                             it * 100F / sum
                         }
+
+                        parentFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
                         replaceFragment(TestFragment.newInstance(true, result.toFloatArray()), true)
                     } else {
                         if (pollId > 0) {

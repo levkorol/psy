@@ -3,6 +3,7 @@
     package="ru.harlion.psy">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
 
     <application
         android:name=".AppApplication"
@@ -50,7 +51,7 @@
 
         <receiver
             android:name="ru.harlion.psy.utils.Alarm"
-            android:process=":remote"></receiver>
+           />
 
     </application>
 

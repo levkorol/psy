@@ -54,11 +54,11 @@ class TableEmotionsFragment :
                 R.color.emotion_sad,
                 resources.getStringArray(R.array.emo_sad).toList()
             ),
-            CategoryEmotions(
-                name = String(Character.toChars(0x1F633)) + "  " + "Стыд",
-                R.color.emotion_shame,
-                resources.getStringArray(R.array.emo_happy).toList()
-            ),
+//            CategoryEmotions(
+//                name = String(Character.toChars(0x1F633)) + "  " + "Стыд",
+//                R.color.emotion_shame,
+//                resources.getStringArray(R.array.emo_happy).toList()
+//            ),
             CategoryEmotions(
                 name = String(Character.toChars(0x1F631)) + "  " + "Страх",
                 R.color.emotion_scare,
