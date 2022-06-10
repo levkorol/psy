@@ -40,27 +40,22 @@ class TableEmotionsFragment :
         }
         adapterEmoCategory.items = listOf(
             CategoryEmotions(
-                name = String(Character.toChars(0x1F604)) + "  " + "Радость",
+                name = String(Character.toChars(0x1F604)) + "  " + getString(R.string.happy),
                 R.color.emotion_happy,
                 resources.getStringArray(R.array.emo_happy).toList()
             ),
             CategoryEmotions(
-                name = String(Character.toChars(0x1F621)) + "  " + "Гнев",
+                name = String(Character.toChars(0x1F621)) + "  " + getString(R.string.agr),
                 R.color.emotion_anger,
                 resources.getStringArray(R.array.emo_anger).toList()
             ),
             CategoryEmotions(
-                name = String(Character.toChars(0x1F61E)) + "  " + "Грусть",
+                name = String(Character.toChars(0x1F61E)) + "  " + getString(R.string.sad),
                 R.color.emotion_sad,
                 resources.getStringArray(R.array.emo_sad).toList()
             ),
-//            CategoryEmotions(
-//                name = String(Character.toChars(0x1F633)) + "  " + "Стыд",
-//                R.color.emotion_shame,
-//                resources.getStringArray(R.array.emo_happy).toList()
-//            ),
             CategoryEmotions(
-                name = String(Character.toChars(0x1F631)) + "  " + "Страх",
+                name = String(Character.toChars(0x1F631)) + "  " + getString(R.string.scare),
                 R.color.emotion_scare,
                 resources.getStringArray(R.array.emo_scare).toList()
             ),

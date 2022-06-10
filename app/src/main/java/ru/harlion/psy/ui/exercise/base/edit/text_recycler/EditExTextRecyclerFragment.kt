@@ -3,6 +3,7 @@ package ru.harlion.psy.ui.exercise.base.edit.text_recycler
 
 import android.os.Bundle
 import android.view.View
+import android.view.ViewTreeObserver
 import androidx.fragment.app.viewModels
 import com.google.android.material.snackbar.Snackbar
 import ru.harlion.psy.R

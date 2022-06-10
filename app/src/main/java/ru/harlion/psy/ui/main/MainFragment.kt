@@ -42,7 +42,7 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
 
         initClicks()
 
-        Alarm.setAlarm(requireContext())
+      //  Alarm.setAlarm(requireContext())
 
         app.user.observe(viewLifecycleOwner, {
             binding.progressAdult.progress = it.progressAdult

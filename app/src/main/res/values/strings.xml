@@ -110,7 +110,7 @@
     <string name="statistic">Статистика моих эмоций</string>
     <string name="mail_to">Техническая поддержка PsyCat</string>
     <string name="test_begin">Начать тест</string>
-    <string name="save_progress_in_profile">Сохранить в прогресс профиля</string>
+    <string name="save_progress_in_profile">Сохранить результат в прогресс профиля</string>
     <string name="free_writing_field_three">Мой свободный поток мыслей</string>
     <string name="empty">Введите свой запрос</string>
     <string name="about_ex">О упражнении</string>
@@ -351,6 +351,10 @@
     <string name="buy_pro">Оформить подписку</string>
     <string name="about_psy">Консультант и автор текстов по приложению PsyCat Дженита Муртич ⠀ Полимодальный психотерапевт, эксперт в теме самооценки. Предприниматель, автор проекта Dzening, коуч бизнеса. ⠀ Закончила психфак ЛГУ им. А.С. Пушкина, более 10 лет практикующий специалист, в базе клиентов более 10.000 счастливых людей. ⠀ \"Философия моей работы - самый главный человек в твоей жизни это ТЫ. Себя необходимо любить и ценить\" ⠀ Является автором инфопродуктов по самоценности, ведущей семинаров про любовь к себе. ⠀ В работе использует клиент-центрированный подход где методы подбираются под клиента. За записью в терапию можно обратиться через сайты.</string>
     <string name="appwidget_text">Виджет</string>
+    <string name="happy">Радость</string>
+    <string name="agr">Гнев</string>
+    <string name="sad">Грусть</string>
+    <string name="scare">Страх</string>
 
     <string-array name="emo_sad">
         <item>@string/sad_emo1</item>
