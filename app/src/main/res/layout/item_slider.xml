@@ -20,7 +20,6 @@
 
     <TextView
         android:id="@+id/text"
-        tools:="text"
         android:textSize="12sp"
         android:layout_marginTop="16dp"
         android:textColor="@color/gray_dark"

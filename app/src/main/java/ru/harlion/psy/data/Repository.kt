@@ -108,10 +108,5 @@ class Repository private constructor(context: Context) {
             return INSTANCE ?: throw IllegalStateException("Repository must be init")
         }
 
-        fun getEmo() = listOf(
-            Emotion(name = "Радость"),
-            Emotion(name = "Гнев"),
-            Emotion(name = "Грусть"),
-        )
     }
 }

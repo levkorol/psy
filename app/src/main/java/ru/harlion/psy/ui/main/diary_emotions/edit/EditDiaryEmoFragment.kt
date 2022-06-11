@@ -5,10 +5,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
-import com.google.android.flexbox.AlignItems
-import com.google.android.flexbox.FlexDirection
-import com.google.android.flexbox.FlexWrap
-import com.google.android.flexbox.FlexboxLayoutManager
 import ru.astrocode.flm.FlowLayoutManager
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
@@ -23,6 +19,7 @@ import ru.harlion.psy.utils.replaceFragment
 import ru.harlion.psy.utils.timeToString
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.HashSet
 
 
 class EditDiaryEmoFragment :
@@ -33,7 +30,7 @@ class EditDiaryEmoFragment :
     private var date = System.currentTimeMillis()
     private var time = System.currentTimeMillis()
     private var id = 0L
-    private var emotions: List<String> = listOf()
+    private val emotions: HashSet<Emotion> = hashSetOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,9 +41,9 @@ class EditDiaryEmoFragment :
         }
 
         setFragmentResultListener("table_emotions") { _, bundle ->
-            emotions = bundle.getSerializable("emotions") as List<String>
-            val category = CategoryEmotions("", R.color.adult_color, emotions)
-            adapterEmotions.items = category
+            emotions.clear()
+            emotions.addAll(bundle.getSerializable("emotions") as HashSet<Emotion>)
+            adapterEmotions.items = emotions.toList()
         }
     }
 
@@ -68,7 +65,7 @@ class EditDiaryEmoFragment :
         binding.questionThree.lines = 3
         binding.questionFor.lines = 3
 
-        adapterEmotions = AdapterEmotion(emotions.toHashSet())
+        adapterEmotions = AdapterEmotion(emotions)
         binding.recyclerEmotions.apply {
             val llm = FlowLayoutManager(FlowLayoutManager.VERTICAL)
             layoutManager = llm
@@ -86,8 +83,7 @@ class EditDiaryEmoFragment :
                 binding.questionTwo.setText(it.fieldTwo)
                 binding.questionThree.setText(it.fieldThree)
                 binding.questionFor.setText(it.fieldFor)
-                val category = CategoryEmotions("", android.R.color.transparent, it.emotions)
-                adapterEmotions.items = category
+                adapterEmotions.items = emotions.toList()
             }
         })
     }

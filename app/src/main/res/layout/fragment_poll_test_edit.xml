@@ -20,7 +20,7 @@
         <TextView
             android:id="@+id/title_toolbar"
             style="@style/TextToolBar"
-            tools:text="Опрос дня" />
+             />
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/info"

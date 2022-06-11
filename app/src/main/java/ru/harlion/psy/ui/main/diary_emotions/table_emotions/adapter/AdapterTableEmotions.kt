@@ -7,10 +7,6 @@ import android.view.ViewOutlineProvider
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.flexbox.AlignItems
-import com.google.android.flexbox.FlexDirection
-import com.google.android.flexbox.FlexWrap
-import com.google.android.flexbox.FlexboxLayoutManager
 import ru.astrocode.flm.FlowLayoutManager
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingHolder
@@ -23,7 +19,7 @@ private typealias ItemHolderTableEmotions = BindingHolder<ItemEmotionsTableBindi
 
 class AdapterTableEmotions(
     private var adapterEmotion: AdapterEmotion? = null,
-    val checkedItems: HashSet<String>
+    val checkedItems: HashSet<Emotion>
 ) :
     RecyclerView.Adapter<ItemHolderTableEmotions>() {
 
@@ -51,7 +47,7 @@ class AdapterTableEmotions(
 
     override fun onBindViewHolder(holder: ItemHolderTableEmotions, position: Int) {
         holder.binding.apply {
-            nameEmoCategory.text = items[position].name
+            nameEmoCategory.text = items[position].getName(nameEmoCategory.resources)
             countEmo.setBackgroundColor(
                 ContextCompat.getColor(
                     countEmo.context,
@@ -70,7 +66,7 @@ class AdapterTableEmotions(
     private fun initRecyclerViewEmotion(
         recyclerView: RecyclerView,
         categoryEmotions: CategoryEmotions,
-        checkedItems: HashSet<String>
+        checkedItems: HashSet<Emotion>
     ) {
         adapterEmotion = AdapterEmotion(checkedItems)
         val llm = FlowLayoutManager(FlowLayoutManager.VERTICAL)
@@ -79,7 +75,7 @@ class AdapterTableEmotions(
         recyclerView.layoutManager = llm
         recyclerView.adapter = adapterEmotion
 
-        adapterEmotion?.items = categoryEmotions
+        adapterEmotion?.items = categoryEmotions.getEmotions(recyclerView.resources)
     }
 
 }

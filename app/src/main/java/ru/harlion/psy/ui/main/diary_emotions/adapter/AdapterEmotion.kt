@@ -9,19 +9,17 @@ import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingHolder
 import ru.harlion.psy.databinding.ItemEmotionBinding
 import ru.harlion.psy.models.emotions.CategoryEmotions
+import ru.harlion.psy.models.emotions.Emotion
 
 private typealias ItemHolderEmotion = BindingHolder<ItemEmotionBinding>
 
 class AdapterEmotion(
-    private val checkedItems: HashSet<String>
+    private val checkedItems: HashSet<Emotion>
 ) : RecyclerView.Adapter<ItemHolderEmotion>() {
 
-    var colors: ColorStateList? = null
-
-    var items: CategoryEmotions = CategoryEmotions.emptyCategory
+    var items: List<Emotion> = emptyList()
         set(value) {
             field = value
-            colors = null
             notifyDataSetChanged()
         }
 
@@ -29,7 +27,7 @@ class AdapterEmotion(
         ItemHolderEmotion(ItemEmotionBinding::inflate, parent).apply {
             binding.checkedTextView.setOnClickListener {
                 if (adapterPosition > -1) {
-                    val element = items.emotions[adapterPosition]
+                    val element = items[adapterPosition]
                     checkedItems.add(element) || checkedItems.remove(element)
                     notifyItemChanged(adapterPosition)
                 }
@@ -37,29 +35,29 @@ class AdapterEmotion(
         }
 
     override fun onBindViewHolder(holder: ItemHolderEmotion, position: Int) {
-        val colors = colors ?: ColorStateList(
+        val colors = ColorStateList(
             arrayOf(
                 intArrayOf(android.R.attr.state_checked),
                 intArrayOf()
             ), intArrayOf(
-                ContextCompat.getColor(holder.itemView.context, items.color),
+                ContextCompat.getColor(holder.itemView.context, items[position].categoryEmotions.color),
                 ContextCompat.getColor(
                     holder.itemView.context,
                     R.color.gray_super_light
                 )
             )
-        ).also { colors = it }
+        )
 
         holder.binding.apply {
             checkedTextView.apply {
-                isChecked = items.emotions[position] in checkedItems
+                isChecked = items[position] in checkedItems
                 TextViewCompat.setCompoundDrawableTintList(this, colors)
-                text = items.emotions[position]
+                text = items[position].getName(this.resources)
             }
         }
     }
 
-    override fun getItemCount() = items.emotions.size
+    override fun getItemCount() = items.size
 
 }
 

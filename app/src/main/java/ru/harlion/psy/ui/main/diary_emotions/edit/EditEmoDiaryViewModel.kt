@@ -13,7 +13,7 @@ class EditEmoDiaryViewModel : ViewModel() {
     private val repo = Repository.get()
 
     lateinit var emotionEvent: LiveData<EmotionEvent>
-    var emotions: List<Emotion>? = null
+   // var emotions: List<Emotion>? = null
 
     fun getEmoEventById(id: Long) {
         emotionEvent = repo.getEmoEventById(id)
@@ -30,7 +30,7 @@ class EditEmoDiaryViewModel : ViewModel() {
         fieldTwo: String,
         fieldThree: String,
         fieldFor: String,
-        listEmotions: List<String>
+        checkedEmotions: HashSet<Emotion>
     ) {
         val emoEvent = EmotionEvent(
             date = date,
@@ -39,7 +39,7 @@ class EditEmoDiaryViewModel : ViewModel() {
             fieldTwo = fieldTwo,
             fieldThree = fieldThree,
             fieldFor = fieldFor,
-            emotions = listEmotions
+            emotions = checkedEmotions
         )
         repo.addEmotionEvent(emoEvent)
     }
@@ -51,7 +51,7 @@ class EditEmoDiaryViewModel : ViewModel() {
         fieldTwo: String,
         fieldThree: String,
         fieldFor: String,
-        listEmotions: List<String>
+        checkedEmotions: HashSet<Emotion>
     ) {
         val emoEvent = EmotionEvent(
             id = emotionEvent.value?.id ?: 0L,
@@ -61,7 +61,7 @@ class EditEmoDiaryViewModel : ViewModel() {
             fieldTwo = fieldTwo,
             fieldThree = fieldThree,
             fieldFor = fieldFor,
-            emotions = listEmotions
+            emotions = checkedEmotions
         )
         repo.updateEmoEvent(emoEvent)
     }

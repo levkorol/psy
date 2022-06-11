@@ -9,10 +9,12 @@ import ru.harlion.psy.base.BindingHolder
 import ru.harlion.psy.databinding.ItemDiaryEmotionsBinding
 import ru.harlion.psy.databinding.ItemTextBinding
 import ru.harlion.psy.models.emotions.CategoryEmotions
+import ru.harlion.psy.models.emotions.Emotion
 import ru.harlion.psy.models.emotions.EmotionEvent
 import ru.harlion.psy.utils.dateToString
 import ru.harlion.psy.utils.timeToString
 import java.util.*
+import kotlin.collections.HashSet
 
 private typealias ItemHolderEmotionEvent = BindingHolder<ItemDiaryEmotionsBinding>
 
@@ -89,15 +91,14 @@ class AdapterEmotionSEvent(
 
     override fun getItemCount() = items.size
 
-    private fun initRecyclerViewEmotion(recyclerView: RecyclerView, emotions: List<String>) {
-        adapterEmotion = AdapterEmotion(emotions.toHashSet())
+    private fun initRecyclerViewEmotion(recyclerView: RecyclerView, emotions: HashSet<Emotion>) {
+        adapterEmotion = AdapterEmotion(emotions)
         val llm = FlowLayoutManager(FlowLayoutManager.VERTICAL)
 
         recyclerView.layoutManager = llm
         recyclerView.adapter = adapterEmotion
 
-        val category = CategoryEmotions("", R.color.adult_color, emotions)
-        adapterEmotion?.items = category
+        adapterEmotion?.items = emotions.toList()
     }
 
 }
