@@ -14,7 +14,7 @@ private typealias ItemHolder = BindingHolder<ItemEditTextVioletBinding>
 class AdapterEditText :
     RecyclerView.Adapter<ItemHolder>() {
 
-    var items : List<CharSequence>
+    var items: List<CharSequence>
         get() = _items
         set(value) {
             _items = value.mapTo(arrayListOf()) {
@@ -25,26 +25,37 @@ class AdapterEditText :
 
     private var _items = mutableListOf<CharSequence>()
 
-    fun addItem(item : CharSequence) {
+    fun addItem(item: CharSequence) {
         _items.add(0, SpannableStringBuilder(item))
         notifyItemInserted(0)
     }
 
+    fun removeItem(itemIndex: Int) {
+        _items.removeAt(itemIndex)
+        notifyItemRemoved(itemIndex)
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        ItemHolder(ItemEditTextVioletBinding::inflate,parent).apply {
+        ItemHolder(ItemEditTextVioletBinding::inflate, parent).apply {
             binding.answers.setEditableFactory(object : Editable.Factory() {
                 override fun newEditable(source: CharSequence?): Editable {
                     return source as Editable
                 }
             })
-    }
+
+            binding.delete.setOnClickListener {
+                if (this.bindingAdapterPosition > -1) {
+                    removeItem(bindingAdapterPosition)
+                }
+            }
+        }
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
-       holder.binding.apply {
-           val answer =  answers
-           val charSequence = items[position]
-           answer.setText(charSequence)
-       }
+        holder.binding.apply {
+            val answer = answers
+            val charSequence = items[position]
+            answer.setText(charSequence)
+        }
     }
 
     override fun getItemCount() = items.size

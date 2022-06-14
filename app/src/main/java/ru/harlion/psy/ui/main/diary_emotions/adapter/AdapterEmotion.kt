@@ -1,20 +1,21 @@
 package ru.harlion.psy.ui.main.diary_emotions.adapter
 
-import android.content.res.ColorStateList
+
+import android.graphics.drawable.GradientDrawable
+import android.graphics.drawable.StateListDrawable
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.core.widget.TextViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingHolder
 import ru.harlion.psy.databinding.ItemEmotionBinding
-import ru.harlion.psy.models.emotions.CategoryEmotions
 import ru.harlion.psy.models.emotions.Emotion
 
 private typealias ItemHolderEmotion = BindingHolder<ItemEmotionBinding>
 
 class AdapterEmotion(
-    private val checkedItems: HashSet<Emotion>
+    private val checkedItems: HashSet<Emotion>,
+    private val changeItems: () -> Unit = {}
 ) : RecyclerView.Adapter<ItemHolderEmotion>() {
 
     var items: List<Emotion> = emptyList()
@@ -30,28 +31,41 @@ class AdapterEmotion(
                     val element = items[adapterPosition]
                     checkedItems.add(element) || checkedItems.remove(element)
                     notifyItemChanged(adapterPosition)
+                    changeItems.invoke()
                 }
             }
         }
 
     override fun onBindViewHolder(holder: ItemHolderEmotion, position: Int) {
-        val colors = ColorStateList(
-            arrayOf(
-                intArrayOf(android.R.attr.state_checked),
-                intArrayOf()
-            ), intArrayOf(
-                ContextCompat.getColor(holder.itemView.context, items[position].categoryEmotions.color),
+        val colors = StateListDrawable()
+        val dp = holder.binding.checkedTextView.resources.displayMetrics.density * 18
+        colors.addState(intArrayOf(android.R.attr.state_checked), GradientDrawable().apply {
+            setSize(dp.toInt(), dp.toInt())
+            setColor(
                 ContextCompat.getColor(
                     holder.itemView.context,
-                    R.color.gray_super_light
+                    items[position].categoryEmotions.color
                 )
             )
-        )
+            shape = GradientDrawable.OVAL
+        })
+        colors.addState(
+            intArrayOf(),
+            GradientDrawable().apply {
+                setSize(dp.toInt(), dp.toInt())
+                setColor(
+                    ContextCompat.getColor(
+                        holder.itemView.context,
+                        R.color.gray_super_light
+                    )
+                )
+                shape = GradientDrawable.OVAL
+            })
 
         holder.binding.apply {
             checkedTextView.apply {
                 isChecked = items[position] in checkedItems
-                TextViewCompat.setCompoundDrawableTintList(this, colors)
+                setCompoundDrawablesRelativeWithIntrinsicBounds(colors, null, null, null)
                 text = items[position].getName(this.resources)
             }
         }

@@ -9,7 +9,6 @@ import ru.astrocode.flm.FlowLayoutManager
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentEditDiaryEmoBinding
-import ru.harlion.psy.models.emotions.CategoryEmotions
 import ru.harlion.psy.models.emotions.Emotion
 import ru.harlion.psy.ui.main.diary_emotions.adapter.AdapterEmotion
 import ru.harlion.psy.ui.main.diary_emotions.table_emotions.TableEmotionsFragment
@@ -41,9 +40,12 @@ class EditDiaryEmoFragment :
         }
 
         setFragmentResultListener("table_emotions") { _, bundle ->
-            emotions.clear()
-            emotions.addAll(bundle.getSerializable("emotions") as HashSet<Emotion>)
-            adapterEmotions.items = emotions.toList()
+            val newEmo = bundle.getSerializable("emotions") as HashSet<Emotion>
+            if(newEmo != emotions) {
+                emotions.clear()
+                emotions.addAll(newEmo)
+            }
+            adapterEmotions.items = TableEmotionsFragment.orderedEmotions(resources, emotions)
         }
     }
 
@@ -65,7 +67,9 @@ class EditDiaryEmoFragment :
         binding.questionThree.lines = 3
         binding.questionFor.lines = 3
 
-        adapterEmotions = AdapterEmotion(emotions)
+        adapterEmotions = AdapterEmotion(emotions) {
+            adapterEmotions.items = TableEmotionsFragment.orderedEmotions(resources, emotions)
+        }
         binding.recyclerEmotions.apply {
             val llm = FlowLayoutManager(FlowLayoutManager.VERTICAL)
             layoutManager = llm
@@ -75,7 +79,7 @@ class EditDiaryEmoFragment :
 
     private fun observe() {
         viewModel.getEmoEventById(id)
-        viewModel.emotionEvent.observe(viewLifecycleOwner, {
+        viewModel.emotionEvent.observe(viewLifecycleOwner) {
             if (it != null) {
                 binding.date.text = dateToString(it.date)
                 binding.time.text = timeToString(it.time)
@@ -83,9 +87,11 @@ class EditDiaryEmoFragment :
                 binding.questionTwo.setText(it.fieldTwo)
                 binding.questionThree.setText(it.fieldThree)
                 binding.questionFor.setText(it.fieldFor)
-                adapterEmotions.items = emotions.toList()
+
+                emotions.addAll(it.emotions)
+                adapterEmotions.items = TableEmotionsFragment.orderedEmotions(resources, emotions)
             }
-        })
+        }
     }
 
     private fun initClicks() {
@@ -115,7 +121,7 @@ class EditDiaryEmoFragment :
             parentFragmentManager.popBackStack()
         }
         binding.btnEmotions.setOnClickListener {
-            replaceFragment(TableEmotionsFragment(), true)
+            replaceFragment(TableEmotionsFragment.newInstance(emotions), true)
         }
         binding.date.setOnClickListener {
             DialogCalendar().show(parentFragmentManager, null)

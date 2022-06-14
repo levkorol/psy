@@ -27,7 +27,6 @@ class EditTextRecyclerView(context: Context, attrs: AttributeSet?) : LinearLayou
     private val editText = findViewById<TextView>(R.id.answer_c3)
 
     private val recyclerView = findViewById<RecyclerView>(R.id.recycler_view_c3)
-    private val scrollView = findViewById<RecyclerView>(R.id.scrollView)
 
     private val sendBtn = findViewById<ImageButton>(R.id.btn_send)
 
@@ -63,24 +62,8 @@ class EditTextRecyclerView(context: Context, attrs: AttributeSet?) : LinearLayou
         sendBtn.setOnClickListener {
             adapterET.addItem(editText.text.toString())
             editText.text = ""
+            recyclerView.smoothScrollToPosition(0)
         }
-
-//        recyclerView.viewTreeObserver.addOnGlobalLayoutListener(
-//            object : ViewTreeObserver.OnGlobalLayoutListener {
-//                override fun onGlobalLayout() {
-//                    recyclerView.viewTreeObserver.removeOnGlobalLayoutListener(
-//                        this
-//                    )
-//                    val dy =
-//                        recyclerView
-//                            .run { bottom + (layoutParams as MarginLayoutParams).bottomMargin } -
-//                                scrollView.scrollY - scrollView.height
-//                    if (dy > 0) {
-//                        scrollView.smoothScrollBy(0, dy)
-//                    }
-//                }
-//            }
-//        )
     }
 
     override fun dispatchSaveInstanceState(container: SparseArray<Parcelable>) {

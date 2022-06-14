@@ -18,5 +18,4 @@ class EmotionEvent (
     val fieldSeven: String = "",
     val fieldEight: String = "",
     val emotions: HashSet<Emotion> = hashSetOf()
-    //val emotion: List<Emotion> = listOf()
 )

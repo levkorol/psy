@@ -44,7 +44,7 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
 
       //  Alarm.setAlarm(requireContext())
 
-        app.user.observe(viewLifecycleOwner, {
+        app.user.observe(viewLifecycleOwner) {
             binding.progressAdult.progress = it.progressAdult
             binding.progressChild.progress = it.progressChild
             binding.progressParent.progress = it.progressParent
@@ -55,7 +55,7 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
             } catch (e: Exception) {
                 binding.photo.setRoundImage(null, R.drawable.ic_profile)
             }
-        })
+        }
 
         binding.viewPager.adapter = ViewPager(childFragmentManager, lifecycle)
 

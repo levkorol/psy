@@ -1,5 +1,6 @@
 package ru.harlion.psy.ui.main.diary_emotions.table_emotions
 
+import android.content.res.Resources
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.setFragmentResult
@@ -53,6 +54,18 @@ class TableEmotionsFragment :
                 putSerializable("EMOTIONS", emotions)
             }
         }
+
+        fun allEmotions(res: Resources) = catalogEmo.flatMap {
+            it.getEmotions(res)
+        }
+
+        fun orderedEmotions(res: Resources, emotions: HashSet<Emotion> ) = if (emotions.size < 2) {
+                emotions.toList()
+            } else {
+                allEmotions(res).filter {
+                   it in emotions
+                }
+            }
 
         val catalogEmo = listOf(
             CategoryEmotions(
