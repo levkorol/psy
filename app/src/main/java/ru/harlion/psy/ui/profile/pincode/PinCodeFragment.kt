@@ -3,7 +3,9 @@ package ru.harlion.psy.ui.profile.pincode
 
 import android.os.Bundle
 import android.view.View
+import com.google.android.material.snackbar.Snackbar
 import io.bitfactory.pincodelayout.PinCodeActions
+import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentPinCodeBinding
 import ru.harlion.psy.ui.main.MainFragment
@@ -21,8 +23,16 @@ class PinCodeFragment : BindingFragment<FragmentPinCodeBinding>(FragmentPinCodeB
 
         val callback: PinCodeActions = object : PinCodeActions {
             override fun onPinEntered(pin: String) {
-               pref.password = pin
-               replaceFragment(MainFragment(), false)
+                if(pref.password == pin) {
+                    replaceFragment(MainFragment(), false)
+                } else {
+                    Snackbar.make(
+                        binding.root,
+                        getString(R.string.error_pin_code),
+                        Snackbar.LENGTH_SHORT
+                    ).show()
+                    onPinCleared()
+                }
             }
 
             override fun onPinCleared() {

@@ -47,7 +47,7 @@ class TestFragment : BindingFragment<FragmentTestBinding>(FragmentTestBinding::i
             replaceFragment(EditPollTestFragment.newInstance(0, true), true)
         }
 
-        binding.back.setOnClickListener {  }
+        binding.back.setOnClickListener { parentFragmentManager.popBackStack() }
 
         binding.saveProgress.setOnClickListener {
             app.user.value = app.user.value?.copy(
@@ -55,7 +55,8 @@ class TestFragment : BindingFragment<FragmentTestBinding>(FragmentTestBinding::i
                 progressAdult = results[1].toInt(),
                 progressParent = results[2].toInt(),
             )
-            Snackbar.make(binding.root, getString(R.string.save_progress), Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(binding.root, getString(R.string.save_progress), Snackbar.LENGTH_SHORT)
+                .show()
         }
     }
 

@@ -361,6 +361,8 @@
     <string name="new_password">Новый пароль:</string>
     <string name="show_password">Показать текущий пароль</string>
     <string name="password_">Пароль</string>
+    <string name="error_pin_code">Неправильный пароль</string>
+    <string name="empty_password_saved">Еще нет сохраненного пароля</string>
 
     <string-array name="emo_sad">
         <item>@string/sad_emo1</item>

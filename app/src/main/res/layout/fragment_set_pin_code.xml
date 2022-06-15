@@ -27,6 +27,8 @@
     </RelativeLayout>
 
     <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switch_is_password"
+        android:textSize="16sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
@@ -35,13 +37,22 @@
     <TextView
         android:id="@+id/show_password"
         style="@style/TextNormal"
+        android:textSize="16sp"
         android:layout_marginTop="8dp"
         android:text="@string/show_password" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/bg_line_big_gray"
+        android:layout_marginHorizontal="16dp"
+        android:orientation="vertical">
     <TextView
         style="@style/TextNormal"
         android:gravity="center"
-        android:layout_marginTop="36dp"
+        android:textSize="16sp"
         android:text="@string/new_password" />
 
     <io.bitfactory.pincodelayout.PinCodeLayout
@@ -59,5 +70,5 @@
         app:pinTextColor="@color/black"
         app:pinType="digits"
       />
-
+    </LinearLayout>
 </LinearLayout>

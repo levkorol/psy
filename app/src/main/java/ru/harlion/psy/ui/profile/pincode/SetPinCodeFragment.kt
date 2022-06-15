@@ -16,7 +16,7 @@ import ru.harlion.psy.utils.replaceFragment
 class SetPinCodeFragment :
     BindingFragment<FragmentSetPinCodeBinding>(FragmentSetPinCodeBinding::inflate) {
 
-    private lateinit var pref : Prefs
+    private lateinit var pref: Prefs
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -24,6 +24,34 @@ class SetPinCodeFragment :
 
         binding.back.setOnClickListener {
             parentFragmentManager.popBackStack()
+        }
+
+        binding.switchIsPassword.isChecked = pref.isPassword
+        binding.switchIsPassword.setOnClickListener {
+            if (pref.password != "") {
+                if (!pref.isPassword) {
+                    binding.switchIsPassword.isChecked = true
+                    pref.isPassword = true
+                } else {
+                    binding.switchIsPassword.isChecked = false
+                    pref.isPassword = false
+                }
+            } else {
+                Snackbar.make(
+                    binding.root,
+                    getString(R.string.empty_password_saved),
+                    Snackbar.LENGTH_SHORT
+                ).show()
+                binding.switchIsPassword.isChecked = false
+            }
+        }
+
+        binding.showPassword.setOnClickListener {
+            Snackbar.make(
+                binding.root,
+                if (pref.password != "") pref.password else getString(R.string.empty_password_saved),
+                Snackbar.LENGTH_SHORT
+            ).show()
         }
 
         val callback: PinCodeActions = object : PinCodeActions {

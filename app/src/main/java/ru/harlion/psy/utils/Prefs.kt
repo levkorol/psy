@@ -13,15 +13,19 @@ class Prefs(val context: Context) {
         set(value) = sharedPrefs.edit().putBoolean("ON_BOARDING_SHOW", value)
             .apply()
 
-    var isShowTest: Boolean
+    var isShowTestBeginAppUse: Boolean
         get() = sharedPrefs.getBoolean("TEST_SHOW", false)
         set(value) = sharedPrefs.edit().putBoolean("TEST_SHOW", value)
             .apply()
 
-    var password: String?
-        get() = sharedPrefs.getString("PASSWORD", "")
+    var password: String
+        get() = sharedPrefs.getString("PASSWORD", "") ?: ""
         set(value) = sharedPrefs.edit().putString("PASSWORD", value)
             .apply()
+
+    var isPassword: Boolean
+        get() = sharedPrefs.getBoolean("IS_PASSWORD", false)
+        set(value) = sharedPrefs.edit().putBoolean("IS_PASSWORD", value).apply()
 
     var purchaseToken: String?
         get() = sharedPrefs.getString("PURCHASE_TOKEN", null)
@@ -29,7 +33,7 @@ class Prefs(val context: Context) {
             .apply()
 
     var isPremium: Boolean
-        get() = if (sharedPrefs.getBoolean("IS_PREMIUM", false) == true) {
+        get() = if (sharedPrefs.getBoolean("IS_PREMIUM", false)) {
             if (purchaseToken != null) {
                 (context.applicationContext as AppApplication).clientWrapper.acknowledgePurchase(
                     purchaseToken!!

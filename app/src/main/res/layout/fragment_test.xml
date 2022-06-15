@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/bg_fragment_white"
+    android:orientation="vertical"
     tools:context=".ui.profile.test.TestFragment">
 
     <RelativeLayout
@@ -36,12 +36,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
         <TextView
             style="@style/TextTitleQuestions"
             android:layout_marginTop="22dp"
-            android:gravity="center"
             android:layout_marginBottom="16dp"
+            android:gravity="center"
             android:text="@string/result_tests" />
 
         <LinearLayout
@@ -115,12 +118,16 @@
                 android:textStyle="bold" />
 
         </LinearLayout>
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
         <TextView
             android:id="@+id/save_progress"
-            style="@style/ButtonBigLineViolet"
+            style="@style/ButtonBigMiddleViolet"
             android:layout_gravity="center"
             android:gravity="center"
+            android:layout_width="match_parent"
             android:text="@string/save_progress_in_profile" />
     </LinearLayout>
 
@@ -129,9 +136,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
-        android:visibility="gone"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <ImageView
             android:layout_width="match_parent"
@@ -146,17 +153,18 @@
             android:gravity="center"
             android:text="Для оптимального функционирования личности, с точки зрения трансактного анализа, необходимо, чтобы в личности были гармонично представлены все три состояния Я. Для того, чтобы оценить, как сочетаются эти три части твоего Я, пройди тест." />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/test_begin"
+            style="@style/ButtonBigMiddleViolet"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:text="@string/test_begin" />
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
 
-    <TextView
-        android:id="@+id/test_begin"
-        style="@style/ButtonBigMiddleViolet"
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:text="@string/test_begin" />
 </LinearLayout>
