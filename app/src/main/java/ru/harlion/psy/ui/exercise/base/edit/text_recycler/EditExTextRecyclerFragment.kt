@@ -31,6 +31,7 @@ class EditExTextRecyclerFragment :
         binding.questionOne.hint = resources.getText(hint)
         binding.answers.hint = resources.getText(listHint)
 
+        binding.back.setOnClickListener { parentFragmentManager.popBackStack() }
         binding.save.setOnClickListener {
             if(id > 0) {
                 viewModel.update(
@@ -59,12 +60,12 @@ class EditExTextRecyclerFragment :
     }
 
     private fun observe() {
-        viewModel.exercise.observe(viewLifecycleOwner, {
+        viewModel.exercise.observe(viewLifecycleOwner) {
             if (it != null) {
                 binding.questionOne.setText(it.fieldOne)
                 binding.answers.items = it.listString
             }
-        })
+        }
     }
 
     companion object {

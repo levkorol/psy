@@ -25,12 +25,20 @@
             <TextView
                 android:id="@+id/title_toolbar"
                 style="@style/TextToolBar"
-                android:visibility="gone"
+                android:gravity="start"
+                android:layout_toEndOf="@+id/back"
                 android:text="@string/diary_emo" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/info"
+                style="@style/ButtonToolBar"
+                android:layout_toStartOf="@+id/delete"
+                android:src="@drawable/ic_baseline_info_24" />
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/delete"
                 style="@style/ButtonToolBar"
+                android:visibility="gone"
                 android:layout_toStartOf="@+id/save"
                 android:src="@drawable/ic_delete" />
 

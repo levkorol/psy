@@ -21,6 +21,7 @@ import ru.harlion.psy.ui.main.diary_emotions.DiaryEmotionFragment
 import ru.harlion.psy.ui.main.diary_emotions.table_emotions.TableEmotionsFragment
 import ru.harlion.psy.ui.profile.on_boarding.TeamPsyFragment
 import ru.harlion.psy.ui.profile.pincode.PinCodeFragment
+import ru.harlion.psy.ui.profile.pincode.SetPinCodeFragment
 import ru.harlion.psy.ui.profile.premium.PremiumFragment
 import ru.harlion.psy.ui.profile.test.TestFragment
 import ru.harlion.psy.utils.PhotoRequest
@@ -54,15 +55,16 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
 
         initClicks()
 
-        app.user.observe(viewLifecycleOwner, {
-            binding.nameUser.text = if(it.name.isNotEmpty()) it.name else getString(R.string.your_name)
+        app.user.observe(viewLifecycleOwner) {
+            binding.nameUser.text =
+                if (it.name.isNotEmpty()) it.name else getString(R.string.your_name)
             val photoUri = Uri.fromFile(File(it.photoMain))
             try {
-                binding.photoProfile.setRoundImage(photoUri,R.drawable.ic_profile)
+                binding.photoProfile.setRoundImage(photoUri, R.drawable.ic_profile)
             } catch (e: Exception) {
-                binding.photoProfile.setRoundImage(null,R.drawable.ic_profile)
+                binding.photoProfile.setRoundImage(null, R.drawable.ic_profile)
             }
-        })
+        }
     }
 
     private fun initClicks() {
@@ -95,7 +97,7 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
             replaceFragment(PremiumFragment(), true)
         }
         binding.pinCode.setOnClickListener {
-            replaceFragment(PinCodeFragment(), true)
+            replaceFragment(SetPinCodeFragment(), true)
         }
         binding.mail.setOnClickListener {
             val emailIntent = Intent(Intent.ACTION_SENDTO).apply {

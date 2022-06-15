@@ -153,14 +153,14 @@ class EditTextViewsFragment :
     }
 
     private fun observe() {
-        viewModel.exercise.observe(viewLifecycleOwner, {
+        viewModel.exercise.observe(viewLifecycleOwner) {
             if (it != null) {
                 binding.questionOne.setText(it.fieldOne)
                 binding.questionTwo.setText(it.fieldTwo)
                 binding.questionThree.setText(it.fieldThree)
                 binding.questionFor.setText(it.fieldFor)
             }
-        })
+        }
     }
 
     companion object {

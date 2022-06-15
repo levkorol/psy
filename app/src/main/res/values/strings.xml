@@ -355,6 +355,12 @@
     <string name="agr">Гнев</string>
     <string name="sad">Грусть</string>
     <string name="scare">Страх</string>
+    <string name="widgets">Виджеты</string>
+    <string name="is_active_password">Активировать пароль</string>
+    <string name="update_pin_code">Пароль изменен</string>
+    <string name="new_password">Новый пароль:</string>
+    <string name="show_password">Показать текущий пароль</string>
+    <string name="password_">Пароль</string>
 
     <string-array name="emo_sad">
         <item>@string/sad_emo1</item>

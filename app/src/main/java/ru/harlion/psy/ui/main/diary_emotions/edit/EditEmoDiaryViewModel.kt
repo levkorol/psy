@@ -13,14 +13,13 @@ class EditEmoDiaryViewModel : ViewModel() {
     private val repo = Repository.get()
 
     lateinit var emotionEvent: LiveData<EmotionEvent>
-   // var emotions: List<Emotion>? = null
 
     fun getEmoEventById(id: Long) {
         emotionEvent = repo.getEmoEventById(id)
     }
 
     fun delete(id: Long) {
-        repo.deleteEx(id)
+        repo.deleteEmoEvent(id)
     }
 
     fun add(

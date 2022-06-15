@@ -6,16 +6,16 @@ import androidx.room.PrimaryKey
 @Entity
 class EmotionEvent (
     @PrimaryKey(autoGenerate = true)
-    val id: Long = 0,
-    val date: Long = 0,
-    val time: Long = 0,
-    val fieldOne: String = "",
-    val fieldTwo: String = "",
-    val fieldThree: String = "",
-    val fieldFor: String = "",
-    val fieldFife: String = "",
-    val fieldSix: String = "",
-    val fieldSeven: String = "",
-    val fieldEight: String = "",
-    val emotions: HashSet<Emotion> = hashSetOf()
+    var id: Long = 0,
+    var date: Long = 0,
+    var time: Long = 0,
+    var fieldOne: String = "",
+    var fieldTwo: String = "",
+    var fieldThree: String = "",
+    var fieldFor: String = "",
+    var fieldFife: String = "",
+    var fieldSix: String = "",
+    var fieldSeven: String = "",
+    var fieldEight: String = "",
+    var emotions: HashSet<Emotion> = hashSetOf()
 )

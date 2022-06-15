@@ -9,37 +9,41 @@
     tools:context=".ui.profile.pincode.PinCodeFragment">
 
 
-    <RelativeLayout
-        android:id="@+id/top_ll"
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center"
+        app:cardCornerRadius="10dp">
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
+        android:layout_height="match_parent"
+        android:src="@drawable/logo"/>
+    </androidx.cardview.widget.CardView>
 
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/back"
-            style="@style/ButtonToolBar"
-            android:src="@drawable/ic_baseline_arrow_back_24" />
-
-        <TextView
-            android:id="@+id/title_toolbar"
-            style="@style/TextToolBar"
-            android:text="@string/password" />
-
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/title_toolbar"
+        style="@style/TextNormal"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:layout_marginTop="60dp"
+        android:text="@string/password_"
+        android:textColor="@color/white" />
 
     <io.bitfactory.pincodelayout.PinCodeLayout
         android:id="@+id/pinCode"
         android:layout_gravity="center"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="8dp"
         android:layout_width="wrap_content"
-        app:hidePin="false"
+        app:hidePin="true"
         app:animationDuration="1000"
         app:pinType="digits"
-        app:pinTextColor="@color/black"
+        app:pinTextColor="@color/white"
         android:layout_height="wrap_content"
         app:unfilledPinIcon="@drawable/ic_heart_white"
         app:filledPinIcon="@drawable/ic_smile_white"
-
-        app:inputBackground="@color/gr_1"
+        app:inputBackground="@drawable/background_transparent"
         app:pinLength="4" />
 </LinearLayout>
 <!--    app:activeBarColor="@color/main_middle_violet"-->

@@ -31,7 +31,7 @@ abstract class DataBaseApp : RoomDatabase() {
     abstract fun pollDao(): PollDao
 }
 
-object ConverterApp {
+class ConverterApp {
     @TypeConverter
     fun typeExToString(type: TypeEx): String = AppApplication.gson.toJson(type)
 

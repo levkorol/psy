@@ -56,16 +56,16 @@ class EditDiaryEmoFragment :
         observe()
         initClicks()
 
+        if(id > 0L) {
+            binding.delete.visibility = View.VISIBLE
+        }
+
         binding.date.text = dateToString(date)
         binding.time.text = timeToString(time)
         binding.questionOne.textInfo = resources.getText(R.string.thanks_diary)
         binding.questionTwo.textInfo = resources.getText(R.string.thanks_diary)
         binding.questionThree.textInfo = resources.getText(R.string.thanks_diary)
         binding.questionFor.textInfo = resources.getText(R.string.thanks_diary)
-        binding.questionOne.lines = 3
-        binding.questionTwo.lines = 3
-        binding.questionThree.lines = 3
-        binding.questionFor.lines = 3
 
         adapterEmotions = AdapterEmotion(emotions) {
             adapterEmotions.items = TableEmotionsFragment.orderedEmotions(resources, emotions)
@@ -122,6 +122,10 @@ class EditDiaryEmoFragment :
         }
         binding.btnEmotions.setOnClickListener {
             replaceFragment(TableEmotionsFragment.newInstance(emotions), true)
+        }
+        binding.delete.setOnClickListener {
+            viewModel.delete(id)
+            parentFragmentManager.popBackStack()
         }
         binding.date.setOnClickListener {
             DialogCalendar().show(parentFragmentManager, null)

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -90,11 +91,11 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_gravity="center"
-            android:drawableStart="@drawable/ic_crown"
             android:drawablePadding="16dp"
             android:gravity="center|start"
             android:text="@string/pro_better"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            app:drawableStartCompat="@drawable/ic_crown" />
     </RelativeLayout>
 
     <View
@@ -107,32 +108,45 @@
     <TextView
         android:id="@+id/diary_emotions"
         style="@style/MenuItemProfile"
-        android:drawableStart="@drawable/ic_smile_wink"
         android:text="@string/diary_emo"
-        android:visibility="gone" />
+        android:visibility="gone"
+        app:drawableStartCompat="@drawable/ic_smile_wink" />
 
     <TextView
         android:id="@+id/statistic"
         style="@style/MenuItemProfile"
-        android:drawableStart="@drawable/ic_stats"
         android:text="@string/statistic"
-        android:visibility="gone" />
+        android:visibility="gone"
+        app:drawableStartCompat="@drawable/ic_stats" />
 
     <TextView
         android:id="@+id/pin_code"
         style="@style/MenuItemProfile"
-        android:drawableStart="@drawable/ic_lock"
-        android:text="@string/password" />
+        android:text="@string/password"
+        app:drawableStartCompat="@drawable/ic_lock" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:visibility="gone"
+        android:background="@color/gray_super_light" />
+    <TextView
+        android:id="@+id/notify"
+        style="@style/MenuItemProfile"
+        android:text="@string/notify"
+        android:visibility="gone"
+        app:drawableStartCompat="@drawable/ic_alarm_clock" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginStart="16dp"
         android:background="@color/gray_super_light" />
     <TextView
-        android:id="@+id/notify"
+        android:id="@+id/widgets"
         style="@style/MenuItemProfile"
-        android:drawableStart="@drawable/ic_alarm_clock"
-        android:text="@string/notify" />
+        android:text="@string/widgets"
+        app:drawableStartCompat="@drawable/ic_widgets" />
 
     <!--        <TextView-->
     <!--            android:id="@+id/premium"-->
@@ -147,8 +161,8 @@
     <TextView
         android:id="@+id/info_user"
         style="@style/MenuItemProfile"
-        android:drawableStart="@drawable/ic_star"
-        android:text="@string/for_user" />
+        android:text="@string/for_user"
+        app:drawableStartCompat="@drawable/ic_star" />
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -157,8 +171,8 @@
     <TextView
         android:id="@+id/mail"
         style="@style/MenuItemProfile"
-        android:drawableStart="@drawable/ic_mail"
-        android:text="@string/mail" />
+        android:text="@string/mail"
+        app:drawableStartCompat="@drawable/ic_mail" />
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -167,8 +181,8 @@
     <TextView
         android:id="@+id/psy_project"
         style="@style/MenuItemProfile"
-        android:drawableStart="@drawable/ic_hand_holding_heart"
-        android:text="@string/project_psy" />
+        android:text="@string/project_psy"
+        app:drawableStartCompat="@drawable/ic_hand_holding_heart" />
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -177,15 +191,13 @@
     <TextView
         android:id="@+id/mark"
         style="@style/MenuItemProfile"
-        android:drawableStart="@drawable/ic_heart"
-        android:text="@string/mark" />
+        android:text="@string/mark"
+        app:drawableStartCompat="@drawable/ic_heart" />
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginStart="16dp"
         android:background="@color/gray_super_light" />
-
-
 
     <TextView
         android:layout_width="match_parent"
