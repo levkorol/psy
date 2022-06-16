@@ -87,7 +87,7 @@ class EditPollTestFragment :
                         replaceFragment(TestFragment.newInstance(true, result.toFloatArray()), true)
                     } else {
                         if (pollId > 0) {
-                            //todo update
+                            viewModel.update(answers)
                         } else {
                             viewModel.add(answers)
                         }
@@ -126,12 +126,12 @@ class EditPollTestFragment :
 
     private fun observe() {
         viewModel.getPollById(pollId)
-        viewModel.poll.observe(viewLifecycleOwner, {
-            if(it != null  ) {//&& answers.isEmpty()
-              answers = ArrayList(it.question)
+        viewModel.poll.observe(viewLifecycleOwner) {
+            if (it != null) {//&& answers.isEmpty()
+                answers = ArrayList(it.question)
             }
             binding.viewPager.adapter = AdapterPollTest(questions, answers, isTesting)
-        })
+        }
     }
 
     companion object {

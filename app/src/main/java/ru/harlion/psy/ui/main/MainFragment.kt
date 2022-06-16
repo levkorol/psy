@@ -24,10 +24,8 @@ import ru.harlion.psy.ui.main.diary_emotions.edit.EditDiaryEmoFragment
 import ru.harlion.psy.ui.profile.ProfileFragment
 import ru.harlion.psy.ui.profile.premium.PremiumFragment
 import ru.harlion.psy.ui.profile.test.TestFragment
-import ru.harlion.psy.utils.Alarm
-import ru.harlion.psy.utils.ViewAnimated
-import ru.harlion.psy.utils.replaceFragment
-import ru.harlion.psy.utils.setRoundImage
+import ru.harlion.psy.utils.*
+import ru.harlion.psy.utils.dialogs.InfoDialog
 import java.io.File
 
 
@@ -38,11 +36,18 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val pref = Prefs(requireContext())
+
         isRotateFab = false
 
         initClicks()
 
-      //  Alarm.setAlarm(requireContext())
+        if (!pref.isShowTestBeginAppUse) {
+            InfoDialog().show(parentFragmentManager, null)
+            pref.isShowTestBeginAppUse = true
+        }
+
+        //  Alarm.setAlarm(requireContext())
 
         app.user.observe(viewLifecycleOwner) {
             binding.progressAdult.progress = it.progressAdult

@@ -39,7 +39,9 @@ class Repository private constructor(context: Context) {
     fun getPollById(id : Long) = pollDao.pollById(id)
 
 
-    fun updatePoll(){}
+    fun updatePoll(poll: Poll){
+        pollDao.update(poll)
+    }
 
     fun deletePoll(){}
 

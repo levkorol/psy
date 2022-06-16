@@ -40,6 +40,15 @@
         app:layout_constraintTop_toTopOf="@+id/title_ex"
         tools:text="0 записей" />
 
+    <ImageView
+        android:id="@+id/lock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_lock"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 <!--    <TextView-->
 <!--        android:id="@+id/count_writing"-->
 <!--        android:layout_width="wrap_content"-->

@@ -20,7 +20,9 @@ import ru.harlion.psy.ui.exercise.base.AdapterMenuExercizes
 import ru.harlion.psy.ui.exercise.base.MenuEx
 import ru.harlion.psy.ui.exercise.base.instructions.ExInstructionsFragment
 import ru.harlion.psy.utils.PhotoRequest
+import ru.harlion.psy.utils.Prefs
 import ru.harlion.psy.utils.dialogs.EditTextDialog
+import ru.harlion.psy.utils.dialogs.InfoDialog
 import ru.harlion.psy.utils.replaceFragment
 import ru.harlion.psy.utils.setRoundImage
 import java.io.File
@@ -32,6 +34,7 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
     private lateinit var adapterMenu: AdapterMenuExercizes
     lateinit var launcher: ActivityResultLauncher<Intent>
     private var photoRequest: PhotoRequest? = null
+    private lateinit var prefs: Prefs
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,8 +43,12 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
                 if (it.resultCode == Activity.RESULT_OK) {
                     if (photoRequest?.onActivityResult(it.data) == true) {
-                        binding.childPhoto.setRoundImage(Uri.fromFile(photoRequest!!.file), R.drawable.pic_child_cat)
-                        app.user.value = app.user.value?.copy(photoChild = photoRequest?.file?.path ?: "")
+                        binding.childPhoto.setRoundImage(
+                            Uri.fromFile(photoRequest!!.file),
+                            R.drawable.pic_child_cat
+                        )
+                        app.user.value =
+                            app.user.value?.copy(photoChild = photoRequest?.file?.path ?: "")
                     }
                 }
             }
@@ -50,10 +57,12 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        prefs = Prefs(requireContext())
+
         initClick()
 
-        app.user.observe(viewLifecycleOwner, {
-            binding.name.text = if(it.nameChild.isNotBlank()) {
+        app.user.observe(viewLifecycleOwner) {
+            binding.name.text = if (it.nameChild.isNotBlank()) {
                 it.nameChild
             } else {
                 getString(R.string.name_child)
@@ -63,17 +72,25 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
 
             val photoUri = Uri.fromFile(File(it.photoChild))
             try {
-                binding.childPhoto.setRoundImage(photoUri,R.drawable.pic_child_cat)
+                binding.childPhoto.setRoundImage(photoUri, R.drawable.pic_child_cat)
             } catch (e: Exception) {
-                binding.childPhoto.setRoundImage(null,R.drawable.pic_child_cat)
+                binding.childPhoto.setRoundImage(null, R.drawable.pic_child_cat)
             }
-        })
+        }
 
         val exercises = listOf(
-            MenuEx(getString(R.string.thanks_diary), R.drawable.menu_heart, 2),
-            MenuEx(getString(R.string.wish_diary_ex), R.drawable.menu_star, 2),
-            MenuEx(getString(R.string.free_writing_ex), R.drawable.menu_freewriting, 4),
-            MenuEx(getString(R.string.ideas_diary_ex), R.drawable.menu_idea, 2),
+            MenuEx(getString(R.string.thanks_diary), R.drawable.menu_heart, 2, false),
+            MenuEx(getString(R.string.wish_diary_ex), R.drawable.menu_star, 2, false),
+            MenuEx(
+                getString(R.string.free_writing_ex), R.drawable.menu_freewriting, 4,
+                !prefs.isPremiumBilling
+            ),
+            MenuEx(
+                getString(R.string.ideas_diary_ex),
+                R.drawable.menu_idea,
+                2,
+                !prefs.isPremiumBilling
+            ),
             //        MenuEx(getString(R.string.album_ex), R.drawable.menu_moments, 0)
         )
 
@@ -99,12 +116,18 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
                         TypeEx.FREE_WRITING
                     ), true
                 )
-                else -> replaceFragment(
-                    ExListFragment.newInstance(
-                        R.string.ideas_diary_ex,
-                        TypeEx.IDEAS_DIARY
-                    ), true
-                )
+                else -> {
+                    if (prefs.isPremiumBilling) {
+                        replaceFragment(
+                            ExListFragment.newInstance(
+                                R.string.ideas_diary_ex,
+                                TypeEx.IDEAS_DIARY
+                            ), true
+                        )
+                    } else {
+                        InfoDialog().show(parentFragmentManager, null)
+                    }
+                }
 //                else -> replaceFragment(
 //                    ExListFragment.newInstance(
 //                        R.string.album_ex,
@@ -138,7 +161,7 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
 
         binding.edit.setOnClickListener {
             EditTextDialog(requireContext()).apply {
-                val text =  setEditText(getString(R.string.name_child))
+                val text = setEditText(getString(R.string.name_child))
                 setTitle(getString(R.string.name_child_title))
                 setPositiveButton(getString(R.string.save)) {
                     val name = text.findViewById<TextView>(R.id.input_text).text

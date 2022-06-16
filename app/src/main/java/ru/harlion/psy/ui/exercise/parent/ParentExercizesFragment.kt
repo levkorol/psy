@@ -20,6 +20,7 @@ import ru.harlion.psy.ui.exercise.base.AdapterMenuExercizes
 import ru.harlion.psy.ui.exercise.base.MenuEx
 import ru.harlion.psy.ui.exercise.base.instructions.ExInstructionsFragment
 import ru.harlion.psy.utils.PhotoRequest
+import ru.harlion.psy.utils.Prefs
 import ru.harlion.psy.utils.dialogs.EditTextDialog
 import ru.harlion.psy.utils.replaceFragment
 import ru.harlion.psy.utils.setRoundImage
@@ -29,6 +30,7 @@ import java.io.File
 class ParentExercizesFragment :
     BindingFragment<FragmentParentExercizesBinding>(FragmentParentExercizesBinding::inflate) {
 
+    private lateinit var prefs: Prefs
     private lateinit var adapterMenu: AdapterMenuExercizes
     private val app
         get() = requireActivity().application as AppApplication
@@ -47,7 +49,8 @@ class ParentExercizesFragment :
                             Uri.fromFile(photoRequest!!.file),
                             R.drawable.pic_parent_cat
                         )
-                        app.user.value = app.user.value?.copy(photoParent = photoRequest?.file?.path ?: "")
+                        app.user.value =
+                            app.user.value?.copy(photoParent = photoRequest?.file?.path ?: "")
                     }
                 }
             }
@@ -56,10 +59,12 @@ class ParentExercizesFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        prefs = Prefs(requireContext())
+
         initClick()
 
-        app.user.observe(viewLifecycleOwner, {
-            binding.name.text = if(it.nameParent.isNotBlank()) {
+        app.user.observe(viewLifecycleOwner) {
+            binding.name.text = if (it.nameParent.isNotBlank()) {
                 it.nameParent
             } else {
                 getString(R.string.name_parent)
@@ -68,18 +73,28 @@ class ParentExercizesFragment :
             binding.countProgress.text = "${it.progressParent} %"
             val photoUri = Uri.fromFile(File(it.photoParent))
             try {
-                binding.parentPhoto.setRoundImage(photoUri,R.drawable.pic_parent_cat)
+                binding.parentPhoto.setRoundImage(photoUri, R.drawable.pic_parent_cat)
             } catch (e: Exception) {
-                binding.parentPhoto.setRoundImage(null,R.drawable.pic_parent_cat)
+                binding.parentPhoto.setRoundImage(null, R.drawable.pic_parent_cat)
             }
-        })
+        }
 
         val exercises = listOf(
-            MenuEx(getString(R.string.success_diary_ex), R.drawable.menu_trophy, 2),
-            MenuEx(getString(R.string.work_with_belief_ex), R.drawable.menu_hands, 4),
-            MenuEx(getString(R.string.positive_belief_ex), R.drawable.menu_positive, 2),
-            MenuEx(getString(R.string.life_rules_ex), R.drawable.menu_pr, 4),
-            MenuEx(getString(R.string.perfect_life_ex), R.drawable.menu_check, 2)
+            MenuEx(getString(R.string.success_diary_ex), R.drawable.menu_trophy, 2, false),
+            MenuEx(getString(R.string.work_with_belief_ex), R.drawable.menu_hands, 4, false),
+            MenuEx(getString(R.string.positive_belief_ex), R.drawable.menu_positive, 2, false),
+            MenuEx(
+                getString(R.string.life_rules_ex),
+                R.drawable.menu_pr,
+                4,
+                !prefs.isPremiumBilling
+            ),
+            MenuEx(
+                getString(R.string.perfect_life_ex),
+                R.drawable.menu_check,
+                2,
+                !prefs.isPremiumBilling
+            )
         )
 
         adapterMenu = AdapterMenuExercizes {

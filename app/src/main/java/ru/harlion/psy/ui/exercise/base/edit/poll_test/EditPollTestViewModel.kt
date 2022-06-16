@@ -15,6 +15,17 @@ class EditPollTestViewModel : ViewModel() {
       poll = repo.getPollById(id)
     }
 
+    fun update(
+        answer: List<Answer>
+    ) {
+        val poll = Poll(
+            id = poll.value?.id ?: 0L,
+            question = answer,
+            dateCreate = poll.value?.dateCreate ?: System.currentTimeMillis()
+        )
+        repo.updatePoll(poll)
+    }
+
     fun add(
         answer: List<Answer>
     ) {

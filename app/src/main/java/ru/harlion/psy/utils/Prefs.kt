@@ -32,7 +32,7 @@ class Prefs(val context: Context) {
         set(value) = sharedPrefs.edit().putString("PURCHASE_TOKEN", value)
             .apply()
 
-    var isPremium: Boolean
+    var isPremiumBilling: Boolean
         get() = if (sharedPrefs.getBoolean("IS_PREMIUM", false)) {
             if (purchaseToken != null) {
                 (context.applicationContext as AppApplication).clientWrapper.acknowledgePurchase(
@@ -47,4 +47,6 @@ class Prefs(val context: Context) {
         } else false
         set(value) = sharedPrefs.edit().putBoolean("IS_PREMIUM", value)
             .apply()
+
+
 }

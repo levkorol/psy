@@ -22,6 +22,7 @@ import ru.harlion.psy.ui.exercise.base.MenuEx
 import ru.harlion.psy.ui.exercise.base.instructions.ExInstructionsFragment
 import ru.harlion.psy.ui.main.my_day.DayPollFragment
 import ru.harlion.psy.utils.PhotoRequest
+import ru.harlion.psy.utils.Prefs
 import ru.harlion.psy.utils.dialogs.EditTextDialog
 import ru.harlion.psy.utils.replaceFragment
 import ru.harlion.psy.utils.setRoundImage
@@ -32,7 +33,7 @@ class AdultExercizesFragment :
     BindingFragment<FragmentAdultExercizesBinding>(FragmentAdultExercizesBinding::inflate) {
 
     private lateinit var adapterMenu: AdapterMenuExercizes
-
+    private lateinit var prefs: Prefs
     lateinit var launcher: ActivityResultLauncher<Intent>
     private var photoRequest: PhotoRequest? = null
 
@@ -43,8 +44,12 @@ class AdultExercizesFragment :
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
                 if (it.resultCode == Activity.RESULT_OK) {
                     if (photoRequest?.onActivityResult(it.data) == true) {
-                        binding.adultPhoto.setRoundImage(Uri.fromFile(photoRequest!!.file), R.drawable.pic_adulte_cat)
-                        app.user.value = app.user.value?.copy(photoAdult = photoRequest?.file?.path ?: "")
+                        binding.adultPhoto.setRoundImage(
+                            Uri.fromFile(photoRequest!!.file),
+                            R.drawable.pic_adulte_cat
+                        )
+                        app.user.value =
+                            app.user.value?.copy(photoAdult = photoRequest?.file?.path ?: "")
                     }
                 }
             }
@@ -53,10 +58,12 @@ class AdultExercizesFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        prefs = Prefs(requireContext())
+
         initClick()
 
-        app.user.observe(viewLifecycleOwner, {
-            binding.name.text = if(it.nameAdult.isNotBlank()) {
+        app.user.observe(viewLifecycleOwner) {
+            binding.name.text = if (it.nameAdult.isNotBlank()) {
                 it.nameAdult
             } else {
                 getString(R.string.name_adult)
@@ -65,17 +72,27 @@ class AdultExercizesFragment :
             binding.countProcent.text = "${it.progressAdult} %"
             val photoUri = Uri.fromFile(File(it.photoAdult))
             try {
-                binding.adultPhoto.setRoundImage(photoUri,R.drawable.pic_adulte_cat)
+                binding.adultPhoto.setRoundImage(photoUri, R.drawable.pic_adulte_cat)
             } catch (e: Exception) {
-                binding.adultPhoto.setRoundImage(null,R.drawable.pic_adulte_cat)
+                binding.adultPhoto.setRoundImage(null, R.drawable.pic_adulte_cat)
             }
-        })
+        }
 
         val exercises = listOf(
-            MenuEx(getString(R.string.self_ex), R.drawable.menu_like, 4),
-            MenuEx(getString(R.string.fail_diary_ex), R.drawable.menu_sad, 2),
-            MenuEx(getString(R.string.do_love_self_ex), R.drawable.menu_self_love, 2),
-            MenuEx(getString(R.string.my_emergency_ex), R.drawable.menu_life_preserver, 2),
+            MenuEx(getString(R.string.self_ex), R.drawable.menu_like, 4, false),
+            MenuEx(getString(R.string.fail_diary_ex), R.drawable.menu_sad, 2, false),
+            MenuEx(
+                getString(R.string.do_love_self_ex),
+                R.drawable.menu_self_love,
+                2,
+                !prefs.isPremiumBilling
+            ),
+            MenuEx(
+                getString(R.string.my_emergency_ex),
+                R.drawable.menu_life_preserver,
+                2,
+                !prefs.isPremiumBilling
+            ),
             //  MenuEx(getString(R.string.poll_day_ex), R.drawable.menu_sun, 0)
         )
 

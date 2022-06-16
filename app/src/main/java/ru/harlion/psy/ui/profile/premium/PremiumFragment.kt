@@ -3,11 +3,9 @@ package ru.harlion.psy.ui.profile.premium
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.RelativeLayout
 import com.android.billingclient.api.Purchase
 import com.android.billingclient.api.SkuDetails
-import com.google.android.material.snackbar.Snackbar
 import ru.harlion.psy.AppApplication
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.data.billing.BillingClientWrapper
@@ -51,6 +49,10 @@ class PremiumFragment : BindingFragment<FragmentPremiumBinding>(FragmentPremiumB
             parentFragmentManager.popBackStack()
         }
 
+        binding.premium.setOnClickListener {
+            prefs.isPremiumBilling = true
+        }
+
 //        binding.promo.setOnClickListener {
 //            AlertDialogBase(requireContext()).apply {
 //                setTitle(getString(R.string.promo_in))
@@ -79,7 +81,7 @@ class PremiumFragment : BindingFragment<FragmentPremiumBinding>(FragmentPremiumB
 
     override fun onPurchaseSuccess(purchase: Purchase?) {
         if (purchase != null) {
-            prefs.isPremium = true
+            prefs.isPremiumBilling = true
         }
     }
 
@@ -92,7 +94,7 @@ class PremiumFragment : BindingFragment<FragmentPremiumBinding>(FragmentPremiumB
             override fun onSuccess(products: List<SkuDetails>) {
                 products.forEach { product ->
                     purchaseButtonsMap[product.sku]?.apply {
-                       binding.textPro.text = "${product.description} for ${product.price}"
+                        binding.textPro.text = "${product.description} for ${product.price}"
                         setOnClickListener {
                             billingClientWrapper.purchase(
                                 requireActivity(),

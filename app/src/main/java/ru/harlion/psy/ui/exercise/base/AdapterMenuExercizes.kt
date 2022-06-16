@@ -1,5 +1,6 @@
 package ru.harlion.psy.ui.exercise.base
 
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ru.harlion.psy.base.BindingHolder
@@ -26,6 +27,11 @@ class AdapterMenuExercizes(private val click : (Int) -> Unit) :
             itemCl.setOnClickListener {
                 click.invoke(position)
             }
+           if (items[position].isBlock) {
+               lock.visibility = View.VISIBLE
+           } else {
+               lock.visibility = View.GONE
+           }
         }
     }
 
@@ -35,5 +41,6 @@ class AdapterMenuExercizes(private val click : (Int) -> Unit) :
 class MenuEx(
     val title: String,
     val image: Int,
-    val count: Int
+    val count: Int,
+    val isBlock: Boolean
 )

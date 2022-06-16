@@ -1,10 +1,9 @@
 package ru.harlion.psy.ui.profile.test
 
 
-import android.content.res.ColorStateList
+
 import android.os.Bundle
 import android.view.View
-import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 import ru.harlion.psy.R
 import ru.harlion.psy.app
