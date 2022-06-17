@@ -21,13 +21,20 @@
             android:id="@+id/title_toolbar"
             style="@style/TextToolBar"
             android:text="@string/set_widget" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/info"
+            style="@style/ButtonToolBar"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_baseline_info_24" />
     </RelativeLayout>
 
     <TextView
         style="@style/TextNormal"
         android:padding="16dp"
+        android:layout_marginTop="0dp"
         android:background="@drawable/bg_line_big_gray"
-        android:text="Выбери отображение виджета для своих позитивных утверждений и аффирмаций"/>
+        android:text="Выбери отображение виджета для своих записей из упражнения Позитивные утверждения"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/widgets_rv"

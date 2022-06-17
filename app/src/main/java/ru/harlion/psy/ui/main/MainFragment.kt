@@ -17,6 +17,7 @@ import ru.harlion.psy.databinding.FragmentMainBinding
 import ru.harlion.psy.ui.exercise.adult.AdultExercizesFragment
 import ru.harlion.psy.ui.exercise.base.edit.poll_test.EditPollTestFragment
 import ru.harlion.psy.ui.exercise.child.ChildExercizesFragment
+import ru.harlion.psy.ui.exercise.child.edit.free_writing.EndangeredTextFragment
 import ru.harlion.psy.ui.main.diary_emotions.DiaryEmotionFragment
 import ru.harlion.psy.ui.main.my_day.DayPollFragment
 import ru.harlion.psy.ui.exercise.parent.ParentExercizesFragment
@@ -80,6 +81,10 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
 
         ViewAnimated.init(binding.fabEmoDiary)
         ViewAnimated.init(binding.fabPollDay)
+
+        binding.logo.setOnClickListener {
+            replaceFragment(EndangeredTextFragment(), true)
+        }
 
         binding.cardChild.setOnClickListener {
             replaceFragment(ChildExercizesFragment(), true)

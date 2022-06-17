@@ -25,6 +25,7 @@ class EditFreeWritingFragment :
     private var id = 0L
     private var timer: CountDownTimer? = null
     private var timeInMilliSeconds = 60000L
+    private var setTimeInMilliSeconds = 60000L
     private var timeInMilli = 0L
 
 
@@ -98,7 +99,7 @@ class EditFreeWritingFragment :
             loadKonfetti()
             viewModel.add(
                 binding.fieldOne.text.toString(),
-                formatTimeMinsSec(timeInMilli, resources),
+                String(Character.toChars(0x23F2)) + " " + getString(R.string.time_ex_free_wr) + " " + formatTimeMinsSec(setTimeInMilliSeconds - timeInMilliSeconds, resources),
                 binding.fieldThree.text.toString(),
             )
             parentFragmentManager.popBackStack()
@@ -138,6 +139,7 @@ class EditFreeWritingFragment :
             onSeekBarChange?.invoke(progressChange)
 
             timeInMilliSeconds = progressChange.toLong() * 60 * 1000
+            setTimeInMilliSeconds = progressChange.toLong() * 60 * 1000
             timeInMilli = timeInMilliSeconds
         }
         textValueSeekBar = "$progress"

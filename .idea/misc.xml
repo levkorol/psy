@@ -23,6 +23,7 @@
         <entry key="app/src/main/res/layout/fragment_dialog_info.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_edit_diary_emo.xml" value="0.103125" />
         <entry key="app/src/main/res/layout/fragment_edit_text_dialog.xml" value="0.1157548125633232" />
+        <entry key="app/src/main/res/layout/fragment_endangered_text.xml" value="0.16576086956521738" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.1157548125633232" />
         <entry key="app/src/main/res/layout/fragment_pin_code.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_premium.xml" value="0.125" />
