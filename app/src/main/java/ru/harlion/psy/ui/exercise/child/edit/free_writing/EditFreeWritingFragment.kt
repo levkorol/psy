@@ -58,7 +58,7 @@ class EditFreeWritingFragment :
 
 
     private fun observe() {
-        viewModel.exercise.observe(viewLifecycleOwner, {
+        viewModel.exercise.observe(viewLifecycleOwner) {
             if (id > 0) {
                 binding.stepOne.visibility = View.GONE
                 binding.stepTwo.visibility = View.GONE
@@ -70,7 +70,7 @@ class EditFreeWritingFragment :
 
                 binding.delete.visibility = View.VISIBLE
             }
-        })
+        }
     }
 
     override fun onStop() {

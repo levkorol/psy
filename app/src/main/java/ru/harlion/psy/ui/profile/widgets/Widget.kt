@@ -1,4 +1,4 @@
-package ru.harlion.psy.utils
+package ru.harlion.psy.ui.profile.widgets
 
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
@@ -19,8 +19,6 @@ class Widget : AppWidgetProvider() {
         appWidgetManager: AppWidgetManager,
         appWidgetIds: IntArray
     ) {
-
-
         for (appWidgetId in appWidgetIds) {
             updateAppWidget(
                 context,
@@ -31,13 +29,9 @@ class Widget : AppWidgetProvider() {
         }
     }
 
-    override fun onEnabled(context: Context) {
+    override fun onEnabled(context: Context) {}
 
-    }
-
-    override fun onDisabled(context: Context) {
-
-    }
+    override fun onDisabled(context: Context) {}
 }
 
 internal fun updateAppWidget(

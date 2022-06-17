@@ -24,6 +24,7 @@ import ru.harlion.psy.ui.profile.pincode.PinCodeFragment
 import ru.harlion.psy.ui.profile.pincode.SetPinCodeFragment
 import ru.harlion.psy.ui.profile.premium.PremiumFragment
 import ru.harlion.psy.ui.profile.test.TestFragment
+import ru.harlion.psy.ui.profile.widgets.SetWidgetFragment
 import ru.harlion.psy.utils.PhotoRequest
 import ru.harlion.psy.utils.dialogs.EditTextDialog
 import ru.harlion.psy.utils.replaceFragment
@@ -57,7 +58,7 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
 
         app.user.observe(viewLifecycleOwner) {
             binding.nameUser.text =
-                if (it.name.isNotEmpty()) it.name else getString(R.string.your_name)
+                it.name.ifEmpty { getString(R.string.your_name) }
             val photoUri = Uri.fromFile(File(it.photoMain))
             try {
                 binding.photoProfile.setRoundImage(photoUri, R.drawable.ic_profile)
@@ -120,9 +121,10 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
                     isEx = false
                 ), true
             )
-
         }
-        binding.psyProject.setOnClickListener { }
+        binding.widgets.setOnClickListener {
+            replaceFragment(SetWidgetFragment(), true)
+        }
     }
 
     private fun showAlterDialog() {

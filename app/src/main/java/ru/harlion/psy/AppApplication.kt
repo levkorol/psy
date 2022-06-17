@@ -16,11 +16,10 @@ import ru.harlion.psy.data.Repository
 import ru.harlion.psy.data.billing.BillingClientWrapper
 import ru.harlion.psy.models.TypeEx
 import ru.harlion.psy.models.user.User
-import ru.harlion.psy.utils.Widget
+import ru.harlion.psy.ui.profile.widgets.Widget
 import java.io.File
 import java.io.IOException
 import java.util.concurrent.Executors
-import kotlin.concurrent.thread
 
 val Fragment.app
     get() = requireActivity().application as AppApplication

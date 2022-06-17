@@ -30,8 +30,8 @@ class AdapterPollDay(val click: (Long) -> Unit)
                 click.invoke(items[position].id)
             }
 
-
             time.text = dateAndTimeToString(items[position].dateCreate)
+
             one.text = items[position].question[0].assessment.toString()
             two.text = items[position].question[1].assessment.toString()
             three.text = items[position].question[2].assessment.toString()
