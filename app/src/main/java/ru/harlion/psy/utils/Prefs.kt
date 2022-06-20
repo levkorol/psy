@@ -48,5 +48,8 @@ class Prefs(val context: Context) {
         set(value) = sharedPrefs.edit().putBoolean("IS_PREMIUM", value)
             .apply()
 
+    var widgetPosition: Int
+        get() = sharedPrefs.getInt("W_ID", 0)
+        set(value) = sharedPrefs.edit().putInt("W_ID", value).apply()
 
 }

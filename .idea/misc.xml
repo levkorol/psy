@@ -7,10 +7,13 @@
         <entry key="app/src/main/res/drawable/bg_middle_violet.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/checkbox.xml" value="0.127" />
         <entry key="app/src/main/res/drawable/ic_alarm_clock.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_checkbox_not_done.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_done_checkbox.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_widgets.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/pic_meditation_outline.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/selector_btn_big.xml" value="0.127" />
         <entry key="app/src/main/res/drawable/selector_category.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/selector_check_box.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.182518115942029" />
         <entry key="app/src/main/res/layout/app_widget.xml" value="0.182518115942029" />
         <entry key="app/src/main/res/layout/component_edit_text_recycler_view.xml" value="0.1" />

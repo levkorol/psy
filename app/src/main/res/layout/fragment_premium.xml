@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -35,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/bg_multi_gradient_radius">
 
             <TextView
@@ -46,68 +47,92 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
-                android:drawableStart="@drawable/ic_crown"
                 android:drawablePadding="16dp"
                 android:gravity="center|start"
                 android:text="@string/buy_pro"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                app:drawableStartCompat="@drawable/ic_crown" />
         </RelativeLayout>
 
+
+        <TextView
+            style="@style/TextNormal"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:text="Промокод позволяет пользоваться фунциями приложения 1 год без ограничений"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/pic_meditation_outline"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:text="Ввести промокод"
+            android:gravity="center"
+            android:padding="8dp"
+            android:background="@drawable/bg_line_parent_red"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:text="Хочу промокод !"
+            android:gravity="center"
+            android:padding="8dp"
+            android:background="@drawable/bg_line_big_green"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center|start"
             android:text="@string/pro_one"
-            android:textColor="@color/gray_dark" />
+            android:textColor="@color/gray_dark"
+            app:drawableStartCompat="@drawable/pic_meditation_outline" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/pic_balloon_outline"
             android:gravity="center|start"
             android:text="@string/pro_two"
-            android:textColor="@color/gray_dark" />
+            android:textColor="@color/gray_dark"
+            app:drawableStartCompat="@drawable/pic_balloon_outline" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/pic_biker_outline"
             android:gravity="center|start"
             android:text="@string/pro_three"
-            android:textColor="@color/gray_dark" />
+            android:textColor="@color/gray_dark"
+            app:drawableStartCompat="@drawable/pic_biker_outline" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/pic_password_outline"
             android:gravity="center|start"
             android:text="@string/pro_for"
-            android:textColor="@color/gray_dark" />
+            android:textColor="@color/gray_dark"
+            app:drawableStartCompat="@drawable/pic_password_outline" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/pic_data_analysis__outline"
             android:gravity="center|start"
             android:text="@string/pro_fife"
-            android:textColor="@color/gray_dark" />
+            android:textColor="@color/gray_dark"
+            app:drawableStartCompat="@drawable/pic_data_analysis__outline" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/pic_mobile_phone_outline"
             android:gravity="center|start"
             android:text="@string/pro_six"
-            android:textColor="@color/gray_dark" />
+            android:textColor="@color/gray_dark"
+            app:drawableStartCompat="@drawable/pic_mobile_phone_outline" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/pic_motivation_outline"
             android:gravity="center|start"
             android:text="@string/pro_seven"
-            android:textColor="@color/gray_dark" />
+            android:textColor="@color/gray_dark"
+            app:drawableStartCompat="@drawable/pic_motivation_outline" />
 
     </LinearLayout>
 </ScrollView>
