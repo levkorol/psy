@@ -21,6 +21,10 @@ fun ImageView.setRoundImage(url: Uri?, @DrawableRes id: Int) {
     }
 }
 
+fun ImageView.setImageRes(id: Int) {
+    Picasso.get().load(id).fit().centerCrop().into(this)
+}
+
 fun IntArray.assertSorted() : IntArray{
     val other = this.sortedArray()
     require(this.contentEquals(other)) {

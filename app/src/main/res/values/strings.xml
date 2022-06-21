@@ -364,7 +364,10 @@
     <string name="error_pin_code">Неправильный пароль</string>
     <string name="empty_password_saved">Еще нет сохраненного пароля</string>
     <string name="set_widget">Настройка виджета</string>
-    <string name="time_ex_free_wr">Время упражнения -</string>
+    <string name="time_ex_free_wr">Время выполнения</string>
+    <string name="wish_completed">Желание исполнено!</string>
+    <string name="delete_ex_dialog">Удалить запись?</string>
+    <string name="yes">Да</string>
 
     <string-array name="emo_sad">
         <item>@string/sad_emo1</item>

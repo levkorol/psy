@@ -6,11 +6,13 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
+import com.google.android.material.snackbar.Snackbar
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentEditWishBinding
 import ru.harlion.psy.utils.dateToString
 import ru.harlion.psy.utils.dialogs.DialogCalendar
+import ru.harlion.psy.utils.dialogs.EditTextDialog
 
 
 class EditWishFragment :
@@ -33,6 +35,7 @@ class EditWishFragment :
         super.onViewCreated(view, savedInstanceState)
 
         id = requireArguments().getLong("ID")
+
         viewModel.getExById(id)
 
         binding.fieldOne.title = getString(R.string.ex_wish_field_one)
@@ -43,8 +46,9 @@ class EditWishFragment :
     }
 
     private fun observe() {
-        viewModel.exercise.observe(viewLifecycleOwner, {
+        viewModel.exercise.observe(viewLifecycleOwner) {
             if (id > 0) {
+                binding.delete.visibility = View.VISIBLE
                 binding.fieldOne.setText(it.fieldOne)
                 binding.addItem.items = it.listString
                 binding.isDone.isChecked = it.isArchive
@@ -55,7 +59,7 @@ class EditWishFragment :
                     }
                 }
             }
-        })
+        }
     }
 
     private fun initClicks() {
@@ -85,6 +89,19 @@ class EditWishFragment :
         }
         binding.isDone.setOnClickListener {
             viewModel.updateArchive(binding.isDone.isChecked, id)
+            parentFragmentManager.popBackStack()
+            Snackbar.make(binding.root, getString(R.string.wish_completed), Snackbar.LENGTH_SHORT).show()
+        }
+
+        binding.delete.setOnClickListener {
+            EditTextDialog(requireContext()).apply {
+                setTitle(getString(R.string.delete_ex_dialog))
+                setPositiveButton(getString(R.string.yes)) {
+                    viewModel.delete(id)
+                    parentFragmentManager.popBackStack()
+                }
+                setNegativeButton(getString(R.string.cancel)) {}
+            }.show()
         }
     }
 

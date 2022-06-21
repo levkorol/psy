@@ -29,23 +29,30 @@ class SetWidgetFragment :
             layoutManager = GridLayoutManager(requireContext(), 2)
             adapter = adapterWidgets
         }
-        adapterWidgets.items = listWidgets
+
+        val allWidgets = mutableListOf<ItemWidget>()
+        allWidgets.addAll(listWidgets)
+        allWidgets.forEach {
+            it.isBlock = false
+        }
+        adapterWidgets.items = if (prefs.isPremiumBilling) allWidgets else listWidgets
     }
 
     companion object {
+
         val listWidgets = listOf(
-            ItemWidget( "Psy - my love", R.drawable.bg_multi_gradient),
-            ItemWidget( "Здесь твоя аффирмация", R.drawable.bg_middle_violet),
-            ItemWidget( "Здесь твоя аффирмация", R.drawable.bg_multi_gradient),
-            ItemWidget( "Здесь твоя аффирмация", R.drawable.bg_multi_gradient, isBlock = true),
-            ItemWidget( "Здесь твоя аффирмация", R.drawable.bg_multi_gradient, isBlock = true),
-            ItemWidget( "Здесь твоя аффирмация", R.drawable.bg_multi_gradient, isBlock = true),
-            ItemWidget( "Здесь твоя аффирмация", R.drawable.bg_multi_gradient, isBlock = true),
-            ItemWidget( "Здесь твоя аффирмация", R.drawable.bg_multi_gradient, isBlock = true),
-            ItemWidget( "Здесь твоя аффирмация", R.drawable.bg_multi_gradient, isBlock = true),
-            ItemWidget( "Psy", R.drawable.bg_multi_gradient, isBlock = true),
-            ItemWidget( "Psy", R.drawable.bg_multi_gradient_radius, isBlock = true),
-            ItemWidget( "Psy", R.drawable.bg_multi_gradient_radius, isBlock = true),
+            ItemWidget("Psy - my love", R.drawable.bg_multi_gradient),
+            ItemWidget("Здесь твоя аффирмация", R.drawable.pick_bg_6),
+            ItemWidget("Здесь твоя аффирмация", R.drawable.pick_bg_fire),
+            ItemWidget("Здесь твоя аффирмация", R.drawable.widget_bg_1, isBlock = true),
+            ItemWidget("Здесь твоя аффирмация", R.drawable.pick_bg_1, isBlock = true),
+            ItemWidget("Здесь твоя аффирмация", R.drawable.pick_bg_2, isBlock = true),
+            ItemWidget("Здесь твоя аффирмация", R.drawable.pick_bg_3, isBlock = true),
+            ItemWidget("Здесь твоя аффирмация", R.drawable.pick_bg_4, isBlock = true),
+            ItemWidget("Здесь твоя аффирмация", R.drawable.pick_bg_5, isBlock = true),
+            ItemWidget("Psy", R.drawable.pick_bg_6, isBlock = true),
+            ItemWidget("Psy", R.drawable.pick_bg_6, isBlock = true),
+            ItemWidget("Psy", R.drawable.pick_bg_6, isBlock = true),
         )
     }
 }

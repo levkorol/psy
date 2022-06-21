@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bg_multi_gradient"
+    android:background="@drawable/pick_bg_fire"
     tools:context=".ui.exercise.child.edit.free_writing.EndangeredTextFragment">
 
     <TextView
@@ -13,6 +13,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:textSize="22sp"
+        android:textStyle="bold"
         android:textColor="@color/white"
         android:text="hello_blank_fragment hello_blank_fragment hello_blank_fragment fragment" />
 

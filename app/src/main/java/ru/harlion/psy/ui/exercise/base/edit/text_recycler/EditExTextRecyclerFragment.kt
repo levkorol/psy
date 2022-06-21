@@ -10,6 +10,7 @@ import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentEditExTextRecyclerBinding
 import ru.harlion.psy.models.TypeEx
+import ru.harlion.psy.utils.dialogs.EditTextDialog
 
 
 class EditExTextRecyclerFragment :
@@ -57,11 +58,23 @@ class EditExTextRecyclerFragment :
             }
             parentFragmentManager.popBackStack()
         }
+
+        binding.delete.setOnClickListener {
+            EditTextDialog(requireContext()).apply {
+                setTitle(getString(R.string.delete_ex_dialog))
+                setPositiveButton(getString(R.string.yes)) {
+                    viewModel.delete(id)
+                    parentFragmentManager.popBackStack()
+                }
+                setNegativeButton(getString(R.string.cancel)) {}
+            }.show()
+        }
     }
 
     private fun observe() {
         viewModel.exercise.observe(viewLifecycleOwner) {
             if (it != null) {
+                binding.delete.visibility = View.VISIBLE
                 binding.questionOne.setText(it.fieldOne)
                 binding.answers.items = it.listString
             }

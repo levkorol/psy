@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.harlion.psy.base.BindingHolder
 import ru.harlion.psy.databinding.ItemWidgetBinding
 import ru.harlion.psy.utils.Prefs
+import ru.harlion.psy.utils.setImageRes
+import ru.harlion.psy.utils.setRoundImage
 
 private typealias ItemHolder = BindingHolder<ItemWidgetBinding>
 
@@ -36,7 +38,7 @@ class WidgetsAdapter(val prefs: Prefs) : RecyclerView.Adapter<ItemHolder>() {
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
          holder.binding.apply {
              textTitle.text = items[position].text
-             cardContainer.setBackgroundResource(items[position].bg)
+             image.setImageRes(items[position].bg)
              if (items[position].isBlock) {
                  check.visibility = View.GONE
                  lock.visibility = View.VISIBLE

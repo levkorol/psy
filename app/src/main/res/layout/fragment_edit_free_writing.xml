@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -73,6 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:padding="16dp"
+            android:min="1"
             android:progress="1" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -100,9 +102,9 @@
         <TextView
             android:id="@+id/time_count"
             style="@style/ButtonEditWithSmallDrawable"
-            android:drawableStart="@drawable/ic_alarm_clock"
-            android:drawableEnd="@drawable/ic_baseline_close_24"
-            tools:text="30:00" />
+            tools:text="30:00"
+            android:textSize="16sp"
+            app:drawableStartCompat="@drawable/ic_alarm_clock" />
 
         <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
             android:id="@+id/field_three"

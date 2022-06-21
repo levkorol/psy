@@ -43,4 +43,8 @@ class EditTextRecyclerViewModel : ViewModel() {
         )
         repo.addExercise(exercise)
     }
+
+    fun delete(id: Long) {
+        repo.deleteEx(id)
+    }
 }

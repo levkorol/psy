@@ -32,7 +32,8 @@ class EditWishViewModel: BaseViewModel() {
             date = dateDone,
             listString = listSteps,
             dateCreate = exercise.value?.dateCreate ?: 0L,
-            type = exercise.value?.type ?: TypeEx.NOTHING
+            type = exercise.value?.type ?: TypeEx.NOTHING,
+            isArchive = exercise.value?.isArchive ?: false
         )
         repo.updateEx(exercise)
     }

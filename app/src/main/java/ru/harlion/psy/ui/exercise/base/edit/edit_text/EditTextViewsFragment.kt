@@ -8,6 +8,7 @@ import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentEditTextViewsBinding
 import ru.harlion.psy.models.TypeEx
+import ru.harlion.psy.utils.dialogs.EditTextDialog
 
 
 class EditTextViewsFragment :
@@ -145,8 +146,14 @@ class EditTextViewsFragment :
         }
 
         binding.delete.setOnClickListener {
-            viewModel.deleteEx(id)
-            parentFragmentManager.popBackStack()
+            EditTextDialog(requireContext()).apply {
+                setTitle(getString(R.string.delete_ex_dialog))
+                setPositiveButton(getString(R.string.yes)) {
+                    viewModel.deleteEx(id)
+                    parentFragmentManager.popBackStack()
+                }
+                setNegativeButton(getString(R.string.cancel)) {}
+            }.show()
         }
 
         binding.back.setOnClickListener { parentFragmentManager.popBackStack() }

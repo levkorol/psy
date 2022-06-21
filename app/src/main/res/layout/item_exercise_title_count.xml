@@ -29,7 +29,7 @@
         android:id="@+id/field_one"
         style="@style/TextNormal"
         android:ellipsize="end"
-        android:lines="1"
+        android:maxLines="2"
         android:layout_marginTop="8dp"
         tools:text="text" />
 
@@ -39,7 +39,7 @@
         style="@style/TextNormal"
         android:layout_marginTop="8dp"
         android:ellipsize="end"
-        android:maxLines="1"
+        android:maxLines="2"
         tools:text="text" />
 
     <TextView
@@ -47,7 +47,7 @@
         style="@style/TextNormal"
         android:layout_marginTop="8dp"
         android:ellipsize="end"
-        android:maxLines="1"
+        android:maxLines="2"
         tools:text="text" />
 
     <TextView

@@ -13,8 +13,8 @@ import nl.dionsegijn.konfetti.models.Size
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentEditFreeWritingBinding
+import ru.harlion.psy.utils.dialogs.EditTextDialog
 import ru.harlion.psy.utils.formatTimeMinsSec
-import ru.harlion.psy.utils.timeToString
 
 
 class EditFreeWritingFragment :
@@ -25,9 +25,7 @@ class EditFreeWritingFragment :
     private var id = 0L
     private var timer: CountDownTimer? = null
     private var timeInMilliSeconds = 60000L
-    private var setTimeInMilliSeconds = 60000L
-    private var timeInMilli = 0L
-
+    private var setProgressInMilli = 60000L
 
     private var textValueSeekBar: CharSequence
         get() = binding.countTimeSeek.text
@@ -96,30 +94,43 @@ class EditFreeWritingFragment :
         }
 
         binding.save.setOnClickListener {
-            loadKonfetti()
+            loadConfetti()
             viewModel.add(
                 binding.fieldOne.text.toString(),
-                String(Character.toChars(0x23F2)) + " " + getString(R.string.time_ex_free_wr) + " " + formatTimeMinsSec(setTimeInMilliSeconds - timeInMilliSeconds, resources),
+                /*String(Character.toChars(0x23F2)) + " " +*/
+                getString(R.string.time_ex_free_wr) + " " + formatTimeMinsSec(
+                    setProgressInMilli - timeInMilliSeconds,
+                    resources
+                ),
                 binding.fieldThree.text.toString(),
             )
             parentFragmentManager.popBackStack()
         }
 
         binding.delete.setOnClickListener {
-            viewModel.delete(id)
-            parentFragmentManager.popBackStack()
+            EditTextDialog(requireContext()).apply {
+                setTitle(getString(R.string.delete_ex_dialog))
+                setPositiveButton(getString(R.string.yes)) {
+                    viewModel.delete(id)
+                    parentFragmentManager.popBackStack()
+                }
+                setNegativeButton(getString(R.string.cancel)) {}
+            }.show()
         }
     }
 
     private fun startTimer() {
         timer = object : CountDownTimer(timeInMilliSeconds, 1000) {
             override fun onFinish() {
-                loadKonfetti()
+                loadConfetti()
                 viewModel.add(
                     binding.fieldOne.text.toString(),
-                    formatTimeMinsSec(timeInMilli, resources),
+                    getString(R.string.time_ex_free_wr) + " " + formatTimeMinsSec(
+                        setProgressInMilli - timeInMilliSeconds,
+                        resources
+                    ),
                     binding.fieldThree.text.toString(),
-                    )
+                )
                 parentFragmentManager.popBackStack()
             }
 
@@ -138,14 +149,14 @@ class EditFreeWritingFragment :
             textValueSeekBar = progressChange.toString()
             onSeekBarChange?.invoke(progressChange)
 
-            timeInMilliSeconds = progressChange.toLong() * 60 * 1000
-            setTimeInMilliSeconds = progressChange.toLong() * 60 * 1000
-            timeInMilli = timeInMilliSeconds
+            val setProgress = progressChange.toLong() * 60 * 1000
+            timeInMilliSeconds = setProgress
+            setProgressInMilli = setProgress
         }
         textValueSeekBar = "$progress"
     }
 
-    private fun loadKonfetti() {
+    private fun loadConfetti() {
         binding.konfetti.visibility = View.VISIBLE
         binding.konfetti.build()
             .addColors(Color.YELLOW, Color.GREEN, Color.MAGENTA)
