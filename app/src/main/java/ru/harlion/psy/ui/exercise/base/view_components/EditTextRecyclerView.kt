@@ -52,7 +52,7 @@ class EditTextRecyclerView(context: Context, attrs: AttributeSet?) : LinearLayou
         }
         params.recycle()
 
-        adapterET = AdapterEditText()
+        adapterET = AdapterEditText ()
 
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context)

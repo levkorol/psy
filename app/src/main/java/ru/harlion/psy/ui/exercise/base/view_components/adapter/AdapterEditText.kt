@@ -11,7 +11,7 @@ import ru.harlion.psy.databinding.ItemEditTextVioletBinding
 
 private typealias ItemHolder = BindingHolder<ItemEditTextVioletBinding>
 
-class AdapterEditText :
+class AdapterEditText:
     RecyclerView.Adapter<ItemHolder>() {
 
     var items: List<CharSequence>

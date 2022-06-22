@@ -77,6 +77,7 @@ class EditExTextRecyclerFragment :
                 binding.delete.visibility = View.VISIBLE
                 binding.questionOne.setText(it.fieldOne)
                 binding.answers.items = it.listString
+                binding.listCount.text = "${String(Character.toChars(0x1F4DC))} ${it.listString.size}"
             }
         }
     }

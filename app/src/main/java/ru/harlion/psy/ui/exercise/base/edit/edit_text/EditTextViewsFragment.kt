@@ -33,7 +33,9 @@ class EditTextViewsFragment :
                 binding.questionFor.apply {
                     visibility = View.VISIBLE
                     title = resources.getText(R.string.fail_diary_question_4)
-                    binding.questionOne.textInfo = resources.getText(infoOne)
+                  //  textInfo =  resources.getText(R.string.fail_diary_question_4)
+                    hint =  resources.getText(R.string.fail_diary_hint_4)
+                  //  binding.questionOne.textInfo = resources.getText(infoOne)
                 }
             }
             TypeEx.PERFECT_LIFE -> {

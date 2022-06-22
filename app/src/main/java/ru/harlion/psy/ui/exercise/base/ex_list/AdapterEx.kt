@@ -32,33 +32,31 @@ class AdapterEx(private val clickEdit: (Long) -> Unit) : RecyclerView.Adapter<It
                 clickEdit.invoke(items[position].id)
             }
 
-            if( items[position].date > 0) {
-                date.text = "${String(Character.toChars(0x1F4AB))} ${dateToString(items[position].date)}"
+            if (items[position].date > 0) {
+                date.text =
+                    "${String(Character.toChars(0x1F4AB))} ${dateToString(items[position].date)}"
                 date.visibility = View.VISIBLE
             } else {
                 date.visibility = View.GONE
             }
 
             dateCreate.text = dateAndTimeToString(items[position].dateCreate)
+
             fieldOne.text = items[position].fieldOne
 
-            when {
-                items[position].fieldTwo.isNotEmpty() -> {
-                    fieldTwo.text = items[position].fieldTwo
-                    fieldTwo.visibility = View.VISIBLE
-                }
-                items[position].fieldThree.isNotEmpty() -> {
-                    fieldThree.text = items[position].fieldThree
-                    fieldThree.visibility = View.VISIBLE
-                }
-                items[position].listString.isNotEmpty() -> {
-                    fieldTwo.text = "${String(Character.toChars(0x1F4DC))} ${items[position].listString.size}"
-                    fieldTwo.visibility = View.VISIBLE
-                }
-                else -> {
-                    fieldTwo.visibility = View.GONE
-                    fieldThree.visibility = View.GONE
-                }
+            if (items[position].listString.isNotEmpty()) {
+                fieldList.text =
+                    "${String(Character.toChars(0x1F4DC))} ${items[position].listString.size}"
+                fieldList.visibility = View.VISIBLE
+            } else {
+                fieldList.visibility = View.GONE
+            }
+
+            if (items[position].fieldTwo.isNotEmpty()) {
+                fieldTwo.text = items[position].fieldTwo
+                fieldTwo.visibility = View.VISIBLE
+            } else {
+                fieldTwo.visibility = View.GONE
             }
 
             if (items[position].fieldThree.isNotEmpty()) {
@@ -68,7 +66,14 @@ class AdapterEx(private val clickEdit: (Long) -> Unit) : RecyclerView.Adapter<It
                 fieldThree.visibility = View.GONE
             }
 
-            if(items[position].image.isNotEmpty()) {
+            if (items[position].fieldFor.isNotEmpty()) {
+                fieldFor.text = "${String(Character.toChars(0x1F44D))} ${items[position].fieldFor}"
+                fieldFor.visibility = View.VISIBLE
+            } else {
+                fieldFor.visibility = View.GONE
+            }
+
+            if (items[position].image.isNotEmpty()) {
                 image.visibility = View.VISIBLE
                 val photoUri = Uri.parse(items[position].image)
                 try {

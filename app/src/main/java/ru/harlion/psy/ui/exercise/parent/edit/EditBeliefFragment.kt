@@ -8,6 +8,7 @@ import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentEditBeliefBinding
 import ru.harlion.psy.ui.exercise.child.edit.wish_diary.EditWishFragment
+import ru.harlion.psy.utils.dialogs.EditTextDialog
 
 
 class EditBeliefFragment : BindingFragment<FragmentEditBeliefBinding>(FragmentEditBeliefBinding::inflate) {
@@ -30,16 +31,28 @@ class EditBeliefFragment : BindingFragment<FragmentEditBeliefBinding>(FragmentEd
     }
 
     private fun observe() {
-        viewModel.exercise.observe(viewLifecycleOwner, {
-            if(id > 0) {
+        viewModel.exercise.observe(viewLifecycleOwner) {
+            if (id > 0) {
                 binding.questionOne.setText(it.fieldOne)
                 binding.addItem.items = it.listString
                 binding.questionTwo.setText(it.fieldTwo)
+
+                binding.delete.visibility = View.VISIBLE
             }
-        })
+        }
     }
 
     private fun initClicks() {
+        binding.delete.setOnClickListener {
+            EditTextDialog(requireContext()).apply {
+                setTitle(getString(R.string.delete_ex_dialog))
+                setPositiveButton(getString(R.string.yes)) {
+                    viewModel.delete(id)
+                    parentFragmentManager.popBackStack()
+                }
+                setNegativeButton(getString(R.string.cancel)) {}
+            }.show()
+        }
         binding.back.setOnClickListener { parentFragmentManager.popBackStack() }
         binding.save.setOnClickListener {
             if (id > 0) {

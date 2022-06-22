@@ -292,13 +292,13 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                 replaceFragment(
                     EditTextViewsFragment.newInstance(
                         titleOne = R.string.fail_diary_question_1,
-                        hintOne = R.string.gratitude_question_one,
+                        hintOne = R.string.fail_diary_hint_one,
                         infoOne = R.string.gratitude_question_one,
                         titleTwo = R.string.fail_diary_question_2,
-                        hintTwo = R.string.gratitude_question_one,
+                        hintTwo = R.string.fail_diary_hint_two,
                         infoTwo = R.string.gratitude_question_one,
                         titleThree = R.string.fail_diary_question_3,
-                        hintThree = R.string.gratitude_question_one,
+                        hintThree = R.string.fail_diary_hint_three,
                         infoThree = R.string.gratitude_question_one,
                         typeEx = TypeEx.FAIL_DIARY,
                         id = id
@@ -309,13 +309,13 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                 replaceFragment(
                     EditTextViewsFragment.newInstance(
                         titleOne = R.string.love_self_question_one,
-                        hintOne = R.string.gratitude_question_one,
+                       // hintOne = R.string.love_self_hint_one,
                         infoOne = R.string.gratitude_question_one,
                         titleTwo = R.string.love_self_question_two,
-                        hintTwo = R.string.gratitude_question_one,
+                      //  hintTwo = R.string.gratitude_question_one,
                         infoTwo = R.string.gratitude_question_one,
                         titleThree = R.string.love_self_question_three,
-                        hintThree = R.string.gratitude_question_one,
+                      //  hintThree = R.string.gratitude_question_one,
                         infoThree = R.string.gratitude_question_one,
                         typeEx = TypeEx.ACTS_SELF_LOVE,
                         id = id
@@ -326,13 +326,13 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                 replaceFragment(
                     EditTextViewsFragment.newInstance(
                         titleOne = R.string.my_ambulance_question_one,
-                        hintOne = R.string.gratitude_question_one,
+                     //   hintOne = R.string.my_ambulance_hint_1,
                         infoOne = R.string.gratitude_question_one,
                         titleTwo = R.string.my_ambulance_question_two,
-                        hintTwo = R.string.gratitude_question_one,
+                     //   hintTwo = R.string.gratitude_question_one,
                         infoTwo = R.string.gratitude_question_one,
                         titleThree = R.string.my_ambulance_question_three,
-                        hintThree = R.string.gratitude_question_one,
+                     //   hintThree = R.string.gratitude_question_one,
                         infoThree = R.string.gratitude_question_one,
                         typeEx = TypeEx.MY_AMBULANCE,
                         id = id
@@ -355,13 +355,13 @@ class ExListFragment : BindingFragment<FragmentExListBinding>(FragmentExListBind
                 replaceFragment(
                     EditTextViewsFragment.newInstance(
                         titleOne = R.string.success_diary_question_one,
-                        hintOne = R.string.gratitude_question_one,
+                     //   hintOne = R.string.gratitude_question_one,
                         infoOne = R.string.gratitude_question_one,
                         titleTwo = R.string.success_diary_question_two,
-                        hintTwo = R.string.gratitude_question_one,
+                    //    hintTwo = R.string.gratitude_question_one,
                         infoTwo = R.string.gratitude_question_one,
                         titleThree = R.string.success_diary_question_three,
-                        hintThree = R.string.gratitude_question_one,
+                    //    hintThree = R.string.gratitude_question_one,
                         infoThree = R.string.gratitude_question_one,
                         typeEx = TypeEx.SUCCESS_DIARY,
                         id = id

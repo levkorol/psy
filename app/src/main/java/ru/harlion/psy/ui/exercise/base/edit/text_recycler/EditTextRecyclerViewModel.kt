@@ -1,6 +1,8 @@
 package ru.harlion.psy.ui.exercise.base.edit.text_recycler
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import ru.harlion.psy.data.Repository
 import ru.harlion.psy.models.Exercise

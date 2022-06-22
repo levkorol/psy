@@ -7,6 +7,7 @@
         <entry key="app/src/main/res/drawable/bg_middle_violet.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/checkbox.xml" value="0.127" />
         <entry key="app/src/main/res/drawable/ic_alarm_clock.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_checkbox_not_done.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_done_checkbox.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_widgets.xml" value="0.1" />
@@ -24,6 +25,7 @@
         <entry key="app/src/main/res/layout/fragment_child_exercizes.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_dialog_calendar.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_dialog_info.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_edit_belief.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_edit_diary_emo.xml" value="0.103125" />
         <entry key="app/src/main/res/layout/fragment_edit_ex_text_recycler.xml" value="0.11302083333333333" />
         <entry key="app/src/main/res/layout/fragment_edit_free_writing.xml" value="0.16983695652173914" />
@@ -40,6 +42,7 @@
         <entry key="app/src/main/res/layout/fragment_test.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_edit_text_violet.xml" value="0.1157548125633232" />
         <entry key="app/src/main/res/layout/item_emotion.xml" value="0.21105072463768115" />
+        <entry key="app/src/main/res/layout/item_ex_list_vp.xml" value="0.1272644927536232" />
         <entry key="app/src/main/res/layout/item_exercise_title_count.xml" value="0.20923913043478262" />
         <entry key="app/src/main/res/layout/item_menu_exercize.xml" value="0.375" />
         <entry key="app/src/main/res/layout/item_poll_day.xml" value="0.16168478260869565" />
