@@ -19,20 +19,27 @@
             android:src="@drawable/ic_baseline_arrow_back_24" />
 
         <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/destroy_ex"
+            style="@style/ButtonToolBar"
+            android:layout_toStartOf="@+id/delete"
+            android:src="@drawable/ic_baseline_local_fire_department_24"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/delete"
             style="@style/ButtonToolBar"
-            android:visibility="gone"
             android:layout_alignParentEnd="true"
             android:layout_toStartOf="@+id/save"
-            android:src="@drawable/ic_delete" />
+            android:src="@drawable/ic_delete"
+            android:visibility="gone" />
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/save"
             style="@style/ButtonToolBar"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="8dp"
-            android:visibility="gone"
-            android:src="@drawable/ic_baseline_done_24" />
+            android:src="@drawable/ic_baseline_done_24"
+            android:visibility="gone" />
     </RelativeLayout>
 
     <nl.dionsegijn.konfetti.KonfettiView
@@ -73,8 +80,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
-            android:padding="16dp"
             android:min="1"
+            android:padding="16dp"
             android:progress="1" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -102,9 +109,9 @@
         <TextView
             android:id="@+id/time_count"
             style="@style/ButtonEditWithSmallDrawable"
-            tools:text="30:00"
             android:textSize="16sp"
-            app:drawableStartCompat="@drawable/ic_alarm_clock" />
+            app:drawableStartCompat="@drawable/ic_alarm_clock"
+            tools:text="30:00" />
 
         <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
             android:id="@+id/field_three"
@@ -130,7 +137,7 @@
         <TextView
             android:id="@+id/time_field_two"
             style="@style/ButtonEditWithSmallDrawable"
-            android:drawableStart="@drawable/ic_alarm_clock"
+            app:drawableStartCompat="@drawable/ic_alarm_clock"
             tools:text="30:00" />
 
         <TextView
@@ -138,6 +145,15 @@
             style="@style/TextNormal"
             android:layout_marginTop="16dp"
             tools:text="text" />
+
+        <TextView
+            android:id="@+id/destroy"
+            style="@style/TextNormal"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="Уничтожить запись"
+            app:drawableStartCompat="@drawable/ic_baseline_local_fire_department_24" />
     </LinearLayout>
 
 

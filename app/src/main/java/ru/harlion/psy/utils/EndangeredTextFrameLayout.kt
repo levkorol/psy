@@ -10,6 +10,9 @@ import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.core.graphics.withRotation
 import androidx.core.graphics.withTranslation
+import ru.harlion.psy.R
+import kotlin.math.max
+
 
 class EndangeredTextFrameLayout(context: Context, attr: AttributeSet?) :
     FrameLayout(context, attr) {
@@ -17,7 +20,7 @@ class EndangeredTextFrameLayout(context: Context, attr: AttributeSet?) :
     private var endangeredTextProgress = 0F
         set(value) {
             field = value
-            getChildAt(0).visibility = if (value == 0F) View.VISIBLE else View.INVISIBLE
+            findViewById<TextView>(R.id.text_endangered).visibility = if (value == 0F) View.VISIBLE else View.INVISIBLE
             invalidate()
         }
 
@@ -28,7 +31,7 @@ class EndangeredTextFrameLayout(context: Context, attr: AttributeSet?) :
     }
 
     override fun onDraw(canvas: Canvas) {
-        val view = getChildAt(0) as TextView
+        val view = findViewById<TextView>(R.id.text_endangered)
         if (view.visibility == View.VISIBLE) {
             return
         }
@@ -36,16 +39,16 @@ class EndangeredTextFrameLayout(context: Context, attr: AttributeSet?) :
         val text = textLayout.text
         paint.set(view.paint)
         paint.alpha = (paint.alpha * (1 - endangeredTextProgress)).toInt()
-        val progressFraction = endangeredTextProgress / textLayout.lineCount
+        val progressFraction = 1F / textLayout.lineCount
         canvas.withTranslation(view.x + view.compoundPaddingLeft, view.y + view.totalPaddingTop) {
             repeat(textLayout.lineCount) {
-              //  val progress =
+                val progress = max(0F, endangeredTextProgress - progressFraction * it)
                 canvas.withRotation(
-                    40 * endangeredTextProgress,
+                    40 * progress,
                     textLayout.width.toFloat() * 1.5F
                 ) {
                     paint.setShadowLayer(
-                        paint.textSize * endangeredTextProgress,
+                        paint.textSize * progress,
                         0F,
                         0F,
                         paint.color

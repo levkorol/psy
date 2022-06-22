@@ -15,6 +15,7 @@ import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentEditFreeWritingBinding
 import ru.harlion.psy.utils.dialogs.EditTextDialog
 import ru.harlion.psy.utils.formatTimeMinsSec
+import ru.harlion.psy.utils.replaceFragment
 
 
 class EditFreeWritingFragment :
@@ -26,6 +27,7 @@ class EditFreeWritingFragment :
     private var timer: CountDownTimer? = null
     private var timeInMilliSeconds = 60000L
     private var setProgressInMilli = 60000L
+    private var textFull = ""
 
     private var textValueSeekBar: CharSequence
         get() = binding.countTimeSeek.text
@@ -66,6 +68,7 @@ class EditFreeWritingFragment :
                 binding.fieldOneDetail.text = it.fieldOne
                 binding.timeFieldTwo.text = it.fieldTwo
                 binding.fieldThreeDetaill.text = it.fieldThree
+                textFull = it.fieldThree
 
                 binding.delete.visibility = View.VISIBLE
             }
@@ -79,6 +82,10 @@ class EditFreeWritingFragment :
     }
 
     private fun initClicks() {
+        binding.destroy.setOnClickListener {
+          replaceFragment(EndangeredTextFragment.newInstance(textFull), true)
+        }
+
         binding.back.setOnClickListener { parentFragmentManager.popBackStack() }
 
         binding.btnBeginEx.setOnClickListener {

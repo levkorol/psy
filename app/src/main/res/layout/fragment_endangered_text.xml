@@ -4,17 +4,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/pick_bg_fire"
+    android:background="@drawable/pick_bg_4"
     tools:context=".ui.exercise.child.edit.free_writing.EndangeredTextFragment">
 
-    <TextView
-        android:id="@+id/text"
+    <RelativeLayout
+        android:id="@+id/top_ll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/back"
+            style="@style/ButtonToolBar"
+            android:tint="@color/white"
+            android:src="@drawable/ic_baseline_arrow_back_24" />
+
+        <TextView
+            style="@style/TextToolBar"
+            android:textColor="@color/white"
+            android:text="@string/destroy_ex"/>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/text_endangered"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="22sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textSize="24sp"
         android:textStyle="bold"
+        android:layout_margin="16dp"
         android:textColor="@color/white"
-        android:text="hello_blank_fragment hello_blank_fragment hello_blank_fragment fragment" />
+        tools:text="hello_blank_fragment hello_blank_fragment hello_blank_fragment fragment" />
 
 </ru.harlion.psy.utils.EndangeredTextFrameLayout>

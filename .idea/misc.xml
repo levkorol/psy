@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_line_parent_red.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/bg_middle_violet.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/checkbox.xml" value="0.127" />
         <entry key="app/src/main/res/drawable/ic_alarm_clock.xml" value="0.1" />

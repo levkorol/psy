@@ -52,7 +52,20 @@ class EditTextRecyclerView(context: Context, attrs: AttributeSet?) : LinearLayou
         }
         params.recycle()
 
-        adapterET = AdapterEditText ()
+        adapterET = AdapterEditText()
+        adapterET.registerAdapterDataObserver(object : RecyclerView.AdapterDataObserver() {
+            override fun onChanged() {
+                countItems.invoke(items.size)
+            }
+
+            override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
+               countItems.invoke(items.size)
+            }
+
+            override fun onItemRangeRemoved(positionStart: Int, itemCount: Int) {
+                countItems.invoke(items.size)
+            }
+        })
 
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
@@ -64,7 +77,10 @@ class EditTextRecyclerView(context: Context, attrs: AttributeSet?) : LinearLayou
             editText.text = ""
             recyclerView.smoothScrollToPosition(0)
         }
+
     }
+
+    var countItems: (Int) -> Unit = {}
 
     override fun dispatchSaveInstanceState(container: SparseArray<Parcelable>) {
         val bundle = Bundle()

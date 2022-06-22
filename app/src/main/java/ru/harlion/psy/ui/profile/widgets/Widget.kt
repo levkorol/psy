@@ -45,30 +45,19 @@ internal fun updateAppWidget(
 ) {
     val prefs = Prefs(context)
 
+    appWidgetManager.getAppWidgetInfo(appWidgetId)
     val views = RemoteViews(context.packageName, R.layout.app_widget)
     views.setTextViewText(
-        R.id.appwidget_text,
+        R.id.text,
         texts.toString()
     )
-
-//    outlineProvider = object : ViewOutlineProvider() {
-//        override fun getOutline(view: View, outline: Outline) {
-//            outline.setRoundRect(
-//                0,
-//                0,
-//                view.width,
-//                view.height,
-//                10 * view.resources.displayMetrics.density
-//            )
-//        }
-//    }
-//    clipToOutline = true
 
     val widget = SetWidgetFragment.listWidgets.elementAt(prefs.widgetPosition)
     views.setImageViewResource(
         R.id.image,
         widget.bg
     )
+   // views.setBoolean(R.id.image, "setClipToOutline", true)
 
     appWidgetManager.updateAppWidget(appWidgetId, views)
 }

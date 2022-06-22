@@ -6,10 +6,7 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.harlion.psy.base.BindingFragment
-import ru.harlion.psy.data.Repository
 import ru.harlion.psy.databinding.FragmentDiaryEmotionBinding
-import ru.harlion.psy.models.emotions.Emotion
-import ru.harlion.psy.models.emotions.EmotionEvent
 import ru.harlion.psy.ui.main.diary_emotions.adapter.AdapterEmotionSEvent
 import ru.harlion.psy.ui.main.diary_emotions.edit.EditDiaryEmoFragment
 import ru.harlion.psy.utils.replaceFragment
@@ -38,7 +35,7 @@ class DiaryEmotionFragment :
 
     private fun observe() {
         viewModel.getListEmoEvents()
-        viewModel.emoEvents.observe(viewLifecycleOwner, {
+        viewModel.emoEvents.observe(viewLifecycleOwner) {
             adapterEmo.items = it
             if (adapterEmo.items.isNotEmpty()) {
                 binding.diaryEmotionsRv.visibility = View.VISIBLE
@@ -47,6 +44,6 @@ class DiaryEmotionFragment :
                 binding.diaryEmotionsRv.visibility = View.GONE
                 binding.emptyListEmotion.visibility = View.VISIBLE
             }
-        })
+        }
     }
 }

@@ -42,6 +42,17 @@ class EditBeliefFragment : BindingFragment<FragmentEditBeliefBinding>(FragmentEd
         }
     }
 
+    override fun onStop() {
+        super.onStop()
+        viewModel.update(
+            binding.questionOne.text.toString(),
+            binding.addItem.items.map {
+                it.toString()
+            },
+            binding.questionTwo.text.toString(),
+        )
+    }
+
     private fun initClicks() {
         binding.delete.setOnClickListener {
             EditTextDialog(requireContext()).apply {

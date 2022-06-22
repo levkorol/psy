@@ -28,20 +28,28 @@ class EditExTextRecyclerFragment :
         viewModel.getExById(id)
         observe()
 
+        binding.answers.countItems = {
+            binding.listCount.text = "${String(Character.toChars(0x1F4DC))} $it"
+        }
+
         binding.questionOne.title = resources.getText(title)
         binding.questionOne.hint = resources.getText(hint)
         binding.answers.hint = resources.getText(listHint)
 
         binding.back.setOnClickListener { parentFragmentManager.popBackStack() }
         binding.save.setOnClickListener {
-            if(id > 0) {
+            if (id > 0) {
                 viewModel.update(
                     binding.questionOne.text.toString(),
                     binding.answers.items.map {
                         it.toString()
                     }
                 )
-                Snackbar.make(binding.root, getString(R.string.update_completed), Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(
+                    binding.root,
+                    getString(R.string.update_completed),
+                    Snackbar.LENGTH_SHORT
+                ).show()
             } else {
                 viewModel.add(
                     binding.questionOne.text.toString(),
@@ -71,13 +79,24 @@ class EditExTextRecyclerFragment :
         }
     }
 
+    override fun onStop() {
+        super.onStop()
+        viewModel.update(
+            binding.questionOne.text.toString(),
+            binding.answers.items.map {
+                it.toString()
+            }
+        )
+    }
+
     private fun observe() {
         viewModel.exercise.observe(viewLifecycleOwner) {
             if (it != null) {
                 binding.delete.visibility = View.VISIBLE
                 binding.questionOne.setText(it.fieldOne)
                 binding.answers.items = it.listString
-                binding.listCount.text = "${String(Character.toChars(0x1F4DC))} ${it.listString.size}"
+                binding.listCount.text =
+                    "${String(Character.toChars(0x1F4DC))} ${it.listString.size}"
             }
         }
     }

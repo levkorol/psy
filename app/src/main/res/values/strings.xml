@@ -372,6 +372,7 @@
     <string name="fail_diary_hint_two">"Используй любой промежуток во времени : Сегодня, этой осенью, в июле и тд "</string>
     <string name="fail_diary_hint_three">В \"неуспехе\" путь к успеху осознать и описать свои ошибки</string>
     <string name="fail_diary_hint_4">Закрепи теперь эту ситуацию как бесценный опыт. Опиши свои новые действия</string>
+    <string name="destroy_ex">Уничтожение записи</string>
 
     <string-array name="emo_sad">
         <item>@string/sad_emo1</item>

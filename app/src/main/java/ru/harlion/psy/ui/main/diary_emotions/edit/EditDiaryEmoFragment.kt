@@ -77,6 +77,19 @@ class EditDiaryEmoFragment :
         }
     }
 
+    override fun onStop() {
+        super.onStop()
+        viewModel.update(
+            date,
+            time,
+            binding.questionOne.text.toString(),
+            binding.questionTwo.text.toString(),
+            binding.questionThree.text.toString(),
+            binding.questionFor.text.toString(),
+            emotions
+        )
+    }
+
     private fun observe() {
         viewModel.getEmoEventById(id)
         viewModel.emotionEvent.observe(viewLifecycleOwner) {

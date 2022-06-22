@@ -62,6 +62,17 @@ class EditWishFragment :
         }
     }
 
+    override fun onStop() {
+        super.onStop()
+        viewModel.update(
+            binding.fieldOne.text.toString(),
+            date,
+            binding.addItem.items.map {
+                it.toString()
+            }
+        )
+    }
+
     private fun initClicks() {
         binding.back.setOnClickListener { parentFragmentManager.popBackStack() }
         binding.date.setOnClickListener {

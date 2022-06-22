@@ -161,6 +161,16 @@ class EditTextViewsFragment :
         binding.back.setOnClickListener { parentFragmentManager.popBackStack() }
     }
 
+    override fun onStop() {
+        super.onStop()
+        viewModel.updateTask(
+            fieldOne = binding.questionOne.text.toString(),
+            fieldTwo = binding.questionTwo.text.toString(),
+            fieldThree = binding.questionThree.text.toString(),
+            fieldFor = binding.questionFor.text.toString(),
+        )
+    }
+
     private fun observe() {
         viewModel.exercise.observe(viewLifecycleOwner) {
             if (it != null) {

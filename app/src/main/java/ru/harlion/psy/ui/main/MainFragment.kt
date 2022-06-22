@@ -7,9 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.tabs.TabLayoutMediator
-import ru.harlion.psy.AppApplication
 import ru.harlion.psy.R
 import ru.harlion.psy.app
 import ru.harlion.psy.base.BindingFragment
@@ -17,13 +15,11 @@ import ru.harlion.psy.databinding.FragmentMainBinding
 import ru.harlion.psy.ui.exercise.adult.AdultExercizesFragment
 import ru.harlion.psy.ui.exercise.base.edit.poll_test.EditPollTestFragment
 import ru.harlion.psy.ui.exercise.child.ChildExercizesFragment
-import ru.harlion.psy.ui.exercise.child.edit.free_writing.EndangeredTextFragment
 import ru.harlion.psy.ui.main.diary_emotions.DiaryEmotionFragment
 import ru.harlion.psy.ui.main.my_day.DayPollFragment
 import ru.harlion.psy.ui.exercise.parent.ParentExercizesFragment
 import ru.harlion.psy.ui.main.diary_emotions.edit.EditDiaryEmoFragment
 import ru.harlion.psy.ui.profile.ProfileFragment
-import ru.harlion.psy.ui.profile.premium.PremiumFragment
 import ru.harlion.psy.ui.profile.test.TestFragment
 import ru.harlion.psy.utils.*
 import ru.harlion.psy.utils.dialogs.InfoDialog
@@ -81,10 +77,6 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
 
         ViewAnimated.init(binding.fabEmoDiary)
         ViewAnimated.init(binding.fabPollDay)
-
-        binding.logo.setOnClickListener {
-            replaceFragment(EndangeredTextFragment(), true)
-        }
 
         binding.cardChild.setOnClickListener {
             replaceFragment(ChildExercizesFragment(), true)
