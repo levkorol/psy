@@ -19,7 +19,8 @@ private typealias ItemHolderTableEmotions = BindingHolder<ItemEmotionsTableBindi
 
 class AdapterTableEmotions(
     private var adapterEmotion: AdapterEmotion? = null,
-    val checkedItems: HashSet<Emotion>
+    val checkedItems: HashSet<Emotion>,
+//    val countChecked: (Int) -> Unit
 ) :
     RecyclerView.Adapter<ItemHolderTableEmotions>() {
 

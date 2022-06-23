@@ -22,6 +22,19 @@
         style="@style/TextToolBar"
         android:text="@string/table_emotions" />
 
+    <TextView
+        android:id="@+id/count_checked"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        tools:text="130"
+        android:gravity="center"
+        android:paddingHorizontal="10dp"
+        android:background="@drawable/bg_middle_violet"
+        android:textColor="@color/white"
+        android:layout_toStartOf="@+id/save" />
+
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/save"
         style="@style/ButtonToolBar"

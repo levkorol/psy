@@ -40,6 +40,7 @@
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_set_pin_code.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_set_widget.xml" value="0.16168478260869565" />
+        <entry key="app/src/main/res/layout/fragment_table_emotions.xml" value="0.15942028985507245" />
         <entry key="app/src/main/res/layout/fragment_test.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_edit_text_violet.xml" value="0.1157548125633232" />
         <entry key="app/src/main/res/layout/item_emotion.xml" value="0.21105072463768115" />

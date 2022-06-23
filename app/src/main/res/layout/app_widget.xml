@@ -18,13 +18,14 @@
 
     <TextView
         android:id="@+id/text"
-        android:text="psy - my love"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:gravity="center"
-        android:layout_centerInParent="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:fontFamily="@font/lobster_egular"
+        tools:text="psy - my love"
+        android:textColor="@color/white"
+        android:textSize="34sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

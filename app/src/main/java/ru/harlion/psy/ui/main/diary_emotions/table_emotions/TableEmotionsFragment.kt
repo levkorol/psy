@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.setFragmentResult
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentTableEmotionsBinding
@@ -40,12 +41,28 @@ class TableEmotionsFragment :
             parentFragmentManager.popBackStack()
         }
 
+        binding.countChecked.text = emotions.size.toString()
+
         adapterEmoCategory = AdapterTableEmotions(checkedItems = emotions)
         binding.emoTableRv.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = adapterEmoCategory
         }
         adapterEmoCategory.items = catalogEmo
+
+        adapterEmoCategory.registerAdapterDataObserver(object : RecyclerView.AdapterDataObserver() {
+            override fun onChanged() {
+                binding.countChecked.text = emotions.size.toString()
+            }
+
+            override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
+                binding.countChecked.text = emotions.size.toString()
+            }
+
+            override fun onItemRangeRemoved(positionStart: Int, itemCount: Int) {
+                binding.countChecked.text = emotions.size.toString()
+            }
+        })
     }
 
     companion object {
@@ -59,13 +76,13 @@ class TableEmotionsFragment :
             it.getEmotions(res)
         }
 
-        fun orderedEmotions(res: Resources, emotions: HashSet<Emotion> ) = if (emotions.size < 2) {
-                emotions.toList()
-            } else {
-                allEmotions(res).filter {
-                   it in emotions
-                }
+        fun orderedEmotions(res: Resources, emotions: HashSet<Emotion>) = if (emotions.size < 2) {
+            emotions.toList()
+        } else {
+            allEmotions(res).filter {
+                it in emotions
             }
+        }
 
         val catalogEmo = listOf(
             CategoryEmotions(
