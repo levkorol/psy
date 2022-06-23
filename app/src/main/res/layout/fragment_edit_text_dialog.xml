@@ -51,6 +51,7 @@
             style="@style/ButtonBigLineViolet"
             android:layout_marginStart="16dp"
             android:layout_weight="1"
+            android:visibility="gone"
             android:text="@string/cancel" />
 
         <androidx.appcompat.widget.AppCompatButton

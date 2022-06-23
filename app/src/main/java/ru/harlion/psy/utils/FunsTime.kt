@@ -51,6 +51,6 @@ fun dateToStringShort(date: Long): String {
 
 fun timeToString(time: Long): String {
     val tim = SimpleDateFormat("HH:mm", Locale.getDefault())
-    tim.timeZone = TimeZone.getTimeZone("UTC")
+  //  tim.timeZone = TimeZone.getTimeZone("UTC")
     return tim.format(time)
 }

@@ -206,7 +206,6 @@
         android:layout_marginBottom="12dp"
         app:rippleColor="@color/white" />
 
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabEmoDiary"
         android:layout_width="wrap_content"

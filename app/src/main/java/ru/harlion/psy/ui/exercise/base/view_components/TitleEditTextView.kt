@@ -7,14 +7,11 @@ import android.text.TextWatcher
 import android.util.AttributeSet
 import android.util.SparseArray
 import android.view.View
-import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import ru.harlion.psy.R
 import ru.harlion.psy.databinding.ComponentTitleEditTextBinding
 import ru.harlion.psy.utils.assertSorted
+import ru.harlion.psy.utils.dialogs.EditTextDialog
 
 @SuppressLint("ResourceType")
 class TitleEditTextView(context: Context, attrs: AttributeSet?) : ConstraintLayout(context, attrs) {
@@ -91,10 +88,9 @@ class TitleEditTextView(context: Context, attrs: AttributeSet?) : ConstraintLayo
         params.recycle()
 
         imageInfo.setOnClickListener {
-            MaterialAlertDialogBuilder(context).apply {
-                setTitle(textInfo)
-                // setText()
-                setPositiveButton("ok") { _, _ -> }
+            EditTextDialog(context).apply {
+                setTitle(textInfo.toString())
+                setPositiveButton("OK") {}
             }.show()
         }
     }
