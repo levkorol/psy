@@ -409,6 +409,9 @@
     <string name="meditation_ex">Медитация</string>
     <string name="remove_ex_widget">Убрать из виджета</string>
     <string name="set_ex_widget">Установить в виджет</string>
+    <string name="info_test_one">Для оптимального функционирования личности, с точки зрения трансактного анализа, необходимо, чтобы в личности были гармонично представлены все три состояния Я. Для того, чтобы оценить, как сочетаются эти три части твоего Я, разработан этот тест</string>
+    <string name="info_test_two">Рекомендовано проходить тест раз в месяц или раз в 2 недели </string>
+    <string name="info_test_three">При регулярной работе можно следить за стабилизацией каждого эго состояния</string>
 
     <string-array name="emo_sad">
         <item>@string/sad_emo1</item>

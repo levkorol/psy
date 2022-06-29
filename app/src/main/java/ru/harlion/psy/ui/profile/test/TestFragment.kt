@@ -1,7 +1,6 @@
 package ru.harlion.psy.ui.profile.test
 
 
-
 import android.os.Bundle
 import android.view.View
 import com.google.android.material.snackbar.Snackbar
@@ -10,6 +9,7 @@ import ru.harlion.psy.app
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentTestBinding
 import ru.harlion.psy.ui.exercise.base.edit.poll_test.EditPollTestFragment
+import ru.harlion.psy.ui.exercise.base.instructions.ExInstructionsFragment
 import ru.harlion.psy.utils.replaceFragment
 
 
@@ -56,6 +56,18 @@ class TestFragment : BindingFragment<FragmentTestBinding>(FragmentTestBinding::i
             )
             Snackbar.make(binding.root, getString(R.string.save_progress), Snackbar.LENGTH_SHORT)
                 .show()
+        }
+
+        binding.info.setOnClickListener {
+            replaceFragment(
+                ExInstructionsFragment.newInstance(
+                    oneTitle = R.string.info_test_one,
+                    twoTitle = R.string.info_test_two,
+                    forTitle = R.string.info_test_three,
+                    toolbar = R.string.info
+                ),
+                true
+            )
         }
     }
 

@@ -66,7 +66,7 @@ class EditTextViewsFragment :
         }
         if (id > 0) {
             binding.delete.visibility = View.VISIBLE
-            binding.archive.visibility = View.VISIBLE
+         //   binding.archive.visibility = View.VISIBLE //todo archive?
         } else {
             binding.delete.visibility = View.GONE
         }

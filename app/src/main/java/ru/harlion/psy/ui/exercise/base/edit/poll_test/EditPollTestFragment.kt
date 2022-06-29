@@ -103,11 +103,10 @@ class EditPollTestFragment :
             if (isTesting) {
                 replaceFragment(
                     ExInstructionsFragment.newInstance(
-                        R.string.poll_info_one,
-                        R.string.poll_info_two,
-                        R.string.poll_info_three,
-                        R.string.poll_info_four,
-                        R.string.test_begin,
+                        oneTitle = R.string.info_test_one,
+                        twoTitle = R.string.info_test_two,
+                        forTitle = R.string.info_test_three,
+                        toolbar = R.string.info
                     ), true
                 )
             } else {
