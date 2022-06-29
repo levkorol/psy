@@ -51,8 +51,10 @@ class EditWishFragment :
                 binding.delete.visibility = View.VISIBLE
                 binding.fieldOne.setText(it.fieldOne)
                 binding.addItem.items = it.listString
+                binding.isDone.visibility = View.VISIBLE
                 binding.isDone.isChecked = it.isArchive
                 if (it.date > 0) {
+                    date = it.date
                     binding.date.apply {
                         text = dateToString(it.date)
                         setTextColor(ContextCompat.getColor(requireContext(), R.color.main_violet))
@@ -69,7 +71,8 @@ class EditWishFragment :
             date,
             binding.addItem.items.map {
                 it.toString()
-            }
+            },
+            binding.isDone.isChecked
         )
     }
 
@@ -85,7 +88,8 @@ class EditWishFragment :
                     date,
                     binding.addItem.items.map {
                         it.toString()
-                    }
+                    },
+                    binding.isDone.isChecked
                 )
             } else {
                 viewModel.add(
@@ -99,9 +103,14 @@ class EditWishFragment :
             parentFragmentManager.popBackStack()
         }
         binding.isDone.setOnClickListener {
-            viewModel.updateArchive(binding.isDone.isChecked, id)
+            if (binding.isDone.isChecked) {
+                Snackbar.make(
+                    binding.root,
+                    getString(R.string.wish_completed),
+                    Snackbar.LENGTH_SHORT
+                ).show()
+            }
             parentFragmentManager.popBackStack()
-            Snackbar.make(binding.root, getString(R.string.wish_completed), Snackbar.LENGTH_SHORT).show()
         }
 
         binding.delete.setOnClickListener {

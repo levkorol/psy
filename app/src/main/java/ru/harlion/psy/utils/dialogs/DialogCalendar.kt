@@ -27,9 +27,9 @@ class DialogCalendar : BottomSheetDialogFragment() {
 
         val binding = FragmentDialogCalendarBinding.bind(view)
 
-//        binding.close.setOnClickListener {
-//            dismiss()
-//        }
+        binding.close.setOnClickListener {
+            dismiss()
+        }
 
         var lDate = LocalDate.now()
 

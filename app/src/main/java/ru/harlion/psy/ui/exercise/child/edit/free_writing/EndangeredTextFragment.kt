@@ -1,9 +1,13 @@
 package ru.harlion.psy.ui.exercise.child.edit.free_writing
 
+import android.animation.Animator
 import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.os.Handler
+import android.os.Message
 import android.view.View
+import android.view.animation.Animation
+import androidx.core.animation.addListener
 import androidx.core.content.ContextCompat
 import ru.harlion.psy.AppActivity
 import ru.harlion.psy.R
@@ -36,14 +40,12 @@ class EndangeredTextFragment :
                 1F
             ).apply {
                 duration = 3000
+                this.addListener(onEnd = {
+                    binding.textEnd.text = "Запись уничтожена"
+                    binding.textEnd.visibility = View.VISIBLE
+                    binding.root.setBackgroundResource(R.drawable.pick_bg_5)
+                })
             }.start()
-
-            val handler = Handler()
-            handler.postDelayed({
-                binding.textEndangered.text = "Запись уничтожена"
-                binding.root.setBackgroundResource(R.drawable.pick_bg_4)
-                replaceFragment(MainFragment(), true)
-            }, 4000)
         }
     }
 

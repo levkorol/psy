@@ -20,7 +20,7 @@ private typealias ItemHolderTableEmotions = BindingHolder<ItemEmotionsTableBindi
 class AdapterTableEmotions(
     private var adapterEmotion: AdapterEmotion? = null,
     val checkedItems: HashSet<Emotion>,
-//    val countChecked: (Int) -> Unit
+    val countChecked: (Int) -> Unit
 ) :
     RecyclerView.Adapter<ItemHolderTableEmotions>() {
 
@@ -55,9 +55,12 @@ class AdapterTableEmotions(
                     items[position].color
                 )
             )
+            countEmo.text = checkedItems.count {
+               it.categoryEmotions == items[position]
+            }.toString()
 
             emotionsRv.adapter
-            initRecyclerViewEmotion(emotionsRv, items[position], checkedItems)
+            initRecyclerViewEmotion(emotionsRv, items[position], checkedItems, holder)
         }
     }
 
@@ -67,9 +70,15 @@ class AdapterTableEmotions(
     private fun initRecyclerViewEmotion(
         recyclerView: RecyclerView,
         categoryEmotions: CategoryEmotions,
-        checkedItems: HashSet<Emotion>
+        checkedItems: HashSet<Emotion>,
+        holder: ItemHolderTableEmotions
     ) {
-        adapterEmotion = AdapterEmotion(checkedItems)
+        adapterEmotion = AdapterEmotion(checkedItems) {
+            countChecked.invoke(checkedItems.size)
+            if(holder.bindingAdapterPosition > -1) {
+                notifyItemChanged(holder.bindingAdapterPosition, 0)
+            }
+        }
         val llm = FlowLayoutManager(FlowLayoutManager.VERTICAL)
         llm.spacingBetweenItems((8 * recyclerView.context.resources.displayMetrics.density).toInt())
         llm.spacingBetweenLines((8 * recyclerView.context.resources.displayMetrics.density).toInt())

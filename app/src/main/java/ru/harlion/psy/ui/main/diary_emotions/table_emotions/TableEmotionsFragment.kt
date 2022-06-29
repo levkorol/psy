@@ -43,26 +43,14 @@ class TableEmotionsFragment :
 
         binding.countChecked.text = emotions.size.toString()
 
-        adapterEmoCategory = AdapterTableEmotions(checkedItems = emotions)
+        adapterEmoCategory = AdapterTableEmotions(checkedItems = emotions) {
+            binding.countChecked.text = emotions.size.toString()
+        }
         binding.emoTableRv.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = adapterEmoCategory
         }
         adapterEmoCategory.items = catalogEmo
-
-        adapterEmoCategory.registerAdapterDataObserver(object : RecyclerView.AdapterDataObserver() {
-            override fun onChanged() {
-                binding.countChecked.text = emotions.size.toString()
-            }
-
-            override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
-                binding.countChecked.text = emotions.size.toString()
-            }
-
-            override fun onItemRangeRemoved(positionStart: Int, itemCount: Int) {
-                binding.countChecked.text = emotions.size.toString()
-            }
-        })
     }
 
     companion object {
@@ -72,7 +60,7 @@ class TableEmotionsFragment :
             }
         }
 
-        fun allEmotions(res: Resources) = catalogEmo.flatMap {
+        private fun allEmotions(res: Resources) = catalogEmo.flatMap {
             it.getEmotions(res)
         }
 

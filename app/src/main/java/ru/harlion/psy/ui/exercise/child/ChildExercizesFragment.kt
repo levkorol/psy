@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.fragment.app.setFragmentResultListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.harlion.psy.R
 import ru.harlion.psy.app
@@ -19,12 +20,10 @@ import ru.harlion.psy.ui.exercise.base.ex_list.ExListFragment
 import ru.harlion.psy.ui.exercise.base.AdapterMenuExercizes
 import ru.harlion.psy.ui.exercise.base.MenuEx
 import ru.harlion.psy.ui.exercise.base.instructions.ExInstructionsFragment
-import ru.harlion.psy.utils.PhotoRequest
-import ru.harlion.psy.utils.Prefs
+import ru.harlion.psy.ui.profile.premium.PremiumFragment
+import ru.harlion.psy.utils.*
 import ru.harlion.psy.utils.dialogs.EditTextDialog
 import ru.harlion.psy.utils.dialogs.InfoDialog
-import ru.harlion.psy.utils.replaceFragment
-import ru.harlion.psy.utils.setRoundImage
 import java.io.File
 
 
@@ -38,6 +37,12 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setFragmentResultListener("info_premium") { _, bundle ->
+           if(bundle.getBoolean("premium")) {
+               replaceFragment(PremiumFragment(), true)
+           }
+        }
 
         launcher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -91,6 +96,12 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
                 2,
                 !prefs.isPremiumBilling
             ),
+            MenuEx(
+                getString(R.string.meditation_ex),
+                R.drawable.menu_medi,
+                2,
+                !prefs.isPremiumBilling
+            ),
             //        MenuEx(getString(R.string.album_ex), R.drawable.menu_moments, 0)
         )
 
@@ -125,7 +136,7 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
                             ), true
                         )
                     } else {
-                        InfoDialog().show(parentFragmentManager, null)
+                        InfoDialog.newInstance(isPremium = true).show(parentFragmentManager, null)
                     }
                 }
 //                else -> replaceFragment(

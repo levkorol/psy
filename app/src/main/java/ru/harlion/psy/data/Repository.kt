@@ -36,14 +36,14 @@ class Repository private constructor(context: Context) {
 
     fun getListPolls(): LiveData<List<Poll>> = pollDao.getLists()
 
-    fun getPollById(id : Long) = pollDao.pollById(id)
+    fun getPollById(id: Long) = pollDao.pollById(id)
 
 
-    fun updatePoll(poll: Poll){
+    fun updatePoll(poll: Poll) {
         pollDao.update(poll)
     }
 
-    fun deletePoll(){}
+    fun deletePoll() {}
 
 
     /**
@@ -83,7 +83,7 @@ class Repository private constructor(context: Context) {
         return exerciseDao.getListsByArchive(typeEx, isArchive)
     }
 
-    fun getExById(id: Long) = exerciseDao.exById(id)
+    fun <E : Exercise?> getExById(id: Long): LiveData<E> = exerciseDao.exById(id) as LiveData<E>
 
     fun updateEx(exercise: Exercise) {
         exerciseDao.update(exercise)

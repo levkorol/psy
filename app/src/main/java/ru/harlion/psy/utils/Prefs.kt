@@ -1,10 +1,13 @@
 package ru.harlion.psy.utils
 
 import android.content.Context
+import android.content.SharedPreferences
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.android.billingclient.api.BillingClient
 import ru.harlion.psy.AppApplication
 
-class Prefs(val context: Context) {
+class Prefs(val context: Context) : SharedPreferences.OnSharedPreferenceChangeListener {
 
     private val sharedPrefs = context.getSharedPreferences("prefs_name", Context.MODE_PRIVATE)
 
@@ -48,8 +51,40 @@ class Prefs(val context: Context) {
         set(value) = sharedPrefs.edit().putBoolean("IS_PREMIUM", value)
             .apply()
 
-    var widgetPosition: Int
-        get() = sharedPrefs.getInt("W_ID", 0)
-        set(value) = sharedPrefs.edit().putInt("W_ID", value).apply()
+    init {
+        sharedPrefs.registerOnSharedPreferenceChangeListener(this)
+    }
+
+    val widgetPosition: MutableLiveData<Int> =
+        MutableLiveData(sharedPrefs.getInt("W_ID", 0)).apply {
+            observeForever {
+                if (it != sharedPrefs.getInt("W_ID", 0)) {
+                    sharedPrefs.edit().putInt("W_ID", it).apply()
+                }
+            }
+        }
+
+    val exIdForWidget = MutableLiveData(sharedPrefs.getLong("EX_ID", 0)).apply {
+        observeForever {
+            if (it != sharedPrefs.getLong("EX_ID", 0)) {
+                sharedPrefs.edit().putLong("EX_ID", it).apply()
+            }
+        }
+    }
+
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
+        if (key == "W_ID") {
+            val newWidgetPosition = sharedPrefs.getInt("W_ID", 0)
+            if (newWidgetPosition != widgetPosition.value) {
+                widgetPosition.value = newWidgetPosition
+            }
+        }
+        if (key == "EX_ID") {
+            val newExId = sharedPrefs.getLong("EX_ID", 0)
+            if (newExId != exIdForWidget.value) {
+                exIdForWidget.value = newExId
+            }
+        }
+    }
 
 }

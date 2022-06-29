@@ -43,18 +43,18 @@ class SetWidgetFragment :
         val listWidgets = listOf(
             ItemWidget(
                 "Psy - my love",
-                R.drawable.bg_multi_gradient,
+                R.drawable.bg_multi_gradient_radius,
                 textColor = R.color.white
             ),
             ItemWidget(
                 "Здесь твоя аффирмация",
-                R.drawable.pick_bg_6,
+                R.drawable.bg_widget_1,
                 textColor = R.color.white
             ),
             ItemWidget(
                 "Здесь твоя аффирмация",
                 R.drawable.pick_bg_fire,
-                textColor = R.color.emotion_happy
+                textColor = R.color.white
             ),
             ItemWidget(
                 "Здесь твоя аффирмация",
@@ -66,25 +66,25 @@ class SetWidgetFragment :
                 "Здесь твоя аффирмация",
                 R.drawable.pick_bg_1,
                 isBlock = true,
-                textColor = R.color.parent_color
+                textColor =  R.color.white
             ),
             ItemWidget(
                 "Здесь твоя аффирмация",
                 R.drawable.pick_bg_2,
                 isBlock = true,
-                textColor = R.color.adult_color
+                textColor =  R.color.white
             ),
             ItemWidget(
                 "Здесь твоя аффирмация",
                 R.drawable.pick_bg_3,
                 isBlock = true,
-                textColor = R.color.teal_200
+                textColor =  R.color.white
             ),
             ItemWidget(
                 "Здесь твоя аффирмация",
                 R.drawable.pick_bg_4,
                 isBlock = true,
-                textColor = R.color.emotion_sad
+                textColor =  R.color.white
             ),
             ItemWidget(
                 "Здесь твоя аффирмация",

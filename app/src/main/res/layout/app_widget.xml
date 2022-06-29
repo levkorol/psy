@@ -1,31 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/image"
-        android:background="@drawable/bg_line_parent_red"
-        android:outlineProvider="background"
-        android:clipToOutline="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:src="@drawable/bg_multi_gradient"
-        android:scaleType="centerCrop" />
+        android:background="@drawable/bg_line_parent_red"
+        android:clipToOutline="true"
+        android:outlineProvider="background"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/bg_multi_gradient" />
 
     <TextView
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:gravity="center"
+        android:layout_marginHorizontal="16dp"
         android:fontFamily="@font/lobster_egular"
-        tools:text="psy - my love"
+        android:gravity="center"
         android:textColor="@color/white"
-        android:textSize="34sp"
-        android:textStyle="bold" />
+        android:textSize="26sp"
+        android:textStyle="bold"
+        tools:text="psy - my love" />
+
+    <TextView
+        android:id="@+id/text_small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/text"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/lobster_egular"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:text="psy - my love" />
 
 </RelativeLayout>

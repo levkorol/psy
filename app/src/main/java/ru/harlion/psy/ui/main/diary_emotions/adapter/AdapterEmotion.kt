@@ -15,7 +15,8 @@ private typealias ItemHolderEmotion = BindingHolder<ItemEmotionBinding>
 
 class AdapterEmotion(
     private val checkedItems: HashSet<Emotion>,
-    private val changeItems: () -> Unit = {}
+    private val isClick: Boolean = true,
+    private val changeItems: () -> Unit = {},
 ) : RecyclerView.Adapter<ItemHolderEmotion>() {
 
     var items: List<Emotion> = emptyList()
@@ -26,12 +27,14 @@ class AdapterEmotion(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ItemHolderEmotion(ItemEmotionBinding::inflate, parent).apply {
-            binding.checkedTextView.setOnClickListener {
-                if (adapterPosition > -1) {
-                    val element = items[adapterPosition]
-                    checkedItems.add(element) || checkedItems.remove(element)
-                    notifyItemChanged(adapterPosition)
-                    changeItems.invoke()
+            if (isClick) {
+                binding.checkedTextView.setOnClickListener {
+                    if (adapterPosition > -1) {
+                        val element = items[adapterPosition]
+                        checkedItems.add(element) || checkedItems.remove(element)
+                        notifyItemChanged(adapterPosition)
+                        changeItems.invoke()
+                    }
                 }
             }
         }

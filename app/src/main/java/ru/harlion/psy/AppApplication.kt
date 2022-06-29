@@ -11,22 +11,24 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.map
+import androidx.lifecycle.switchMap
 import com.google.gson.Gson
 import ru.harlion.psy.data.Repository
 import ru.harlion.psy.data.billing.BillingClientWrapper
+import ru.harlion.psy.models.Exercise
 import ru.harlion.psy.models.TypeEx
 import ru.harlion.psy.models.user.User
 import ru.harlion.psy.ui.profile.widgets.Widget
+import ru.harlion.psy.utils.Prefs
 import java.io.File
 import java.io.IOException
+import java.util.Collections.copy
 import java.util.concurrent.Executors
 
 val Fragment.app
     get() = requireActivity().application as AppApplication
 
 class AppApplication : Application() {
-
-    lateinit var exTexts: LiveData<List<String>>
 
     val clientWrapper: BillingClientWrapper by lazy {
         BillingClientWrapper(this)
@@ -35,18 +37,15 @@ class AppApplication : Application() {
     val user = MutableLiveData(User.emptyUser)
     val io = Executors.newSingleThreadExecutor()
 
+    lateinit var exTexts: LiveData<List<String>>
+
     override fun onCreate() {
         super.onCreate()
         Repository.initialize(this)
 
-        val ex = Repository.get().getExList(TypeEx.POSITIVE_BELIEFS)
+        val prefs = Prefs(this)
 
-        exTexts = ex.map {
-            it.map {
-                it.listString.firstOrNull() ?: "add"
-            }
-        }
-        exTexts.observeForever {
+        val funObserve: (t: Any?) -> Unit = {
             val intent = Intent(this, Widget::class.java)
             intent.action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
             val ids = AppWidgetManager.getInstance(this)
@@ -59,6 +58,16 @@ class AppApplication : Application() {
             intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
             sendBroadcast(intent)
         }
+
+        prefs.widgetPosition.observeForever(funObserve)
+
+        exTexts = prefs.exIdForWidget.switchMap {
+            Repository.get().getExById(it)
+        }.map {
+            it?.listString ?: emptyList()
+        }
+
+        exTexts.observeForever(funObserve)
 
         io.execute {
             val file = File(this.filesDir, "user.json")

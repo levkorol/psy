@@ -25,6 +25,7 @@ class EditWishViewModel: BaseViewModel() {
         fieldOne : String,
         dateDone: Long,
         listSteps: List<String>,
+        isDone: Boolean
     ){
         val exercise = Exercise(
             id = exercise.value?.id ?: 0L,
@@ -33,7 +34,7 @@ class EditWishViewModel: BaseViewModel() {
             listString = listSteps,
             dateCreate = exercise.value?.dateCreate ?: 0L,
             type = exercise.value?.type ?: TypeEx.NOTHING,
-            isArchive = exercise.value?.isArchive ?: false
+            isArchive = isDone
         )
         repo.updateEx(exercise)
     }

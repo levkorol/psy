@@ -99,7 +99,9 @@ class EditDiaryEmoFragment :
         viewModel.emotionEvent.observe(viewLifecycleOwner) {
             if (it != null) {
                 binding.date.text = dateToString(it.date)
+                date = it.date
                 binding.time.text = timeToString(it.time)
+                time = it.time
                 binding.questionOne.setText(it.fieldOne)
                 binding.questionTwo.setText(it.fieldTwo)
                 binding.questionThree.setText(it.fieldThree)

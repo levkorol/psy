@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
@@ -20,6 +21,7 @@ import ru.harlion.psy.ui.main.my_day.DayPollFragment
 import ru.harlion.psy.ui.exercise.parent.ParentExercizesFragment
 import ru.harlion.psy.ui.main.diary_emotions.edit.EditDiaryEmoFragment
 import ru.harlion.psy.ui.profile.ProfileFragment
+import ru.harlion.psy.ui.profile.premium.PremiumFragment
 import ru.harlion.psy.ui.profile.test.TestFragment
 import ru.harlion.psy.utils.*
 import ru.harlion.psy.utils.dialogs.InfoDialog
@@ -29,6 +31,16 @@ import java.io.File
 class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
 
     private var isRotateFab = false
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setFragmentResultListener("info_test") { _, bundle ->
+            if(bundle.getBoolean("test")) {
+                replaceFragment(EditPollTestFragment.newInstance(isTesting = true), true)
+            }
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -40,7 +52,7 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
         initClicks()
 
         if (!pref.isShowTestBeginAppUse) {
-            InfoDialog().show(parentFragmentManager, null)
+            InfoDialog.newInstance(isTest = true).show(parentFragmentManager, null)
             pref.isShowTestBeginAppUse = true
         }
 

@@ -12,38 +12,38 @@
     <LinearLayout
         android:id="@+id/category_emo_ll"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:background="@drawable/bg_line_big_gray"
-        android:layout_height="wrap_content">
-
-    <TextView
-        android:id="@+id/name_emo_category"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textSize="18sp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_weight="2.5"
-        android:textColor="@color/black"
-        tools:text="Happy" />
+        android:background="@drawable/bg_line_big_gray"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/name_emo_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="16dp"
+            android:layout_weight="2.5"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            tools:text="Happy" />
 
 
-    <TextView
-        android:id="@+id/count_emo"
-        android:layout_width="120dp"
-        android:layout_height="40dp"
-        android:layout_weight="1"
-        android:background="@color/parent_color"
-        android:gravity="center"
-        android:paddingHorizontal="16dp"
-        android:text="3"
-        android:textColor="@color/white" />
+        <TextView
+            android:id="@+id/count_emo"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@color/parent_color"
+            android:gravity="center"
+            android:paddingHorizontal="16dp"
+            android:textColor="@color/white"
+            tools:text="3" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/emotions_rv"
-        android:layout_marginTop="8dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" />
 
 </LinearLayout>

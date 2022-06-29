@@ -18,9 +18,33 @@
         tools:text="Название набора эмоций"/>
 
     <TextView
-        android:id="@+id/emotion_name"
+        android:id="@+id/field_one"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:ellipsize="end"
+        android:maxLines="2"
+        tools:text="Название набора эмоций"/>
+
+    <TextView
+        android:id="@+id/field_two"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:visibility="gone"
+        android:ellipsize="end"
+        android:maxLines="2"
+        tools:text="Название набора эмоций"/>
+
+    <TextView
+        android:id="@+id/field_three"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"
+        android:ellipsize="end"
+        android:maxLines="2"
         android:textColor="@color/black"
         tools:text="Название набора эмоций"/>
 

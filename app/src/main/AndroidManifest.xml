@@ -2,8 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ru.harlion.psy">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 
     <application
         android:name=".AppApplication"
@@ -27,6 +29,10 @@
             </intent-filter>
         </activity>
 
+<!--        <activity-->
+<!--            android:name="com.my.target.common.MyTargetActivity"-->
+<!--            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />-->
+
         <receiver
             android:name=".ui.profile.widgets.Widget"
             android:exported="true">
@@ -49,9 +55,7 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <receiver
-            android:name="ru.harlion.psy.utils.Alarm"
-           />
+        <receiver android:name="ru.harlion.psy.utils.Alarm" />
 
     </application>
 

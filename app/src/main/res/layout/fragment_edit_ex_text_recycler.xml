@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/bg_fragment_white"
+    android:orientation="vertical"
     tools:context=".ui.exercise.base.edit.text_recycler.EditExTextRecyclerFragment">
 
     <RelativeLayout
@@ -16,22 +17,25 @@
             android:id="@+id/back"
             style="@style/ButtonToolBar"
             android:src="@drawable/ic_baseline_arrow_back_24" />
+
         <TextView
             android:id="@+id/listCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toStartOf="@+id/delete"
+            android:layout_centerInParent="true"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:layout_centerInParent="true"
+            android:layout_toStartOf="@+id/delete"
             android:textColor="@color/black"
-            tools:text="12"/>
+            tools:text="12" />
+
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/delete"
             style="@style/ButtonToolBar"
-            android:visibility="gone"
             android:layout_toStartOf="@+id/save"
-            android:src="@drawable/ic_delete" />
+            android:src="@drawable/ic_delete"
+            android:visibility="gone" />
+
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/save"
             style="@style/ButtonToolBar"
@@ -40,15 +44,31 @@
             android:src="@drawable/ic_baseline_done_24" />
     </RelativeLayout>
 
+    <TextView
+        android:id="@+id/widget"
+        android:layout_height="45dp"
+        android:layout_marginBottom="8dp"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="16dp"
+        android:background="@drawable/bg_light_violet"
+        android:textColor="@color/black"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:gravity="center|start"
+        android:drawablePadding="8dp"
+        android:paddingHorizontal="8dp"
+        tools:text="Установить в виджет"
+        app:drawableStartCompat="@drawable/ic_baseline_widgets_24" />
+
     <ru.harlion.psy.ui.exercise.base.view_components.TitleEditTextView
         android:id="@+id/question_one"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <ru.harlion.psy.ui.exercise.base.view_components.EditTextRecyclerView
         android:id="@+id/answers"
-        android:layout_marginTop="8dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" />
 
 </LinearLayout>

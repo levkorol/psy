@@ -24,7 +24,7 @@ abstract class ExerciseDao {
     abstract fun getLists(typeEx : TypeEx): LiveData<List<Exercise>>
 
     @Query("SELECT * FROM exercise WHERE id = (:id)")
-    abstract fun exById(id: Long): LiveData<Exercise>
+    abstract fun exById(id: Long): LiveData<Exercise?>
 
     @Query("SELECT * from exercise where isArchive = :isArchive and type = :typeEx order by dateCreate desc ")
     abstract fun getListsByArchive(typeEx : TypeEx, isArchive : Boolean ): LiveData<List<Exercise>>

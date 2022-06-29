@@ -59,13 +59,13 @@
             style="@style/TextNormal"
             android:gravity="center"
             android:layout_marginTop="16dp"
-            android:text="Промокод позволяет пользоваться фунциями приложения 1 год без ограничений"/>
+            android:text="@string/promo_info_time"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginStart="16dp"
-            android:text="Ввести промокод"
+            android:text="@string/input_promo"
             android:gravity="center"
             android:padding="8dp"
             android:background="@drawable/bg_line_parent_red"/>
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginStart="16dp"
-            android:text="Хочу промокод !"
+            android:text="@string/i_want_promo"
             android:gravity="center"
             android:padding="8dp"
             android:background="@drawable/bg_line_big_green"/>

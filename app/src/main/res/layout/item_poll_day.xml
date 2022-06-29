@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -23,50 +24,50 @@
         <TextView
             android:id="@+id/one"
             style="@style/TextPollItem"
-            android:drawableStart="@drawable/ic_moon"
-            tools:text="15" />
+            tools:text="15"
+            app:drawableStartCompat="@drawable/ic_moon" />
 
         <TextView
             android:id="@+id/two"
             style="@style/TextPollItem"
-            android:drawableStart="@drawable/ic_following"
-            tools:text="10" />
+            tools:text="10"
+            app:drawableStartCompat="@drawable/ic_following" />
 
         <TextView
             android:id="@+id/three"
             style="@style/TextPollItem"
-            android:drawableStart="@drawable/ic_smile_wink"
-            tools:text="15" />
+            tools:text="15"
+            app:drawableStartCompat="@drawable/ic_smile_wink" />
 
         <TextView
             android:id="@+id/four_"
             style="@style/TextPollItem"
-            android:drawableStart="@drawable/ic_gym"
-            tools:text="1" />
+            tools:text="1"
+            app:drawableStartCompat="@drawable/ic_gym" />
 
         <TextView
             android:id="@+id/fife"
             style="@style/TextPollItem"
-            android:drawableStart="@drawable/ic_glass"
-            tools:text="8" />
+            tools:text="8"
+            app:drawableStartCompat="@drawable/ic_glass" />
 
         <TextView
             android:id="@+id/six"
             style="@style/TextPollItem"
-            android:drawableStart="@drawable/ic_salad"
-            tools:text="15" />
+            tools:text="15"
+            app:drawableStartCompat="@drawable/ic_salad" />
 
         <TextView
             android:id="@+id/seven"
             style="@style/TextPollItem"
-            android:drawableStart="@drawable/ic_heart"
-            tools:text="15" />
+            tools:text="15"
+            app:drawableStartCompat="@drawable/ic_bed" />
 
         <TextView
             android:id="@+id/eight"
             style="@style/TextPollItem"
-            android:drawableStart="@drawable/ic_hand_holding_heart"
-            tools:text="15" />
+            tools:text="15"
+            app:drawableStartCompat="@drawable/ic_hand_holding_heart" />
     </LinearLayout>
 
     <TextView

@@ -25,13 +25,13 @@ class WidgetsAdapter(val prefs: Prefs) : RecyclerView.Adapter<ItemHolder>() {
         set(value) {
             val valueOld = checkedPosition
             if (value != valueOld) {
-                prefs.widgetPosition = value
+                prefs.widgetPosition.value = value
             }
             notifyItemChanged(value)
             notifyItemChanged(valueOld)
         }
         get() {
-            return prefs.widgetPosition
+            return prefs.widgetPosition.value!!
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =

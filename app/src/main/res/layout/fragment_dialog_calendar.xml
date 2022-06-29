@@ -18,15 +18,11 @@
             android:text="@string/adding_date"
            />
 
-<!--        <androidx.appcompat.widget.AppCompatImageButton-->
-<!--            android:id="@+id/filter_event_change_list_ib"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_alignParentEnd="true"-->
-<!--            android:layout_marginTop="16dp"-->
-<!--            android:layout_marginEnd="16dp"-->
-<!--            android:background="@android:color/transparent"-->
-<!--            android:src="@drawable/ic_close" />-->
+        <ImageView
+            android:id="@+id/close"
+            style="@style/ButtonToolBar"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_baseline_close_24" />
     </RelativeLayout>
 
     <CalendarView

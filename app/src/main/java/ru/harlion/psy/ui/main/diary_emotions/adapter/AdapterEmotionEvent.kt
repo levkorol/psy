@@ -4,11 +4,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ru.astrocode.flm.FlowLayoutManager
-import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingHolder
 import ru.harlion.psy.databinding.ItemDiaryEmotionsBinding
 import ru.harlion.psy.databinding.ItemTextBinding
-import ru.harlion.psy.models.emotions.CategoryEmotions
 import ru.harlion.psy.models.emotions.Emotion
 import ru.harlion.psy.models.emotions.EmotionEvent
 import ru.harlion.psy.utils.dateToString
@@ -76,10 +74,24 @@ class AdapterEmotionSEvent(
             holder as ItemHolderEmotionEvent
             holder.binding.apply {
                 if(item.fieldOne.isNotEmpty()) {
-                    emotionName.text = item.fieldOne
-                    emotionName.visibility = View.VISIBLE
+                    fieldOne.text = item.fieldOne
+                    fieldOne.visibility = View.VISIBLE
                 } else {
-                    emotionName.visibility = View.GONE
+                    fieldOne.visibility = View.GONE
+                }
+
+                if(item.fieldThree.isNotEmpty()) {
+                    fieldTwo.text = item.fieldThree
+                    fieldTwo.visibility = View.VISIBLE
+                } else {
+                    fieldTwo.visibility = View.GONE
+                }
+
+                if(item.fieldFor.isNotEmpty()) {
+                    fieldThree.text = item.fieldFor
+                    fieldThree.visibility = View.VISIBLE
+                } else {
+                    fieldThree.visibility = View.GONE
                 }
 
                 time.text = timeToString(item.time)
@@ -92,7 +104,7 @@ class AdapterEmotionSEvent(
     override fun getItemCount() = items.size
 
     private fun initRecyclerViewEmotion(recyclerView: RecyclerView, emotions: HashSet<Emotion>) {
-        adapterEmotion = AdapterEmotion(emotions)
+        adapterEmotion = AdapterEmotion(emotions, isClick = false)
         val llm = FlowLayoutManager(FlowLayoutManager.VERTICAL)
 
         recyclerView.layoutManager = llm

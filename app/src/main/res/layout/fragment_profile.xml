@@ -1,211 +1,244 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/bg_fragment_white"
     tools:context=".ui.profile.ProfileFragment">
 
-    <RelativeLayout
-        android:id="@+id/top_ll"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/main_dark_violet">
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/back"
-            style="@style/ButtonToolBar"
-            android:src="@drawable/ic_baseline_arrow_back_24"
-            android:tint="@color/white" />
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/save"
-            style="@style/ButtonToolBar"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="8dp"
-            android:src="@drawable/ic_menu_24"
-            android:tint="@color/white" />
-    </RelativeLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:background="@color/main_dark_violet"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/photo_profile"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_profile" />
+        <RelativeLayout
+            android:id="@+id/top_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/main_dark_violet">
 
-        <TextView
-            android:id="@+id/name_user"
-            style="@style/TextTitleQuestions"
-            android:layout_width="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
-            android:text="@string/your_name"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/back"
+                style="@style/ButtonToolBar"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                android:tint="@color/white" />
 
-        <!--        <RelativeLayout-->
-        <!--           -->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="40dp"-->
-        <!--            android:layout_marginTop="12dp"-->
-        <!--            android:layout_marginHorizontal="16dp"-->
-        <!--            android:background="@drawable/bg_multi_gradient_radius">-->
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/save"
+                style="@style/ButtonToolBar"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/ic_menu_24"
+                android:tint="@color/white" />
+        </RelativeLayout>
 
-        <!--            <TextView-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="40dp"-->
-        <!--                android:layout_centerInParent="true"-->
-        <!--                android:layout_centerHorizontal="true"-->
-        <!--                android:layout_centerVertical="true"-->
-        <!--                android:layout_gravity="center"-->
-        <!--                android:drawableStart="@drawable/ic_crown"-->
-        <!--                android:drawablePadding="16dp"-->
-        <!--                android:gravity="center|start"-->
-        <!--                android:text="@string/pro_better"-->
-        <!--                android:textColor="@color/white" />-->
-        <!--        </RelativeLayout>-->
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:background="@color/main_dark_violet"
+            android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/premium"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/bg_multi_gradient_radius">
+            <ImageView
+                android:id="@+id/photo_profile"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_profile" />
 
-        <TextView
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/name_user"
+                style="@style/TextTitleQuestions"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="16dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@string/your_name"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_margin="16dp"-->
+<!--        android:layout_weight="4"-->
+<!--        app:cardCornerRadius="10dp">-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:padding="16dp"-->
+<!--        android:orientation="vertical">-->
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Мои Эмоции"/>-->
+
+<!--    </LinearLayout>-->
+<!--    </androidx.cardview.widget.CardView>-->
+
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:layout_marginBottom="16dp"-->
+<!--        android:layout_weight="4"-->
+<!--        app:cardCornerRadius="10dp">-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:padding="16dp"-->
+<!--            android:orientation="vertical">-->
+
+<!--        </LinearLayout>-->
+<!--    </androidx.cardview.widget.CardView>-->
+
+        <RelativeLayout
+            android:id="@+id/premium"
+            android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_centerInParent="true"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center"
-            android:drawablePadding="16dp"
-            android:gravity="center|start"
-            android:text="@string/pro_better"
-            android:textColor="@color/white"
-            app:drawableStartCompat="@drawable/ic_crown" />
-    </RelativeLayout>
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_multi_gradient_radius">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:background="@color/gray_super_light" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:drawablePadding="16dp"
+                android:gravity="center|start"
+                android:text="@string/pro_better"
+                android:textColor="@color/white"
+                app:drawableStartCompat="@drawable/ic_crown" />
+        </RelativeLayout>
 
-    <TextView
-        android:id="@+id/diary_emotions"
-        style="@style/MenuItemProfile"
-        android:text="@string/diary_emo"
-        android:visibility="gone"
-        app:drawableStartCompat="@drawable/ic_smile_wink" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/gray_super_light" />
 
-    <TextView
-        android:id="@+id/statistic"
-        style="@style/MenuItemProfile"
-        android:text="@string/statistic"
-        android:visibility="gone"
-        app:drawableStartCompat="@drawable/ic_stats" />
+        <TextView
+            android:id="@+id/diary_emotions"
+            style="@style/MenuItemProfile"
+            android:text="@string/diary_emo"
+            android:visibility="gone"
+            app:drawableStartCompat="@drawable/ic_smile_wink" />
 
-    <TextView
-        android:id="@+id/pin_code"
-        style="@style/MenuItemProfile"
-        android:text="@string/password"
-        app:drawableStartCompat="@drawable/ic_lock" />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:visibility="gone"
-        android:background="@color/gray_super_light" />
-    <TextView
-        android:id="@+id/notify"
-        style="@style/MenuItemProfile"
-        android:text="@string/notify"
-        android:visibility="gone"
-        app:drawableStartCompat="@drawable/ic_alarm_clock" />
+        <TextView
+            android:id="@+id/statistic"
+            style="@style/MenuItemProfile"
+            android:text="@string/statistic"
+            android:visibility="gone"
+            app:drawableStartCompat="@drawable/ic_stats" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:background="@color/gray_super_light" />
-    <TextView
-        android:id="@+id/widgets"
-        style="@style/MenuItemProfile"
-        android:text="@string/widgets"
-        app:drawableStartCompat="@drawable/ic_widgets" />
+        <TextView
+            android:id="@+id/pin_code"
+            style="@style/MenuItemProfile"
+            android:text="@string/password"
+            app:drawableStartCompat="@drawable/ic_lock" />
 
-    <!--        <TextView-->
-    <!--            android:id="@+id/premium"-->
-    <!--            style="@style/MenuItemProfile"-->
-    <!--            android:drawableStart="@drawable/ic_crown"-->
-    <!--            android:text="@string/pro" />-->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:background="@color/gray_super_light" />
-    <TextView
-        android:id="@+id/info_user"
-        style="@style/MenuItemProfile"
-        android:text="@string/for_user"
-        app:drawableStartCompat="@drawable/ic_star" />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:background="@color/gray_super_light" />
-    <TextView
-        android:id="@+id/mail"
-        style="@style/MenuItemProfile"
-        android:text="@string/mail"
-        app:drawableStartCompat="@drawable/ic_mail" />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:background="@color/gray_super_light" />
-    <TextView
-        android:id="@+id/psy_project"
-        style="@style/MenuItemProfile"
-        android:text="@string/project_psy"
-        app:drawableStartCompat="@drawable/ic_hand_holding_heart" />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:background="@color/gray_super_light" />
-    <TextView
-        android:id="@+id/mark"
-        style="@style/MenuItemProfile"
-        android:text="@string/mark"
-        app:drawableStartCompat="@drawable/ic_heart" />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:background="@color/gray_super_light" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:background="@color/gray_super_light"
+            android:visibility="gone" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="8dp"
-        android:layout_weight="1"
-        android:gravity="bottom|center"
-        android:text="by Lev Dev Yan, version 1.0"
-        android:textSize="12sp" />
+        <TextView
+            android:id="@+id/notify"
+            style="@style/MenuItemProfile"
+            android:text="@string/notify"
+            android:visibility="gone"
+            app:drawableStartCompat="@drawable/ic_alarm_clock" />
 
-</LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:background="@color/gray_super_light" />
+
+        <TextView
+            android:id="@+id/widgets"
+            style="@style/MenuItemProfile"
+            android:text="@string/widgets"
+            app:drawableStartCompat="@drawable/ic_widgets" />
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/premium"-->
+        <!--            style="@style/MenuItemProfile"-->
+        <!--            android:drawableStart="@drawable/ic_crown"-->
+        <!--            android:text="@string/pro" />-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:background="@color/gray_super_light" />
+
+        <TextView
+            android:id="@+id/info_user"
+            style="@style/MenuItemProfile"
+            android:text="@string/for_user"
+            app:drawableStartCompat="@drawable/ic_star" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:background="@color/gray_super_light" />
+
+        <TextView
+            android:id="@+id/mail"
+            style="@style/MenuItemProfile"
+            android:text="@string/mail"
+            app:drawableStartCompat="@drawable/ic_mail" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:background="@color/gray_super_light" />
+
+        <TextView
+            android:id="@+id/psy_project"
+            style="@style/MenuItemProfile"
+            android:text="@string/project_psy"
+            app:drawableStartCompat="@drawable/ic_hand_holding_heart" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:background="@color/gray_super_light" />
+
+        <TextView
+            android:id="@+id/mark"
+            style="@style/MenuItemProfile"
+            android:text="@string/mark"
+            app:drawableStartCompat="@drawable/ic_heart" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:background="@color/gray_super_light" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="26dp"
+            android:gravity="center"
+            android:textColor="@color/gray_light"
+            android:text="by Lev Dev Yan, version 1.0"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+</ScrollView>

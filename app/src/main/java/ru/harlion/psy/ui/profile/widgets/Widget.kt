@@ -21,12 +21,18 @@ class Widget : AppWidgetProvider() {
         appWidgetManager: AppWidgetManager,
         appWidgetIds: IntArray
     ) {
+        val prefs = Prefs(context)
         for (appWidgetId in appWidgetIds) {
             updateAppWidget(
                 context,
                 appWidgetManager,
                 appWidgetId,
-                (context.applicationContext as AppApplication).exTexts.value ?: listOf("")
+                if (prefs.exIdForWidget.value!! <= 0) {
+                    context.getString(R.string.info_widgets_in)
+                } else {
+                    (context.applicationContext as AppApplication).exTexts.value?.randomOrNull()
+                        ?: context.getString(R.string.empty_list_)
+                }
             )
         }
     }
@@ -41,7 +47,7 @@ internal fun updateAppWidget(
     context: Context,
     appWidgetManager: AppWidgetManager,
     appWidgetId: Int,
-    texts: List<String>
+    texts: String,
 ) {
     val prefs = Prefs(context)
 
@@ -49,15 +55,14 @@ internal fun updateAppWidget(
     val views = RemoteViews(context.packageName, R.layout.app_widget)
     views.setTextViewText(
         R.id.text,
-        texts.toString()
+        texts
     )
 
-    val widget = SetWidgetFragment.listWidgets.elementAt(prefs.widgetPosition)
+    val widget = SetWidgetFragment.listWidgets.elementAt(prefs.widgetPosition.value!!)
     views.setImageViewResource(
         R.id.image,
         widget.bg
     )
-   // views.setBoolean(R.id.image, "setClipToOutline", true)
 
     appWidgetManager.updateAppWidget(appWidgetId, views)
 }
