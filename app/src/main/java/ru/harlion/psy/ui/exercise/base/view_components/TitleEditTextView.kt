@@ -89,7 +89,7 @@ class TitleEditTextView(context: Context, attrs: AttributeSet?) : ConstraintLayo
 
         imageInfo.setOnClickListener {
             EditTextDialog(context).apply {
-                setTitle(textInfo.toString())
+                setText(textInfo.toString())
                 setPositiveButton("OK") {}
             }.show()
         }

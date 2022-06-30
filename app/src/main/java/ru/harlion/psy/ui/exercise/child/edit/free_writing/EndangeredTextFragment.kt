@@ -1,19 +1,18 @@
 package ru.harlion.psy.ui.exercise.child.edit.free_writing
 
-import android.animation.Animator
+
 import android.animation.ObjectAnimator
 import android.os.Bundle
-import android.os.Handler
-import android.os.Message
 import android.view.View
-import android.view.animation.Animation
 import androidx.core.animation.addListener
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.viewModels
 import ru.harlion.psy.AppActivity
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentEndangeredTextBinding
-import ru.harlion.psy.ui.main.MainFragment
+import ru.harlion.psy.models.TypeEx
+import ru.harlion.psy.ui.exercise.base.ex_list.ExListFragment
 import ru.harlion.psy.utils.EndangeredTextFrameLayout
 import ru.harlion.psy.utils.replaceFragment
 
@@ -21,15 +20,19 @@ import ru.harlion.psy.utils.replaceFragment
 class EndangeredTextFragment :
     BindingFragment<FragmentEndangeredTextBinding>(FragmentEndangeredTextBinding::inflate) {
 
+
+    private val viewModel : EditFreeWritingViewModel by viewModels()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val text = requireArguments().getString("TEXT_FREE_WR")
+        val id = requireArguments().getLong("EX_ID")
         binding.textEndangered.text = text
 
         binding.back.setOnClickListener {
             parentFragmentManager.popBackStack()
-            // parentFragmentManager.popBackStack() //todo
+            parentFragmentManager.popBackStack()
         }
 
         binding.textEndangered.setOnClickListener {
@@ -39,11 +42,12 @@ class EndangeredTextFragment :
                 0F,
                 1F
             ).apply {
-                duration = 3000
+                duration = 3000 //todo ошибка если кликать назад во время анимации
                 this.addListener(onEnd = {
-                    binding.textEnd.text = "Запись уничтожена"
-                    binding.textEnd.visibility = View.VISIBLE
-                    binding.root.setBackgroundResource(R.drawable.pick_bg_5)
+                    binding.textEnd.text = getString(R.string.text_end_destroy_text)
+                    binding.buttonsAndTextEnd.visibility = View.VISIBLE
+                    binding.root.setBackgroundResource(R.drawable.pic_bg_12)
+                    viewModel.delete(id)
                 })
             }.start()
         }
@@ -62,9 +66,10 @@ class EndangeredTextFragment :
     }
 
     companion object {
-        fun newInstance(text: String) = EndangeredTextFragment().apply {
+        fun newInstance(text: String, exId : Long) = EndangeredTextFragment().apply {
             arguments = Bundle().apply {
                 putString("TEXT_FREE_WR", text)
+                putLong("EX_ID", exId)
             }
         }
     }

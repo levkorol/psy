@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/pick_bg_4"
     android:orientation="vertical"
     tools:context=".ui.exercise.child.edit.free_writing.EndangeredTextFragment">
@@ -34,23 +35,32 @@
         android:layout_marginBottom="16dp"
         android:gravity="center"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         tools:text="hello_blank_fragment hello_blank_fragment hello_blank_fragment fragment" />
-
+    <LinearLayout
+        android:id="@+id/buttons_and_text_end"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical">
     <TextView
         android:id="@+id/text_end"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_gravity="center"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="16dp"
         android:gravity="center"
-        android:visibility="gone"
-        android:textColor="@color/white"
-        android:textSize="24sp"
+        android:layout_weight="1"
+        android:fontFamily="@font/lobster_egular"
+        app:font="@font/lobster_egular"
+        android:textColor="@color/gray_dark"
+        android:textSize="18sp"
         android:textStyle="bold"
         tools:text="hello_blank_fragment hello_blank_fragment hello_blank_fragment fragment" />
 
+    </LinearLayout>
 </ru.harlion.psy.utils.EndangeredTextFrameLayout>

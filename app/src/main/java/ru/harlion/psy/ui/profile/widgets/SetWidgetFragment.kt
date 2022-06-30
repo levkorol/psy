@@ -48,7 +48,7 @@ class SetWidgetFragment :
             ),
             ItemWidget(
                 "Здесь твоя аффирмация",
-                R.drawable.bg_widget_1,
+                R.drawable.widget_bg_1,
                 textColor = R.color.white
             ),
             ItemWidget(
@@ -58,7 +58,7 @@ class SetWidgetFragment :
             ),
             ItemWidget(
                 "Здесь твоя аффирмация",
-                R.drawable.widget_bg_1,
+                R.drawable.pic_bg_7,
                 isBlock = true,
                 textColor = R.color.white
             ),
@@ -70,13 +70,13 @@ class SetWidgetFragment :
             ),
             ItemWidget(
                 "Здесь твоя аффирмация",
-                R.drawable.pick_bg_2,
+                R.drawable.pic_bg_8,
                 isBlock = true,
                 textColor =  R.color.white
             ),
             ItemWidget(
                 "Здесь твоя аффирмация",
-                R.drawable.pick_bg_3,
+                R.drawable.pic_bg_9,
                 isBlock = true,
                 textColor =  R.color.white
             ),
@@ -94,19 +94,19 @@ class SetWidgetFragment :
             ),
             ItemWidget(
                 "Psy - my love",
-                R.drawable.pick_bg_6,
+                R.drawable.pick_bg_10,
                 isBlock = true,
                 textColor = R.color.white
             ),
             ItemWidget(
                 "Psy - my love",
-                R.drawable.pick_bg_6,
+                R.drawable.pic_bg_11,
                 isBlock = true,
                 textColor = R.color.white
             ),
             ItemWidget(
                 "Psy - my love",
-                R.drawable.pick_bg_6,
+                R.drawable.pick_bg_2,
                 isBlock = true,
                 textColor = R.color.white
             )

@@ -46,17 +46,10 @@
 
     <TextView
         android:id="@+id/widget"
+        style="@style/ButtonEditWithSmallDrawable"
         android:layout_height="45dp"
+        android:layout_marginTop="0dp"
         android:layout_marginBottom="8dp"
-        android:layout_width="match_parent"
-        android:layout_marginHorizontal="16dp"
-        android:background="@drawable/bg_light_violet"
-        android:textColor="@color/black"
-        android:visibility="gone"
-        tools:visibility="visible"
-        android:gravity="center|start"
-        android:drawablePadding="8dp"
-        android:paddingHorizontal="8dp"
         tools:text="Установить в виджет"
         app:drawableStartCompat="@drawable/ic_baseline_widgets_24" />
 

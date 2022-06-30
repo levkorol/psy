@@ -60,6 +60,13 @@ class EditTextDialog(context: Context) {
         }
     }
 
+    fun setText(msg: String) {
+        alertDialog.findViewById<TextView>(R.id.text_normal).apply {
+            visibility = View.VISIBLE
+            text = msg
+        }
+    }
+
     fun setEditText(hintText: String): View {
         return alertDialog.findViewById<EditText>(R.id.input_text).apply {
             visibility = View.VISIBLE

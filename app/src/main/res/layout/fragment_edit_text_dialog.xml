@@ -23,7 +23,14 @@
     <TextView
         android:id="@+id/title"
         style="@style/TextTitleQuestions"
-        android:layout_marginTop="20dp" />
+        android:visibility="gone"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:layout_marginTop="16dp"
+        android:id="@+id/text_normal"
+        android:visibility="gone"
+        style="@style/TextNormal"/>
 
     <EditText
         android:id="@+id/input_text"

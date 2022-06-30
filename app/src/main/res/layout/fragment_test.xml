@@ -36,10 +36,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" />
+
         <TextView
             style="@style/TextTitleQuestions"
             android:layout_marginTop="22dp"
@@ -118,24 +120,27 @@
                 android:textStyle="bold" />
 
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" />
+
         <TextView
             android:id="@+id/save_progress"
             style="@style/ButtonBigMiddleViolet"
+            android:layout_width="match_parent"
             android:layout_gravity="center"
             android:gravity="center"
-            android:layout_width="match_parent"
             android:text="@string/save_progress_in_profile" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/empty_result"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="50dp"
+        android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="gone">

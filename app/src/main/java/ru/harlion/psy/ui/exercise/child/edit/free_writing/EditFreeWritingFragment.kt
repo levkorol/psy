@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.SeekBar
 import androidx.fragment.app.viewModels
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.fragment_test.view.*
 import nl.dionsegijn.konfetti.models.Shape
 import nl.dionsegijn.konfetti.models.Size
 import ru.harlion.psy.R
@@ -48,6 +49,7 @@ class EditFreeWritingFragment :
         viewModel.getExById(id)
 
         binding.fieldOne.title = resources.getText(R.string.ex_free_writing_qwestion_one)
+        binding.fieldOne.textInfo = resources.getText(R.string.ex_free_wr_text_info_one)
         binding.fieldThree.lines = 20
         binding.fieldThree.title = resources.getText(R.string.free_writing_field_three)
 
@@ -83,7 +85,14 @@ class EditFreeWritingFragment :
 
     private fun initClicks() {
         binding.destroy.setOnClickListener {
-          replaceFragment(EndangeredTextFragment.newInstance(textFull), true)
+            EditTextDialog(requireContext()).apply {
+                setText(getString(R.string.text_info_ex_destroy) )
+                setPositiveButton(getString(R.string.go_destroy)) {
+                    replaceFragment(EndangeredTextFragment.newInstance(textFull, id), true)
+                }
+                setNegativeButton(getString(R.string.cancel)){}
+            }.show()
+
         }
 
         binding.back.setOnClickListener { parentFragmentManager.popBackStack() }

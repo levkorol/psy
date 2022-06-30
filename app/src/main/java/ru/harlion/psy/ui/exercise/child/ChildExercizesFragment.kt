@@ -20,6 +20,7 @@ import ru.harlion.psy.ui.exercise.base.ex_list.ExListFragment
 import ru.harlion.psy.ui.exercise.base.AdapterMenuExercizes
 import ru.harlion.psy.ui.exercise.base.MenuEx
 import ru.harlion.psy.ui.exercise.base.instructions.ExInstructionsFragment
+import ru.harlion.psy.ui.exercise.child.meditation.MeditationFragment
 import ru.harlion.psy.ui.profile.premium.PremiumFragment
 import ru.harlion.psy.utils.*
 import ru.harlion.psy.utils.dialogs.EditTextDialog
@@ -39,9 +40,9 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
         super.onCreate(savedInstanceState)
 
         setFragmentResultListener("info_premium") { _, bundle ->
-           if(bundle.getBoolean("premium")) {
-               replaceFragment(PremiumFragment(), true)
-           }
+            if (bundle.getBoolean("premium")) {
+                replaceFragment(PremiumFragment(), true)
+            }
         }
 
         launcher =
@@ -106,45 +107,50 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
         )
 
         adapterMenu = AdapterMenuExercizes {
-            when (it) {
-                0 -> replaceFragment(
-                    ExListFragment.newInstance(
-                        R.string.thanks_diary,
-                        TypeEx.GRATITUDE_DIARY
-                    ), true
-                )
-                1 -> replaceFragment(
-                    ExListFragment.newInstance(
-                        R.string.wish_diary_ex,
-                        TypeEx.WISH_DIARY,
-                        R.string.active,
-                        R.string.done,
-                    ), true
-                )
-                2 -> replaceFragment(
-                    ExListFragment.newInstance(
-                        R.string.free_writing_ex,
-                        TypeEx.FREE_WRITING
-                    ), true
-                )
-                else -> {
-                    if (prefs.isPremiumBilling) {
+            if (prefs.isPremiumBilling || it == 0 || it == 1) {
+                when (it) {
+                    0 -> replaceFragment(
+                        ExListFragment.newInstance(
+                            R.string.thanks_diary,
+                            TypeEx.GRATITUDE_DIARY
+                        ), true
+                    )
+                    1 -> replaceFragment(
+                        ExListFragment.newInstance(
+                            R.string.wish_diary_ex,
+                            TypeEx.WISH_DIARY,
+                            R.string.active,
+                            R.string.done,
+                        ), true
+                    )
+                    2 -> replaceFragment(
+                        ExListFragment.newInstance(
+                            R.string.free_writing_ex,
+                            TypeEx.FREE_WRITING
+                        ), true
+                    )
+                    3 -> {
                         replaceFragment(
                             ExListFragment.newInstance(
                                 R.string.ideas_diary_ex,
                                 TypeEx.IDEAS_DIARY
                             ), true
                         )
-                    } else {
-                        InfoDialog.newInstance(isPremium = true).show(parentFragmentManager, null)
+
                     }
-                }
+                    else -> replaceFragment(
+                        MeditationFragment(), true
+                    )
+
 //                else -> replaceFragment(
 //                    ExListFragment.newInstance(
 //                        R.string.album_ex,
 //                        TypeEx.HIGHLIGHTS_ALBUM
 //                    ), true
 //                )
+                }
+            } else {
+                InfoDialog.newInstance(isPremium = true).show(parentFragmentManager, null)
             }
         }
         binding.menuRv.apply {
