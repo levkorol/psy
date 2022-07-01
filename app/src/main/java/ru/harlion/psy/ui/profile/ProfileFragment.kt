@@ -113,6 +113,15 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
             )
             startActivity(browserIntent)
         }
+
+        binding.psyTelegram.setOnClickListener {
+            val browserIntent = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://t.me/my_psy_app")
+            )
+            startActivity(browserIntent)
+        }
+
         binding.infoUser.setOnClickListener {
             replaceFragment(
                 ExInstructionsFragment.newInstance(

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".ui.exercise.child.meditation.MeditationFragment">
+    tools:context=".ui.exercise.child.meditation.ExMeditationFragment">
 
     <RelativeLayout
         android:id="@+id/top_ll"
@@ -30,10 +30,28 @@
             android:src="@drawable/ic_baseline_info_24" />
     </RelativeLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/meditations"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginEnd="16dp"/>
+    <TextView
+        style="@style/TextNormal"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_line_big_gray"
+        android:padding="16dp"
+        android:text="Инструкция" />
 
+
+
+        <ImageView
+            android:id="@+id/stop"
+            android:src="@drawable/stop_meditation"
+            android:padding="10dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/play"
+        android:src="@drawable/play_meditation"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </LinearLayout>

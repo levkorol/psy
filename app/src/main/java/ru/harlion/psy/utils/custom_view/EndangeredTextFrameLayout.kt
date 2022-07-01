@@ -1,4 +1,4 @@
-package ru.harlion.psy.utils
+package ru.harlion.psy.utils.custom_view
 
 import android.content.Context
 import android.graphics.Canvas

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ru.harlion.psy.utils.EndangeredTextFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ru.harlion.psy.utils.custom_view.EndangeredTextFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -63,4 +63,4 @@
         tools:text="hello_blank_fragment hello_blank_fragment hello_blank_fragment fragment" />
 
     </LinearLayout>
-</ru.harlion.psy.utils.EndangeredTextFrameLayout>
+</ru.harlion.psy.utils.custom_view.EndangeredTextFrameLayout>

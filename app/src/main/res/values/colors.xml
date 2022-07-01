@@ -38,4 +38,7 @@
     <color name="emotion_scare">#E3694C</color>
     <color name="widget_bg">#8AFDFDFD</color>
 
+    <color name="meditation_anti_stress">#8AFD678C</color>
+    <color name="meditation_good_night">#8A948FDB</color>
+
 </resources>

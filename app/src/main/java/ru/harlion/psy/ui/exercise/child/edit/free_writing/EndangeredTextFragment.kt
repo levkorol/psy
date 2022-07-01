@@ -11,10 +11,7 @@ import ru.harlion.psy.AppActivity
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentEndangeredTextBinding
-import ru.harlion.psy.models.TypeEx
-import ru.harlion.psy.ui.exercise.base.ex_list.ExListFragment
-import ru.harlion.psy.utils.EndangeredTextFrameLayout
-import ru.harlion.psy.utils.replaceFragment
+import ru.harlion.psy.utils.custom_view.EndangeredTextFrameLayout
 
 
 class EndangeredTextFragment :

@@ -8,7 +8,9 @@ import kotlinx.android.synthetic.main.fragment_profile.*
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentSetWidgetBinding
+import ru.harlion.psy.ui.exercise.base.instructions.ExInstructionsFragment
 import ru.harlion.psy.utils.Prefs
+import ru.harlion.psy.utils.replaceFragment
 
 
 class SetWidgetFragment :
@@ -23,6 +25,16 @@ class SetWidgetFragment :
         prefs = Prefs(requireContext())
 
         binding.back.setOnClickListener { parentFragmentManager.popBackStack() }
+
+        binding.info.setOnClickListener {
+            replaceFragment(
+                ExInstructionsFragment.newInstance(
+                    oneTitle = R.string.about_widgets,
+                    toolbar = R.string.set_widget,
+                    isEx = false
+                ), true
+            )
+        }
 
         adapterWidgets = WidgetsAdapter(prefs)
         binding.widgetsRv.apply {

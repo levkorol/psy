@@ -16,6 +16,8 @@ import ru.harlion.psy.databinding.FragmentMainBinding
 import ru.harlion.psy.ui.exercise.adult.AdultExercizesFragment
 import ru.harlion.psy.ui.exercise.base.edit.poll_test.EditPollTestFragment
 import ru.harlion.psy.ui.exercise.child.ChildExercizesFragment
+import ru.harlion.psy.ui.exercise.child.meditation.ExMeditationFragment
+import ru.harlion.psy.ui.exercise.child.meditation.TypeMeditation
 import ru.harlion.psy.ui.main.diary_emotions.DiaryEmotionFragment
 import ru.harlion.psy.ui.main.my_day.DayPollFragment
 import ru.harlion.psy.ui.exercise.parent.ParentExercizesFragment
@@ -133,9 +135,11 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
         binding.test.setOnClickListener {
             replaceFragment(TestFragment.newInstance(false, floatArrayOf()), true)
         }
+
+        binding.logo.setOnClickListener {
+            replaceFragment(ExMeditationFragment.newInstance(TypeMeditation.ANTI_STRESS), true)
+        }
     }
-
-
 }
 
 class ViewPager(fragmentManager: FragmentManager, lifecycle: Lifecycle) :

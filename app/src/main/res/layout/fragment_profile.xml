@@ -212,8 +212,18 @@
             android:id="@+id/psy_project"
             style="@style/MenuItemProfile"
             android:text="@string/project_psy"
-            app:drawableStartCompat="@drawable/ic_hand_holding_heart" />
+            app:drawableStartCompat="@drawable/ic_following" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:background="@color/gray_super_light" />
 
+        <TextView
+            android:id="@+id/psy_telegram"
+            style="@style/MenuItemProfile"
+            android:text="@string/psy_chanel"
+            app:drawableStartCompat="@drawable/ic_hand_holding_heart" />
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
