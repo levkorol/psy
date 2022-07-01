@@ -18,7 +18,8 @@ class EndangeredTextFragment :
     BindingFragment<FragmentEndangeredTextBinding>(FragmentEndangeredTextBinding::inflate) {
 
 
-    private val viewModel : EditFreeWritingViewModel by viewModels()
+    private val viewModel: EditFreeWritingViewModel by viewModels()
+    private var animation: ObjectAnimator? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -39,12 +40,14 @@ class EndangeredTextFragment :
                 0F,
                 1F
             ).apply {
-                duration = 3000 //todo ошибка если кликать назад во время анимации
+                animation = this
+                duration = 3000
                 this.addListener(onEnd = {
                     binding.textEnd.text = getString(R.string.text_end_destroy_text)
                     binding.buttonsAndTextEnd.visibility = View.VISIBLE
                     binding.root.setBackgroundResource(R.drawable.pic_bg_12)
                     viewModel.delete(id)
+                    animation = null
                 })
             }.start()
         }
@@ -56,6 +59,12 @@ class EndangeredTextFragment :
         window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.black)
     }
 
+    override fun onDestroyView() {
+        animation?.cancel()
+        animation = null
+        super.onDestroyView()
+    }
+
     override fun onStop() {
         super.onStop()
         val window = (activity as AppActivity).window
@@ -63,7 +72,7 @@ class EndangeredTextFragment :
     }
 
     companion object {
-        fun newInstance(text: String, exId : Long) = EndangeredTextFragment().apply {
+        fun newInstance(text: String, exId: Long) = EndangeredTextFragment().apply {
             arguments = Bundle().apply {
                 putString("TEXT_FREE_WR", text)
                 putLong("EX_ID", exId)
