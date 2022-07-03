@@ -1,24 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     app:cardCornerRadius="10dp"
+    app:cardElevation="4dp"
     android:layout_marginBottom="16dp"
+    android:layout_marginEnd="16dp"
     android:layout_marginStart="16dp"
     android:layout_width="match_parent"
-    android:layout_height="240dp">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:id="@+id/container_ll"
+        tools:background="@color/meditation_anti_stress"
         android:layout_width="match_parent"
+        android:padding="26dp"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TextView
             android:layout_gravity="center"
+            android:layout_margin="16dp"
             android:id="@+id/title_meditation"
+            android:textSize="20sp"
+            android:gravity="center"
+            tools:text="anti stress"
+            android:fontFamily="@font/lobster_egular"
+            app:fontFamily="@font/lobster_egular"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            app:drawableTint="@color/white"
+            app:drawableStartCompat="@drawable/ic_heart_white" />
 
     </LinearLayout>
 

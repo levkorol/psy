@@ -40,7 +40,8 @@
 
     <color name="meditation_anti_stress">#8AFD678C</color>
     <color name="meditation_good_night">#8A948FDB</color>
-    <color name="meditation_relax">#8AAADB8F</color>
-    <color name="meditation_rectangle">#8ADBC28F</color>
+    <color name="meditation_relax">#868BA17F</color>
+    <color name="meditation_rectangle">#8AA89877</color>
+    <color name="meditation_good_morning">#94D3C96C</color>
 
 </resources>
