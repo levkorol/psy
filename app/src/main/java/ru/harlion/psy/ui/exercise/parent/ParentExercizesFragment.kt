@@ -13,6 +13,7 @@ import ru.harlion.psy.AppApplication
 import ru.harlion.psy.R
 import ru.harlion.psy.app
 import ru.harlion.psy.base.BindingFragment
+import ru.harlion.psy.data.Repository
 import ru.harlion.psy.databinding.FragmentParentExercizesBinding
 import ru.harlion.psy.models.TypeEx
 import ru.harlion.psy.ui.exercise.base.ex_list.ExListFragment
@@ -22,6 +23,7 @@ import ru.harlion.psy.ui.exercise.base.instructions.ExInstructionsFragment
 import ru.harlion.psy.utils.PhotoRequest
 import ru.harlion.psy.utils.Prefs
 import ru.harlion.psy.utils.dialogs.EditTextDialog
+import ru.harlion.psy.utils.dialogs.InfoDialog
 import ru.harlion.psy.utils.replaceFragment
 import ru.harlion.psy.utils.setRoundImage
 import java.io.File
@@ -37,6 +39,7 @@ class ParentExercizesFragment :
 
     lateinit var launcher: ActivityResultLauncher<Intent>
     private var photoRequest: PhotoRequest? = null
+    private var repo = Repository.get()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,55 +83,74 @@ class ParentExercizesFragment :
         }
 
         val exercises = listOf(
-            MenuEx(getString(R.string.success_diary_ex), R.drawable.menu_trophy, 2, false),
-            MenuEx(getString(R.string.work_with_belief_ex), R.drawable.menu_hands, 4, false),
-            MenuEx(getString(R.string.positive_belief_ex), R.drawable.menu_positive, 2, false),
+            MenuEx(
+                getString(R.string.success_diary_ex),
+                R.drawable.menu_trophy,
+                repo.getExList(TypeEx.SUCCESS_DIARY).value?.size ?: 0,
+                false
+            ),
+            MenuEx(
+                getString(R.string.work_with_belief_ex),
+                R.drawable.menu_hands,
+                repo.getExList(TypeEx.WORK_WITH_BELIEFS).value?.size ?: 0,
+                false
+            ),
+            MenuEx(
+                getString(R.string.positive_belief_ex),
+                R.drawable.menu_positive,
+                repo.getExList(TypeEx.POSITIVE_BELIEFS).value?.size ?: 0,
+                !prefs.isPremiumBilling
+            ),
             MenuEx(
                 getString(R.string.life_rules_ex),
                 R.drawable.menu_pr,
-                4,
+                repo.getExList(TypeEx.LIFE_RULES).value?.size ?: 0,
                 !prefs.isPremiumBilling
             ),
             MenuEx(
                 getString(R.string.perfect_life_ex),
                 R.drawable.menu_check,
-                2,
+                repo.getExList(TypeEx.PERFECT_LIFE).value?.size ?: 0,
                 !prefs.isPremiumBilling
             )
         )
 
         adapterMenu = AdapterMenuExercizes {
-            when (it) {
-                0 -> replaceFragment(
-                    ExListFragment.newInstance(
-                        R.string.success_diary_ex,
-                        TypeEx.SUCCESS_DIARY
-                    ), true
-                )
-                1 -> replaceFragment(
-                    ExListFragment.newInstance(
-                        R.string.work_with_belief_ex,
-                        TypeEx.WORK_WITH_BELIEFS
-                    ), true
-                )
-                2 -> replaceFragment(
-                    ExListFragment.newInstance(
-                        R.string.positive_belief_ex,
-                        TypeEx.POSITIVE_BELIEFS
-                    ), true
-                )
-                3 -> replaceFragment(
-                    ExListFragment.newInstance(
-                        R.string.life_rules_ex,
-                        TypeEx.LIFE_RULES
-                    ), true
-                )
-                else -> replaceFragment(
-                    ExListFragment.newInstance(
-                        R.string.perfect_life_ex,
-                        TypeEx.PERFECT_LIFE
-                    ), true
-                )
+            if (prefs.isPremiumBilling || it == 0 || it == 1) {
+                when (it) {
+                    0 -> replaceFragment(
+                        ExListFragment.newInstance(
+                            R.string.success_diary_ex,
+                            TypeEx.SUCCESS_DIARY
+                        ), true
+                    )
+                    1 -> replaceFragment(
+                        ExListFragment.newInstance(
+                            R.string.work_with_belief_ex,
+                            TypeEx.WORK_WITH_BELIEFS
+                        ), true
+                    )
+                    2 -> replaceFragment(
+                        ExListFragment.newInstance(
+                            R.string.positive_belief_ex,
+                            TypeEx.POSITIVE_BELIEFS
+                        ), true
+                    )
+                    3 -> replaceFragment(
+                        ExListFragment.newInstance(
+                            R.string.life_rules_ex,
+                            TypeEx.LIFE_RULES
+                        ), true
+                    )
+                    else -> replaceFragment(
+                        ExListFragment.newInstance(
+                            R.string.perfect_life_ex,
+                            TypeEx.PERFECT_LIFE
+                        ), true
+                    )
+                }
+            } else {
+                InfoDialog.newInstance(isPremium = true).show(parentFragmentManager, null)
             }
         }
         binding.menuRv.apply {

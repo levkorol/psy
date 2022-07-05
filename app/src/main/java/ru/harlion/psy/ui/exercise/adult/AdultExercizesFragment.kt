@@ -10,10 +10,12 @@ import android.widget.TextView
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import ru.harlion.psy.AppApplication
 import ru.harlion.psy.R
 import ru.harlion.psy.app
 import ru.harlion.psy.base.BindingFragment
+import ru.harlion.psy.data.Repository
 import ru.harlion.psy.databinding.FragmentAdultExercizesBinding
 import ru.harlion.psy.models.TypeEx
 import ru.harlion.psy.ui.exercise.base.ex_list.ExListFragment
@@ -24,6 +26,7 @@ import ru.harlion.psy.ui.main.my_day.DayPollFragment
 import ru.harlion.psy.utils.PhotoRequest
 import ru.harlion.psy.utils.Prefs
 import ru.harlion.psy.utils.dialogs.EditTextDialog
+import ru.harlion.psy.utils.dialogs.InfoDialog
 import ru.harlion.psy.utils.replaceFragment
 import ru.harlion.psy.utils.setRoundImage
 import java.io.File
@@ -36,6 +39,7 @@ class AdultExercizesFragment :
     private lateinit var prefs: Prefs
     lateinit var launcher: ActivityResultLauncher<Intent>
     private var photoRequest: PhotoRequest? = null
+    private val repo = Repository.get()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,50 +83,73 @@ class AdultExercizesFragment :
         }
 
         val exercises = listOf(
-            MenuEx(getString(R.string.self_ex), R.drawable.menu_like, 4, false),
-            MenuEx(getString(R.string.fail_diary_ex), R.drawable.menu_sad, 2, false),
+            MenuEx(
+                getString(R.string.self_ex),
+                R.drawable.menu_like,
+                repo.getExList(TypeEx.SELF_ESTEEM).value?.size ?: 0,
+                false
+            ),
+            MenuEx(
+                getString(R.string.fail_diary_ex),
+                R.drawable.menu_sad,
+                repo.getExList(TypeEx.FAIL_DIARY).value?.size ?: 0,
+                false
+            ),
             MenuEx(
                 getString(R.string.do_love_self_ex),
                 R.drawable.menu_self_love,
-                2,
+                count = repo.getExList(TypeEx.ACTS_SELF_LOVE).value?.size ?: 0,
                 !prefs.isPremiumBilling
             ),
             MenuEx(
                 getString(R.string.my_emergency_ex),
                 R.drawable.menu_life_preserver,
-                2,
+                repo.getExList(TypeEx.MY_AMBULANCE).value?.size ?: 0,
                 !prefs.isPremiumBilling
             ),
-            //  MenuEx(getString(R.string.poll_day_ex), R.drawable.menu_sun, 0)
+            MenuEx(
+                getString(R.string.ex_mindfullness),
+                R.drawable.menu_sun,
+                 0,
+                isBlock = true
+            )
         )
 
         adapterMenu = AdapterMenuExercizes {
-            when (it) {
-                0 -> replaceFragment(
-                    ExListFragment.newInstance(
-                        R.string.self_ex,
-                        TypeEx.SELF_ESTEEM,
-                    ), true
-                )
-                1 -> replaceFragment(
-                    ExListFragment.newInstance(
-                        R.string.fail_diary_ex,
-                        TypeEx.FAIL_DIARY
-                    ), true
-                )
-                2 -> replaceFragment(
-                    ExListFragment.newInstance(
-                        R.string.do_love_self_ex,
-                        TypeEx.ACTS_SELF_LOVE
-                    ), true
-                )
-                else -> replaceFragment(
-                    ExListFragment.newInstance(
-                        R.string.my_emergency_ex,
-                        TypeEx.MY_AMBULANCE
-                    ), true
-                )
-                //  else -> replaceFragment(DayPollFragment(), true)
+            if (prefs.isPremiumBilling || it == 0 || it == 1 || it == 4) {
+                when (it) {
+                    0 -> replaceFragment(
+                        ExListFragment.newInstance(
+                            R.string.self_ex,
+                            TypeEx.SELF_ESTEEM,
+                        ), true
+                    )
+                    1 -> replaceFragment(
+                        ExListFragment.newInstance(
+                            R.string.fail_diary_ex,
+                            TypeEx.FAIL_DIARY
+                        ), true
+                    )
+                    2 -> replaceFragment(
+                        ExListFragment.newInstance(
+                            R.string.do_love_self_ex,
+                            TypeEx.ACTS_SELF_LOVE
+                        ), true
+                    )
+                    3 -> replaceFragment(
+                        ExListFragment.newInstance(
+                            R.string.my_emergency_ex,
+                            TypeEx.MY_AMBULANCE
+                        ), true
+                    )
+                    else -> Snackbar.make(
+                        binding.root,
+                        "Будет доступна в следующих версиях",
+                        Snackbar.LENGTH_SHORT
+                    ).show()
+                }
+            } else {
+                InfoDialog.newInstance(isPremium = true).show(parentFragmentManager, null)
             }
         }
 

@@ -3,6 +3,7 @@ package ru.harlion.psy.utils.dialogs
 import android.app.Dialog
 import android.content.Context
 import android.graphics.drawable.InsetDrawable
+import android.text.InputType
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
@@ -71,6 +72,18 @@ class EditTextDialog(context: Context) {
         return alertDialog.findViewById<EditText>(R.id.input_text).apply {
             visibility = View.VISIBLE
             hint = hintText
+        }
+    }
+
+    var newText : CharSequence = ""
+    fun setEditTextPromo(hintText: String, oldText: String) {
+        alertDialog.findViewById<EditText>(R.id.input_text).apply {
+            hint = hintText
+            setText(oldText)
+            newText = text
+            inputType =
+                InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_NORMAL or InputType.TYPE_TEXT_FLAG_MULTI_LINE
+            visibility = View.VISIBLE
         }
     }
 

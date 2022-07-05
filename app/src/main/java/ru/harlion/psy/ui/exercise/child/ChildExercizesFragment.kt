@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import ru.harlion.psy.R
 import ru.harlion.psy.app
 import ru.harlion.psy.base.BindingFragment
+import ru.harlion.psy.data.Repository
 import ru.harlion.psy.databinding.FragmentChildExercizesBinding
 import ru.harlion.psy.models.TypeEx
 import ru.harlion.psy.ui.exercise.base.ex_list.ExListFragment
@@ -35,6 +36,7 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
     lateinit var launcher: ActivityResultLauncher<Intent>
     private var photoRequest: PhotoRequest? = null
     private lateinit var prefs: Prefs
+    private val repo = Repository.get()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,23 +87,36 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
         }
 
         val exercises = listOf(
-            MenuEx(getString(R.string.thanks_diary), R.drawable.menu_heart, 2, false),
-            MenuEx(getString(R.string.wish_diary_ex), R.drawable.menu_star, 2, false),
             MenuEx(
-                getString(R.string.free_writing_ex), R.drawable.menu_freewriting, 4,
+                getString(R.string.thanks_diary),
+                R.drawable.menu_heart,
+                repo.getExList(TypeEx.GRATITUDE_DIARY).value?.size ?: 0,
+                false
+            ),
+            MenuEx(
+                getString(R.string.wish_diary_ex),
+                R.drawable.menu_star,
+                repo.getExList(TypeEx.WISH_DIARY).value?.size ?: 0,
+                false
+            ),
+            MenuEx(
+                getString(R.string.free_writing_ex),
+                R.drawable.menu_freewriting,
+                repo.getExList(TypeEx.FREE_WRITING).value?.size ?: 0,
                 !prefs.isPremiumBilling
             ),
             MenuEx(
                 getString(R.string.ideas_diary_ex),
                 R.drawable.menu_idea,
-                2,
+                repo.getExList(TypeEx.IDEAS_DIARY).value?.size ?: 0,
                 !prefs.isPremiumBilling
             ),
             MenuEx(
                 getString(R.string.meditation_ex),
                 R.drawable.menu_medi,
-                2,
-                !prefs.isPremiumBilling
+                null,
+                !prefs.isPremiumBilling,
+                about_ex = getString(R.string.about_ex_medi_)
             ),
             //        MenuEx(getString(R.string.album_ex), R.drawable.menu_moments, 0)
         )

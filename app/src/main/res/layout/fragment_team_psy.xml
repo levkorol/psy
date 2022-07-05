@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/bg_fragment_white"
+    android:orientation="vertical"
     tools:context=".ui.profile.on_boarding.TeamPsyFragment">
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
     <RelativeLayout
         android:id="@+id/top_ll"
         android:layout_width="match_parent"
@@ -20,18 +24,38 @@
         <TextView
             android:id="@+id/title_toolbar"
             style="@style/TextToolBar"
-            android:text="@string/password" />
+            android:text="@string/project_psy" />
 
     </RelativeLayout>
 
-    <ImageView
+    <androidx.cardview.widget.CardView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_gravity="center"
-        android:layout_width="150dp"
-        android:layout_height="150dp"/>
+        app:cardCornerRadius="10dp">
+
+        <ImageView
+            android:id="@+id/photo_psy"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop" />
+    </androidx.cardview.widget.CardView>
 
     <TextView
         style="@style/TextNormal"
-        android:text="@string/about_psy"/>
+        android:text="@string/about_psy" />
 
+    <TextView
+        android:id="@+id/site_one"
+        style="@style/TextNormal"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/gr_3"/>
 
+    <TextView
+        android:id="@+id/site_two"
+        style="@style/TextNormal"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/gr_3"/>
 </LinearLayout>
+</ScrollView>

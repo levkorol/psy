@@ -1,16 +1,23 @@
 package ru.harlion.psy.ui.profile.premium
 
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
 import android.widget.RelativeLayout
+import android.widget.TextView
 import com.android.billingclient.api.Purchase
 import com.android.billingclient.api.SkuDetails
+import com.google.android.material.snackbar.Snackbar
 import ru.harlion.psy.AppApplication
+import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.data.billing.BillingClientWrapper
 import ru.harlion.psy.databinding.FragmentPremiumBinding
 import ru.harlion.psy.utils.Prefs
+import ru.harlion.psy.utils.dialogs.EditTextDialog
 
 
 class PremiumFragment : BindingFragment<FragmentPremiumBinding>(FragmentPremiumBinding::inflate),
@@ -50,27 +57,36 @@ class PremiumFragment : BindingFragment<FragmentPremiumBinding>(FragmentPremiumB
         }
 
         binding.premium.setOnClickListener {
-            prefs.isPremiumBilling = true
+           // prefs.isPremiumBilling = true
+            Snackbar.make(binding.root, "Подписка в разработке, пока можно воспользоваться промокодом", Snackbar.LENGTH_SHORT).show()
         }
 
-//        binding.promo.setOnClickListener {
-//            AlertDialogBase(requireContext()).apply {
-//                setTitle(getString(R.string.promo_in))
-//                setEditText("", "")
-//                setPositiveButton(getString(R.string.yes)) {
-//                    if (newText.toString() == "google_test"
-//                        || newText.toString() == "lev_dev") {
-//                        prefs.isPremium = true
-//                        Snackbar.make(binding.root, getString(R.string.promocode_completed), Snackbar.LENGTH_SHORT).show()
-//                    } else {
-//                        Snackbar.make(binding.root, getString(R.string.promocode_not_completed), Snackbar.LENGTH_SHORT).show()
-//                    }
-//                }
-//                setNegativeButton(getString(R.string.no)) {}
-//                show()
-//            }
-//
-//        }
+        binding.promoGet.setOnClickListener {
+            val browserIntent = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://t.me/my_psy_app")
+            )
+            startActivity(browserIntent)
+        }
+
+        binding.promo.setOnClickListener {
+            EditTextDialog(requireContext()).apply {
+                setTitle(getString(R.string.input_promo))
+                setEditTextPromo("","")
+                setPositiveButton(getString(R.string.yes)) {
+                    if (newText.toString() == "google_test"
+                        || newText.toString() == "lev_dev_yan") {
+                        prefs.isPremiumBilling = true
+                        Snackbar.make(binding.root, getString(R.string.promocode_completed), Snackbar.LENGTH_SHORT).show()
+                    } else {
+                        Snackbar.make(binding.root, getString(R.string.promocode_not_completed), Snackbar.LENGTH_SHORT).show()
+                    }
+                }
+                setNegativeButton(getString(R.string.cancel)) {}
+                show()
+            }
+
+        }
 
     }
 

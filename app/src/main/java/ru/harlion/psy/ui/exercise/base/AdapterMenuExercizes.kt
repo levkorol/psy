@@ -22,7 +22,12 @@ class AdapterMenuExercizes(private val click : (Int) -> Unit) :
     override fun onBindViewHolder(holder: ItemHolderMenuEx, position: Int) {
         holder.binding.apply {
             titleEx.text = items[position].title
-            countEx.text = "+ ${items[position].count} прогресса"
+            countEx.text =  if (items[position].count != null) {
+                "Записей : ${ items[position].count } "
+            } else {
+                items[position].about_ex
+            }
+
             imageEx.setBackgroundResource(items[position].image)
             itemCl.setOnClickListener {
                 click.invoke(position)
@@ -41,6 +46,7 @@ class AdapterMenuExercizes(private val click : (Int) -> Unit) :
 class MenuEx(
     val title: String,
     val image: Int,
-    val count: Int,
-    val isBlock: Boolean
+    val count: Int?,
+    val isBlock: Boolean,
+    val about_ex: String = ""
 )
