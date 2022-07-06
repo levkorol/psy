@@ -46,7 +46,7 @@ class AdapterMenuExercizes(private val click : (Int) -> Unit) :
 class MenuEx(
     val title: String,
     val image: Int,
-    val count: Int?,
+    val count: Any?,
     val isBlock: Boolean,
     val about_ex: String = ""
 )

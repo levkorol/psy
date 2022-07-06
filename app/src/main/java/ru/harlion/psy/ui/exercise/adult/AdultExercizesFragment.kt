@@ -11,18 +11,16 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
-import ru.harlion.psy.AppApplication
 import ru.harlion.psy.R
 import ru.harlion.psy.app
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.data.Repository
 import ru.harlion.psy.databinding.FragmentAdultExercizesBinding
 import ru.harlion.psy.models.TypeEx
-import ru.harlion.psy.ui.exercise.base.ex_list.ExListFragment
 import ru.harlion.psy.ui.exercise.base.AdapterMenuExercizes
 import ru.harlion.psy.ui.exercise.base.MenuEx
+import ru.harlion.psy.ui.exercise.base.ex_list.ExListFragment
 import ru.harlion.psy.ui.exercise.base.instructions.ExInstructionsFragment
-import ru.harlion.psy.ui.main.my_day.DayPollFragment
 import ru.harlion.psy.utils.PhotoRequest
 import ru.harlion.psy.utils.Prefs
 import ru.harlion.psy.utils.dialogs.EditTextDialog
@@ -86,32 +84,33 @@ class AdultExercizesFragment :
             MenuEx(
                 getString(R.string.self_ex),
                 R.drawable.menu_like,
-                repo.getExList(TypeEx.SELF_ESTEEM).value?.size ?: 0,
+                exSize(TypeEx.SELF_ESTEEM),
                 false
             ),
             MenuEx(
                 getString(R.string.fail_diary_ex),
                 R.drawable.menu_sad,
-                repo.getExList(TypeEx.FAIL_DIARY).value?.size ?: 0,
+                count = exSize(TypeEx.FAIL_DIARY),
                 false
             ),
             MenuEx(
                 getString(R.string.do_love_self_ex),
                 R.drawable.menu_self_love,
-                count = repo.getExList(TypeEx.ACTS_SELF_LOVE).value?.size ?: 0,
+                count =exSize(TypeEx.ACTS_SELF_LOVE),
                 !prefs.isPremiumBilling
             ),
             MenuEx(
                 getString(R.string.my_emergency_ex),
                 R.drawable.menu_life_preserver,
-                repo.getExList(TypeEx.MY_AMBULANCE).value?.size ?: 0,
+                exSize(TypeEx.MY_AMBULANCE),
                 !prefs.isPremiumBilling
             ),
             MenuEx(
                 getString(R.string.ex_mindfullness),
                 R.drawable.menu_sun,
-                 0,
-                isBlock = true
+                 null,
+                isBlock = true,
+                about_ex = "Упражнение в разработке"
             )
         )
 
@@ -159,6 +158,8 @@ class AdultExercizesFragment :
         }
         adapterMenu.items = exercises
     }
+
+    private fun exSize(typeEx: TypeEx) = repo.getListEx(typeEx).size
 
     private fun initClick() {
         binding.back.setOnClickListener {

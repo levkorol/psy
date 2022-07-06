@@ -36,7 +36,8 @@ class DiaryEmotionFragment :
     private fun observe() {
         viewModel.getListEmoEvents()
         viewModel.emoEvents.observe(viewLifecycleOwner) {
-            adapterEmo.items = it
+            adapterEmo.items = it.sortedBy { emoEvent ->
+                emoEvent?.time }.reversed()
             if (adapterEmo.items.isNotEmpty()) {
                 binding.diaryEmotionsRv.visibility = View.VISIBLE
                 binding.emptyListEmotion.visibility = View.GONE

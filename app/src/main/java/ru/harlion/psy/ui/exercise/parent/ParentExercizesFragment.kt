@@ -11,7 +11,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.harlion.psy.AppApplication
 import ru.harlion.psy.R
-import ru.harlion.psy.app
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.data.Repository
 import ru.harlion.psy.databinding.FragmentParentExercizesBinding
@@ -57,6 +56,7 @@ class ParentExercizesFragment :
                     }
                 }
             }
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -81,39 +81,6 @@ class ParentExercizesFragment :
                 binding.parentPhoto.setRoundImage(null, R.drawable.pic_parent_cat)
             }
         }
-
-        val exercises = listOf(
-            MenuEx(
-                getString(R.string.success_diary_ex),
-                R.drawable.menu_trophy,
-                repo.getExList(TypeEx.SUCCESS_DIARY).value?.size ?: 0,
-                false
-            ),
-            MenuEx(
-                getString(R.string.work_with_belief_ex),
-                R.drawable.menu_hands,
-                repo.getExList(TypeEx.WORK_WITH_BELIEFS).value?.size ?: 0,
-                false
-            ),
-            MenuEx(
-                getString(R.string.positive_belief_ex),
-                R.drawable.menu_positive,
-                repo.getExList(TypeEx.POSITIVE_BELIEFS).value?.size ?: 0,
-                !prefs.isPremiumBilling
-            ),
-            MenuEx(
-                getString(R.string.life_rules_ex),
-                R.drawable.menu_pr,
-                repo.getExList(TypeEx.LIFE_RULES).value?.size ?: 0,
-                !prefs.isPremiumBilling
-            ),
-            MenuEx(
-                getString(R.string.perfect_life_ex),
-                R.drawable.menu_check,
-                repo.getExList(TypeEx.PERFECT_LIFE).value?.size ?: 0,
-                !prefs.isPremiumBilling
-            )
-        )
 
         adapterMenu = AdapterMenuExercizes {
             if (prefs.isPremiumBilling || it == 0 || it == 1) {
@@ -153,12 +120,51 @@ class ParentExercizesFragment :
                 InfoDialog.newInstance(isPremium = true).show(parentFragmentManager, null)
             }
         }
+
         binding.menuRv.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = adapterMenu
         }
+
+        val exercises = listOf(
+            MenuEx(
+                getString(R.string.success_diary_ex),
+                R.drawable.menu_trophy,
+                exSize(TypeEx.SUCCESS_DIARY),
+                false
+            ),
+            MenuEx(
+                getString(R.string.work_with_belief_ex),
+                R.drawable.menu_hands,
+                exSize(TypeEx.WORK_WITH_BELIEFS),
+                false
+            ),
+            MenuEx(
+                getString(R.string.positive_belief_ex),
+                R.drawable.menu_positive,
+                exSize(TypeEx.POSITIVE_BELIEFS),
+                !prefs.isPremiumBilling
+            ),
+            MenuEx(
+                getString(R.string.life_rules_ex),
+                R.drawable.menu_pr,
+                exSize(TypeEx.LIFE_RULES),
+                !prefs.isPremiumBilling
+            ),
+            MenuEx(
+                getString(R.string.perfect_life_ex),
+                R.drawable.menu_check,
+                exSize(TypeEx.PERFECT_LIFE),
+                !prefs.isPremiumBilling
+            )
+        )
+
         adapterMenu.items = exercises
+
+
     }
+
+    private fun exSize(typeEx: TypeEx) = repo.getListEx(typeEx).size
 
     private fun initClick() {
         binding.back.setOnClickListener {

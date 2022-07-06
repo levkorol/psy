@@ -3,10 +3,10 @@
     <item>
         <shape android:shape="rectangle">
             <corners
-                android:radius="10dp"/>
+                android:radius="150dp"/>
             <gradient
-                android:endColor="@color/widget_bg"
-                android:startColor="@color/widget_bg" />
+                android:endColor="@color/transparent_white"
+                android:startColor="@color/transparent_white" />
         </shape>
     </item>
 

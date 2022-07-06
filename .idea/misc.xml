@@ -7,10 +7,12 @@
         <entry key="app/src/main/res/drawable/bg_light_violet.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/bg_line_parent_red.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/bg_middle_violet.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_white.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/bg_widget_1.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/checkbox.xml" value="0.127" />
         <entry key="app/src/main/res/drawable/ic_alarm_clock.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_baseline_access_time_24.xml" value="0.1295" />
+        <entry key="app/src/main/res/drawable/ic_baseline_add_a_photo_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_baseline_play_arrow_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_bed.xml" value="0.1" />

@@ -90,25 +90,25 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
             MenuEx(
                 getString(R.string.thanks_diary),
                 R.drawable.menu_heart,
-                repo.getExList(TypeEx.GRATITUDE_DIARY).value?.size ?: 0,
+                exSize(TypeEx.GRATITUDE_DIARY),
                 false
             ),
             MenuEx(
                 getString(R.string.wish_diary_ex),
                 R.drawable.menu_star,
-                repo.getExList(TypeEx.WISH_DIARY).value?.size ?: 0,
+                exSize(TypeEx.WISH_DIARY),
                 false
             ),
             MenuEx(
                 getString(R.string.free_writing_ex),
                 R.drawable.menu_freewriting,
-                repo.getExList(TypeEx.FREE_WRITING).value?.size ?: 0,
+                exSize(TypeEx.FREE_WRITING),
                 !prefs.isPremiumBilling
             ),
             MenuEx(
                 getString(R.string.ideas_diary_ex),
                 R.drawable.menu_idea,
-                repo.getExList(TypeEx.IDEAS_DIARY).value?.size ?: 0,
+                exSize(TypeEx.IDEAS_DIARY),
                 !prefs.isPremiumBilling
             ),
             MenuEx(
@@ -210,4 +210,6 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
             }.show()
         }
     }
+
+    private fun exSize(typeEx: TypeEx) = repo.getListEx(typeEx).size
 }

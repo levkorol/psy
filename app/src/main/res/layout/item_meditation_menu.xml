@@ -15,24 +15,39 @@
         android:id="@+id/container_ll"
         tools:background="@color/meditation_anti_stress"
         android:layout_width="match_parent"
-        android:padding="26dp"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
         <TextView
             android:layout_gravity="center"
-            android:layout_margin="16dp"
+            android:layout_margin="26dp"
             android:id="@+id/title_meditation"
             android:textSize="20sp"
             android:gravity="center"
             tools:text="anti stress"
+            android:layout_weight="1"
             android:fontFamily="@font/lobster_egular"
             app:fontFamily="@font/lobster_egular"
             android:textColor="@color/white"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:drawableTint="@color/white"
             app:drawableStartCompat="@drawable/ic_heart_white" />
+
+        <LinearLayout
+            android:layout_width="80dp"
+            android:background="@drawable/bg_white"
+            app:cardCornerRadius="100dp"
+            android:layout_marginEnd="-16dp"
+            android:layout_marginTop="-16dp"
+            android:gravity="center"
+            android:layout_height="80dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_info_24"
+                app:tint="@color/white" />
+        </LinearLayout>
 
     </LinearLayout>
 

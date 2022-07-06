@@ -3,12 +3,9 @@ package ru.harlion.psy.data
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.Room
-import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
 import ru.harlion.psy.models.Exercise
 import ru.harlion.psy.models.Poll
 import ru.harlion.psy.models.TypeEx
-import ru.harlion.psy.models.emotions.Emotion
 import ru.harlion.psy.models.emotions.EmotionEvent
 
 private const val DATABASE_NAME = "data"
@@ -76,6 +73,10 @@ class Repository private constructor(context: Context) {
     }
 
     fun getExList(typeEx: TypeEx): LiveData<List<Exercise>> {
+        return exerciseDao.getListsLiveData(typeEx)
+    }
+
+    fun getListEx(typeEx: TypeEx): List<Exercise> {
         return exerciseDao.getLists(typeEx)
     }
 

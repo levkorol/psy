@@ -24,13 +24,20 @@
                 android:src="@drawable/ic_baseline_arrow_back_24"
                 android:tint="@color/white" />
 
+
             <androidx.appcompat.widget.AppCompatImageButton
-                android:id="@+id/menu"
+                android:id="@+id/photo"
+                style="@style/ButtonToolBar"
+                android:layout_toStartOf="@+id/edit"
+                android:src="@drawable/ic_baseline_add_a_photo_24"
+                android:tint="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/edit"
                 style="@style/ButtonToolBar"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="8dp"
-                android:visibility="gone"
-                android:src="@drawable/ic_menu_24"
+                android:src="@drawable/ic_edit"
                 android:tint="@color/white" />
         </RelativeLayout>
 
@@ -62,41 +69,41 @@
                 android:textSize="16sp" />
 
         </LinearLayout>
-<!--    <androidx.cardview.widget.CardView-->
-<!--        android:layout_width="150dp"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_margin="16dp"-->
-<!--        android:layout_weight="4"-->
-<!--        app:cardCornerRadius="10dp">-->
-<!--    <LinearLayout-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:padding="16dp"-->
-<!--        android:orientation="vertical">-->
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Мои Эмоции"/>-->
+        <!--    <androidx.cardview.widget.CardView-->
+        <!--        android:layout_width="150dp"-->
+        <!--        android:layout_height="match_parent"-->
+        <!--        android:layout_margin="16dp"-->
+        <!--        android:layout_weight="4"-->
+        <!--        app:cardCornerRadius="10dp">-->
+        <!--    <LinearLayout-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="match_parent"-->
+        <!--        android:padding="16dp"-->
+        <!--        android:orientation="vertical">-->
+        <!--        <TextView-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Мои Эмоции"/>-->
 
-<!--    </LinearLayout>-->
-<!--    </androidx.cardview.widget.CardView>-->
+        <!--    </LinearLayout>-->
+        <!--    </androidx.cardview.widget.CardView>-->
 
-<!--    <androidx.cardview.widget.CardView-->
-<!--        android:layout_width="150dp"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:layout_marginEnd="16dp"-->
-<!--        android:layout_marginBottom="16dp"-->
-<!--        android:layout_weight="4"-->
-<!--        app:cardCornerRadius="10dp">-->
-<!--        <LinearLayout-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:padding="16dp"-->
-<!--            android:orientation="vertical">-->
+        <!--    <androidx.cardview.widget.CardView-->
+        <!--        android:layout_width="150dp"-->
+        <!--        android:layout_height="match_parent"-->
+        <!--        android:layout_marginTop="16dp"-->
+        <!--        android:layout_marginEnd="16dp"-->
+        <!--        android:layout_marginBottom="16dp"-->
+        <!--        android:layout_weight="4"-->
+        <!--        app:cardCornerRadius="10dp">-->
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:padding="16dp"-->
+        <!--            android:orientation="vertical">-->
 
-<!--        </LinearLayout>-->
-<!--    </androidx.cardview.widget.CardView>-->
+        <!--        </LinearLayout>-->
+        <!--    </androidx.cardview.widget.CardView>-->
 
         <RelativeLayout
             android:id="@+id/premium"
@@ -213,6 +220,7 @@
             style="@style/MenuItemProfile"
             android:text="@string/project_psy"
             app:drawableStartCompat="@drawable/ic_following" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -224,6 +232,7 @@
             style="@style/MenuItemProfile"
             android:text="@string/psy_chanel"
             app:drawableStartCompat="@drawable/ic_hand_holding_heart" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -247,8 +256,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="26dp"
             android:gravity="center"
-            android:textColor="@color/gray_light"
             android:text="by Lev Dev Yan, version 1.0"
+            android:textColor="@color/gray_light"
             android:textSize="12sp" />
 
     </LinearLayout>
