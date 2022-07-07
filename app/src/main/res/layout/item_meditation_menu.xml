@@ -5,7 +5,8 @@
     android:orientation="vertical"
     app:cardCornerRadius="10dp"
     app:cardElevation="4dp"
-    android:layout_marginBottom="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
     android:layout_marginEnd="16dp"
     android:layout_marginStart="16dp"
     android:layout_width="match_parent"
@@ -20,11 +21,13 @@
 
         <TextView
             android:layout_gravity="center"
-            android:layout_margin="26dp"
+            android:layout_marginHorizontal="20dp"
             android:id="@+id/title_meditation"
             android:textSize="20sp"
-            android:gravity="center"
+           android:drawablePadding="20dp"
             tools:text="anti stress"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
             android:layout_weight="1"
             android:fontFamily="@font/lobster_egular"
             app:fontFamily="@font/lobster_egular"
@@ -32,16 +35,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:drawableTint="@color/white"
-            app:drawableStartCompat="@drawable/ic_heart_white" />
+            app:drawableStartCompat="@drawable/ic_moon_stars" />
 
         <LinearLayout
-            android:layout_width="80dp"
+            android:id="@+id/info"
+            android:layout_width="100dp"
             android:background="@drawable/bg_white"
-            app:cardCornerRadius="100dp"
             android:layout_marginEnd="-16dp"
             android:layout_marginTop="-16dp"
             android:gravity="center"
-            android:layout_height="80dp">
+            android:layout_height="100dp">
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

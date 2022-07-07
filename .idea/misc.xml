@@ -18,6 +18,7 @@
         <entry key="app/src/main/res/drawable/ic_bed.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_checkbox_not_done.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_done_checkbox.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_moon_stars.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_salad.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_widgets.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/load_bg.xml" value="0.1" />
@@ -49,7 +50,7 @@
         <entry key="app/src/main/res/layout/fragment_edit_wish.xml" value="0.20923913043478262" />
         <entry key="app/src/main/res/layout/fragment_endangered_text.xml" value="0.16576086956521738" />
         <entry key="app/src/main/res/layout/fragment_ex_list.xml" value="0.16168478260869565" />
-        <entry key="app/src/main/res/layout/fragment_ex_meditation.xml" value="0.15104166666666666" />
+        <entry key="app/src/main/res/layout/fragment_ex_meditation.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.1157548125633232" />
         <entry key="app/src/main/res/layout/fragment_meditation.xml" value="0.16822916666666668" />
         <entry key="app/src/main/res/layout/fragment_parent_exercizes.xml" value="0.15942028985507245" />

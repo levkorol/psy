@@ -88,8 +88,8 @@ class MeditationDrawable : Drawable() {
                 return obj.progress
             }
 
-            override fun set(`object`: MeditationDrawable, value: Float) {
-                `object`.progress = value
+            override fun set(obj: MeditationDrawable, value: Float) {
+                obj.progress = value
             }
         }
     }

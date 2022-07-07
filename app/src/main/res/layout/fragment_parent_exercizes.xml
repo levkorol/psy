@@ -19,17 +19,8 @@
 
         <TextView
             android:id="@+id/title_toolbar"
-            android:layout_toEndOf="@+id/back"
-            android:gravity="start"
-            android:textStyle="bold"
             style="@style/TextToolBar"
             android:text="@string/parent" />
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/photo"
-            android:layout_toStartOf="@+id/edit"
-            style="@style/ButtonToolBar"
-            android:src="@drawable/ic_baseline_add_a_photo_24" />
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/edit"

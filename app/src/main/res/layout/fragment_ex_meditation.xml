@@ -27,12 +27,11 @@
             style="@style/TextToolBar"
             android:text="@string/meditation_ex" />
 
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/info"
-            style="@style/ButtonToolBar"
+        <TextView
+            style="@style/TextToolBar"
+            android:layout_width="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="8dp"
-            android:src="@drawable/ic_baseline_info_24" />
+            android:text="22 цикла" />
     </RelativeLayout>
 <TextView
     android:id="@+id/text_commands"
@@ -82,12 +81,18 @@
             android:padding="10dp"
             android:src="@drawable/play_meditation" />
 
-        <ImageView
+        <TextView
             android:id="@+id/timer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:gravity="center"
+            android:visibility="gone"
             android:padding="10dp"
-            android:src="@drawable/timer_meditation" />
+            app:drawableStartCompat="@drawable/timer_meditation"
+            android:drawablePadding="8dp"
+            android:textColor="@color/gray_dark"
+  />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

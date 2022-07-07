@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
-        <shape android:shape="rectangle">
-            <corners
-                android:radius="150dp"/>
-            <gradient
-                android:endColor="@color/transparent_white"
-                android:startColor="@color/transparent_white" />
+        <shape android:shape="oval">
+            <solid android:color="@color/transparent_white_2"/>
+            <stroke
+                android:width="40dp"
+                android:color="@color/transparent_white"/>
         </shape>
     </item>
 

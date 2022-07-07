@@ -96,7 +96,7 @@ class AdultExercizesFragment :
             MenuEx(
                 getString(R.string.do_love_self_ex),
                 R.drawable.menu_self_love,
-                count =exSize(TypeEx.ACTS_SELF_LOVE),
+                count = exSize(TypeEx.ACTS_SELF_LOVE),
                 !prefs.isPremiumBilling
             ),
             MenuEx(
@@ -108,7 +108,7 @@ class AdultExercizesFragment :
             MenuEx(
                 getString(R.string.ex_mindfullness),
                 R.drawable.menu_sun,
-                 null,
+                null,
                 isBlock = true,
                 about_ex = "Упражнение в разработке"
             )
@@ -185,13 +185,21 @@ class AdultExercizesFragment :
                     app.user.value = app.user.value?.copy(nameAdult = name.toString())
                 }
                 setAddPhotoButton {
-                    if (photoRequest == null) {
-                        photoRequest = PhotoRequest(this@AdultExercizesFragment)
-                    }
-                    photoRequest!!.openGallery(launcher)
+                    setPhoto()
                 }
                 setNegativeButton(getString(R.string.cancel)) {}
             }.show()
         }
+
+        binding.adultPhoto.setOnClickListener {
+            setPhoto()
+        }
+    }
+
+    private fun setPhoto() {
+        if (photoRequest == null) {
+            photoRequest = PhotoRequest(this@AdultExercizesFragment)
+        }
+        photoRequest!!.openGallery(launcher)
     }
 }

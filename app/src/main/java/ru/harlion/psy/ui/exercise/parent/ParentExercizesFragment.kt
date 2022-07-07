@@ -190,13 +190,22 @@ class ParentExercizesFragment :
                     app.user.value = app.user.value?.copy(nameParent = name.toString())
                 }
                 setAddPhotoButton {
-                    if (photoRequest == null) {
-                        photoRequest = PhotoRequest(this@ParentExercizesFragment)
-                    }
-                    photoRequest!!.openGallery(launcher)
+                    setPhoto()
                 }
                 setNegativeButton(getString(R.string.cancel)) {}
             }.show()
         }
+
+        binding.parentPhoto.setOnClickListener {
+            setPhoto()
+        }
+
+    }
+
+    private fun setPhoto() {
+        if (photoRequest == null) {
+            photoRequest = PhotoRequest(this@ParentExercizesFragment)
+        }
+        photoRequest!!.openGallery(launcher)
     }
 }

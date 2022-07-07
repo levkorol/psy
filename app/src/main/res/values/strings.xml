@@ -477,6 +477,20 @@
     <string name="promocode_not_completed">Такого промокода не существует</string>
     <string name="ex_mindfullness">Техника осознанности</string>
     <string name="about_ex_medi_">Дыхательные техники</string>
+    <string name="mditation_anti_stress">Антистресс</string>
+    <string name="meditation_good_morning">Доброго утра</string>
+    <string name="meditation_good_night">Доброй ночи</string>
+    <string name="meditation_relax">Спокойное дыхание</string>
+    <string name="meditation_rectangle">Квадрат</string>
+    <string name="relaxing_and_concentrate">Расслабься и сконцентрируйся на дыхании...</string>
+    <string name="breath">Теперь вдохни...</string>
+    <string name="exhale">Теперь выдохни...</string>
+    <string name="meditation_anti_stress_info_two">"Начни с того, что сядь или ляг в удобной позе.
+        Шаг 1  Вдох на счет 4
+        Шаг 2  Выдох на счет 4"</string>
+    <string name="meditation_anti_stress_info_one">При резком испуге, стрессе большинство автоматически задерживает дыхание или дышит мелко-мелко. И это неправильно, так наше состояние если и не ухудшится, то лучше точно не станет. Также когда мы находимся в стрессе, то часто сами загоняем себя в угол с помощью негативных мыслей, установок и вредных привычек.</string>
+    <string name="meditation_anti_stress_info_three">Всякий раз когда происходит стрессовая ситуация, при чувстве тревоги или паники</string>
+    <string name="meditation_anti_stress_info_for"> Дыхательная техника Антистресс поможет быстро и самостоятельно справиться с эмоциональными перегрузками самым мягким и естественным способом. Правильная работа с дыханием – первый и самый простой способ помочь себе успокоиться.</string>
 
     <string-array name="emo_sad">
         <item>@string/sad_emo1</item>

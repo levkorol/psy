@@ -2,17 +2,14 @@ package ru.harlion.psy.ui.exercise.child.meditation
 
 
 import android.animation.ObjectAnimator
-import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.View
 import androidx.core.animation.addListener
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
-import ru.harlion.psy.AppActivity
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentExMeditationBinding
@@ -27,7 +24,8 @@ class ExMeditationFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        when (requireArguments().getSerializable("type_meditation")) {
+        val typeMedi = requireArguments().getSerializable("type_meditation")
+        when (typeMedi) {
             TypeMeditation.ANTI_STRESS -> {
                 view.background = MeditationDrawable().apply {
                     color = ContextCompat.getColor(requireContext(), R.color.meditation_anti_stress)
@@ -45,34 +43,39 @@ class ExMeditationFragment :
 //                        R.color.meditation_anti_stress
 //                    )
 //                )
-                binding.titleToolbar.text = "Антистресс"
+                binding.titleToolbar.text = getString(R.string.mditation_anti_stress)
 //                val window = (activity as AppActivity).window
 //                window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.meditation_anti_stress)
 
             }
             TypeMeditation.GOOD_MORNING -> {
                 view.background = MeditationDrawable().apply {
-                    color = ContextCompat.getColor(requireContext(), R.color.meditation_good_morning)
+                    color =
+                        ContextCompat.getColor(requireContext(), R.color.meditation_good_morning)
                     bottomPadding = (30 * resources.displayMetrics.density).toInt()
                 }
+                binding.titleToolbar.text = getString(R.string.meditation_good_morning)
             }
             TypeMeditation.GOOD_NIGHT -> {
                 view.background = MeditationDrawable().apply {
                     color = ContextCompat.getColor(requireContext(), R.color.meditation_good_night)
                     bottomPadding = (30 * resources.displayMetrics.density).toInt()
                 }
+                binding.titleToolbar.text = getString(R.string.meditation_good_night)
             }
             TypeMeditation.RECTANGLE -> {
                 view.background = MeditationDrawable().apply {
                     color = ContextCompat.getColor(requireContext(), R.color.meditation_rectangle)
                     bottomPadding = (30 * resources.displayMetrics.density).toInt()
                 }
+                binding.titleToolbar.text = getString(R.string.meditation_rectangle)
             }
             TypeMeditation.RELAXED -> {
                 view.background = MeditationDrawable().apply {
                     color = ContextCompat.getColor(requireContext(), R.color.meditation_relax)
                     bottomPadding = (30 * resources.displayMetrics.density).toInt()
                 }
+                binding.titleToolbar.text = getString(R.string.meditation_relax)
             }
         }
 
@@ -83,30 +86,71 @@ class ExMeditationFragment :
         binding.play.setOnClickListener {
             val meditationDrawable = view.background as MeditationDrawable
             binding.play.visibility = View.GONE
-            binding.timer.visibility = View.GONE
+           //todo timer binding.timer.visibility = View.GONE
             binding.stop.visibility = View.VISIBLE
 
-            lifecycleScope.launch {
-                binding.textCommands.visibility = View.VISIBLE
-                binding.textCommands.text = "Расслабься и сконцентрируйся на дыхании..."
-                // mini progress and duration
-                animateProgress(meditationDrawable, 2000, 0.2F, 5).await()
-                binding.textCommands.text = "Теперь вдохни..."
-                binding.textCommands.text = "Теперь выдохни..."
-                binding.textCommands.visibility = View.GONE
+            when (typeMedi) {
+                TypeMeditation.ANTI_STRESS -> {
+                    //todo max progress 4 - min progress 4
+                    lifecycleScope.launch {
+                        binding.textCommands.visibility = View.VISIBLE
+                        binding.textCommands.text = getString(R.string.relaxing_and_concentrate)
+                        // mini progress and duration
+                        animateProgress(meditationDrawable, 2000, 0.2F, 5).await()
+                        binding.textCommands.text = getString(R.string.breath)
+                        binding.textCommands.text = getString(R.string.exhale)
+                        binding.textCommands.visibility = View.GONE
 //                delay(3000) stop
-                //set text
-                // duration * repeat = timer
-                animateProgress(meditationDrawable, 4000, 0.7F, 23).await()
+                        //set text
+                        // duration * repeat = timer
+                        animateProgress(meditationDrawable, 4000, 0.7F, 23).await()
+                    }
+                }
+                TypeMeditation.GOOD_NIGHT -> {
+                    //todo max progress 4 -  min progress 4 - pause 4
+
+                    lifecycleScope.launch {
+                        binding.textCommands.visibility = View.VISIBLE
+                        binding.textCommands.text = getString(R.string.relaxing_and_concentrate)
+                        // mini progress and duration
+                        animateProgress(meditationDrawable, 2000, 0.2F, 5).await()
+                        binding.textCommands.text = getString(R.string.breath)
+                        binding.textCommands.text = getString(R.string.exhale)
+                        binding.textCommands.visibility = View.GONE
+//                delay(3000) stop
+                        //set text
+                        // duration * repeat = timer
+                        animateProgress(meditationDrawable, 4000, 0.7F, 1).await()
+                        //delay(3000)
+                    }
+                }
+                TypeMeditation.RELAXED -> {
+                    //todo max progress 4 - pause 4 - min progress 4
+                    lifecycleScope.launch {
+                        animateProgress(meditationDrawable, 4000, 0.7F, 23).await()
+                    }
+                }
+                TypeMeditation.GOOD_MORNING -> {
+                    //todo max progress 4 -  pause 7 - min progress 8
+                    lifecycleScope.launch {
+                        animateProgress(meditationDrawable, 5000, 0.7F, 23).await()
+                    }
+                }
+                TypeMeditation.RECTANGLE -> {
+                    //todo max progress 4 - pause 4 - min progress 4 - pause 4
+                    lifecycleScope.launch {
+                        animateProgress(meditationDrawable, 5000, 0.7F, 23).await()
+                    }
+                }
             }
+
         }
 
         binding.stop.setOnClickListener {
-
             animator?.cancel()
             animator = null
             binding.play.visibility = View.VISIBLE
-            binding.timer.visibility = View.VISIBLE
+           //todo timer binding.timer.visibility = View.VISIBLE
             binding.stop.visibility = View.GONE
         }
     }

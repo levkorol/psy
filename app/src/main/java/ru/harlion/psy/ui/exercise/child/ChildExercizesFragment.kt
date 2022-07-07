@@ -201,14 +201,22 @@ class ChildExercizesFragment : BindingFragment<FragmentChildExercizesBinding>(
                     binding.name.text = name.toString()
                 }
                 setAddPhotoButton {
-                    if (photoRequest == null) {
-                        photoRequest = PhotoRequest(this@ChildExercizesFragment)
-                    }
-                    photoRequest!!.openGallery(launcher)
+                    setPhoto()
                 }
                 setNegativeButton(getString(R.string.cancel)) {}
             }.show()
         }
+
+        binding.childPhoto.setOnClickListener {
+            setPhoto()
+        }
+    }
+
+    private fun setPhoto() {
+        if (photoRequest == null) {
+            photoRequest = PhotoRequest(this@ChildExercizesFragment)
+        }
+        photoRequest!!.openGallery(launcher)
     }
 
     private fun exSize(typeEx: TypeEx) = repo.getListEx(typeEx).size

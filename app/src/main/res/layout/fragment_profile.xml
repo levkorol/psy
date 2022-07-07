@@ -24,14 +24,6 @@
                 android:src="@drawable/ic_baseline_arrow_back_24"
                 android:tint="@color/white" />
 
-
-            <androidx.appcompat.widget.AppCompatImageButton
-                android:id="@+id/photo"
-                style="@style/ButtonToolBar"
-                android:layout_toStartOf="@+id/edit"
-                android:src="@drawable/ic_baseline_add_a_photo_24"
-                android:tint="@color/white" />
-
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/edit"
                 style="@style/ButtonToolBar"

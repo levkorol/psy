@@ -134,13 +134,27 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
         binding.widgets.setOnClickListener {
             replaceFragment(SetWidgetFragment(), true)
         }
+
+        binding.edit.setOnClickListener {
+            EditTextDialog(requireContext()).apply {
+                val text = setEditText("")
+                setTitle(getString(R.string.your_nam))
+                setPositiveButton(getString(R.string.save)) {
+                    val name = text.findViewById<TextView>(R.id.input_text).text
+                    app.user.value = app.user.value?.copy(nameAdult = name.toString())
+                }
+                setAddPhotoButton {
+                   showAlterDialog()
+                }
+                setNegativeButton(getString(R.string.cancel)) {}
+            }.show()
+        }
     }
 
     private fun showAlterDialog() {
         if (photoRequest == null) {
             photoRequest = PhotoRequest(this)
         }
-        // photoRequest!!.showAlterDialog(launcher)
         photoRequest!!.openGallery(launcher)
     }
 }

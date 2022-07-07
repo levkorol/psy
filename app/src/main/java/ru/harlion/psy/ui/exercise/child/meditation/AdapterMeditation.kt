@@ -8,7 +8,7 @@ import ru.harlion.psy.databinding.ItemMeditationMenuBinding
 
 private typealias ItemHolder = BindingHolder<ItemMeditationMenuBinding>
 
-class AdapterMeditation(val click: (Int) -> Unit) : RecyclerView.Adapter<ItemHolder>() {
+class AdapterMeditation(val click: (Int) -> Unit, val clickInfo: (Int) -> Unit) : RecyclerView.Adapter<ItemHolder>() {
 
     var items = listOf<ItemMeditation>()
         set(value) {
@@ -28,10 +28,18 @@ class AdapterMeditation(val click: (Int) -> Unit) : RecyclerView.Adapter<ItemHol
                     containerLl.context,
                     items[position].bg
                 )
+
             )
 
+            titleMeditation.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                ContextCompat.getDrawable(
+                    titleMeditation.context, items[position].image),  null, null, null)
             containerLl.setOnClickListener {
                 click.invoke(position)
+            }
+
+            info.setOnClickListener {
+                clickInfo.invoke(position)
             }
         }
     }
@@ -41,5 +49,6 @@ class AdapterMeditation(val click: (Int) -> Unit) : RecyclerView.Adapter<ItemHol
 
 class ItemMeditation(
     val name: String,
-    val bg: Int
+    val bg: Int,
+    val image : Int
 )
