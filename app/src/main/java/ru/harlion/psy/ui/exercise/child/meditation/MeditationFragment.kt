@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import ru.harlion.psy.R
 import ru.harlion.psy.base.BindingFragment
 import ru.harlion.psy.databinding.FragmentMeditationBinding
@@ -29,19 +30,39 @@ class MeditationFragment :
                     ExMeditationFragment.newInstance(TypeMeditation.ANTI_STRESS),
                     true
                 )
-                1 -> replaceFragment(
-                    ExMeditationFragment.newInstance(TypeMeditation.GOOD_MORNING),
-                    true
-                )
-                2 -> replaceFragment(
-                    ExMeditationFragment.newInstance(TypeMeditation.GOOD_NIGHT),
-                    true
-                )
-                3 -> replaceFragment(ExMeditationFragment.newInstance(TypeMeditation.RELAXED), true)
-                4 -> replaceFragment(
-                    ExMeditationFragment.newInstance(TypeMeditation.RECTANGLE),
-                    true
-                )
+                1 -> Snackbar.make(
+                    binding.root,
+                    "Будет доступна в следующих версиях",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+//                    replaceFragment(
+//                    ExMeditationFragment.newInstance(TypeMeditation.GOOD_MORNING),
+//                    true
+                //  )
+                2 -> Snackbar.make(
+                    binding.root,
+                    "Будет доступна в следующих версиях",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+//                    replaceFragment(
+//                    ExMeditationFragment.newInstance(TypeMeditation.GOOD_NIGHT),
+//                    true
+//                )
+                3 -> Snackbar.make(
+                    binding.root,
+                    "Будет доступна в следующих версиях",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+                //replaceFragment(ExMeditationFragment.newInstance(TypeMeditation.RELAXED), true)
+                4 -> Snackbar.make(
+                    binding.root,
+                    "Будет доступна в следующих версиях",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+//                    replaceFragment(
+//                    ExMeditationFragment.newInstance(TypeMeditation.RECTANGLE),
+//                    true
+//                )
             }
         }, {
             when (it) {
@@ -56,40 +77,40 @@ class MeditationFragment :
                 )
                 1 -> replaceFragment(
                     ExInstructionsFragment.newInstance(
-                        R.string.ex_info_album_one,
-                        R.string.ex_info_album_two,
-                        R.string.ex_info_album_three,
-                        R.string.ex_info_album_for,
+                        R.string.meditation_good_morning_info_one,
+                        R.string.meditation_good_morning_info_two,
+                        R.string.meditation_good_morning_info_three,
+                        R.string.meditation_good_morning_info_for,
                         R.string.meditation_good_morning
                     ),
                     true
                 )
                 2 -> replaceFragment(
                     ExInstructionsFragment.newInstance(
-                        R.string.ex_info_album_one,
-                        R.string.ex_info_album_two,
-                        R.string.ex_info_album_three,
-                        R.string.ex_info_album_for,
+                        R.string.meditation_good_night_info_one,
+                        R.string.meditation_good_night_info_two,
+                        R.string.meditation_good_night_info_three,
+                        R.string.meditation_good_night_info_for,
                         R.string.meditation_good_night
                     ),
                     true
                 )
                 3 -> replaceFragment(
                     ExInstructionsFragment.newInstance(
-                        R.string.ex_info_album_one,
-                        R.string.ex_info_album_two,
-                        R.string.ex_info_album_three,
-                        R.string.ex_info_album_for,
+                        R.string.meditation_relax_info_one,
+                        R.string.meditation_relax_info_two,
+                        R.string.meditation_relax_info_three,
+                        R.string.meditation_relax_info_for,
                         R.string.meditation_relax
                     ),
                     true
                 )
                 4 -> replaceFragment(
                     ExInstructionsFragment.newInstance(
-                        R.string.ex_info_album_one,
-                        R.string.ex_info_album_two,
-                        R.string.ex_info_album_three,
-                        R.string.ex_info_album_for,
+                        R.string.meditation_rectangle_info_one,
+                        R.string.meditation_rectangle_info_two,
+                        R.string.meditation_rectangle_info_three,
+                        R.string.meditation_rectangle_info_for,
                         R.string.meditation_rectangle
                     ),
                     true

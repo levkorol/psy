@@ -26,7 +26,9 @@ import ru.harlion.psy.ui.profile.premium.PremiumFragment
 import ru.harlion.psy.ui.profile.test.TestFragment
 import ru.harlion.psy.ui.profile.widgets.SetWidgetFragment
 import ru.harlion.psy.utils.PhotoRequest
+import ru.harlion.psy.utils.Prefs
 import ru.harlion.psy.utils.dialogs.EditTextDialog
+import ru.harlion.psy.utils.dialogs.InfoDialog
 import ru.harlion.psy.utils.replaceFragment
 import ru.harlion.psy.utils.setRoundImage
 import java.io.File
@@ -36,6 +38,7 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
 
     lateinit var launcher: ActivityResultLauncher<Intent>
     private var photoRequest: PhotoRequest? = null
+    private lateinit var prefs: Prefs
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +57,7 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        prefs = Prefs(requireContext())
         initClicks()
 
         app.user.observe(viewLifecycleOwner) {
@@ -98,7 +102,11 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
             replaceFragment(PremiumFragment(), true)
         }
         binding.pinCode.setOnClickListener {
-            replaceFragment(SetPinCodeFragment(), true)
+            if(prefs.isPremiumBilling) {
+                replaceFragment(SetPinCodeFragment(), true)
+            } else {
+                InfoDialog.newInstance(isPremium = true).show(parentFragmentManager, null)
+            }
         }
         binding.mail.setOnClickListener {
             val emailIntent = Intent(Intent.ACTION_SENDTO).apply {

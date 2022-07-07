@@ -17,6 +17,10 @@ class TeamPsyFragment : BindingFragment<FragmentTeamPsyBinding>(FragmentTeamPsyB
 
         binding.photoPsy.setImageRes(R.drawable.photo_psy)
 
+        binding.back.setOnClickListener {
+            parentFragmentManager.popBackStack()
+        }
+
         binding.siteOne.apply {
             text = "https://dzening.ru/"
             setOnClickListener {

@@ -88,40 +88,32 @@ class ExMeditationFragment :
             binding.play.visibility = View.GONE
            //todo timer binding.timer.visibility = View.GONE
             binding.stop.visibility = View.VISIBLE
-
+            //delay(3000) stop
+            // duration * repeat = timer
             when (typeMedi) {
                 TypeMeditation.ANTI_STRESS -> {
                     //todo max progress 4 - min progress 4
                     lifecycleScope.launch {
                         binding.textCommands.visibility = View.VISIBLE
                         binding.textCommands.text = getString(R.string.relaxing_and_concentrate)
-                        // mini progress and duration
                         animateProgress(meditationDrawable, 2000, 0.2F, 5).await()
                         binding.textCommands.text = getString(R.string.breath)
                         binding.textCommands.text = getString(R.string.exhale)
                         binding.textCommands.visibility = View.GONE
-//                delay(3000) stop
-                        //set text
-                        // duration * repeat = timer
+
                         animateProgress(meditationDrawable, 4000, 0.7F, 23).await()
                     }
                 }
                 TypeMeditation.GOOD_NIGHT -> {
-                    //todo max progress 4 -  min progress 4 - pause 4
-
+                    //todo max progress 4 -  pause 7 - min progress 8
                     lifecycleScope.launch {
                         binding.textCommands.visibility = View.VISIBLE
                         binding.textCommands.text = getString(R.string.relaxing_and_concentrate)
-                        // mini progress and duration
                         animateProgress(meditationDrawable, 2000, 0.2F, 5).await()
                         binding.textCommands.text = getString(R.string.breath)
                         binding.textCommands.text = getString(R.string.exhale)
                         binding.textCommands.visibility = View.GONE
-//                delay(3000) stop
-                        //set text
-                        // duration * repeat = timer
                         animateProgress(meditationDrawable, 4000, 0.7F, 1).await()
-                        //delay(3000)
                     }
                 }
                 TypeMeditation.RELAXED -> {
@@ -131,7 +123,7 @@ class ExMeditationFragment :
                     }
                 }
                 TypeMeditation.GOOD_MORNING -> {
-                    //todo max progress 4 -  pause 7 - min progress 8
+                    //todo max progress 4 -  min progress 4 - pause 4
                     lifecycleScope.launch {
                         animateProgress(meditationDrawable, 5000, 0.7F, 23).await()
                     }
